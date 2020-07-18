@@ -1,0 +1,186 @@
+.main {
+    border: 1px solid black;
+    width: 1300px;
+    background-color: #0b1216;
+    margin: 0px auto;
+}
+.outerbox {
+    width: 1300px;
+    height: 100px;
+}
+
+.teamOuter {
+    margin-top: 1.5%;
+    width: 43.9%;
+
+    height: 40px;
+    float: left;
+    position: relative;
+    background-color: #92daec;
+}
+.score {
+    margin-top: 1.5%;
+
+    float: left;
+    text-align: center;
+    height: 50px;
+    width: 12%;
+    background-color: #fef9ce;
+    font-size: 2.4em;
+}
+.insidescore {
+    position: relative;
+    /* top: 30%; */
+}
+
+.teamOuter img {
+    width: 80px;
+    height: 80px;
+    background-color: #92daec;
+    display: inline-block;
+    position: absolute;
+    border: 7px solid #92daec;
+    border-radius: 50%;
+    top: -14px;
+}
+#teamOuterA img {
+    right: -10px;
+}
+#teamOuterB img {
+    left: -10px;
+}
+.teamName {
+    width: 86%;
+    height: 25px;
+    /* border: 1px solid red; */
+    position: absolute;
+    color: white;
+    font-size: 1.7em;
+    font-style: italic;
+}
+#teamNameA {
+    text-align: right;
+    right: 14%;
+    top: 20%;
+}
+#teamNameB {
+    top: 20%;
+    left: 14%;
+}
+.underLine {
+    height: 52px;
+    border-bottom: 5px solid white;
+}
+
+/*  */
+.middle {
+    background-color: #0b1216;
+    /* border: 1px solid red; */
+    width: 1300px;
+    height: 150px;
+    margin: 0px auto;
+    position: relative;
+    color: white;
+    font-size: 1.2em;
+}
+.gameSummary {
+    /* border: 1px solid gold; */
+    width: 640px;
+    height: 100%;
+    position: absolute;
+    left: 25.6%;
+}
+#teamASum {
+    /* border: 1px solid blue; */
+    width: 49%;
+    height: 100%;
+    /* overflow-y: scroll; */
+    float: left;
+}
+#teamBSum {
+    text-align: right;
+    /* border: 1px solid blue; */
+    width: 49%;
+    height: 100%;
+    /* overflow-y: scroll; */
+    float: left;
+}
+#teamBSum::after {
+    content: "";
+    display: inline-block;
+    clear: both;
+}
+/* 선수 엔트리 및 문자 중계 */
+.middle2 {
+    background-color: #0b1216;
+    /* border: 1px solid red; */
+    width: 1300px;
+    height: 1000px;
+    margin: 0px auto;
+    position: relative;
+    color: white;
+    /* font-size: 1.2em; */
+}
+
+.enrtyOuter {
+    width: 100%;
+}
+.entry {
+    /* border: 1px solid gold; */
+    width: 20%;
+    height: 100px;
+    /* float: left; */
+    position: absolute;
+    color: white;
+    font-size: 2em;
+}
+.textBroadcast {
+    /* border: 1px solid tomato; */
+    text-align: center;
+    width: 40%;
+    /* height: 1000px; */
+    position: absolute;
+    left: 30%;
+    top: 2%;
+    /* overflow-y: scroll; */
+}
+.menuTitle {
+    font-size: 2em;
+}
+.textBroadcast ul {
+    position: absolute;
+    left: 2.5%;
+}
+
+li {
+    list-style-type: none;
+    padding-top: 7px;
+    padding: 7px;
+    border: 1px solid black;
+}
+.textBroadcast li:nth-child(odd) {
+    background-color: #254150;
+}
+
+#teamAEntry {
+    left: 3%;
+}
+#teamBEntry {
+    right: 3%;
+}
+.backNum {
+    color: turquoise;
+    display: inline-block;
+    right: 80%;
+}
+.playerName {
+    display: inline-block;
+    position: absolute;
+    right: 40%;
+}
+.position {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    color: gold;
+}

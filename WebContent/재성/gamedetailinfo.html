@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="../project/gamedetailinfo.css" />
+        <script src="../jquery/js/jquery-1.12.4.js"></script>
+        <script src="../jquery/js/jquery-ui.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <!-- 어두운 파란색 배경 -->
+            <div class="outerWraper">
+                <!-- 선으로 되어 팀 이름과 로고 들어가는 박스 -->
+                <div class="outerbox">
+                    <div class="teamOuter" id="teamOuterA">
+                        <div>
+                            <div class="teamName" id="teamNameA">홍길동FC</div>
+                            <img src="../images/1.png" />
+                            <div class="underLine"></div>
+                        </div>
+                    </div>
+                    <div class="score">
+                        <div class="insidescore">
+                            <span class="teamScore" id="teamA">3</span>
+                            -
+                            <span class="teamScore" id="teamB">1</span>
+                        </div>
+                    </div>
+                    <div class="teamOuter" id="teamOuterB">
+                        <div>
+                            <div class="teamName" id="teamNameB">하하하FC</div>
+                            <img src="../images/6.png" />
+                            <div class="underLine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <!-- 골넣은 결과 작성하는 곳 도움은 타이틀로 보이도록 함 -->
+            <div class="gameSummary">
+                <div id="teamASum">
+                    <div id="evtA1" class="evts">
+                        <span class="Harf">전반</span><span class="evtTime">11</span>분
+                        <span class="evtBackNum">11</span>번 <span class="evtplayer">김찰찰</span>
+                    </div>
+                    <div id="evtA2" class="evts">
+                        <span class="Harf">전반</span><span class="evtTime">11</span>분
+                        <span class="evtBackNum">16</span>번 <span class="evtplayer">김찰찰</span>
+                    </div>
+                    <div id="evtA3" class="evts" title="14번 이청청 도움">
+                        <span class="Harf">후반</span><span class="evtTime">11</span>분
+                        <span class="evtBackNum">30</span>번 <span class="evtplayer">김찰찰</span>
+                    </div>
+                </div>
+                <div id="teamBSum">
+                    <div id="evtB1" class="evts">
+                        <span class="Harf">전반</span><span class="evtTime">11</span>분
+                        <span class="evtBackNum">15</span>번 <span class="evtplayer">김찰찰</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="middle2">
+            <!-- 팀 엔트리 및 문자중계 -->
+            <div class="entryOuter">
+                <div class="entry" id="teamAEntry">
+                    <div class="player teamAPlayer" id="teamAPlayer1">
+                        <span class="backNum">1</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer2">
+                        <span class="backNum">2</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer3">
+                        <span class="backNum">3</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer4">
+                        <span class="backNum">4</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer5">
+                        <span class="backNum">5</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer6">
+                        <span class="backNum">6</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer7">
+                        <span class="backNum">7</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer8">
+                        <span class="backNum">8</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer9">
+                        <span class="backNum">9</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer10">
+                        <span class="backNum">10</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer11">
+                        <span class="backNum">11</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer12">
+                        <span class="backNum">12</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer13">
+                        <span class="backNum">13</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer14">
+                        <span class="backNum">14</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer15">
+                        <span class="backNum">15</span>
+                        <span class="playerName">이찬찬</span>
+                        <span class="position">ST</span>
+                    </div>
+                </div>
+                <div class="textBroadcast">
+                    <span class="menuTitle">문자 생중계</span>
+
+                    <ul>
+                        <li><span class="evtTime">10분</span>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">40분</span>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">41분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">45분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">69분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">80분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">81분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">90분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">10분</span>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">40분</span>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                        <li><span class="evtTime">41분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
+                    </ul>
+                </div>
+                <div class="entry" id="teamBEntry">
+                    <div class="player teaBAPlayer" id="teamBPlayer1">
+                        <span class="backNum">1</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer2">
+                        <span class="backNum">2</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer3">
+                        <span class="backNum">3</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer4">
+                        <span class="backNum">4</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer5">
+                        <span class="backNum">5</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer6">
+                        <span class="backNum">6</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer7">
+                        <span class="backNum">7</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer8">
+                        <span class="backNum">8</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer9">
+                        <span class="backNum">9</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer10">
+                        <span class="backNum">10</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer11">
+                        <span class="backNum">11</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer12">
+                        <span class="backNum">12</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer13">
+                        <span class="backNum">13</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer14">
+                        <span class="backNum">14</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer15">
+                        <span class="backNum">15</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
