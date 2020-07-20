@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+        <script src="../jquery/js/jquery-1.12.4.js"></script>
+        <script src="../jquery/js/jquery-ui.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
+        <style>
+            .main {
+                width: 1300px;
+                margin: 0px auto;
+            }
+            .menuTitle {
+                border: 1px solid black;
+                width: 300px;
+            }
+            .schedule {
+                width: 100%;
+                height: 400px;
+            }
+            .gamedate {
+                border: 1px solid black;
+                width: 700px;
+            }
+            .selectDate {
+                display: inline-block;
+                border: 1px solid #999;
+                border-radius: 6px;
+
+                width: 130px;
+                height: 36px;
+            }
+            .searchkeyword {
+                width: 300px;
+                float: right;
+            }
+            .team {
+                display: inline-block;
+            }
+            .vs {
+                border: 1px solid black;
+                display: inline-block;
+            }
+            #teamA {
+                float: left;
+            }
+            #teamB {
+                float: right;
+            }
+            .result {
+                float: right;
+            }
+            .main > div {
+                margin: 30px;
+            }
+            .pagebar {
+                float: right;
+            }
+
+            tr:nth-child(odd) {
+                background-color: #254150;
+                border: 0px;
+                color: white;
+            }
+            tr:nth-child(even) {
+                background-color: #10202a;
+                border: 0px;
+                color: white;
+            }
+            th {
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="menuTitle">2020정규 리그 경기 일정</div>
+            <div class="searchConst">
+                <div class="gamedate">
+                    <span>조회 일자 : </span>
+                    <input type="date" name="start" class="selectDate" id="start" value="" /> ~
+                    <input type="date" name="end" class="selectDate" id="end" value="" />
+
+                    <div class="searchkeyword">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                <input type="text" class="form-control" placeholder="검색어를 입력하세요." />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="boardBox">
+                <table class="schedule table">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>날짜</th>
+                            <th>시간</th>
+                            <th>장소</th>
+                            <th>경기</th>
+                            <th>결과</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>07-07(화)</td>
+                            <td>14:00</td>
+                            <td>강남초등학교</td>
+                            <td style="text-align: center;">
+                                <span class="team" id="teamA">하하하FC</span><span class="vs">vs</span
+                                ><span class="team" id="teamB">홍길동FC</span>
+                            </td>
+                            <td><span class="team" id="teamA">하하하FC</span><span class="result">승</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- 페이지바 -->
+            <nav class="pagebar">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">6</a></li>
+                    <li class="active"><a href="#">7</a></li>
+                    <li><a href="#">8</a></li>
+                    <li><a href="#">9</a></li>
+                    <li><a href="#">10</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!--  -->
+    </body>
+</html>

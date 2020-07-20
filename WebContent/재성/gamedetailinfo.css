@@ -1,4 +1,4 @@
-.main {
+.centerInner {
     border: 1px solid black;
     width: 1300px;
     background-color: #0b1216;
@@ -75,7 +75,7 @@
 /*  */
 .middle {
     background-color: #0b1216;
-    /* border: 1px solid red; */
+    border-bottom: 2px solid #eee;
     width: 1300px;
     height: 150px;
     margin: 0px auto;
@@ -89,6 +89,7 @@
     height: 100%;
     position: absolute;
     left: 25.6%;
+    background-color: #254150;
 }
 #teamASum {
     /* border: 1px solid blue; */
@@ -115,7 +116,7 @@
     background-color: #0b1216;
     /* border: 1px solid red; */
     width: 1300px;
-    height: 1000px;
+    height: 650px;
     margin: 0px auto;
     position: relative;
     color: white;
@@ -144,19 +145,22 @@
     top: 2%;
     /* overflow-y: scroll; */
 }
-.menuTitle {
+.menuTitle2 {
     font-size: 2em;
 }
 .textBroadcast ul {
     position: absolute;
     left: 2.5%;
+    border: 2px solid #eee;
+    overflow-y: scroll;
 }
 
-li {
+.textBroadcast li {
     list-style-type: none;
     padding-top: 7px;
     padding: 7px;
     border: 1px solid black;
+    width: 500px;
 }
 .textBroadcast li:nth-child(odd) {
     background-color: #254150;

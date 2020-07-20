@@ -1,0 +1,29 @@
+.outerBox {
+    /* border: 10px solid black; */
+    height: 800px;
+}
+
+.outerBox::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.leftSideBox {
+    float: left;
+    width: 45%;
+    border: 4px solid black;
+    height: 780px;
+}
+.rightSideBox {
+    float: right;
+    width: 45%;
+    border: 4px solid black;
+    overflow-y: scroll;
+    height: 780px;
+}
+.smallTitle {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.tableBox {
+}
