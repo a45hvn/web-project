@@ -47,23 +47,21 @@
         <div id="scoreBoard">
             <div id="subOuter">
                 <div class="menuTitleBox">
-                    <div class="menuTitle">커뮤니티</div>
+                    <div class="menuTitle">경기정보조회</div>
                     <div class="breadcrumb">
                         <span>HOME</span>
                         <span>></span>
-                        <span>커뮤니티</span>
+                        <span>경기정보조회</span>
                         <span>></span>
-                        <span>질문게시판</span>
+                        <span>정규리그결과조회</span>
                     </div>
                     <div class="subMenuBox">
                         <nav class="subMenu">
                             <ul>
-                                <li class="subMenuItem"><a href="#">질문게시판</a></li>
-                                <li class="subMenuItem"><a href="#">갤러리</a></li>
-                                <li class="subMenuItem"><a href="#">자유게시판</a></li>
-                                <li class="subMenuItem"><a href="#">강의게시판</a></li>
-                                <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                                <li class="subMenuItem"><a href="#">용병모집</a></li>
+                                <li class="subMenuItem"><a href="#"><span clss="presentLeague">2020</span> 리그 일정</a></li>
+                                <li class="subMenuItem"><a href="#">정규리그 결과조회</a></li>
+                                <li class="subMenuItem"><a href="#">친선경기 결과조회</a></li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -79,9 +77,9 @@
                 >
             </div>
             <div class="outerBox">
-                <div class="leftSideBox" >
+                <div class="leftSideBox sideBox" >
                     <div class="smallTitle"><span class="league">2020</span> 정규리그 팀 순위</div>
-                    <select id="selLeague">
+                    <select id="selLeague" class="selBox">
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
@@ -246,13 +244,16 @@
                     </div>
                 </div>
 
-                <div class="rightSideBox">
+                <div class="rightSideBox sideBox">
                     <div class="smallTitle"><span class="league">2020</span> 정규리그 기록</div>
-                    <select id="selSort">
+                    <select id="selSort" class="selBox">
+                        <optgroup label="정렬기준">
                         <option value="득점">득점</option>
                         <option value="경기">경기</option>
                         <option value="도움">도움</option>
+                        </optgroup>
                     </select>
+                    
                     <div class="tableBox">
                         <table class="table righttbl">
                             <tr>

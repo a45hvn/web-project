@@ -8,22 +8,66 @@
     display: block;
     clear: both;
 }
+.sideBox {
+    width: 45%;
+    /* border: 4px solid black; */
+    position: relative;
+}
+
+#selLeague {
+    position: absolute;
+    right: 3%;
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
+}
+#selSort {
+    position: absolute;
+    right: 3%;
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
+}
 .leftSideBox {
     float: left;
-    width: 45%;
-    border: 4px solid black;
-    height: 780px;
+    height: 800px;
 }
 .rightSideBox {
     float: right;
-    width: 45%;
-    border: 4px solid black;
+    height: 800px;
+}
+.tableBox {
+    position: relative;
+    margin-top: 40px;
+    color: white;
+    height: 80%;
+    /* border: 2px solid black; */
+}
+.tableBox th {
+    background-color: #92daec;
+}
+
+.rightSideBox .tableBox {
     overflow-y: scroll;
-    height: 780px;
+}
+
+.lefttbl tr:nth-child(odd) {
+    background-color: #25282a;
+}
+.lefttbl tr:nth-child(even) {
+    background-color: #0c1a22;
+}
+.righttbl {
+    overflow: hidden;
+}
+
+.righttbl tr:nth-child(odd) {
+    background-color: #25282a;
+}
+.righttbl tr:nth-child(even) {
+    background-color: #0c1a22;
 }
 .smallTitle {
     font-size: 1.4em;
     font-weight: bold;
-}
-.tableBox {
 }

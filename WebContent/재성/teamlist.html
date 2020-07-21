@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="../webproject/submain_1.css" />
         <link rel="stylesheet" href="../webproject/submain_2.css" />
-        <link rel="stylesheet" href="../webproject/leagueschedule.css" />
+        <link rel="stylesheet" href="../webproject/teamlist.css" />
         <script src="../bootstrap/js/jquery-1.12.4.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
         <style></style>
@@ -47,20 +47,23 @@
         <div id="scoreBoard">
             <div id="subOuter">
                 <div class="menuTitleBox">
-                    <div class="menuTitle">리그일정</div>
+                    <div class="menuTitle">커뮤니티</div>
                     <div class="breadcrumb">
                         <span>HOME</span>
                         <span>></span>
-                        <span>경기정보</span>
+                        <span>커뮤니티</span>
                         <span>></span>
-                        <span>리그일정</span>
+                        <span>자유게시판</span>
                     </div>
                     <div class="subMenuBox">
                         <nav class="subMenu">
                             <ul>
-                                <li class="subMenuItem"><a href="#">정규리그일정</a></li>
-                                <li class="subMenuItem"><a href="#">정규리그결과</a></li>
-                                <li class="subMenuItem"><a href="#">친선경기결과</a></li>
+                                <li class="subMenuItem"><a href="#">질문게시판</a></li>
+                                <li class="subMenuItem"><a href="#">갤러리</a></li>
+                                <li class="subMenuItem"><a href="#">자유게시판</a></li>
+                                <li class="subMenuItem"><a href="#">강의게시판</a></li>
+                                <li class="subMenuItem"><a href="#">친선경기모집</a></li>
+                                <li class="subMenuItem"><a href="#">용병모집</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -72,181 +75,135 @@
         <div class="center">
             <div class="pageContentTitle">
                 <img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
-                    >정규리그일정</span
+                    >전체 팀 목록</span
                 >
             </div>
 
             <div id="centerMainBox">
                 <div id="centerbox1">
-                    <div id="outerBox">
-                        <select name="" id="selectgametype" style="height: 40px;">
-                            <option value="1">정규리그</option>
-                            <option value="2">친선경기</option>
-                        </select>
-                        <div class="dateBox">
-                            <span>시작일 : </span>
-                            <input type="date" class="inputDate" id="startDate" />
-                            <span>종료일 : </span>
-                            <input type="date" class="inputDate" id="endDate" />
-                        </div>
-                        <div class="searchBox">
-                            <span id="searchcontent">팀이름 검색</span>
-                            <input id="searchkeyword" type="text" size="35" style="height: 40px;" />
-                            <a href=""
-                                ><input
-                                    id="searchbtn"
-                                    type="button"
-                                    value="검색"
-                                    style="height: 40px; padding: 0px 8px;"
-                            /></a>
-                            <input id="writebtn" type="button" value="글쓰기" style="height: 40px; padding: 0px 8px;" />
-                        </div>
-                        <select name="" id="selectrow">
-                            <option value="10">10개씩 보기</option>
-                            <option value="25">25개씩 보기</option>
-                            <option value="50">50개씩 보기</option>
-                        </select>
-                    </div>
+                    <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
+
+                    <select name="" id="selectrow">
+                        <option value="">10개씩 보기</option>
+                        <option value="">25개씩 보기</option>
+                        <option value="">50개씩 보기</option>
+                    </select>
+                    <span id="sortform">
+                        <a href="#" class="glyphicon glyphicon-list"></a>
+                        <a href="#" class="glyphicon glyphicon-list-alt"></a>
+                        <a href="#" class="glyphicon glyphicon-th-large"></a>
+                    </span>
                 </div>
                 <div id="centerbox2">
                     <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
                         <thead>
                             <tr>
-                                <th>번호</th>
-                                <th>리그</th>
-                                <th>시간</th>
-                                <th>장소</th>
-                                <th>경기</th>
-                                <th>이긴 팀</th>
+                                <th>순번</th>
+                                <th>로고</th>
+                                <th>팀명</th>
+                                <th>감독</th>
+                                <th>창단일</th>
+                                <th>팀원수</th>
+                                <th>홈구장</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>2020</td>
-                                <td>2020. 07. 05.(일) <span id="beginTime">14:00</span></td>
-                                <td>역삼초등학교</td>
-                                <td>
-                                    <span class="team" id="teamA">하하하FC</span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB">쌍용FC</span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td>강남축구장</td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td><img src="../images//chelsea.png" alt="" /></td>
+                                <td>첼시FC</td>
+                                <td>김감독</td>
+                                <td>2020. 07. 03.(화)</td>
+                                <td>24명</td>
+                                <td>강남초등학교운동장</td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td></td>
+                                <td><img src="" alt="" /></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><img src="" alt="" /></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><img src="" alt="" /></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div id="centerbox3">
-                    <ul id="pagination" class="pagination">
+                    <ul id="pagination" class="pagination" style="float: right; margin: 0;">
                         <li>
                             <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
@@ -269,9 +226,219 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <div style="clear: both;"></div> -->
+
+                <div id="centerbox4">
+                    <div style="float: right; font-size: 15px; margin: 5px;">
+                        <select style="height: 30px;">
+                            <option value="">팀명</option>
+                            <option value="">감독</option>
+                            <option value="">홈구장</option>
+                        </select>
+                        <input id="searchkeyword" type="text" size="35" style="height: 30px;" />
+                        <a href=""><input id="searchbtn" type="button" value="검색" /></a>
+                        <input id="writebtn" type="button" value="글쓰기" onclick="location.href='ex01.html'" ; />
+                    </div>
+                </div>
             </div>
         </div>
+
+        <style>
+            .center {
+                padding-top: 50px;
+                background-color: #eee;
+            }
+
+            #centerMainBox {
+                /* border: 1px solid black; */
+                width: 1200px;
+                /* height: 950px; */
+                margin: 0px auto;
+            }
+
+            #centerbox1 {
+                border-bottom: 1px solid black;
+                width: 1200px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+
+            #centerbox2 {
+                /* border: 1px solid black; */
+                width: 1200px;
+                height: 650px;
+            }
+
+            #centerbox3 {
+                /* border: 1px solid red; */
+                width: 1200px;
+                height: 50px;
+                margin-top: 40px;
+            }
+
+            #centerbox4 {
+                /* border: 1px solid blue; */
+                width: 1200px;
+                height: 50px;
+                display: inline-block;
+            }
+
+            #centerbox1 span,
+            #centerbox1 select {
+                /* border: 1px solid red; */
+                display: inline-block;
+                font-size: 20px;
+            }
+
+            #verticalTable {
+                /* border: 1px solid blue; */
+            }
+
+            #pagination {
+                /* border: 1px solid gold; */
+            }
+
+            #submenutitle {
+                font-size: 15px;
+                padding: 10px;
+                margin-left: 10px;
+                border: 1px solid #0c1b23;
+                background-color: #0c1b23;
+                color: white;
+            }
+
+            #sortform,
+            #selectrow {
+                float: right;
+                /* border: 1px solid gold; */
+            }
+
+            #sortform {
+                margin-right: 10px;
+                margin-top: 17px;
+            }
+
+            #selectrow {
+                margin-top: 10px;
+                background-color: #1e3440;
+                color: white;
+                padding-bottom: 5px;
+            }
+
+            #verticalTable {
+                width: 1200px;
+                height: 650px;
+                font-size: 20px;
+            }
+
+            #verticalTable th:nth-child(1) {
+                width: 65px;
+            }
+            #verticalTable th:nth-child(2) {
+                width: 480px;
+            }
+            #verticalTable th:nth-child(3) {
+                width: 120px;
+            }
+            #verticalTable th:nth-child(4) {
+                width: 100px;
+            }
+            #verticalTable th:nth-child(5) {
+                width: 65px;
+            }
+
+            #verticalTable td {
+                height: 50px;
+            }
+
+            #verticalTable th,
+            #verticalTable td {
+                text-align: center;
+                color: white;
+            }
+            #verticalTable td {
+                padding-top: 20px;
+            }
+            #verticalTable td:nth-child(2) {
+                text-align: left;
+            }
+            #verticalTable td:nth-child(2) a {
+                color: white;
+            }
+
+            #verticalTable thead tr th {
+                width: 800px;
+                background-color: #92daec;
+                color: #0c1b23;
+                /* border: 3px solid white */
+            }
+
+            #verticalTable tr {
+                width: 800px;
+                background-color: #1e3440;
+            }
+
+            #verticalTable tr:nth-child(even) {
+                width: 800px;
+                background-color: #0c1b23;
+            }
+
+            #verticalTable td {
+                border: 0px;
+            }
+
+            #searchbtn,
+            #writebtn {
+                color: white;
+                height: 30px;
+                background-color: #1e3440;
+            }
+
+            #pagination li > a {
+                color: white;
+                background-color: #1e3440;
+            }
+
+            #sortform a {
+                color: black;
+            }
+
+            #pagination .nowPage {
+                background-color: #92daec;
+            }
+
+            #centerbox4 select {
+                color: white;
+                background-color: #1e3440;
+            }
+        </style>
+
+        <script>
+            $("#pagination > li >a").click(function () {
+                // alert($(this).text());
+                $("#pagination > li>a").removeClass("nowPage");
+                $(this).addClass("nowPage");
+            });
+
+            $("#searchbtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
+
+            $("#searchbtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+
+            $("#writebtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
+
+            $("#writebtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+        </script>
 
         <!-- 하단부  -->
 
@@ -394,39 +561,9 @@
                     }
                 }
             });
-            // main page
 
-            $("#pagination > li >a").click(function () {
-                // alert($(this).text());
-                $("#pagination > li>a").removeClass("nowPage");
-                $(this).addClass("nowPage");
-            });
-
-            $("#searchbtn").mouseover(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "#92DAEC").css("color", "black");
-            });
-
-            $("#searchbtn").mouseout(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "").css("color", "");
-            });
-
-            $("#writebtn").mouseover(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "#92DAEC").css("color", "black");
-            });
-
-            $("#writebtn").mouseout(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "").css("color", "");
-            });
-            // <span class="glyphicon glyphicon-map-marker"></span>
-            console.log($("#verticalTable tbody td:nth-child(3)").contents());
-
-            // 지도마크 넣고 연결시키기
-            $("#verticalTable tbody td:nth-child(4)").append("<span class='glyphicon glyphicon-map-marker'></span>");
-            $("#verticalTable tbody td:nth-child(4)")
+            $("#centerbox2 td:last-child").append("<span class='glyphicon glyphicon-map-marker'></span>");
+            $("#centerbox2 td:last-child")
                 .children()
                 .mouseover(function () {
                     $(this).css({ cursor: "pointer" });
