@@ -82,20 +82,207 @@
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">자유게시판</span></div>
 
-           
+        <div id="centerBoxMain">
+            
+            <!-- 질문한 글 -->
+            <div id="centerBox2" class="centerBox">
+                <div>
+                    <span>제목: [등록/이적]구단 등록 어떻게 하나요?</span>
+                    <span>작성시간: 2020.07.18 21:35</span>
+                    <span>작성자 | hejun</span>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="content">새로 가입했는데 <br>
+                    구단 등록 하려면 어떻게 해야 되나요?
+                </div>
+            </div>
+            <!-- 답변목록 -->
+            <div id="centerBox3" class="centerBox">
+                <div>이수지</div>
+                <div class="content">홈화면에서 등록하기 누르시면 됩니다~</div>
+                <div>
+                    <span>2020.07.18 21:40</span>
+                    <span><input type="button" value="답글쓰기"></span>
+                </div>
+            </div>       
+            <!-- 답변하기 -->
+            <div id="centerBox4" class="centerBox">
+                <div>글쓴이 이름</div>
+                <div><textarea name="" id="" cols="103" rows="1"> 댓글을 남겨보세요</textarea></div>
+                <div>
+                    <span><input type="button" value="이모티콘"></span>
+                    <span><input type="button" value="등록버튼"></span>
+                </div>
+            </div>
+            <!-- 목록, Top -->
+            <div id="centerBox5" class="centerBox">
+                <span><input type="button" value="▲TOP"></span>
+                <span><input type="button" value="목록"></span>
+            </div>
+
+        </div>   
 
     </div>
 
     <style>
 
-    
+        .center {            
+            padding-top: 50px;
+            background-color: #eee;     
+        }
+
+        #centerBoxMain{
+            /* border: 1px solid black; */            
+            width: 1250px;
+            /* height: 1000px; */
+            margin: 0px auto;               
+        }
+
+        #centerBox2 {
+            margin-top: 10px;
+            border-bottom: 1px solid #0C1B23; 
+            border-top: 1px solid #0C1B23; 
+            border-bottom-style: dashed;
+            width: 1150px;
+            height: 300px;            
+        }
+
+        #centerBox3 {
+            border-bottom: 1px solid #0C1B23; 
+            border-bottom-style: dashed;
+            width: 1150px;
+            height: 300px;
+        }
+
+        #centerBox4 {
+            /* border: 1px solid #0C1B23;  */
+            border-bottom: 1px solid #0C1B23; 
+            border-bottom-style: dashed;
+            width: 1150px;
+            height: 150px;
+        }
+
+        #centerBox5 {
+            /* border: 1px solid #0C1B23;  */
+            width: 1150px;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .centerBox {
+            margin-left: 25px;
+        }
+
+        #centerBox2 span {
+            /* border: 1px solid blue;             */
+            text-align: center;    
+            font-size: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 5px;   
+            float: right;     
+            font-size: 20px;    
+            margin-right: 5px;   
+            font-weight: bold;                      
+        }
+
+        #centerBox2 span:nth-child(1) {
+            float: left;            
+            padding-left: 5px;
+        }
+
+        #centerBox2 .content {
+            /* border: 1px solid blue; */
+            height: 250px;
+            font-size: 15px;
+            margin-left: 5px;
+            font-size: 20px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        #centerBox3 div {
+            /* border: 1px solid green; */
+            height: 50px;
+            font-size: 15px;
+            margin-left: 5px;         
+            font-size: 20px;                
+            font-weight: bold; 
+            padding-left: 5px;   
+        }
+
+        #centerBox3 div:nth-child(1) {
+            padding-top: 8px;
+        }
+
+        #centerBox3 .content {
+            height: 200px;
+            font-weight: normal;
+            padding-top: 5px;
+        }
+
+        #centerBox3 div span {
+            /* border: 1px solid green; */
+            margin-top: 5px;
+            padding-top: 5px;                        
+            padding: 5px;
+        }
+
+        #centerBox4 div {
+            /* border: 1px solid indigo; */
+            height: 50px;
+            font-size: 20px;
+            padding: 5px;
+            font-weight: bold;
+            padding-left: 5px;
+        }
+
+        #centerBox4 div span input {
+            /* border: 1px solid indigo;             */
+            margin-top: -2px;
+        }
+
+        #centerBox4 textarea {
+            resize:none;
+        }
+
+        #centerBox5 > span {
+            /* border: 1px solid red; */
+            width: 50px;
+            float: right;
+            text-align: center;
+            margin-top: 5px;
+            padding-top: 1px; 
+            margin-right: 15px;       
+            font-size: 20px;
+            font-weight: bold;        
+            margin-top: -1px;                            
+        }
+
+        #centerBox5 > span input, #centerBox4 span input, #centerBox3 input {            
+            padding: 2px;
+            background-color: #1E3440;
+            color: white;
+        }
        
        
     </style>
 
     <script>
 
-    
+        $("#centerBox5 > span input, #centerBox4 span input, #centerBox3 input ").mouseover(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "#92DAEC").css("color", "black");
+
+        })
+
+        $("#centerBox5 > span input, #centerBox4 span input, #centerBox3 input ").mouseout(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "").css("color", "");
+
+        })
 
     </script>
 

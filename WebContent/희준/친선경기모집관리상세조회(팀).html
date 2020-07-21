@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../webproject/submain_1.css">
+    <link rel="stylesheet" href="../webproject/submain_2.css">
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script src="../jquery/js/jquery-1.12.4.js"></script>
+    <script src="../jquery/js/jquery-ui.js"></script>
+    
+    <div id="mainBox">
+        <div id="box1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="5">신청서</th>
+                    </tr>                    
+                </thead>
+                <tr>
+                    <td></td>
+                    <td>이름</td>
+                    <td>소속구단</td>                    
+                    <td>전화번호</td>           
+                    <td>인원</td>                             
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>오희준</td>
+                    <td>검단FC</td>                    
+                    <td>010-2222-2222</td>           
+                    <td>17</td>                   
+                </tr>           
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>                    
+                    <td></td>           
+                    <td></td>                   
+                </tr>          
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                </tr>         
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>                              
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>                  
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>                          
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>                          
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>                          
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>      
+                    <td></td>     
+                    <td></td>     
+                    <td></td>     
+                    <td></td>                          
+                </tr>
+            </table>
+        </div>
+
+        <div id="box2">
+            <span><input type="button" value="승인"></span>
+            <span><input type="button" value="거절"></span>
+        </div>  
+        <div style="clear: both;"></div>
+        
+        
+
+    </div>
+
+    <style>
+
+        body {
+            background-color: #eee;      
+        }
+       
+        #mainBox {    
+            /* border: 1px solid black; */
+            margin-top: 20px;    
+            font-size: 20px;        
+            font-weight: bold;               
+        }
+
+        #box1 {
+            /* border: 1px solid black; */
+            width: 300px;
+            margin: 0px auto;   
+        }
+
+        #box2 {
+            /* border: 1px solid black; */
+            width: 120px;
+            font-size: 20px;
+            float: right;
+            margin-right: 275px;
+            font-weight: bold;
+        }
+
+       #box1 table {
+           /* border: 1px solid #1E3440; */
+           width: 630px;
+           height: 100px;
+           font-size: 20px;                      
+       }
+
+       table th {
+            /* border: 1px solid #1E3440; */
+            text-align: center;  
+            font-size: 25px;
+       }
+
+       table tr, table td {
+           /* border: 1px solid #1E3440; */
+           text-align: center;             
+           padding: 5px;
+       }
+
+
+       table th {
+           background-color: black;
+           color: white;
+       }
+
+       table tr{
+           background-color: #0C1B23;
+           color: white;
+        }
+
+        table tr:nth-child(1){
+            background-color: #92DAEC;
+            color: black;
+        }
+
+        table tr:nth-child(even){
+            width: 800px;
+            background-color: #1E3440;
+        }
+
+       #box2 input {
+            color: white; 
+            background-color: #1E3440 ;
+            padding: 5px;
+           
+        }
+
+        #acceptBtn, #refuseBtn {
+            color: white;  
+            background-color: #1E3440 ;
+            padding: 5px;            
+        }
+
+    </style>
+
+    <script>
+
+        $("#box2 input").mouseover(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "#92DAEC").css("color", "black");
+
+        })
+
+        $("#box2 input").mouseout(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "").css("color", "");
+
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -12,69 +12,7 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        .topContent{
-            /* float: left; */
-            /* border: 1px solid black; */
-            margin-top: 30px;
-            margin-left: 30px;
-        }
-        .center div{
-            float: left;
-        }
-        /* 팀검색,결과 */
-        .topContent:nth-child(1){
-            padding-top: 30px;
-        }
-        /* 팀로고 */
-        .topContent:nth-child(2){
-            margin-left: 100px;
-            /* border: 3px dashed gray; */
-        }
 
-        #searchTable{
-            margin-top: 30px;
-        }
-
-        #bottomContent{
-            width: 80%;
-            border: 1px solid black;
-            background-color: rgb(37, 40, 42);
-            color: rgb(226, 226, 226);
-;
-        }
-        h2{
-            /* margin-top: 150px; */
-            font-weight: bold;
-            width: 80%;
-        }
-
-        #rogobox div{
-            float: none;
-        }
-
-        #teamrogo{
-            border: 1px solid black;
-        }
-        #teaminfo{
-            /* border-left: 1px solid rgb(190, 190, 190); */
-            float: none;
-            width: 640px;
-            margin-left: 302px;
-            height: 302px;
-
-        }
-        #teaminfo div{
-            border: 1px solid rgb(223, 216, 216);
-            float: none;
-            width: 737px;
-            height: 16.6666666666%;
-            font-size: 1.2em;
-        }
-
-        hr{
-            border : 1px solid black;
-            width: 1178px;
-        }
     </style>
 </head>
 
@@ -111,15 +49,23 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">선수등록/이적신청</div>
+                <div class="menuTitle">커뮤니티</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>선수등록/이적신청</span>
+                    <span>커뮤니티</span>
+                    <span>></span>
+                    <span>자유게시판</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
+                            <li class="subMenuItem"><a href="#">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="#">갤러리</a></li>
+                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="#">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -130,66 +76,166 @@
     </div>
     <!-- 상단부 끝 -->
 
-    <div class="center" >
-        <div class="pageContentTitle" style="border-bottom: 1px solid black;">
-            <img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">선수등록/이적신청</span>
-        </div>
+    <div class="center">
+        <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
+                class="contentTitle">자유게시판</span></div>
+
+            <!-- 메인박스  -->
+                <div id="centerMainBox">
+                             
+                    <!-- 게시판 선택 -->
+                    <div id="centerBox1">
+                        <span>게시판 :</span>
+                        <select name="" id="selectrow" >
+                            <option value="">게시판 선택</option>
+                            <option value="">질문게시판</option>
+                            <option value="">갤러리</option>   
+                            <option value="">자유게시판</option>   
+                            <option value="">강의게시판</option>   
+                            <option value="">친선경기모집</option>   
+                        </select>
+                        <select name="" id="selectrow">
+                            <option value="">말머리 선택</option>                
+                        </select>
+                    </div>        
+            
+                    <!-- 제목 입력 -->
+                    <div id="centerBox2">
+                        <span>제목 : </span>
+                        <input type="text" name="" id="" size="70px">
+                    </div>
+                    
+                    <!-- 내용 입력 -->
+                    <div id="centerBox3">          
+                        <textarea name="" id="" cols="100" rows="17">내용 :</textarea>
+                    </div>
+                    
+                    <!-- 파일첨부 -->
+                    <div>
+                        <div id="centerBox4">
+                            <div>
+                                <span>파일첨부 :</span>
+                                <span><input type="file" class="form-control" ></span>
+                            </div>
+                        </div>                          
+                    </div>
+                    
+                    <!-- 확인/미리보기 버튼 -->
+                    <div id="centerBox5">            
+                            <input class="writebtn" id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'";>
+                            <input class="writebtn" id="writebtn2" type="button" value="미리보기" onclick="location.href='ex01.html'";>         
+                    </div>
+                  
+                    
+                </div>
+
+    </div>
+
+    <style>
+
+        .center {            
+            padding-top: 50px;
+            background-color: #eee;         
+        }
+
+        #centerMainBox {
+            border: 1px solid black;
+            width: 1200px;
+            height: 700px;
+            margin: 0px auto;    
+            font-size: 20px;        
+            font-weight: bold;
+        }
+
+        #centerBox1 {
+            /* border: 1px solid red; */
+            width: 1000px;
+            height: 50px;
+            float: left;          
+            margin-left: 15px;  
+            margin-top: 5px;
+            padding-top: 6px;            
+        }
+
+        #centerBox2 {
+            /* border: 1px solid red; */
+            width: 1000px;
+            height: 50px;             
+            display: inline-block;
+            margin-left: 15px;  
+            padding-top: 6px;
+        }
+
+        #centerBox3 {
+            /* border: 1px solid blue; */
+            width: 1150px;
+            height: 480px; 
+            margin-left: 15px;  
+        }
+
+        #centerBox4 {
+            /* border: 1px solid red; */
+            width: 800px;
+            height: 50px; 
+            margin-left: 15px;  
+            margin-top: -10;
+        }
+
+        #centerBox5 {
+            /* border: 1px solid red; */
+            width: 150px;
+            height: 50px; 
+            float: right;   
+            margin-right: 58px;       
+            padding-top: 3px;  
+            margin-top: -5px;
+        }
+      
+        #centerBox3 textarea {
+            resize:none;
+        }
         
-        <!-- 상단 컨텐츠 내용 -->
-        <div>
-            <div >
-                <div class="topContent">
-                <!-- 팀 검색 -->
-                <input type="text" class="input" value="팀이름을 검색하세요" style="opacity: .7;">
-                <input type="button" value="검색"> 
-                <!-- 팀 검색 결과 -->
-                <table class="table table-bordered" id="searchTable">
-                    <tr>
-                        <th>팀번호</th>
-                        <th>팀명</th>
-                        <th>주소</th>
-                        <th>구단주</th>
-                        <th>창단일</th>
-                        <th>슬로건</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>쌍용FC</td>
-                        <td>서울특별시 강남구 역삼동</td>
-                        <td>홍길동</td>
-                        <td>2015-06-07</td>
-                        <td>재밌게 공차는사람들 입니다.</td>
-                    </tr>
-                </table>
-            </div>
-            <!-- 팀로고 -->
-            <div class="topContent" id="rogobox">
-                <img src="../images/rogo.png" alt="" style="width: 400px; margin-top: -100px;">
-            </div>
-        </div>
+        #centerBox4 span:nth-child(2) {
+            display: inline-block;
+            font-size: 15px;
+            margin-top: 6px;
+        }
 
-        <h2>팀정보</h2>
-        <hr>
-        <div id="bottomContent" >
-            <div id="teamrogo"><img src="../images/rogo.png" alt="" style="width: 300px;"></div>
-            <div id="teaminfo">
-                <div>팀번호:</div>
-                <div>팀명:</div>
-                <div>주소:</div>
-                <div>창설일:</div>
-                <div>연락처:</div>
-                <div>슬로건:</div>
-            </div>
+        #centerBox4 input {
+            padding-top: 4px;
+        }
+        
+        #centerBox5 input {
+            padding: 3px;
+        }
 
-        </div>
+        #centerBox1 select, #centerBox5 input, #centerBox4 input {
+            color: white; 
+            background-color: #1E3440 ;
+            padding-bottom: 5px;
+        }
+       
+       
+    </style>
 
-        <hr style="margin-top: 345px;">
-        <button type="button" class="btn btn-primary" id="agreeButton">등록신청</button>
-    </div>
+    <script>
 
+        $("#centerBox5 input").mouseover(function() {
 
-    </div>
+        // alert($(this).text());
+        $(this).css("background-color", "#92DAEC").css("color", "black");
+
+        })
+
+        $("#centerBox5 input").mouseout(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "").css("color", "");
+
+        })
+
+    </script>
+
     <!-- 하단부  -->
 
     <nav class="sitemap">
@@ -317,13 +363,6 @@
             }
 
         });
-
-        // 이적신청 버튼
-        $("#agreeButton").click(function () {
-            window.open("application.html", "apply", "width=812, height = 1300, left = 500 ")
-        });
-
-
 
 
 

@@ -106,7 +106,6 @@
                                     <th>나이</th>
                                     <th>전화번호</th>                                    
                                     <th>입단일시</th>
-
                                 </tr>
                             </thead>
                                 <tr>
@@ -241,8 +240,7 @@
         #centerbox4 {
             /* border: 1px solid blue; */
             width: 1200px;
-            height: 50px;
-            display: inline-block;   
+            height: 50px;            
             margin-top: 10px;         
         }
 
@@ -253,7 +251,7 @@
         }
 
         #verticalTable {
-            /* border: 1px solid blue; */
+            /* border: 1px solid blue; */            
         }
 
         #pagination {            
@@ -269,6 +267,7 @@
 
         #sortform, #selectrow {
             float: right;     
+            padding: 5px;            
             /* border: 1px solid gold; */
         }
 
@@ -281,7 +280,6 @@
             margin-top: 10px;
             background-color: #1E3440;
             color: white;
-            padding-bottom: 5px;
         }
 
         #verticalTable {
@@ -291,10 +289,10 @@
             border: 1px solid;             
         }
 
-        #verticalTable th:nth-child(1) {width: 65px;}
-        #verticalTable th:nth-child(2) {width: 65px;}
-        #verticalTable th:nth-child(3) {width: 65px;}
-        #verticalTable th:nth-child(4) {width: 100px;}
+        #verticalTable th:nth-child(1) {width: 25px;}
+        #verticalTable th:nth-child(2) {width: 25px;}
+        #verticalTable th:nth-child(3) {width: 50px;}
+        #verticalTable th:nth-child(4) {width: 50px;}
         #verticalTable th:nth-child(5) {width: 65px;}
         #verticalTable th:nth-child(6) {width: 100px;}
         #verticalTable th:nth-child(7) {width: 100px;}
@@ -328,16 +326,18 @@
         }
         
         #centerbox4Btn {
+            /* border: 1px solid red;             */
             color: white;   
             height: 30px;
             background-color: #1E3440 ;
+            padding: 5px;
         }
         
         #sortform a {
             color: #1E3440;         
         }
 
-      
+     
 
     </style>
 
@@ -357,14 +357,13 @@
 
         })
 
-        $("#centerbox4Btn").click(function() {                    
+        $("#centerbox2 tr td ").click(function() {                    
             // alert($(this));
             child = window.open(
-            "방출하시겠습니까.html",
+            "선수관리상세조회.html",
             "check",
-            "width=460, height=260, top=350, left=750"
-            
-                                                  
+            "width=580, height=580, top=250, left=750"
+                                                
         );
         }); 
 
