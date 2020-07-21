@@ -12,134 +12,103 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        /* -----------------------------친구 목록 보기-------------------------------- */
-        .DM {
-            width: 500px;
-            float: left;
-            margin-left: 100px;
-            text-align: center;
+        .center {
+            padding-top: 50px;
+            background-color: #eee;
         }
 
-        #dmImgBox {
-            width: 100px;
-            height: 100px;
+        .boardContentsOutBox {
+            margin-top: 20px;
+            width: 1200px;
+            height: 600px;
             float: left;
-            position: relative;
-            left: 30px;
+            border: 1px solid #E1E1E1;
+            border-top: 3px solid #0C1B23;
+            margin-left: 50px;
+            background-color: white;
         }
 
-        #dmImgBox>img {
-            width: 98px;
-            height: 98px;
-            border-radius: 50%;
+
+        .boardContentshead {
             float: left;
-            position: absolute;
-            left: 0px;
+            width: 150px;
+            height: 50px;
+
+
         }
 
-        .DM>tbody>tr>td {
+        .boardContentsTitle {
+            width: 630px;
+            height: 50px;
+            float: left;
+        }
+
+        .writer {
+            width: 150px;
+            height: 50px;
+            float: left;
+
+        }
+
+        .date {
+            width: 120px;
+            height: 50px;
+            float: left;
+
+        }
+
+        .view {
+            width: 120px;
+            height: 50px;
+            float: left;
+
+        }
+
+
+        .boardContentsTitleBox {
+            width: 1200px;
+            height: 50px;
+            background-color: #E1E1E1;
+            padding-left: 20px;
             line-height: 50px;
-            border: 0px;
+            font-size: 1.2em;
+
         }
 
-        .DM>tbody>tr>th {
-            text-align: center;
-            font-size: 17px;
-            background-color: #92DAEC;
-            color: #0C1B23;
-        }
-
-        .DM>tbody>tr:nth-child(odd) {
-            line-height: 30px;
-            text-align: center;
-            font-size: 17px;
-
-            background-color: #0C1B23;
-            color: #FEF9CE;
-        }
-
-        .DM>tbody>tr:nth-child(even) {
-            text-align: center;
-            font-size: 17px;
-            background-color: #254150;
-            color: #FEF9CE;
-        }
-
-
-        .search {
-            width: 500px;
+        .teamName {
+            float: right;
+            font-size: 1.3em;
+            font-weight: bold;
             position: relative;
-            left: 100px;
-            margin-bottom: 20px;
-            z-index: 0;
+            right: 30px;
+            top: 10px;
         }
 
-        .unfollow {
-            height: 30px;
+        .detailContents {
+            padding: 30px;
+            font-size: 1.5em;
+
         }
 
-        .DM>tbody>tr>th>div {
-            margin-right: 10px;
-        }
-
-
-        .dmInfo {
-            float: left;
-            width: 300px;
-            height: 80px;
+        .applyBtn {
             position: relative;
-            left: 55px;
-        }
-
-        .dmInfo>div {
+            top: 30px;
+            left: 600px;
+            width: 160px;
             height: 40px;
-            text-align: left;
-        }
-
-        .dmInfo>div>span {
-            margin-left: 20px;
-            font-size: 0.8em;
-        }
-
-        #dmBox>pre {
-            line-height: 30px;
+            font-size: 16px;
             float: left;
-            width: 500px;
-            height: 300px;
+        }
+
+        .listBtn {
             position: relative;
-            left: 80px;
-        }
-
-        .inputDm {
-            width: 300px;
-            position: relative;
-            left: 100px;
-            top: 50px;
-        }
-
-        .sendBtn {
-            position: relative;
-            left: 100px;
-            top: 40px;
-        }
-
-        .dmImgInBox {
-            width: 70px;
-            height: 70px;
-            float: left;
-            position: relative;
-            left: 60px;
-            top: 20px;
-        }
-
-        .contentBox {
-            width: 1300px;
-            height: 900px;
-        }
-
-
-        #dmBox>pre>img {
-            border-radius: 50%;
+            top: 80px;
+            left: 900px;
+            width: 160px;
+            height: 40px;
+            font-size: 16px;
+            background-color: #254150;
+            color: #D5D7D7;
 
         }
     </style>
@@ -201,90 +170,37 @@
         </div>
 
     </div>
+
     <div class="center">
 
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">DM</span></div>
+                class="contentTitle">용병모집</span></div>
 
-        <!-- 검색창 -->
-
-        <div class="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+        <div class="boardContentsOutBox">
+            <div class="boardContentsTitleBox">
+                <div class="boardContentshead">[용병모집]</div>
+                <div class="boardContentsTitle">7월 25일 용병모집 </div>
+                <div class="writer">작성자 오희준</div>
+                <div class="date">2020.07.12</div>
+                <div class="view">조회 126</div>
+            </div>
+            <div class="teamName">모집팀 : Double Dragon FC </div>
+            <div class="boardContents">
+                <div class="detailContents">
+                    안녕하세요<br>
+                    Double Dragon FC구단주 오희준입니다.<br>
+                    7월 25일 경기를 같이 뛰실 용병 모집합니다.<br>
+                    신청해주시면 개별 연락 드리도록할게요<br>
+                    <br>
+                    일시: 2020년 7월 25일<br>
+                    장소: 서울시 서초구 양재동
                 </div>
             </div>
         </div>
-        <div class="contentBox">
-            <div>
-                <table class="DM table table-bordered">
-                    <tr>
-                        <th colspan="2">
-                            <div class="glyphicon glyphicon-send"></div>
-                            DM
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div id="dmBox">
-                <pre>
-                <img src="../images/movie_image6.jpg" class="dmImgInBox">
-                권택진 
-                안녕하세요. 권택진입니다. 
-                <div></div>
-                <textarea class="inputDm form-control"></textarea>
-                <input type="button" value="답장보내기" style="cursor: pointer;" class="sendBtn btn btn-default">
-            </pre>
-            </div>
-        </div>
+        <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
+        <div><input type="button" value="목록보기" class="listBtn btn btn-default"></div>
     </div>
-
+    </div>
 
 
 

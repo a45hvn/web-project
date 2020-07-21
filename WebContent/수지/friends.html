@@ -12,35 +12,12 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        /* -----------------------------마이페이지------------------------------------- */
-
-        #infoUpdate {
-            float: left;
-            color: #25282A;
-            position: relative;
-            left: -100px;
-            top: 110px;
-        }
-
-        #infoUpdate>.btn {
-            width: 200px;
-            font-weight: bold;
-        }
-
-        #infoUpateBox {
-            /* margin: 100px auto; */
-            margin-left: 400px;
-            position: relative;
-            top: 30px
-        }
-
-        #infoUpdateBtn {
-            position: relative;
-            left: 670px;
-            top: 30px
-        }
-
         /* -----------------------------친구 목록 보기-------------------------------- */
+        .center {
+            height: auto;
+        }
+
+
         .friends {
             width: 500px;
             float: left;
@@ -66,8 +43,8 @@
             text-align: center;
             font-size: 17px;
             font-variant: small-caps;
-            background-color: #254150;
-            color: #92DAEC;
+            background-color: #92DAEC;
+            color: #0C1B23;
         }
 
         .friends>tbody>tr:nth-child(odd) {
@@ -75,16 +52,16 @@
             text-align: center;
             font-size: 17px;
             font-variant: small-caps;
-            background-color: #254150;
-            color: #92DAEC;
+            background-color: #0C1B23;
+            color: #FEF9CE;
         }
 
         .friends>tbody>tr:nth-child(even) {
             text-align: center;
             font-size: 17px;
             font-variant: small-caps;
-            background-color: #92DAEC;
-            color: #254150;
+            background-color: #254150;
+            color: #FEF9CE;
         }
 
 
@@ -98,6 +75,11 @@
 
         .unfollow {
             height: 30px;
+        }
+
+        .contentsBox {
+            width: 1300px;
+            height: 900px;
         }
     </style>
 </head>
@@ -173,7 +155,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="contentsBox">
             <table class="friends table table-bordered">
                 <tr>
                     <th colspan="2">Following</th>

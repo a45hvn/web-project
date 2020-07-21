@@ -8,663 +8,44 @@
     <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../webproject/submain_1.css">
+    <link rel="stylesheet" href="../webproject/submain_2.css">
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
+
     <style>
-        #main {
-            /* border: 1px solid red; */
-            width: 100%;
-            z-index: 1;
-        }
-
-        #menuTr {
-            height: 1px;
-        }
-
-        /* table td {
-            border-right: 1px solid white;
-            text-align: center;
-        } */
-
-
-        #mainrogo {
-            width: 150px;
-            border: 3px solid white;
-        }
-
-        .menu span {
-            color: white;
-            text-align: center;
-            font-size: 1.4em;
-            display: block;
-            padding-top: 20px;
-
-        }
-
-        .menu {
-            background-color: rgb(37, 40, 42);
-            opacity: .9;
-            cursor: pointer;
-        }
-
-        #menuTop {
-            height: 20px;
-            background-color: rgb(37, 40, 42);
-        }
-
-        #menuTop td:nth-child(3) {
-            text-align: right;
-        }
-
-
-        #scoreBoard {
-            width: 1300px;
-            background-color: #0C1B23;
-            height: 350px;
-            margin: 0px auto;
-            /* margin-left: 400px; */
-        }
-
-
-        #contents {
-            width: 1280px;
-            /* border: 1px solid red; */
-            height: 1500px;
-            margin: 0px auto;
-            font-family: '맑은고딕';
-        }
-
-        #contents>div {
-            width: 800px;
-            float: left;
-            /* text-align: center; */
-            border: 3px solid black;
-            margin-left: 30px;
-            margin-top: 50px;
-        }
-
-        #contents>div:nth-child(2) {
-            width: 400px;
-            background-color: rgb(37, 65, 80);
-        }
-
-        #contents>div:nth-child(3) {
-            width: 90%;
-            background-color: rgb(37, 65, 80);
-        }
-
-
-        #topBoard {
-            width: 100%;
-            background-color: royalblue;
-            height: 167px;
-        }
-
-        #rankList tr:nth-child(2n+1) {
-            background-color: rgb(12, 27, 35);
-            ;
-        }
-
-        #rankList tr {
-            color: rgb(146, 218, 236);
-            font-weight: bold;
-            font-size: 17px;
-            font-family: '맑은고딕';
-
-        }
-
-        #rankList tr:nth-child(1) {
-            color: white;
-        }
-
-        #rankList tr td {
-            text-align: left;
-        }
-
-        #rankList tr td:nth-child(n+3) {
-            color: rgb(254, 249, 206);
-        }
-
-        #more {
-            width: 80%;
-            /* border: 1px solid white; */
-            margin-top: -20px;
-        }
-
-        h3 {
-            color: rgb(254, 249, 206);
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .rankInfo div {
-            width: 80px;
-            float: left;
-            /* border: 1px solid white; */
-            color: white;
-            text-align: center;
-        }
-
-        .rankInfo div:nth-child(1) {
-            width: 30px;
-            float: left;
-        }
-
-        .rankform {
-            border: 1px solid white;
-            width: 272px;
-            height: 275px;
-            background-color: rgb(12, 27, 35);
-            float: left;
-            margin-left: 80px;
-            margin-bottom: 30px;
-            margin-top: 30px;
-        }
-
-        .photo {
-            width: 290px;
-        }
-
-        .photo img {
-            margin-left: 50px;
-            background-color: white;
-        }
-
-        #categoryRank {
-            width: 1000px;
-        }
-
-        .category {
-            color: rgb(254, 249, 206);
-        }
-
-        .rankInfo div:nth-child(2),
-        .rankInfo div:nth-child(3) {
-            color: rgb(254, 249, 206);
-        }
-
-        .rankInfo div:nth-child(1),
-        .rankInfo div:nth-child(4) {
-            color: rgb(146, 218, 236);
-        }
-
-        /* --------------------------------------------------------------- */
-
-        .infoBox {
-            border: 3px dashed white;
-            width: 240px;
-            height: 240px;
-            border-collapse: collapse;
-            position: relative;
-            float: left;
-            margin: 0px 25px;
-            background-color: rgb(37, 65, 80);
-            color: white;
-            margin-top: 60px;
-        }
-
-        .infoOuter:last-child::after {
-            content: "";
-            display: block;
-            clear: left;
-        }
-
-        .infoBox .teamName {
-            text-align: center;
-        }
-
-        .gameinfo {
-            border-collapse: collapse;
-        }
-
-        .teamInfo {
-            display: inline-block;
-        }
-
-        .vs {
-            position: absolute;
-            top: 40%;
-            left: 44%;
-        }
-
-        .infoLeft {
-            padding-left: 5px;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .infoRight {
-            display: inline-block;
-            position: absolute;
-            top: 3px;
-            right: 0;
-            font-size: 1em;
-        }
-
-        .gamedate span {
-            color: rgb(254, 249, 206);
-            font-family: '맑은고딕';
-        }
-
-        .impact {
-            color: black;
-        }
-
-        .teamLogo {
-            width: 100px;
-            height: 70px;
-            border: 1px solid black;
-        }
-
-        .infoOuter {
-            width: 2350px;
-            /* border: 1px solid black; */
-            margin-left: 60px;
-        }
-
-        .outerWraper {
-            overflow: hidden;
-            width: 1240px;
-        }
-
-        #mainMenu {
-            z-index: 2;
-        }
-
-        #arrow div {
-            border: 1px solid white;
-            color: white;
-            font-size: 30px;
-            margin-right: 0px;
-        }
-
-        #arrow div:nth-child(1) {
-            margin-left: 1100px;
-            margin-top: 30px;
-        }
-
-        #arrow div:nth-child(2) {
-            margin-left: 20px;
-        }
-
-        /* ---------------------------------------------------- */
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-            color: #666;
-        }
-
-        a:hover {
-            color: #1bc1a3;
-        }
-
-        body,
-        hmtl {
-            background: #ecf0f1;
-            font-family: 'Anton', sans-serif;
-        }
-
-
-        #wrapper {
-            width: 600px;
-            margin: 50px auto;
-            height: 400px;
-            position: relative;
-            color: #fff;
-            text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 0px;
-        }
-
-        #slider-wrap {
-            width: 600px;
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #slider-wrap ul#slider {
-            width: 100%;
-            height: 100%;
-
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        #slider-wrap ul#slider li {
-            float: left;
-            position: relative;
-            width: 600px;
-            height: 400px;
-        }
-
-        #slider-wrap ul#slider li>div {
-            position: absolute;
-            top: 20px;
-            left: 35px;
-        }
-
-        #slider-wrap ul#slider li>div h3 {
-            font-size: 36px;
-            text-transform: uppercase;
-        }
-
-        #slider-wrap ul#slider li>div span {
-            font-family: Neucha, Arial, sans serif;
-            font-size: 21px;
-        }
-
-        #slider-wrap ul#slider li img {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-
-        /*btns*/
-        .btns {
-            position: absolute;
-            width: 50px;
-            height: 60px;
-            top: 50%;
-            margin-top: -25px;
-            line-height: 57px;
-            text-align: center;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.1);
-            z-index: 100;
-
-
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -khtml-user-select: none;
-            -ms-user-select: none;
-
-            -webkit-transition: all 0.1s ease;
-            -moz-transition: all 0.1s ease;
-            -o-transition: all 0.1s ease;
-            -ms-transition: all 0.1s ease;
-            transition: all 0.1s ease;
-        }
-
-        .btns:hover {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        #next {
-            right: -50px;
-            border-radius: 7px 0px 0px 7px;
-        }
-
-        #previous {
-            left: -50px;
-            border-radius: 0px 7px 7px 7px;
-        }
-
-        #counter {
-            top: 30px;
-            right: 35px;
-            width: auto;
-            position: absolute;
-        }
-
-        #slider-wrap.active #next {
-            right: 0px;
-        }
-
-        #slider-wrap.active #previous {
-            left: 0px;
-        }
-
-
-        /*bar*/
-        #pagination-wrap {
-            min-width: 20px;
-            margin-top: 350px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 15px;
-            position: relative;
-            text-align: center;
-        }
-
-        #pagination-wrap ul {
-            width: 100%;
-        }
-
-        #pagination-wrap ul li {
-            margin: 0 4px;
-            display: inline-block;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: #fff;
-            opacity: 0.5;
-            position: relative;
-            top: 0;
-
-
-        }
-
-        #pagination-wrap ul li.active {
-            width: 12px;
-            height: 12px;
-            top: 3px;
-            opacity: 1;
-            box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
-        }
-
-
-
-
-        /*Header*/
-        h1,
-        h2 {
-            text-shadow: none;
-            text-align: center;
-        }
-
-        h1 {
-            color: #666;
-            text-transform: uppercase;
-            font-size: 36px;
-        }
-
-        h2 {
-            color: #7f8c8d;
-            font-family: Neucha, Arial, sans serif;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-
-
-
-        /*ANIMATION*/
-        #slider-wrap ul,
-        #pagination-wrap ul li {
-            -webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
-            -moz-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
-            -o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
-            -ms-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
-            transition: all 0.3s cubic-bezier(1, .01, .32, 1);
-        }
-
-        /* ----------------------------------------------------------------- */
-        .footer {
-
-            border-top: 1px solid cornflowerblue;
-            border-bottom: 1px solid cornflowerblue;
-            min-width: 1300px;
-            height: 50px;
-        }
-
-        .footerBox {
-            width: 1300px;
-            height: 50px;
-            margin: 0px auto;
-            /* float: left; */
-            /* margin-left: 320px; */
-        }
-
-        .footerBox2,
-        .footerBox3 {
-            width: 1300px;
-            height: 60px;
-            margin: 0px auto;
-        }
-
-        .footerBox>div {
-            text-align: center;
-            width: 150px;
-            float: left;
-            margin-top: 15px;
-
-        }
-
-        .footerBox2>div {
-            float: left;
-            padding-top: 4px;
-            padding-left: 42px;
-        }
-
-        .footerBox3>div {
-            padding-top: 4px;
-            padding-left: 47px;
-
-        }
-
-        .footerInfo>.info,
-        .footerInfo>.infoItem {
-            display: inline;
-            margin: 5px;
-            padding-right: 20px;
-            font-size: 12px;
-            color: steelblue;
-            border-right: 1px solid steelblue;
-        }
-
-        .footerInfo {
-            margin-right: -30px;
-        }
-
-        .footerInfo>.info:last-child {
-            border: 0px;
-        }
-
-        .footerBox>div>a:link {
-            text-decoration: none;
-
-        }
-
-        .footerBox>div>a:hover {
-            text-decoration: none;
-            color: #013e5f;
-        }
-
-        .footerBox3 {
-            color: steelblue;
-            font-size: 12px;
-        }
-
-        .sitemap {
-            width: 1300px;
-            height: 250px;
-            margin: 0px auto;
-            background-color: #254150;
-            color: #92DAEC;
-
-
-        }
-
-
-        .sitemap .siteList {
-            float: left;
-            list-style-type: none;
-            margin-left: 10px;
-            width: 180px;
-            padding: 10px;
-        }
-
-        .sitemap .siteList:first-child {
-
-            margin-left: 50px;
-
-        }
-
-        .listName {
-            margin-top: 30px;
-            font-size: 24px;
-            text-align: left;
-        }
-
-        .siteList>li>a {
-            text-decoration: none;
-            color: #92DAEC;
-        }
-
-        .listName>a {
-            color: #92DAEC;
-            text-decoration: none;
-        }
-
         /* -----------------------------마이페이지------------------------------------- */
+        .center {
+            padding-top: 50px;
+            background-color: #eee;
+        }
 
         .myPageInfoBox {
             border: 3px solid #92DAEC;
-            width: 450px;
-            height: 300px;
+            width: 500px;
+            height: 350px;
             position: relative;
             float: left;
-            margin: 20px 30px 20px 125px;
+            margin-left: 110px;
             background-color: #254150;
             color: white;
-            margin-top: 60px;
-        }
-
-
-        .pageContentTitle {
-            width: 1300px;
-            height: 100px;
-            float: left;
-            padding: 40px 40px;
-        }
-
-        .contentTitleImg {
-            width: 50px;
-            height: 50px;
-            float: left;
-        }
-
-        .contentTitle {
-            float: left;
-            width: 400px;
-            font-size: 25px;
-            font-weight: bold;
-            padding: 10px;
+            margin-bottom: 60px;
         }
 
         #memberpic {
-            /* border: 1px solid red; */
-            width: 230px;
-            height: 230px;
-            padding: 35px;
+            width: 270px;
+            height: 270px;
+            padding: 50px;
             float: left;
         }
 
         #memberpic>img {
-            width: 160px;
-            height: 160px;
-            border: 0px
+            width: 170px;
+            height: 170px;
         }
 
         #membername {
             float: left;
-            margin: 40px 0 0 7px;
+            margin: 65px 0 0 7px;
             width: 200px;
             height: 80px;
             text-align: left;
@@ -686,16 +67,101 @@
         #infoUpdate>.btn {
             width: 120px;
             font-weight: bold;
-            margin: 0 10px;
+            margin-left: 35px;
+        }
+
+        .moreBtn {
+            width: 120px;
+            font-weight: bold;
+            margin-left: 200px;
+            margin-top: -10px;
+            color: #25282A;
+        }
+
+
+        #dmImgBox>img {
+            width: 30px;
+            height: 30px;
+            float: left;
+            border-radius: 50%;
+            margin-left: 40px;
+        }
+
+        .dmInfo {
+            float: left;
+            position: relative;
+            left: 12px;
+            height: 20px;
+            line-height: 16px;
+        }
+
+        .mypageContents {
+            width: 1300px;
+            height: 800px;
+        }
+
+        .dmInfo>div>span {
+            position: absolute;
+            left: 320px;
+        }
+
+
+        .DM>tbody>tr>td {
+            border: 0px;
+        }
+
+        .DM>tbody>tr>th {
+            text-align: center;
+            font-size: 10px;
+            background-color: #92DAEC;
+            color: #0C1B23;
+            border: 0px;
+        }
+
+        .DM>tbody>tr>th:first-child {
+            height: 30px;
+            font-size: 14px;
+        }
+
+        .DM>tbody>tr:nth-child(odd) {
+            font-size: 10px;
+            background-color: #0C1B23;
+            color: #FEF9CE;
+        }
+
+        .DM>tbody>tr:nth-child(even) {
+            font-size: 10px;
+            background-color: #254150;
+            color: #FEF9CE;
+        }
+
+        #container {
+            width: 400px;
+            height: 300px;
+            margin: 10px;
+            padding-left: 30px;
+        }
+
+        #ranking {
+            width: 497px;
+            height: 30px;
+            background-color: #92DAEC;
+            text-align: center;
+            line-height: 30px;
+            color: #0C1B23;
+            font-weight: bold;
+
         }
     </style>
 </head>
 
 <body>
-
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
-
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <nav id="main">
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
@@ -751,26 +217,163 @@
 
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">마이페이지</span></div>
-        <div class="myPageInfoBox">
-            <div id="memberpic"><img src="../images/images/man_01.png"></div>
-            <div id="membername">
-                <div>이선웅</div>
-                <div>Double Dragon FC</div>
-                <div>Striker</div>
-                <div>185cm</div>
-                <div>84kg</div>
+        <div class="mypageContents">
+            <div class="myPageInfoBox">
+                <div id="memberpic"><img src="../images/images/man_02.png"></div>
+                <div id="membername">
+                    <div>이선웅</div>
+                    <div>Double Dragon FC</div>
+                    <div>Striker</div>
+                    <div>185cm</div>
+                    <div>84kg</div>
+                </div>
+                <div id="infoUpdate">
+                    <input type="button" class="btn" value="정보 수정하기">
+                    <input type="button" class="withdrawalbtn btn" value="탈퇴하기">
+                </div>
             </div>
-            <div id="infoUpdate">
-                <input type="button" class="btn" value="정보 수정하기">
-                <input type="button" class="withdrawalbtn btn" value="탈퇴하기">
+            <div class="myPageInfoBox">
+                <table class="DM table " style="border:0px;">
+                    <tr>
+                        <th colspan="2">
+                            <div class="glyphicon glyphicon-send"></div>
+                            DM
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
+                            <div class="dmInfo">
+                                <div>권택진</div>
+                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dmImgBox"><img src="../images/rogowithoutletter.png"></div>
+                            <div class="dmInfo">
+                                <div>오희준</div>
+                                <div>안녕하세요<span>2020.07.20</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dmImgBox"><img src="../images/고양이.jpg"></div>
+                            <div class="dmInfo">
+                                <div>이수지</div>
+                                <div>안녕<span>2020.07.20</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
+                            <div class="dmInfo">
+                                <div>최재성</div>
+                                <div>안녕하세요.<span>2020.07.20</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
+                            <div class="dmInfo">
+                                <div>유민정</div>
+                                <div>친구해요<span>2020.07.20</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <input type="button" class="moreBtn btn" value="더보기">
+
+            </div>
+            <div class="myPageInfoBox">경기일정</div>
+            <div class="myPageInfoBox">
+                <div id="ranking"><i class="glyphicon glyphicon-king"></i>구단 순위, 개인순위</div>
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description">
+                </figure>
             </div>
         </div>
-        <div class="myPageInfoBox">DM</div>
-        <div class="myPageInfoBox">경기일정</div>
-        <div class="myPageInfoBox">구단 내 개인순위</div>
-
     </div>
 
+    <script>Highcharts.chart('container', {
+            chart: {
+                type: 'areaspline',
+                backgroundColor: "#254150"
+            },
+            title: {
+                text: '리그 및 구단 개인 순위',
+                // Color: ''
+
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 150,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor:
+                    Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+            },
+            xAxis: {
+                categories: [
+                    '1월',
+                    '2월',
+                    '3월',
+                    '4월',
+                    '5월',
+                    '6월',
+                    '7월',
+                    '8월',
+                    '9월',
+                    '10월',
+                    '11월',
+                    '12월'
+                ],
+                plotBands: [{ // visualize the weekend
+                    from: 4.5,
+                    to: 6.5,
+                    color: 'rgba(68, 170, 213, .2)'
+                }]
+            },
+            yAxis: {
+                title: {
+                    text: '순위'
+                }
+            },
+            tooltip: {
+                shared: true,
+                valueSuffix: ' ranking'
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                areaspline: {
+                    fillOpacity: 0.5
+                }
+            },
+            series: [{
+                name: '리그',
+                data: [3, 4, 3, 5, 4, 10, 12, 3, 4, 3, 5, 4]
+            }, {
+                name: '구단',
+                data: [1, 3, 4, 3, 3, 5, 4, 3, 4, 3, 5, 4]
+            }]
+        });
+
+
+
+    </script>
+
+
+    </script>
     <nav class="sitemap">
         <ul class="siteList">
             <h2 class="listName"><a href="#">경기정보조회</a></h2>
@@ -903,116 +506,6 @@
 
         });
 
-        // ----------------------------------------------------------
-
-        //current position
-        var pos = 0;
-        //number of slides
-        var totalSlides = $('#slider-wrap ul li').length;
-        //get the slide width
-        var sliderWidth = $('#slider-wrap').width();
-
-
-        $(document).ready(function () {
-
-
-            /*****************
-             BUILD THE SLIDER
-            *****************/
-            //set width to be 'x' times the number of slides
-            $('#slider-wrap ul#slider').width(sliderWidth * totalSlides);
-
-            //next slide    
-            $('#next').click(function () {
-                slideRight();
-            });
-
-            //previous slide
-            $('#previous').click(function () {
-                slideLeft();
-            });
-
-
-
-            /*************************
-             //*> OPTIONAL SETTINGS
-            ************************/
-            //automatic slider
-            var autoSlider = setInterval(slideRight, 3000);
-
-            //for each slide 
-            $.each($('#slider-wrap ul li'), function () {
-
-                //create a pagination
-                var li = document.createElement('li');
-                $('#pagination-wrap ul').append(li);
-            });
-
-            //counter
-            countSlides();
-
-            //pagination
-            pagination();
-
-            //hide/show controls/btns when hover
-            //pause automatic slide when hover
-            $('#slider-wrap').hover(
-                function () { $(this).addClass('active'); clearInterval(autoSlider); },
-                function () { $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
-            );
-
-
-
-        });//DOCUMENT READY
-
-
-
-        /***********
-         SLIDE LEFT
-        ************/
-        function slideLeft() {
-            pos--;
-            if (pos == -1) { pos = totalSlides - 1; }
-            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
-
-            //*> optional
-            countSlides();
-            pagination();
-        }
-
-
-        /************
-         SLIDE RIGHT
-        *************/
-        function slideRight() {
-            pos++;
-            if (pos == totalSlides) { pos = 0; }
-            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
-
-            //*> optional 
-            countSlides();
-            pagination();
-        }
-
-
-
-
-        /************************
-         //*> OPTIONAL SETTINGS
-        ************************/
-        function countSlides() {
-            $('#counter').html(pos + 1 + ' / ' + totalSlides);
-        }
-
-        function pagination() {
-            $('#pagination-wrap ul li').removeClass('active');
-            $('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
-        }
-
-
-        $(".withdrawalbtn").click(function () {
-            alert();
-        });
 
     </script>
 </body>

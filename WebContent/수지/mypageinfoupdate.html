@@ -13,6 +13,9 @@
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
         /* -----------------------------마이페이지------------------------------------- */
+        .center {
+            height: auto;
+        }
 
         #infoUpdate {
             float: left;
@@ -28,16 +31,21 @@
         }
 
         #infoUpateBox {
-            /* margin: 100px auto; */
-            margin-left: 400px;
+            margin-left: 300px;
             position: relative;
-            top: 30px
+            top: 30px;
+            height: 750px;
         }
 
         #infoUpdateBtn {
             position: relative;
-            left: 670px;
-            top: 30px
+            left: 350px;
+            top: 10px
+        }
+
+        #infoUpateTable {
+            width: 800px;
+            height: 300px;
         }
     </style>
 </head>
@@ -104,16 +112,16 @@
                 class="contentTitle">회원정보수정</span></div>
 
         <div id="infoUpateBox">
-            <table id="infoUpateTable" class="table table-bordered" style="width: 600px;">
+            <table id="infoUpateTable" class="table table-bordered">
                 <tr>
                     <th style="width: 150px;">이름</th>
                     <td style="width: 450px;">
                         <input type="text" class="form-control"></td>
                 </tr>
                 <tr>
-                    <th style="width: 150px;">포지션 선택</th>
+                    <th style="width: 150px;">소속구단 선택</th>
                     <td style="width: 450px;">
-                        <select class="form-control">소속구단 선택
+                        <select class="form-control">
                             <option>Double Dragon FC</option>
                             <option>Bears FC</option>
                             <option>King FC</option>
@@ -149,258 +157,175 @@
                         <input type="file" class="form-control"> </td>
                 </tr>
             </table>
+            <div><button class="btn btn-default" id="infoUpdateBtn">수정하기</button></div>
         </div>
-        <div><input type="button" class="btn" value="수정하기" id="infoUpdateBtn"></div>
-
-
-    </div>
 
 
 
-
-
-    <nav class="sitemap">
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">경기정보조회</a></h2>
-            <li><a href="#">2020 정규리그 일정조회</a></li>
-            <li><a href="#">정규리그 결과 조회</a></li>
-            <li><a href="#">지난 정규리그 조회</a></li>
-            <li><a href="#">친선경기 결과 조회</a></li>
-        </ul>
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">구단현황</a></h2>
-            <li><a href="#">구단 정보</a></li>
-            <li><a href="#">구단 선수 정보 조회</a></li>
-            <li><a href="#">구단 경기 전적</a></li>
-        </ul>
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">선수현황</a></h2>
-            <li><a href="#">선수 검색</a></li>
-            <li><a href="#">선수 정보</a></li>
-            <li><a href="#">선수 응원댓글</a></li>
-            <li><a href="#">선수 DM</a></li>
-        </ul>
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">전력분석</a></h2>
-            <li><a href="#">팀분석</a></li>
-            <li><a href="#">선수분석</a></li>
-            <li><a href="#">시뮬레이션</a></li>
-        </ul>
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">게시판</a></h2>
-            <li><a href="#">질문게시판</a></li>
-            <li><a href="#">갤러리</a></li>
-            <li><a href="#">자유게시판</a></li>
-            <li><a href="#">강의게시판</a></li>
-            <li><a href="#">친선경기모집</a></li>
-            <li><a href="#">용병모집</a></li>
-        </ul>
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">공지사항</a></h2>
-        </ul>
-        <ul class="siteList">
-            <h2 class="listName"><a href="#">문자중계</a></h2>
-        </ul>
-
-    </nav>
-
-
-    <div class="footer">
-        <div class="footerBox">
-            <div><a href="#">협회소개</a></div>
-            <div><a href="#">이용약관</a></div>
-            <div><a href="#">개인정보 취급방침</a></div>
-            <div><a href="#">제휴문의</a></div>
-            <div><a href="#">관리자 페이지</a></div>
+        <!-- 수정확인 Modal-->
+        <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #25282A;">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC;">수정 완료</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">수정이 완료되었습니다.</div>
+                    <div class="modal-footer">
+                        <a class="btn" id="modalY" href="#">ok</a>
+                        <!-- ok버튼 누르면 마이페이지 처음 메뉴로 되돌아가기 -->
+                        <!-- <button class="btn" type="button" data-dismiss="modal">아니요</button> -->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="footerBox2">
-        <div class="footerInfo">
-            <div class="infoItem">리그운영 및 총괄 / 대관 문의</div>
-            <div class="info">정성원(010-3151-5582)</div>
+
+
+
+        <nav class="sitemap">
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">경기정보조회</a></h2>
+                <li><a href="#">2020 정규리그 일정조회</a></li>
+                <li><a href="#">정규리그 결과 조회</a></li>
+                <li><a href="#">지난 정규리그 조회</a></li>
+                <li><a href="#">친선경기 결과 조회</a></li>
+            </ul>
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">구단현황</a></h2>
+                <li><a href="#">구단 정보</a></li>
+                <li><a href="#">구단 선수 정보 조회</a></li>
+                <li><a href="#">구단 경기 전적</a></li>
+            </ul>
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">선수현황</a></h2>
+                <li><a href="#">선수 검색</a></li>
+                <li><a href="#">선수 정보</a></li>
+                <li><a href="#">선수 응원댓글</a></li>
+                <li><a href="#">선수 DM</a></li>
+            </ul>
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">전력분석</a></h2>
+                <li><a href="#">팀분석</a></li>
+                <li><a href="#">선수분석</a></li>
+                <li><a href="#">시뮬레이션</a></li>
+            </ul>
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">게시판</a></h2>
+                <li><a href="#">질문게시판</a></li>
+                <li><a href="#">갤러리</a></li>
+                <li><a href="#">자유게시판</a></li>
+                <li><a href="#">강의게시판</a></li>
+                <li><a href="#">친선경기모집</a></li>
+                <li><a href="#">용병모집</a></li>
+            </ul>
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">공지사항</a></h2>
+            </ul>
+            <ul class="siteList">
+                <h2 class="listName"><a href="#">문자중계</a></h2>
+            </ul>
+
+        </nav>
+
+
+        <div class="footer">
+            <div class="footerBox">
+                <div><a href="#">협회소개</a></div>
+                <div><a href="#">이용약관</a></div>
+                <div><a href="#">개인정보 취급방침</a></div>
+                <div><a href="#">제휴문의</a></div>
+                <div><a href="#">관리자 페이지</a></div>
+            </div>
         </div>
-        <div class="footerInfo">
-            <div class="infoItem">리그운영 및 사무업무</div>
-            <div class="info">김준형(010-2370-2061)</div>
+        <div class="footerBox2">
+            <div class="footerInfo">
+                <div class="infoItem">리그운영 및 총괄 / 대관 문의</div>
+                <div class="info">정성원(010-3151-5582)</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">리그운영 및 사무업무</div>
+                <div class="info">김준형(010-2370-2061)</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">선수등록 및 기록문의</div>
+                <div class="info">정미선(010-9066-9495)</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">리그일정 조정</div>
+                <div class="info">정성원(010-3151-5582)</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">시스템개발문의</div>
+                <div class="info">(주)쌍용소프트(070-4322-2918)</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">한독빌딩</div>
+                <div class="info">서울시 강남구 테헤란로 132 한독빌딩 8층</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">TEL</div>
+                <div class="info">070)4322-2918</div>
+            </div>
+            <div class="footerInfo">
+                <div class="infoItem">FAX</div>
+                <div class="info" style="clear: both;">070)4322-2919</div>
+            </div>
         </div>
-        <div class="footerInfo">
-            <div class="infoItem">선수등록 및 기록문의</div>
-            <div class="info">정미선(010-9066-9495)</div>
+        <div class="footerBox3">
+            <div>본 사이트는 IT기업 (주)쌍용소프트가 시흥축구협회리그 선수들을 위해 운영하는 공식사이트입니다.</div>
+            <div>Copyrightⓒ ssangyongsoft All Rights reserved.</div>
         </div>
-        <div class="footerInfo">
-            <div class="infoItem">리그일정 조정</div>
-            <div class="info">정성원(010-3151-5582)</div>
-        </div>
-        <div class="footerInfo">
-            <div class="infoItem">시스템개발문의</div>
-            <div class="info">(주)쌍용소프트(070-4322-2918)</div>
-        </div>
-        <div class="footerInfo">
-            <div class="infoItem">한독빌딩</div>
-            <div class="info">서울시 강남구 테헤란로 132 한독빌딩 8층</div>
-        </div>
-        <div class="footerInfo">
-            <div class="infoItem">TEL</div>
-            <div class="info">070)4322-2918</div>
-        </div>
-        <div class="footerInfo">
-            <div class="infoItem">FAX</div>
-            <div class="info" style="clear: both;">070)4322-2919</div>
-        </div>
-    </div>
-    <div class="footerBox3">
-        <div>본 사이트는 IT기업 (주)쌍용소프트가 시흥축구협회리그 선수들을 위해 운영하는 공식사이트입니다.</div>
-        <div>Copyrightⓒ ssangyongsoft All Rights reserved.</div>
-    </div>
 
 
 
 
 
-    <!-- 스크립트------------------------------------------------------------- -->
-    <script>
+        <!-- 스크립트------------------------------------------------------------- -->
+        <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
+        <script>
+            var flag = false;
+            $(document).scroll(function () {
 
-        var flag = false;
-        $(document).scroll(function () {
+                if ($(document).scrollTop() > $
+                    ("#main").position().top) {
 
-            if ($(document).scrollTop() > $
-                ("#main").position().top) {
+                    if (!flag) {
+                        $("#main").css({
+                            position: "fixed",
+                            top: -$("#main").outerHeight(),
+                            bottom: ""
+                        });
 
-                if (!flag) {
-                    $("#main").css({
-                        position: "fixed",
-                        top: -$("#main").outerHeight(),
-                        bottom: ""
-                    });
+                        $("#main").animate({
+                            top: "0px"
+                        }, 1000, function () {
+                            //alert();
+                            flag = true;
+                        });
+                    }
 
-                    $("#main").animate({
-                        top: "0px"
-                    }, 1000, function () {
-                        //alert();
-                        flag = true;
-                    });
                 }
 
-            }
-
-        });
-
-        $("#item1").click(function () {
-
-            location.href = "http://naver.com"
-
-        });
-
-        // ----------------------------------------------------------
-
-        //current position
-        var pos = 0;
-        //number of slides
-        var totalSlides = $('#slider-wrap ul li').length;
-        //get the slide width
-        var sliderWidth = $('#slider-wrap').width();
-
-
-        $(document).ready(function () {
-
-
-            /*****************
-             BUILD THE SLIDER
-            *****************/
-            //set width to be 'x' times the number of slides
-            $('#slider-wrap ul#slider').width(sliderWidth * totalSlides);
-
-            //next slide    
-            $('#next').click(function () {
-                slideRight();
             });
 
-            //previous slide
-            $('#previous').click(function () {
-                slideLeft();
+            $("#item1").click(function () {
+
+                location.href = "http://naver.com"
+
             });
 
 
-
-            /*************************
-             //*> OPTIONAL SETTINGS
-            ************************/
-            //automatic slider
-            var autoSlider = setInterval(slideRight, 3000);
-
-            //for each slide 
-            $.each($('#slider-wrap ul li'), function () {
-
-                //create a pagination
-                var li = document.createElement('li');
-                $('#pagination-wrap ul').append(li);
+            // -----------------------mypageinfoupdate--------------------
+            $("#infoUpdateBtn").click(function (e) {
+                e.preventDefault();
+                $("#testModal").modal("show");
             });
 
-            //counter
-            countSlides();
-
-            //pagination
-            pagination();
-
-            //hide/show controls/btns when hover
-            //pause automatic slide when hover
-            $('#slider-wrap').hover(
-                function () { $(this).addClass('active'); clearInterval(autoSlider); },
-                function () { $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
-            );
-
-
-
-        });//DOCUMENT READY
-
-
-
-        /***********
-         SLIDE LEFT
-        ************/
-        function slideLeft() {
-            pos--;
-            if (pos == -1) { pos = totalSlides - 1; }
-            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
-
-            //*> optional
-            countSlides();
-            pagination();
-        }
-
-
-        /************
-         SLIDE RIGHT
-        *************/
-        function slideRight() {
-            pos++;
-            if (pos == totalSlides) { pos = 0; }
-            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
-
-            //*> optional 
-            countSlides();
-            pagination();
-        }
-
-
-
-
-        /************************
-         //*> OPTIONAL SETTINGS
-        ************************/
-        function countSlides() {
-            $('#counter').html(pos + 1 + ' / ' + totalSlides);
-        }
-
-        function pagination() {
-            $('#pagination-wrap ul li').removeClass('active');
-            $('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
-        }
-
-
-
-
-    </script>
+        </script>
 </body>
 
 </html>
