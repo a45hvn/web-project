@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 세부</title>
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        span{
+            margin: 5px;
+        }
+        
+        #notice_show{
+
+            width: 1300px;
+            
+            margin: 0px auto;
+            
+        }
+
+        #tbl2{
+            border-collapse: collapse;
+            width: 600px;
+            display: block;
+            margin: 0px auto;
+        }
+
+        tr.seperated td{
+            border-bottom: 1px solid dimgray;
+        }
+
+        #tbl1{
+            display: block;
+            margin: 0px auto;
+        }
+
+        #backToMenu{
+            margin-right: 0;
+            margin-left: 75%;
+            border: 1px;
+            font-size: 20px;
+            width: 90px;
+            
+            
+
+        }
+        #ex{
+            width: 550px;
+            margin: 0px auto;
+        }
+
+
+        
+
+    </style>
+</head>
+<body>
+    
+    
+    <div id="notice_show">
+        <h3>공지사항</h3><br><br><br>
+        <table class="table center-block" id="tbl1" style="width: 600px;">
+            <tr>
+                <td style="font-weight: bold;">- 제목</td>
+                <td>매너플레이 부탁드립니다.</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">- 첨부파일</td>
+                <td>없음</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-weight: bold;">- 내용</td>
+                <!-- <td>요즘 경기도중 시비를 걸거나 싸우는 일이 잦습니다.<br>
+                    다들 경기 매너를 지켜주세요.</td> -->
+            </tr>
+        </table>
+        <div id="ex">
+            요즘 경기도중 시비를 걸거나 싸우는 일이 잦습니다.<br>
+                    다들 경기 매너를 지켜주세요.
+        </div>
+        <br><br>
+        <br><br>
+        <br><br>
+
+        <table id="tbl2">
+            <tr>
+                <td>▲</td>
+                <td>이전글</td>
+                <td>2020 스프링 리그 오픈 공지</td>
+            </tr>
+            <tr class ="seperated">
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td>▼</td>
+                <td>다음글</td>
+                <td>경기장 이용 필수 수칙</td>
+            </tr>
+        </table>
+        <br>
+        <br><br>
+        <input type="button" value="목록" id="backToMenu">
+        
+    </div>
+
+
+    <script>
+
+    </script>
+</body>
+</html>
