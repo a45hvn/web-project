@@ -12,136 +12,7 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        /* -----------------------------친구 목록 보기-------------------------------- */
-        .DM {
-            width: 500px;
-            float: left;
-            margin-left: 100px;
-            text-align: center;
-        }
 
-        #dmImgBox {
-            width: 100px;
-            height: 100px;
-            float: left;
-            position: relative;
-            left: 30px;
-        }
-
-        #dmImgBox>img {
-            width: 98px;
-            height: 98px;
-            border-radius: 50%;
-            float: left;
-            position: absolute;
-            left: 0px;
-        }
-
-        .DM>tbody>tr>td {
-            line-height: 50px;
-            border: 0px;
-        }
-
-        .DM>tbody>tr>th {
-            text-align: center;
-            font-size: 17px;
-            background-color: #92DAEC;
-            color: #0C1B23;
-        }
-
-        .DM>tbody>tr:nth-child(odd) {
-            line-height: 30px;
-            text-align: center;
-            font-size: 17px;
-
-            background-color: #0C1B23;
-            color: #FEF9CE;
-        }
-
-        .DM>tbody>tr:nth-child(even) {
-            text-align: center;
-            font-size: 17px;
-            background-color: #254150;
-            color: #FEF9CE;
-        }
-
-
-        .search {
-            width: 500px;
-            position: relative;
-            left: 100px;
-            margin-bottom: 20px;
-            z-index: 0;
-        }
-
-        .unfollow {
-            height: 30px;
-        }
-
-        .DM>tbody>tr>th>div {
-            margin-right: 10px;
-        }
-
-
-        .dmInfo {
-            float: left;
-            width: 300px;
-            height: 80px;
-            position: relative;
-            left: 55px;
-        }
-
-        .dmInfo>div {
-            height: 40px;
-            text-align: left;
-        }
-
-        .dmInfo>div>span {
-            margin-left: 20px;
-            font-size: 0.8em;
-        }
-
-        #dmBox>pre {
-            line-height: 30px;
-            float: left;
-            width: 500px;
-            height: 300px;
-            position: relative;
-            left: 80px;
-        }
-
-        .inputDm {
-            width: 300px;
-            position: relative;
-            left: 100px;
-            top: 50px;
-        }
-
-        .sendBtn {
-            position: relative;
-            left: 100px;
-            top: 40px;
-        }
-
-        .dmImgInBox {
-            width: 70px;
-            height: 70px;
-            float: left;
-            position: relative;
-            left: 60px;
-            top: 20px;
-        }
-
-        .contentBox {
-            width: 1300px;
-            height: 900px;
-        }
-
-
-        #dmBox>pre>img {
-            border-radius: 50%;
-
-        }
     </style>
 </head>
 
@@ -149,7 +20,7 @@
 
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
-
+    <!-- 상단부 -->
     <nav id="main">
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
@@ -178,21 +49,23 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">마이페이지</div>
+                <div class="menuTitle">커뮤니티</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>마이페이지</span>
+                    <span>커뮤니티</span>
                     <span>></span>
-                    <span>회원정보조회</span>
+                    <span>자유게시판</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="#">회원정보조회</a></li>
-                            <li><a href="#">구단정보관리</a></li>
-                            <li><a href="#">친구관리</a></li>
-                            <li><a href="#">DM</a></li>
+                            <li class="subMenuItem"><a href="#">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="#">갤러리</a></li>
+                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="#">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -201,93 +74,170 @@
         </div>
 
     </div>
+    <!-- 상단부 끝 -->
+
     <div class="center">
-
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">DM</span></div>
+                class="contentTitle">자유게시판</span></div>
 
-        <!-- 검색창 -->
-
-        <div class="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+            <!-- 메인박스  -->
+                <div id="centerMainBox">
+                             
+                    <!-- 게시판 선택 -->
+                    <div id="centerBox1">
+                        <span>게시판 :</span>
+                        <select name="" id="selectrow" >
+                            <option value="">게시판 선택</option>
+                            <option value="">질문게시판</option>
+                            <option value="">갤러리</option>   
+                            <option value="">자유게시판</option>   
+                            <option value="">강의게시판</option>   
+                            <option value="">친선경기모집</option>   
+                        </select>
+                        <select name="" id="selectrow">
+                            <option value="">말머리 선택</option>                
+                        </select>
+                    </div>        
+            
+                    <!-- 제목 입력 -->
+                    <div id="centerBox2">
+                        <span>제목 : </span>
+                        <input type="text" name="" id="" size="70px">
+                    </div>
+                    
+                    <!-- 내용 입력 -->
+                    <div id="centerBox3">          
+                        <textarea name="" id="" cols="100" rows="17">내용 :</textarea>
+                    </div>
+                    
+                    <!-- 파일첨부 -->
+                    <div>
+                        <div id="centerBox4">
+                            <div>
+                                <span>파일첨부 :</span>
+                                <span><input type="file" class="form-control" ></span>
+                            </div>
+                        </div>                          
+                    </div>
+                    
+                    <!-- 확인/미리보기 버튼 -->
+                    <div id="centerBox5">            
+                            <input class="writebtn" id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'";>
+                            <input class="writebtn" id="writebtn2" type="button" value="미리보기" onclick="location.href='ex01.html'";>         
+                    </div>
+                  
+                    
                 </div>
-            </div>
-        </div>
-        <div class="contentBox">
-            <div>
-                <table class="DM table table-bordered">
-                    <tr>
-                        <th colspan="2">
-                            <div class="glyphicon glyphicon-send"></div>
-                            DM
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div id="dmBox">
-                <pre>
-                <img src="../images/movie_image6.jpg" class="dmImgInBox">
-                권택진 
-                안녕하세요. 권택진입니다. 
-                <div></div>
-                <textarea class="inputDm form-control"></textarea>
-                <input type="button" value="답장보내기" style="cursor: pointer;" class="sendBtn btn btn-default">
-            </pre>
-            </div>
-        </div>
+
     </div>
 
+    <style>
 
+        .center {            
+            padding-top: 50px;
+            background-color: #eee;  
+            /* padding-bottom: 50px;                    */
+        }
 
+        #centerMainBox {
+            /* border: 1px solid black; */
+            width: 1200px;
+            height: 700px;
+            margin: 0px auto;    
+            font-size: 20px;        
+            font-weight: bold;
+        }
 
+        #centerBox1 {
+            /* border: 1px solid red; */
+            width: 1000px;
+            height: 50px;
+            float: left;          
+            margin-left: 15px;  
+            margin-top: 5px;
+            padding-top: 6px;            
+        }
+
+        #centerBox2 {
+            /* border: 1px solid red; */
+            width: 1000px;
+            height: 50px;             
+            display: inline-block;
+            margin-left: 15px;  
+            padding-top: 6px;
+        }
+
+        #centerBox3 {
+            /* border: 1px solid blue; */
+            width: 1150px;
+            height: 480px; 
+            margin-left: 15px;  
+        }
+
+        #centerBox4 {
+            /* border: 1px solid red; */
+            width: 800px;
+            height: 50px; 
+            margin-left: 15px;  
+            margin-top: -10;
+        }
+
+        #centerBox5 {
+            /* border: 1px solid red; */
+            width: 150px;
+            height: 50px; 
+            float: right;   
+            margin-right: 58px;       
+            padding-top: 3px;  
+            margin-top: -5px;
+        }
+      
+        #centerBox3 textarea {
+            resize:none;
+        }
+        
+        #centerBox4 span:nth-child(2) {
+            display: inline-block;
+            font-size: 15px;
+            margin-top: 6px;
+        }
+
+        #centerBox4 input {
+            padding-top: 4px;
+        }
+        
+        #centerBox5 input {
+            padding: 3px;
+        }
+
+        #centerBox1 select, #centerBox5 input, #centerBox4 input {
+            color: white; 
+            background-color: #1E3440 ;
+            padding-bottom: 5px;
+        }
+       
+       
+    </style>
+
+    <script>
+
+        $("#centerBox5 input").mouseover(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "#92DAEC").css("color", "black");
+
+        })
+
+        $("#centerBox5 input").mouseout(function() {
+
+        // alert($(this).text());
+        $(this).css("background-color", "").css("color", "");
+
+        })
+
+    </script>
+
+    <!-- 하단부  -->
 
     <nav class="sitemap">
         <ul class="siteList">
@@ -384,7 +334,7 @@
     </div>
 
 
-
+    <!-- 하단부  끝 -->
 
 
     <!-- 스크립트------------------------------------------------------------- -->
@@ -414,16 +364,6 @@
             }
 
         });
-
-        $("#item1").click(function () {
-
-            location.href = "http://naver.com"
-
-        });
-
-        // ----------------------------------------------------------
-
-
 
 
 

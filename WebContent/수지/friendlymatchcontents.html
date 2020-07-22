@@ -12,68 +12,101 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        .topContent{
-            /* float: left; */
-            /* border: 1px solid black; */
-            margin-top: 30px;
-            margin-left: 30px;
+        .center {
+            padding-top: 50px;
+            background-color: #eee;
         }
-        .center div{
+
+        .boardContentsOutBox {
+            margin-top: 20px;
+            width: 1200px;
+            height: 600px;
+            float: left;
+            border: 1px solid #E1E1E1;
+            border-top: 3px solid #0C1B23;
+            margin-left: 50px;
+            background-color: white;
+        }
+
+
+        .boardContentshead {
+            float: left;
+            width: 150px;
+            height: 50px;
+
+
+        }
+
+        .boardContentsTitle {
+            width: 630px;
+            height: 50px;
+            float: left;
+            left: 100px;
+        }
+
+        .writer {
+            width: 150px;
+            height: 50px;
             float: left;
         }
-        /* 팀검색,결과 */
-        .topContent:nth-child(1){
-            padding-top: 30px;
-        }
-        /* 팀로고 */
-        .topContent:nth-child(2){
-            margin-left: 100px;
-            /* border: 3px dashed gray; */
+
+        .date {
+            width: 120px;
+            height: 50px;
+            float: left;
         }
 
-        #searchTable{
-            margin-top: 30px;
+        .view {
+            width: 120px;
+            height: 50px;
+            float: left;
         }
 
-        #bottomContent{
-            width: 80%;
-            border: 1px solid black;
-            background-color: rgb(37, 40, 42);
-            color: rgb(226, 226, 226);
-;
-        }
-        h2{
-            /* margin-top: 150px; */
-            font-weight: bold;
-            width: 80%;
-        }
 
-        #rogobox div{
-            float: none;
-        }
-
-        #teamrogo{
-            border: 1px solid black;
-        }
-        #teaminfo{
-            /* border-left: 1px solid rgb(190, 190, 190); */
-            float: none;
-            width: 640px;
-            margin-left: 302px;
-            height: 302px;
-
-        }
-        #teaminfo div{
-            border: 1px solid rgb(223, 216, 216);
-            float: none;
-            width: 737px;
-            height: 16.6666666666%;
+        .boardContentsTitleBox {
+            width: 1200px;
+            height: 50px;
+            background-color: #E1E1E1;
+            padding-left: 20px;
+            line-height: 50px;
             font-size: 1.2em;
+
         }
 
-        hr{
-            border : 1px solid black;
-            width: 1178px;
+        .teamName {
+            float: right;
+            font-size: 1.3em;
+            font-weight: bold;
+            position: relative;
+            right: 30px;
+            top: 10px;
+        }
+
+        .detailContents {
+            padding: 30px;
+            font-size: 1.5em;
+        }
+
+        .applyBtn {
+            position: relative;
+            top: 30px;
+            left: 600px;
+            width: 160px;
+            height: 40px;
+            font-size: 16px;
+            float: left;
+        }
+
+        .listBtn {
+            position: relative;
+            top: 80px;
+            left: 900px;
+            width: 160px;
+            height: 40px;
+            font-size: 16px;
+            background-color: #254150;
+            color: #D5D7D7;
+
         }
     </style>
 </head>
@@ -82,7 +115,7 @@
 
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
-    <!-- 상단부 -->
+
     <nav id="main">
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
@@ -111,15 +144,21 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">선수등록/이적신청</div>
+                <div class="menuTitle">마이페이지</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>선수등록/이적신청</span>
+                    <span>마이페이지</span>
+                    <span>></span>
+                    <span>회원정보조회</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
+                            <li><a href="#">회원정보조회</a></li>
+                            <li><a href="#">구단정보관리</a></li>
+                            <li><a href="#">친구관리</a></li>
+                            <li><a href="#">DM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -128,69 +167,40 @@
         </div>
 
     </div>
-    <!-- 상단부 끝 -->
 
-    <div class="center" >
-        <div class="pageContentTitle" style="border-bottom: 1px solid black;">
-            <img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">선수등록/이적신청</span>
-        </div>
-        
-        <!-- 상단 컨텐츠 내용 -->
-        <div>
-            <div >
-                <div class="topContent">
-                <!-- 팀 검색 -->
-                <input type="text" class="input" value="팀이름을 검색하세요" style="opacity: .7;">
-                <input type="button" value="검색"> 
-                <!-- 팀 검색 결과 -->
-                <table class="table table-bordered" id="searchTable">
-                    <tr>
-                        <th>팀번호</th>
-                        <th>팀명</th>
-                        <th>주소</th>
-                        <th>구단주</th>
-                        <th>창단일</th>
-                        <th>슬로건</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>쌍용FC</td>
-                        <td>서울특별시 강남구 역삼동</td>
-                        <td>홍길동</td>
-                        <td>2015-06-07</td>
-                        <td>재밌게 공차는사람들 입니다.</td>
-                    </tr>
-                </table>
+    <div class="center">
+
+        <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
+                class="contentTitle">친선경기모집</span></div>
+
+        <div class="boardContentsOutBox">
+            <div class="boardContentsTitleBox">
+                <div class="boardContentshead">[친선경기모집]</div>
+                <div class="boardContentsTitle">7월 25일 친선경기 모집합니다. </div>
+                <div class="writer">작성자 오희준</div>
+                <div class="date">2020.07.12</div>
+                <div class="view">조회 126</div>
             </div>
-            <!-- 팀로고 -->
-            <div class="topContent" id="rogobox">
-                <img src="../images/rogo.png" alt="" style="width: 400px; margin-top: -100px;">
+            <div class="teamName">모집팀 : Double Dragon FC </div>
+            <div class="boardContents">
+                <div class="detailContents">
+                    안녕하세요<br>
+                    Double Dragon FC구단주 오희준입니다.<br>
+                    7월 25일 친선경기할 팀 모집합니다.<br>
+                    신청해주시면 개별 연락 드리도록할게요<br>
+                    <br>
+                    일시: 2020년 7월 25일<br>
+                    장소: 서울시 서초구 양재동
+                </div>
             </div>
         </div>
-
-        <h2>팀정보</h2>
-        <hr>
-        <div id="bottomContent" >
-            <div id="teamrogo"><img src="../images/rogo.png" alt="" style="width: 300px;"></div>
-            <div id="teaminfo">
-                <div>팀번호:</div>
-                <div>팀명:</div>
-                <div>주소:</div>
-                <div>창설일:</div>
-                <div>연락처:</div>
-                <div>슬로건:</div>
-            </div>
-
-        </div>
-
-        <hr style="margin-top: 345px;">
-        <button type="button" class="btn btn-primary" id="agreeButton">등록신청</button>
+        <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
+        <div><input type="button" value="목록보기" class="listBtn btn btn-default"></div>
+    </div>
     </div>
 
 
-    </div>
-    <!-- 하단부  -->
+
 
     <nav class="sitemap">
         <ul class="siteList">
@@ -287,7 +297,7 @@
     </div>
 
 
-    <!-- 하단부  끝 -->
+
 
 
     <!-- 스크립트------------------------------------------------------------- -->
@@ -318,10 +328,13 @@
 
         });
 
-        // 이적신청 버튼
-        $("#agreeButton").click(function () {
-            window.open("application.html", "apply", "width=812, height = 1300, left = 500 ")
+        $("#item1").click(function () {
+
+            location.href = "http://naver.com"
+
         });
+
+        // ----------------------------------------------------------
 
 
 

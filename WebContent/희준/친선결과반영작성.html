@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../webproject/submain_1.css">
+    <link rel="stylesheet" href="../webproject/submain_2.css">
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <script src="../jquery/js/jquery-1.12.4.js"></script>
+    <script src="../jquery/js/jquery-ui.js"></script>
+    
+    <div id="mainBox">
+        
+        <div id="box1">
+            <table>
+                <tr>
+                    <td>팀</td>
+                    <td>
+                        <select name="" id="">
+                        <option value="">역삼FC</option>
+                        <option value="">강남FC</option>
+                        <option value="">서울FC</option>
+                        <option value="">인천FC</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="" id="">
+                        <option value="">역삼FC</option>
+                        <option value="">강남FC</option>
+                        <option value="">서울FC</option>
+                        <option value="">인천FC</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>점수</td>
+                    <td><input type="text" name="" id=""></td>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>날짜</td>
+                    <td colspan="2"><input type="date" name="" id=""></td>                    
+                </tr>
+                <tr>
+                    <td>시간</td>
+                    <td colspan="2"><input type="time" name="" id=""></td>                    
+                </tr>
+                <tr>
+                    <td>내용</td>                    
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div>
+                            <input type="button" value="삭제">                        
+                            <input type="button" value="추가">
+                        </div>                        
+                    </td>                    
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <div>
+                            <input type="button" value="삭제">                        
+                            <input type="button" value="추가">
+                        </div>                        
+                    </td>                    
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <style>
+
+       #mainBox {
+           /* border: 1px solid black; */
+           width: 1000px;
+           height: 1000px;
+       }
+
+       #box1 {
+           /* border: 1px solid black; */
+           width: 900px;
+           height: 900px;
+           margin: 0 auto;
+       }
+
+       table {
+           border: 2px solid black;
+           text-align: center;           
+       }
+
+       table tr {
+            border: 1px solid white;
+       }
+
+       table tr, table td{
+            /* border: 1px solid cornflowerblue; */
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+       }
+
+       table select {
+            padding: 5px;                
+            padding-bottom: 9px;
+       }
+
+       table input {           
+           padding: 5px;       
+           text-align: center;
+       }
+
+       table tr:nth-child(1) td:nth-child(1) {
+            width: 100px;           
+       }
+
+       table tr:nth-child(2) input {
+           width: 100px;
+           text-align: center;
+       }
+
+       table tr:nth-child(5) textarea {
+           resize: none;
+           overflow-y: scroll;
+       }
+
+       table tr:nth-child(5) input {
+            float: right;   
+            margin-left: 5px;
+       }
+
+       table tr td:nth-child(1)  {
+           background-color: #92DAEC;
+       }
+
+       table select, table input {
+            color: white;   
+            background-color: #1E3440 ;
+       }
+
+       table {
+            background-color: #0C1B23;
+       }
+
+
+    </style>
+
+    <script>
+
+        $("table input").mouseover(function() {
+        // alert($(this).text());
+        $(this).css("background-color", "#92DAEC").css("color", "black");
+
+        })
+
+        $("table input").mouseout(function() {
+        // alert($(this).text());
+        $(this).css("background-color", "").css("color", "");
+
+        })
+
+        $("table tr:nth-child(5) input:nth-child(2)").click(function() {                    
+            // alert($(this));
+            child = window.open(
+            "친선결과반영작성내용추가.html",
+            "check",
+            "width=460, height=550, top=150, left=550"
+        );
+        }); 
+
+    </script>
+
+</body>
+
+</html>

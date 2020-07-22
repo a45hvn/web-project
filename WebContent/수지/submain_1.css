@@ -98,8 +98,8 @@
             width: 1300px;
             height: 100px;
             margin-left: 50px;
-            float: left;
-            padding: 40px 40px;
+            /* float: left;
+            padding: 40px 40px; */
         }
 
         .contentTitleImg {

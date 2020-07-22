@@ -26,41 +26,49 @@
             <table>
                 <thead>
                     <tr>
-                        <th>포지션</th>
-                        <th>번호</th>
-                        <th>이름</th>
-                        <th>나이</th>
+                        <th colspan="2">신청서</th>
+                        <!-- <th></th>                         -->
                     </tr>                    
                 </thead>
                 <tr>
-                    <td>
-                        <select style=" height: 30px;">
-                            <option value="">FW</option>
-                            <option value="">MF</option>
-                            <option value="">DF</option>
-                            <option value="">GK</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" name="" id="" style="width: 30px; text-align: center;">
-                    </td>
-                    <td>
-                        <select style=" height: 30px;">
-                            <option value="">오희준</option>
-                            <option value="">김택진</option>
-                            <option value="">이수지</option>
-                            <option value="">최재성</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="text" name="" id="" style="width: 30px; text-align: center;">
-                    </td>
-                </tr>                     
+                    <td>이름</td>
+                    <td>오희준</td>                    
+                </tr>
+                <tr>
+                    <td>포지션</td>
+                    <td>MF</td>                 
+                </tr>           
+                <tr>
+                    <td>신장</td>
+                    <td>170cm</td>             
+                </tr>          
+                <tr>
+                    <td>몸무게</td>
+                    <td>65kg</td>             
+                </tr>         
+                <tr>
+                    <tr>
+                        <td>생년월일</td>
+                        <td>1995.04.20</td>             
+                    </tr>                          
+                </tr>
+                <tr>
+                    <tr>
+                        <td>전화번호</td>
+                        <td>010-2222-2222</td>             
+                    </tr>                
+                </tr>
+                <tr>
+                    <tr>
+                        <td>각오</td>
+                        <td>아자 아자 화이팅!</td>             
+                    </tr>                         
+                </tr>
             </table>
         </div>
         <div id="box2">
-            <span><input type="button" value="완료"></span>
-            <span><input type="button" value="취소"></span>
+            <span><input type="button" value="승인"></span>
+            <span><input type="button" value="거절"></span>
         </div>        
     </div>
 
@@ -71,7 +79,7 @@
         }
        
         #mainBox {    
-            margin-top: 25px;   
+            margin-top: 20px;   
             /* border: 1px solid black; */
         }
 
@@ -83,43 +91,50 @@
 
         #box2 {
             /* border: 1px solid black; */
-            width: 80px;
-            font-size: 15px;
+            width: 120px;
+            font-size: 20px;
             float: right;
             margin-top: 10px;
-            margin-right: 16px;
+            margin-right: 130px;
+            font-weight: bold;
         }
 
        table {
            border: 1px solid #1E3440;
            width: 300px;
            height: 100px;
-       }
-
-       table th, table tr, table td {
-           /* border: 1px solid #1E3440; */
-           text-align: center;                    
-          
+           font-size: 20px;                      
        }
 
        table th {
+            border: 1px solid #1E3440;
+            text-align: center;  
+            font-size: 25px;
+       }
+
+       table tr, table td {
+           border: 1px solid #1E3440;
+           text-align: center;  
+           color: white;
+           padding: 5px;
+       }
+
+
+       table th {
            background-color: #92DAEC;
+           color: #0C1B23;
        }
 
        table tr{
            background-color: #0C1B23;
         }
-        
-        #box1 select {
-            background-color:#1E3440;
-            color: white;
-        }
-     
+
        #box2 input {
             color: white; 
             background-color: #1E3440 ;
+            padding: 5px;
+           
         }
-
 
     </style>
 

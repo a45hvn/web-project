@@ -11,145 +11,184 @@
     <link rel="stylesheet" href="../webproject/submain_2.css">
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
+
     <style>
-        /* -----------------------------친구 목록 보기-------------------------------- */
-        .DM {
-            width: 500px;
-            float: left;
-            margin-left: 100px;
-            text-align: center;
+        /* -----------------------------마이페이지------------------------------------- */
+        .center {
+            padding-top: 50px;
+            background-color: #eee;
         }
 
-        #dmImgBox {
-            width: 100px;
-            height: 100px;
-            float: left;
+        .myPageInfoBox {
+            border: 3px solid #92DAEC;
+            width: 500px;
+            height: 350px;
             position: relative;
-            left: 30px;
+            float: left;
+            margin-left: 110px;
+            background-color: #254150;
+            color: white;
+            margin-bottom: 60px;
         }
+
+        #memberpic {
+            width: 220px;
+            height: 220px;
+            padding: 30px;
+            margin-left: 40px;
+            float: left;
+        }
+
+        #memberpic>img {
+            width: 170px;
+            height: 170px;
+        }
+
+        #membername {
+            float: left;
+            margin: 35px 0 0 7px;
+            width: 200px;
+            height: 80px;
+            text-align: left;
+            font-weight: 600;
+            line-height: 30px;
+            font-size: 16px;
+            color: #FEF9CE;
+        }
+
+        #infoUpdate {
+            width: 435px;
+            height: 30px;
+            float: left;
+            color: #25282A;
+            position: relative;
+            left: 80px;
+        }
+
+        #infoUpdate>.btn {
+            width: 120px;
+            font-weight: bold;
+            margin-left: 35px;
+        }
+
+        .moreBtn {
+            width: 120px;
+            font-weight: bold;
+            margin-left: 200px;
+            color: #25282A;
+        }
+
+        .moreBtn2 {
+            width: 120px;
+            font-weight: bold;
+            margin-left: 200px;
+            margin-top: -30px;
+            color: #25282A;
+        }
+
 
         #dmImgBox>img {
-            width: 98px;
-            height: 98px;
-            border-radius: 50%;
+            width: 30px;
+            height: 30px;
             float: left;
-            position: absolute;
-            left: 0px;
+            border-radius: 50%;
+            margin-left: 40px;
         }
 
+        .dmInfo {
+            float: left;
+            position: relative;
+            left: 12px;
+            height: 20px;
+            line-height: 16px;
+        }
+
+        .mypageContents {
+            width: 1300px;
+            height: 800px;
+        }
+
+        .dmInfo>div>span {
+            position: absolute;
+            left: 320px;
+        }
+
+
         .DM>tbody>tr>td {
-            line-height: 50px;
             border: 0px;
         }
 
         .DM>tbody>tr>th {
             text-align: center;
-            font-size: 17px;
+            font-size: 10px;
             background-color: #92DAEC;
             color: #0C1B23;
+            border: 0px;
+        }
+
+        .DM>tbody>tr>th:first-child {
+            height: 30px;
+            font-size: 14px;
         }
 
         .DM>tbody>tr:nth-child(odd) {
-            line-height: 30px;
-            text-align: center;
-            font-size: 17px;
-
-            background-color: #0C1B23;
-            color: #FEF9CE;
-        }
-
-        .DM>tbody>tr:nth-child(even) {
-            text-align: center;
-            font-size: 17px;
+            font-size: 10px;
             background-color: #254150;
             color: #FEF9CE;
         }
 
-
-        .search {
-            width: 500px;
-            position: relative;
-            left: 100px;
-            margin-bottom: 20px;
-            z-index: 0;
+        .DM>tbody>tr:nth-child(even) {
+            font-size: 10px;
+            background-color: #0C1B23;
+            color: #FEF9CE;
         }
 
-        .unfollow {
-            height: 30px;
-        }
-
-        .DM>tbody>tr>th>div {
-            margin-right: 10px;
-        }
-
-
-        .dmInfo {
-            float: left;
-            width: 300px;
-            height: 80px;
-            position: relative;
-            left: 55px;
-        }
-
-        .dmInfo>div {
-            height: 40px;
-            text-align: left;
-        }
-
-        .dmInfo>div>span {
-            margin-left: 20px;
-            font-size: 0.8em;
-        }
-
-        #dmBox>pre {
-            line-height: 30px;
-            float: left;
-            width: 500px;
+        #container {
+            width: 400px;
             height: 300px;
-            position: relative;
-            left: 80px;
+            margin: 10px;
+            padding-left: 30px;
         }
 
-        .inputDm {
-            width: 300px;
-            position: relative;
-            left: 100px;
-            top: 50px;
+        .topTitle {
+            width: 497px;
+            height: 30px;
+            background-color: #92DAEC;
+            text-align: center;
+            line-height: 30px;
+            color: #0C1B23;
+            font-weight: bold;
+
         }
 
-        .sendBtn {
-            position: relative;
-            left: 100px;
-            top: 40px;
+        .matchTable {
+            max-width: 500px;
+            font-size: 0.9em;
+            color: #FEF9CE;
         }
 
-        .dmImgInBox {
-            width: 70px;
-            height: 70px;
-            float: left;
-            position: relative;
-            left: 60px;
-            top: 20px;
+        .matchTable>tbody>tr:nth-child(odd) {
+            background-color: #0C1B23;
         }
 
-        .contentBox {
-            width: 1300px;
-            height: 900px;
+        .matchTable>tbody>tr {
+            height: 30px;
+
         }
 
-
-        #dmBox>pre>img {
-            border-radius: 50%;
-
+        .matchTable>tbody>tr>td {
+            border: 0px;
         }
     </style>
 </head>
 
 <body>
-
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
-
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <nav id="main">
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
@@ -204,21 +243,25 @@
     <div class="center">
 
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">DM</span></div>
-
-        <!-- 검색창 -->
-
-        <div class="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
+                class="contentTitle">마이페이지</span></div>
+        <div class="mypageContents">
+            <div class="myPageInfoBox">
+                <div class="topTitle"><i class="glyphicon glyphicon-user"></i>회원정보</div>
+                <div id="memberpic"><img src="../images/images/man_02.png"></div>
+                <div id="membername">
+                    <div>이선웅</div>
+                    <div>Double Dragon FC</div>
+                    <div>Striker</div>
+                    <div>185cm</div>
+                    <div>84kg</div>
+                </div>
+                <div id="infoUpdate">
+                    <input type="button" class="btn" value="정보 수정하기">
+                    <input type="button" class="withdrawalbtn btn" value="탈퇴하기">
                 </div>
             </div>
-        </div>
-        <div class="contentBox">
-            <div>
-                <table class="DM table table-bordered">
+            <div class="myPageInfoBox">
+                <table class="DM table " style="border:0px;">
                     <tr>
                         <th colspan="2">
                             <div class="glyphicon glyphicon-send"></div>
@@ -236,10 +279,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
+                            <div id="dmImgBox"><img src="../images/rogowithoutletter.png"></div>
                             <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
+                                <div>오희준</div>
+                                <div>안녕하세요<span>2020.07.20</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="dmImgBox"><img src="../images/고양이.jpg"></div>
+                            <div class="dmInfo">
+                                <div>이수지</div>
+                                <div>안녕<span>2020.07.20</span></div>
                             </div>
                         </td>
                     </tr>
@@ -247,8 +299,8 @@
                         <td>
                             <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
                             <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
+                                <div>최재성</div>
+                                <div>안녕하세요.<span>2020.07.20</span></div>
                             </div>
                         </td>
                     </tr>
@@ -256,39 +308,148 @@
                         <td>
                             <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
                             <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
+                                <div>유민정</div>
+                                <div>친구해요<span>2020.07.20</span></div>
                             </div>
                         </td>
                     </tr>
                 </table>
+                <input type="button" class="moreBtn btn" value="더보기">
+
             </div>
-            <div id="dmBox">
-                <pre>
-                <img src="../images/movie_image6.jpg" class="dmImgInBox">
-                권택진 
-                안녕하세요. 권택진입니다. 
-                <div></div>
-                <textarea class="inputDm form-control"></textarea>
-                <input type="button" value="답장보내기" style="cursor: pointer;" class="sendBtn btn btn-default">
-            </pre>
+            <div class="myPageInfoBox">
+                <div class="topTitle"><i class="glyphicon glyphicon-calendar"></i>경기일정</div>
+                <table class="matchTable table table-borderd">
+                    <tr>
+                        <th>경기</th>
+                        <th>일시</th>
+                        <th>장소</th>
+                    </tr>
+                    <tr>
+                        <td>Dragons FC vs Bears FC</td>
+                        <td>2020.07.25</td>
+                        <td>서울시 강남구 역삼동 역삼초등학교</td>
+
+                    </tr>
+                    <tr>
+                        <td>Dragons FC vs Lions</td>
+                        <td>2020.08.01</td>
+                        <td>서울시 강남구 역삼동 역삼초등학교</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <input type="button" class="moreBtn2 btn" value="더보기">
+
+            </div>
+
+            <div class="myPageInfoBox">
+                <div class="topTitle"><i class="glyphicon glyphicon-king"></i>구단 순위, 개인순위</div>
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                    <p class="highcharts-description">
+                </figure>
             </div>
         </div>
     </div>
 
+    <script>Highcharts.chart('container', {
+            chart: {
+                type: 'areaspline',
+                backgroundColor: "#254150"
+            },
+            title: {
+                text: '리그 및 구단 개인 순위',
+                // Color: ''
+
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 150,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor:
+                    Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+            },
+            xAxis: {
+                categories: [
+                    '1월',
+                    '2월',
+                    '3월',
+                    '4월',
+                    '5월',
+                    '6월',
+                    '7월',
+                    '8월',
+                    '9월',
+                    '10월',
+                    '11월',
+                    '12월'
+                ],
+                plotBands: [{ // visualize the weekend
+                    from: 4.5,
+                    to: 6.5,
+                    color: 'rgba(68, 170, 213, .2)'
+                }]
+            },
+            yAxis: {
+                title: {
+                    text: '순위'
+                }
+            },
+            tooltip: {
+                shared: true,
+                valueSuffix: ' ranking'
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                areaspline: {
+                    fillOpacity: 0.5
+                }
+            },
+            series: [{
+                name: '리그',
+                data: [3, 4, 3, 5, 4, 10, 12, 3, 4, 3, 5, 4]
+            }, {
+                name: '구단',
+                data: [1, 3, 4, 3, 3, 5, 4, 3, 4, 3, 5, 4]
+            }]
+        });
 
 
 
+    </script>
 
+
+    </script>
     <nav class="sitemap">
         <ul class="siteList">
             <h2 class="listName"><a href="#">경기정보조회</a></h2>
@@ -420,11 +581,6 @@
             location.href = "http://naver.com"
 
         });
-
-        // ----------------------------------------------------------
-
-
-
 
 
     </script>
