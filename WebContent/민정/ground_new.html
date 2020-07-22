@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경기장 목록</title>
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        #ground_new{
+            width: 1300px;
+            margin: 0px auto;
+            /* border: 1px solid rosybrown; */
+        }
+        
+        #tbl1{
+            border: 2px solid rgb(88, 88, 88);
+            margin: 0px auto;
+            border-collapse: separate;
+            border-spacing: 30px;
+            height: 400px;
+        }
+        #commonBtn{
+            margin-left: 73%;
+            width: 80px;
+            height: 40px;
+            border: 0;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="ground_new">
+        <h3>● 경기장 등록</h3>
+        <br><br>
+        <form action="ground_list.html" method="GET" >
+        <div id="form1">
+            <table id="tbl1">
+                <tr>
+                    <td>지역</td>
+                    <td style="width: 600px;" colspan="2">
+                    <select name="지역" id="location">
+                        <option value="서울">서울</option>
+                        <option value="경기">경기</option>
+                        <option value="인천">인천</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td style="width: 200px;" >
+                        <input type="text" name="text" id="text">
+                    </td>
+                    <td><input type="button" value="검색"></td>
+                </tr>
+                <tr>
+                    <td>수용인원</td>
+                    <td style="width: 200px;" colspan="2"><input type="text" name="수용인원"></td>
+                    
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="등록" id="commonBtn">
+        </div>
+        </form>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

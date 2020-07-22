@@ -18,31 +18,32 @@
         <script src="../jquery/js/jquery-1.12.4.js"></script>
         <script src="../jquery/js/jquery-ui.js"></script>
         <!-- 상단부 -->
-        <nav id="main">
-            <table class="table table-default" id="mainMenu">
-                <tr id="menuTop">
-                    <td colspan="3"></td>
-                    <td rowspan="2" id="rogo" style="width: 1px;">
-                        <img src="../images/rogo.png" alt="" id="mainrogo" />
-                    </td>
-                    <td colspan="4">
-                        <button type="button" class="btn btn-default">로그인</button>
-                        <button type="button" class="btn btn-default">마이페이지</button>
-                    </td>
-                </tr>
-                <tr id="menuTr">
-                    <td class="menu"><span class="menuLabel">정규리그일정</span></td>
-                    <td class="menu"><span class="menuLabel">구단현황</span></td>
-                    <td class="menu"><span class="menuLabel">선수현황</span></td>
-                    <td class="menu"><span class="menuLabel">전력분석</span></td>
-                    <td class="menu"><span class="menuLabel">문자중계</span></td>
-                    <td class="menu"><span class="menuLabel">게시판</span></td>
-                    <td class="menu"><span class="menuLabel">공지사항</span></td>
-                </tr>
-            </table>
+        <nav id="main" style="float: left;">
+           
+                <table class="table table-default" id="mainMenu">
+                    
+                        <td colspan="3"></td>
+                        <td rowspan="2" id="rogo" style="width: 1px;">
+                            <img src="../images/rogo.png" alt="" id="mainrogo" />
+                        </td>
+                        <td colspan="4">
+                            <button type="button" class="btn btn-default">로그인</button>
+                            <button type="button" class="btn btn-default">마이페이지</button>
+                        </td>
+                    </tr>
+                    <tr id="menuTr">
+                        <td class="menu"><span class="menuLabel">정규리그일정</span></td>
+                        <td class="menu"><span class="menuLabel">구단현황</span></td>
+                        <td class="menu"><span class="menuLabel">선수현황</span></td>
+                        <td class="menu"><span class="menuLabel">전력분석</span></td>
+                        <td class="menu"><span class="menuLabel">문자중계</span></td>
+                        <td class="menu"><span class="menuLabel">게시판</span></td>
+                        <td class="menu"><span class="menuLabel">공지사항</span></td>
+                    </tr>
+                </table>
+            
+            
         </nav>
-
-        <div id="topBoard"></div>
 
         <div id="scoreBoard">
             <div id="subOuter">
@@ -110,7 +111,7 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td><img src="../images//chelsea.png" alt="" /></td>
+                                <td><img src="../images/chelsea.png" alt="" /></td>
                                 <td>첼시FC</td>
                                 <td>김감독</td>
                                 <td>2020. 07. 03.(화)</td>
@@ -562,6 +563,32 @@
                 }
             });
 
+            // 메뉴 클릭시 발생하는 이벤트
+            $(".menu")
+                .click(function () {
+                    // 어떤 메뉴를 눌렀는지 알려준다.
+
+                    var menu = $(this).children().text();
+                    console.log(menu);
+                })
+                .mouseover(function () {
+                    // 호버. CSS 효과 줌
+                    $(this).children().css({
+                        // "text-shadow": "1px 1px 2px",
+                        // color: "#F6BE0D",
+                        // transform: "scale(1, 1)",
+                        "background-color": "#0077C8",
+                    });
+                })
+                .mouseout(function () {
+                    // 토글
+                    $(this).children().css({
+                        "text-shadow": "",
+                        color: "",
+                        transform: "",
+                        "background-color": "#25282A",
+                    });
+                });
             $("#centerbox2 td:last-child").append("<span class='glyphicon glyphicon-map-marker'></span>");
             $("#centerbox2 td:last-child")
                 .children()

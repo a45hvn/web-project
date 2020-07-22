@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경기장 목록</title>
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .pagingarea{
+            /* display: inline-block; */
+            /* 
+            left: 500px;
+             
+              */
+            position: relative;
+            bottom: 50px;
+            width: 300px;
+            margin: 0px auto;
+        }
+        .pagingarea a{
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagingarea a.active {
+            background-color: #92DAEC;
+            color : white;
+            border: 1px solid #92DAEC;
+        }
+
+        .pagingarea a:hover:not(.active) {
+            background-color: #ccc;
+        }
+        #ground_list{
+            width: 1300px;
+            margin: 0px auto;
+            border: 1px solid maroon;
+        }
+        /* span{
+           
+           margin-left: 60%;
+           margin-right: auto;
+       } */
+
+       span{
+           position: relative;
+           margin-left: 70%;
+           bottom: 7px;
+       }
+
+       .btnOption{
+           width: 70px;
+           height: 40px;
+           margin-left: 25px;
+           border: 0px;
+           background-color: rosybrown;
+       }
+    </style>
+</head>
+<body>
+    <div id="ground_list">
+        <h3>● 경기장 목록</h3>
+        <br><br><br>
+        <span>
+            <select name="search" class="selectbox">
+                <option value="지역">지역</option>
+                <option value="이름">이름</option>
+            </select>
+            <input type="text" class="searchKeyword">
+            <input type="button" value="검색" class="searchBtn">
+        </span>
+        <br><br><br>
+        <table class="table" id="tbl1">
+            <tr>
+                <th>지역</th>
+                <th>경기장 이름</th>
+                <th>수용인원</th>
+                <th>상세지도</th>
+            </tr>
+            <tr>
+                <td>서울</td>
+                <td>경기장1</td>
+                <td>500명</td>
+                <td><img src="../images/map.png" alt="" style="width: 30px; height: 30px;"></td>
+            </tr>
+            <tr>
+                <td>서울</td>
+                <td>경기장2</td>
+                <td>300명</td>
+                <td><img src="../images/map.png" alt="" style="width: 30px; height: 30px;"></td>
+            </tr>
+            <tr>
+                <td>경기</td>
+                <td>경기장3</td>
+                <td>200명</td>
+                <td><img src="../images/map.png" alt="" style="width: 30px; height: 30px;"></td>
+            </tr>
+            <tr>
+                <td>서울</td>
+                <td>경기장4</td>
+                <td>400명</td>
+                <td><img src="../images/map.png" alt="" style="width: 30px; height: 30px;"></td>
+            </tr>
+            <tr>
+                <td>경기</td>
+                <td>경기장5</td>
+                <td>300명</td>
+                <td><img src="../images/map.png" alt="" style="width: 30px; height: 30px;"></td>
+            </tr>
+            <tr>
+                <td>경기</td>
+                <td>경기장6</td>
+                <td>300명</td>
+                <td><img src="../images/map.png" alt="" style="width: 30px; height: 30px;"></td>
+            </tr>
+        </table>
+        <br><br><br>
+        <br><br><br>
+        
+        <span>
+        <input type="button" value="추가" class="btnOption">
+        <input type="button" value="수정"class="btnOption">
+        <input type="button" value="삭제"class="btnOption">
+        </span>
+
+        <div class="pagingarea">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">&raquo;</a>     
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

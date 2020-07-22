@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 목록</title>
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <style>
+        body{
+            width: 1300px;
+            margin: 0px auto;
+        }
+        
+        .pagingarea{
+            display: inline-block;
+            position: relative;
+            left: 700px;
+        }
+        .pagingarea a{
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagingarea a.active {
+            background-color: #92DAEC;
+            color : white;
+            border: 1px solid #92DAEC;
+        }
+
+        .pagingarea a:hover:not(.active) {
+            background-color: #ccc;
+        }
+
+        table tr:hover{
+            background-color: #ccc;
+        }
+
+        #writeBtn{
+            background-color: #ccc;
+            border: none;   
+            padding: 8px 16px;
+        }
+        #correctBtn{
+            background-color: #ccc;
+            border: none;   
+            padding: 8px 16px;
+            margin: 20px;
+        }
+        #deleteBtn{
+            background-color: #ccc;
+            border: none;   
+            padding: 8px 16px;
+            
+        }
+
+        #commonBtn{
+            
+            position: relative;
+            bottom: -300px;
+        }
+
+        #body1{
+            width: 1300px;
+            margin: auto 0px;
+        }
+
+        
+
+        
+    </style>
+</head>
+<body>
+
+    <h3>● 공지사항 등록</h3>
+    <!-- <div id="divSearch">
+        <input type="search" name="search" id="searchKeyword">
+        <input type="button" value="검색" id="searchBtn">
+        
+    </div>
+    <br> -->
+    <br><br>
+    <div id="body1">
+    <table class="table">
+        <tr>
+            <th>번호</th>
+            <th>날짜</th>
+            <th>제목</th>
+            <th>관리자</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2020-03-03</td>
+            <td>2020 스프링리그 오픈 공지</td>
+            <td>관리자1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2020-05-01</td>
+            <td>매너플레이 부탁드립니다</td>
+            <td>관리자3</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2020-06-18</td>
+            <td>경기장 이용 필수 수칙</td>
+            <td>관리자1</td>
+        </tr>
+    </table>
+    
+    <br>
+    <br>
+        <div id="commonBtn">
+        <input type="button" value="추가" id="writeBtn">
+        <input type="button" value="수정" id="correctBtn">
+        <input type="button" value="삭제" id="deleteBtn">
+       
+        <div class="pagingarea">
+            <a href="#">&laquo;</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">&raquo;</a>     
+        </div>
+     </div>
+     </div>
+    <script>
+        
+    </script>
+</body>
+</html>

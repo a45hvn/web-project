@@ -11,7 +11,7 @@
 
 .teamOuter {
     margin-top: 1.5%;
-    width: 43.9%;
+    width: 44%;
 
     height: 40px;
     float: left;
@@ -116,43 +116,48 @@
     background-color: #0b1216;
     /* border: 1px solid red; */
     width: 1300px;
-    height: 650px;
     margin: 0px auto;
-    position: relative;
     color: white;
-    /* font-size: 1.2em; */
 }
 
-.enrtyOuter {
+.entryOuter {
+    /* border: 10px solid gold; */
+    position: relative;
     width: 100%;
 }
 .entry {
     /* border: 1px solid gold; */
     width: 20%;
-    height: 100px;
-    /* float: left; */
-    position: absolute;
     color: white;
     font-size: 2em;
+    padding: 3%;
 }
 .textBroadcast {
     /* border: 1px solid tomato; */
     text-align: center;
-    width: 40%;
-    /* height: 1000px; */
+    width: 43%;
+    height: 600px;
     position: absolute;
     left: 30%;
     top: 2%;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
+}
+.textBroadcast::-webkit-scrollbar {
+    border: 0px solid #eee;
+}
+.textBroadcast::-webkit-scrollbar-thumb {
+    background-color: #92daec;
 }
 .menuTitle2 {
     font-size: 2em;
 }
+.textBroadcast {
+    border: 2px solid #eee;
+}
 .textBroadcast ul {
     position: absolute;
     left: 2.5%;
-    border: 2px solid #eee;
-    overflow-y: scroll;
+    /* border: 2px solid #eee; */
 }
 
 .textBroadcast li {
@@ -165,12 +170,16 @@
 .textBroadcast li:nth-child(odd) {
     background-color: #254150;
 }
-
+.textBroadcast li:nth-child(even) {
+    background-color: #0b1216;
+}
 #teamAEntry {
-    left: 3%;
+    position: absolute;
+    left: 2%;
 }
 #teamBEntry {
-    right: 3%;
+    position: relative;
+    left: 78%;
 }
 .backNum {
     color: turquoise;
@@ -180,7 +189,7 @@
 .playerName {
     display: inline-block;
     position: absolute;
-    right: 40%;
+    right: 30%;
 }
 .position {
     display: inline-block;

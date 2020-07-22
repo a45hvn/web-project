@@ -29,23 +29,33 @@
     }
 
     body {
-        background-color: #25282A;
+        background-color: #f2f4f7
     }
 
     .loginBox {
         padding: 35px;
-        width: 490px;
+        width: 500px;
         height: 800px;
-        margin: 110px auto;
-        background-color: #202325;
+        margin: 100px auto;
+
     }
 
     .loginBox>div>img {
         width: 150px;
         height: 150px;
         float: left;
-        margin: 30px 120px;
+
+        margin: 35px 130px;
     }
+
+    /* 
+    .loginBox>div:first-child {
+        width: 300px;
+        height: 170px;
+        padding: 20px;
+        border: 1px solid #000; */
+    /* margin: 30px 120px; */
+    /* } */
 
     .loginInput>.id,
     .loginInput>.pw,
@@ -64,9 +74,9 @@
     }
 
     .loginInfo {
+        margin-top: 40px;
         font-size: 0.9em;
         padding-left: 18px;
-        margin-top: 50px;
     }
 
     .loginInfo>a {
@@ -76,22 +86,16 @@
     .signIn>a {
         position: relative;
         top: 20px;
-        width: 190px;
-        margin: 10px;
+        width: 200px;
         float: left;
-        /* border: 1px solid white; */
 
-    }
-
-    .loginBox>hr {
-        border: 0.5px solid white;
     }
 
     #copy {
         color: #8f8f8f;
         position: relative;
         top: 170px;
-        left: 80px;
+        left: 100px;
         font-size: 0.8em;
 
     }
@@ -99,7 +103,7 @@
 
 <body>
     <div class="loginBox">
-        <div><img src="../images/rogo_2.png"></div>
+        <div><img src="../images/rogo_3.png"></div>
         <div class="loginInput">
             <input type="text" class="id required form-control" id="login-id" title="아이디" value placeholder="아이디">
             <input type="password" class="pw required form-control" id="login-pw" title="비밀번호" value placeholder="비밀번호">
