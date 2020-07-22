@@ -462,9 +462,13 @@
     // ----------------------------------------------------------
     <script>
         Highcharts.chart('container', {
+            chart: {
 
+                backgroundColor: "#254150"
+            },
             title: {
-                text: '구단 내 순위'
+                text: '구단 내 순위',
+
             },
 
             subtitle: {
@@ -479,7 +483,7 @@
 
             xAxis: {
                 accessibility: {
-                    rangeDescription: 'Range: 2010 to 2017'
+                    rangeDescription: 'Range: 1 to 12'
                 }
             },
 
@@ -494,7 +498,7 @@
                     label: {
                         connectorAllowed: false
                     },
-                    pointStart: 2010
+                    pointStart: 1
                 }
             },
 
@@ -519,7 +523,7 @@
             }
 
         });
-        $("text").css("fill", "#3B3B3D");
+        $("text").css("fill", "#FEF9CE");
 
     </script>
 
