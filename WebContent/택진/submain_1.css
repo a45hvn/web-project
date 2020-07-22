@@ -97,8 +97,9 @@
         .pageContentTitle {
             width: 1300px;
             height: 100px;
-            float: left;
-            padding: 40px 40px;
+            margin-left: 50px;
+            /* float: left;
+            padding: 40px 40px; */
         }
 
         .contentTitleImg {
