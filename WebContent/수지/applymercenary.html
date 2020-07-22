@@ -12,7 +12,69 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
+        .center {
+            padding-top: 50px;
+            background-color: #eee;
+        }
 
+        .applyOutBox {
+            float: left;
+            width: 1200px;
+            height: 600px;
+            border: 1px solid #E1E1E1;
+            border-top: 3px solid #0C1B23;
+            margin-left: 60px;
+            background-color: white;
+
+        }
+
+        .applyTitle {
+            width: 1200px;
+            height: 50px;
+            float: left;
+            background-color: #e1e1e1;
+            font-size: 2em;
+            text-align: center;
+            line-height: 50px;
+
+        }
+
+        .applyBtn {
+            margin: 20px 0 0 600px;
+            width: 160px;
+            height: 40px;
+            font-size: 16px;
+        }
+
+        .applyTableBox {
+            width: 500px;
+            margin: 150px 0 0 350px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .applyTable>tbody>tr>td {
+            width: 300px;
+        }
+
+        .applyTable>tbody>tr>td>input {
+            width: 260px;
+        }
+
+        .applyCount {
+            height: 100px;
+            font-size: 1.5em;
+        }
+
+        .applyCount>div {
+            float: left;
+            margin: 20px 10px 20px 500px;
+        }
+
+        .applyCount>select {
+            width: 100px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -20,7 +82,7 @@
 
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
-    <!-- 상단부 -->
+
     <nav id="main">
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
@@ -49,23 +111,21 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">커뮤니티</div>
+                <div class="menuTitle">마이페이지</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>커뮤니티</span>
+                    <span>마이페이지</span>
                     <span>></span>
-                    <span>자유게시판</span>
+                    <span>회원정보조회</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="#">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="#">갤러리</a></li>
-                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="#">용병모집</a></li>
+                            <li><a href="#">회원정보조회</a></li>
+                            <li><a href="#">구단정보관리</a></li>
+                            <li><a href="#">친구관리</a></li>
+                            <li><a href="#">DM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -74,192 +134,53 @@
         </div>
 
     </div>
-    <!-- 상단부 끝 -->
 
     <div class="center">
+
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">친선경기모집</span></div>
+                class="contentTitle">용병모집 신청</span></div>
 
-        <!-- 메인박스  -->
-        <div id="centerMainBox">
-
-            <!-- 게시판 선택 -->
-            <div id="centerBox1">
-                <span>게시판 :</span>
-                <select name="" id="selectrow">
-                    <option value="">게시판 선택</option>
-                    <option value="">질문게시판</option>
-                    <option value="">갤러리</option>
-                    <option value="">자유게시판</option>
-                    <option value="">강의게시판</option>
-                    <option value="">친선경기모집</option>
-                    <option value="">용병모집</option>
-                </select>
-                <select name="" id="selectrow">
-                    <option value="">말머리 선택</option>
-                </select>
-            </div>
-
-            <!-- 제목 입력 -->
-            <div id="centerBox2">
-                <span>제목 : </span>
-                <input type="text" name="" id="" size="70px">
-            </div>
-            <!-- 구장 선택시 주소 자동 입력  -->
-            <div id="info">
+        <div class="applyOutBox">
+            <div class="applyTitle">용병모집 신청</div>
+            <div class="applyCount">
+                <div>신청인원 :</div>
                 <select>
-                    <option>구단 선택 </option>
-                    <option>Bears FC </option>
-                    <option>Lions FC</option>
-                    <option>HALLS FC</option>
-                    <option>Eclipse FC</option>
-                    <option>Stanley FC</option>
-                    <option>gram FC</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
                 </select>
-                <input type="date">
             </div>
-
-
-            <!-- 내용 입력 -->
-            <div id="centerBox3">
-                <textarea name="" id="" cols="100" rows="17">내용 :
-                </textarea>
+            <div class="applyTableBox">
+                <table class="applyTable table table-bordered">
+                    <tr>
+                        <th>이름: </th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>전화번호: </th>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>포지션: </th>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
             </div>
-
-            <!-- 파일첨부 -->
-            <div>
-                <div id="centerBox4">
-                    <div>
-                        <span>파일첨부 :</span>
-                        <span><input type="file" class="form-control"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 확인/미리보기 버튼 -->
-            <div id="centerBox5">
-                <input class="writebtn " id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'" ;>
-                <input class="writebtn " id="writebtn2" type="button" value="미리보기" onclick="location.href='ex01.html'"
-                    ;>
-            </div>
-
-
         </div>
-
+        <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
     </div>
 
-    <style>
-        .center {
-            padding-top: 50px;
-            background-color: #eee;
-        }
-
-        #centerMainBox {
-            border: 1px solid black;
-            width: 1200px;
-            height: 700px;
-            margin: 0px auto;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        #centerBox1 {
-            /* border: 1px solid red; */
-            width: 1000px;
-            height: 50px;
-            float: left;
-            margin-left: 15px;
-            margin-top: 5px;
-            padding-top: 6px;
-        }
-
-        #centerBox2 {
-            /* border: 1px solid red; */
-            width: 1000px;
-            height: 50px;
-            display: inline-block;
-            margin-left: 15px;
-            padding-top: 6px;
-        }
-
-        #centerBox3 {
-            /* border: 1px solid blue; */
-            width: 1150px;
-            height: 480px;
-            margin-left: 15px;
-        }
-
-        #centerBox4 {
-            /* border: 1px solid red; */
-            width: 800px;
-            height: 50px;
-            margin-left: 15px;
-            margin-top: -10;
-        }
-
-        #centerBox5 {
-            /* border: 1px solid red; */
-            width: 150px;
-            height: 50px;
-            float: right;
-            margin-right: 58px;
-            padding-top: 3px;
-            margin-top: 25px;
-        }
 
 
-        #centerBox4 span:nth-child(2) {
-            display: inline-block;
-            font-size: 15px;
-            margin-top: 6px;
-        }
 
-        #centerBox4 input {
-            padding-top: 4px;
-        }
-
-        #centerBox5 input {
-            padding: 3px;
-        }
-
-        #centerBox1 select,
-        #centerBox5 input,
-        #centerBox4 input {
-            color: white;
-            background-color: #1E3440;
-            padding-bottom: 5px;
-        }
-
-        #info {
-            margin: 0 15px 15px 15px;
-        }
-
-        #info>select {
-            height: 40px;
-            float: left;
-            margin-right: 15px;
-        }
-    </style>
-
-    <script>
-
-        $("#centerBox5 input").mouseover(function () {
-
-            // alert($(this).text());
-            $(this).css("background-color", "#92DAEC").css("color", "black");
-
-        })
-
-        $("#centerBox5 input").mouseout(function () {
-
-            // alert($(this).text());
-            $(this).css("background-color", "").css("color", "");
-
-        })
-
-    </script>
-
-    <!-- 하단부  -->
 
     <nav class="sitemap">
         <ul class="siteList">
@@ -356,7 +277,7 @@
     </div>
 
 
-    <!-- 하단부  끝 -->
+
 
 
     <!-- 스크립트------------------------------------------------------------- -->
@@ -386,6 +307,16 @@
             }
 
         });
+
+        $("#item1").click(function () {
+
+            location.href = "http://naver.com"
+
+        });
+
+        // ----------------------------------------------------------
+
+
 
 
 

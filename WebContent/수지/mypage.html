@@ -32,9 +32,10 @@
         }
 
         #memberpic {
-            width: 270px;
-            height: 270px;
-            padding: 50px;
+            width: 220px;
+            height: 220px;
+            padding: 30px;
+            margin-left: 40px;
             float: left;
         }
 
@@ -45,7 +46,7 @@
 
         #membername {
             float: left;
-            margin: 65px 0 0 7px;
+            margin: 35px 0 0 7px;
             width: 200px;
             height: 80px;
             text-align: left;
@@ -74,7 +75,14 @@
             width: 120px;
             font-weight: bold;
             margin-left: 200px;
-            margin-top: -10px;
+            color: #25282A;
+        }
+
+        .moreBtn2 {
+            width: 120px;
+            font-weight: bold;
+            margin-left: 200px;
+            margin-top: -30px;
             color: #25282A;
         }
 
@@ -125,13 +133,13 @@
 
         .DM>tbody>tr:nth-child(odd) {
             font-size: 10px;
-            background-color: #0C1B23;
+            background-color: #254150;
             color: #FEF9CE;
         }
 
         .DM>tbody>tr:nth-child(even) {
             font-size: 10px;
-            background-color: #254150;
+            background-color: #0C1B23;
             color: #FEF9CE;
         }
 
@@ -142,7 +150,7 @@
             padding-left: 30px;
         }
 
-        #ranking {
+        .topTitle {
             width: 497px;
             height: 30px;
             background-color: #92DAEC;
@@ -151,6 +159,25 @@
             color: #0C1B23;
             font-weight: bold;
 
+        }
+
+        .matchTable {
+            max-width: 500px;
+            font-size: 0.9em;
+            color: #FEF9CE;
+        }
+
+        .matchTable>tbody>tr:nth-child(odd) {
+            background-color: #0C1B23;
+        }
+
+        .matchTable>tbody>tr {
+            height: 30px;
+
+        }
+
+        .matchTable>tbody>tr>td {
+            border: 0px;
         }
     </style>
 </head>
@@ -219,6 +246,7 @@
                 class="contentTitle">마이페이지</span></div>
         <div class="mypageContents">
             <div class="myPageInfoBox">
+                <div class="topTitle"><i class="glyphicon glyphicon-user"></i>회원정보</div>
                 <div id="memberpic"><img src="../images/images/man_02.png"></div>
                 <div id="membername">
                     <div>이선웅</div>
@@ -289,9 +317,57 @@
                 <input type="button" class="moreBtn btn" value="더보기">
 
             </div>
-            <div class="myPageInfoBox">경기일정</div>
             <div class="myPageInfoBox">
-                <div id="ranking"><i class="glyphicon glyphicon-king"></i>구단 순위, 개인순위</div>
+                <div class="topTitle"><i class="glyphicon glyphicon-calendar"></i>경기일정</div>
+                <table class="matchTable table table-borderd">
+                    <tr>
+                        <th>경기</th>
+                        <th>일시</th>
+                        <th>장소</th>
+                    </tr>
+                    <tr>
+                        <td>Dragons FC vs Bears FC</td>
+                        <td>2020.07.25</td>
+                        <td>서울시 강남구 역삼동 역삼초등학교</td>
+
+                    </tr>
+                    <tr>
+                        <td>Dragons FC vs Lions</td>
+                        <td>2020.08.01</td>
+                        <td>서울시 강남구 역삼동 역삼초등학교</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <input type="button" class="moreBtn2 btn" value="더보기">
+
+            </div>
+
+            <div class="myPageInfoBox">
+                <div class="topTitle"><i class="glyphicon glyphicon-king"></i>구단 순위, 개인순위</div>
                 <figure class="highcharts-figure">
                     <div id="container"></div>
                     <p class="highcharts-description">
