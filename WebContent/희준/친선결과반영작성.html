@@ -24,7 +24,7 @@
     <div id="mainBox">
         
         <div id="box1">
-            <table>
+            <table id="table1">
                 <tr>
                     <td>팀</td>
                     <td>
@@ -59,44 +59,83 @@
                 </tr>
                 <tr>
                     <td>내용</td>                    
-                    <td>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                        <div>
-                            <input type="button" value="삭제">                        
-                            <input type="button" value="추가">
-                        </div>                        
-                    </td>                    
-                    <td>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                        <div>
-                            <input type="button" value="삭제">                        
-                            <input type="button" value="추가">
-                        </div>                        
-                    </td>                    
-                </tr>
+                    <td colspan="2">
+                        <table id="table2">
+                            <thead> 
+                                <!-- <input type="button" value="+" id="add"> -->
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="" id="">
+                                    </td>
+                                    <td>팀</th>
+                                    <td>선수</th>
+                                    <td>시간</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="" id="">
+                                </td>
+                                <td>
+                                    <select name="" id="">
+                                        <option value="">역삼FC</option>
+                                        <option value="">강남FC</option>
+                                        <option value="">서울FC</option>
+                                        <option value="">인천FC</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="" id="">
+                                        <option value="">오희준</option>
+                                        <option value="">권택진</option>
+                                        <option value="">이수지</option>
+                                        <option value="">최재성</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="" id="time" style="height: 24px;">
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </table>
+                        <div><input type="button" value="삭제" id="" style="" class="btn1"></div>
+                        <div><input type="button" value="추가" id="" style="" class="btn1"></div>
+                    </td>
             </table>
         </div>
-
+                <div id="box2">
+                    <input type="button" value="완료" style="">
+                    <input type="button" value="취소" style="">
+                </div>
     </div>
 
     <style>
 
        #mainBox {
            /* border: 1px solid black; */
-           width: 1000px;
-           height: 1000px;
+           /* width: 1000px;            */
+           font-size: 1.1em;
+           font-weight: bold;
        }
-
+       
        #box1 {
-           /* border: 1px solid black; */
-           width: 900px;
-           height: 900px;
-           margin: 0 auto;
+           border: 1px solid black;
+           width: 400px;           
+           margin: 0 auto;         
+           margin-bottom: 5px;  
+       }
+       
+       #box2 {
+           /* border: 1px solid black;            */
+           width: 250px;           
+           padding-left: 110px;           
+           margin: 0 auto;                    
        }
 
        table {
-           border: 2px solid black;
-           text-align: center;           
+           /* border: 1px solid black; */
+           text-align: center;   
        }
 
        table tr {
@@ -105,33 +144,23 @@
 
        table tr, table td{
             /* border: 1px solid cornflowerblue; */
-            padding: 10px;
-            font-size: 20px;
-            font-weight: bold;
+            padding: 10px;                        
        }
 
-       table select {
-            padding: 5px;                
-            padding-bottom: 9px;
-       }
-
-       table input {           
-           padding: 5px;       
-           text-align: center;
+       table select, table input, #box2 input{            
+            height: 25px;
+            text-align: center;
+            /* background-color: red; */            
        }
 
        table tr:nth-child(1) td:nth-child(1) {
-            width: 100px;           
+            width: 70px;           
+            
        }
 
        table tr:nth-child(2) input {
-           width: 100px;
+           width: 80px;
            text-align: center;
-       }
-
-       table tr:nth-child(5) textarea {
-           resize: none;
-           overflow-y: scroll;
        }
 
        table tr:nth-child(5) input {
@@ -139,17 +168,33 @@
             margin-left: 5px;
        }
 
-       table tr td:nth-child(1)  {
+        table tr td:nth-child(1)  {
            background-color: #92DAEC;
        }
 
-       table select, table input {
-            color: white;   
-            background-color: #1E3440 ;
+        table {
+            /* background-color: #0C1B23; */
        }
 
-       table {
-            background-color: #0C1B23;
+        #table2 th, #table2 td{
+           border: 1px solid black;                      
+       }
+
+       /* checkbox들 */
+       #table2 td:nth-child(1) {           
+           background-color: white;
+           padding-right: 18px;
+       }
+
+       /* 시간 기입 */
+       #time {         
+            width: 40px; 
+            height: 25px;           
+       }
+
+       /* 추가버튼, 삭제버튼 */
+       .btn1 {           
+           margin-top: 5px;
        }
 
 
@@ -157,26 +202,17 @@
 
     <script>
 
-        $("table input").mouseover(function() {
+        $("input").mouseover(function() {
         // alert($(this).text());
         $(this).css("background-color", "#92DAEC").css("color", "black");
 
         })
 
-        $("table input").mouseout(function() {
+        $("input").mouseout(function() {
         // alert($(this).text());
         $(this).css("background-color", "").css("color", "");
-
         })
-
-        $("table tr:nth-child(5) input:nth-child(2)").click(function() {                    
-            // alert($(this));
-            child = window.open(
-            "친선결과반영작성내용추가.html",
-            "check",
-            "width=460, height=550, top=150, left=550"
-        );
-        }); 
+        
 
     </script>
 

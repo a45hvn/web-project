@@ -82,7 +82,7 @@
 
                 <div id="centerMainBox">
                     <!-- 왼쪽 명단 추가하는 박스 -->
-                    <div id="centerbox2">
+                    <div id="centerbox2" >
                         <div id="centerbox2Left">
                             <div>
                                 <table>
@@ -266,22 +266,31 @@
                         </div>
                         <!-- 오른쪽 포메이션 박스 -->
                         <div id="centerbox2Right">
-                            <div id="formation" style="background-image: url(../images/soccer.png);">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
-                                <img src="../images/soccer2.jpg" alt="">
+                            <div id="formation" style="background-image: url(../images/soccer5.jpg);">
+                                <div>
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                    <img src="../images/soccer2.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img src="../images/soccer2.jpg" alt="">
+                                </div>
+                                
                             </div>
                             <div id="formationSelect">
                                 <span style="font-weight: bold;">포메이션 : </span>
-                                <select style=" height: 30px;">
+                                <select style=" height: 25px;">
                                     <option value="">442</option>
                                     <option value="">433</option>
                                     <option value="">352</option>
@@ -305,12 +314,12 @@
                     width: 1200px;
                     height: 900px;
                     margin: 0px auto;         
+                    font-size: 1.1em;
                 }     
         
                 #centerbox2 {
                     /* border: 2px solid blue; */
-                    width: 1200px;
-                    height: 900px;                    
+                    width: 1200px;      
                     float: left;
                     /* background-color: red;    */
                 }
@@ -326,21 +335,21 @@
         
                 #centerbox2Right {
                     /* border: 1px solid black; */
-                    width: 790px;
-                    height: 850px;
+                    /* width: 790px; */
+                    /* height: 850px; */
                     float: left;
-                    margin-left: 5px;         
-                    margin-top: 10px;           
+                    margin-left: 95px;         
+                    margin-top: 10px;        
                 }
         
                 #centerbox2Left table{
                     /* border: 1px solid blue; */
-                    height: 780px;
+                    /* height: 880px; */
                     width: 380px;            
                 }
         
                 #centerbox2Left table th, #centerbox2Left table td{
-                    border: 1px solid black;     
+                    /* border: 1px solid black;      */
                     color: white;       
                 }
         
@@ -357,7 +366,7 @@
 
                 table tr{
                     width: 800px;
-                    background-color: #1E3440  
+                    background-color: #1E3440;
                 }   
 
                 table tr:nth-child(even){
@@ -395,8 +404,6 @@
                     float: right;
                     margin-top: 15px;
                     margin-right: 10px;
-                    font-size: 20px;
-                    
                 }
 
                 #centerbox2LeftButton input {
@@ -406,99 +413,97 @@
 
                 #formation {
                     /* border: 1px solid hotpink; */
-                    height: 780px;
-                    width: 780px;
+                    height: 720px;
+                    width: 680px;
                 }
 
                 #formationSelect {
                     float: right;
                     margin-top: 15px;
                     margin-right: 10px;
-                    font-size: 20px;
                 }
 
                 #formation {
                     background-repeat: no-repeat;
-                    background-position: center center;
-                    background-size: 800px 780px;
+                    /* background-position: center center; */
+                    background-size: 680px 720px;
+                }
+
+                /* 442 */
+                #formation div {
+                    position: relative;
+                }
+
+                /* FW 지역 */
+                #formation div:nth-child(1) {
+                    /* border: 3px solid red; */
+                    height: 150px;
+                    text-align: center;
+                    top: 140px;
+                }
+
+                /* MF 지역 */
+                #formation div:nth-child(2) {
+                    /* border: 3px solid blue; */
+                    height: 150px;
+                    text-align: center;
+                    top: 120px;
+                }
+
+                /* DF 지역 */
+                #formation div:nth-child(3) {
+                    /* border: 3px solid greenyellow; */
+                    height: 150px;
+                    text-align: center;
+                    top: 130px;
+                }
+
+                /* GK 지역 */
+                #formation div:nth-child(4) {
+                    /* border: 1px solid red; */
+                    text-align: center;
+                    top: 140px;
+                    left: 280px;
+                    width: 110px;
                 }
 
                 #formation img {
-                    position: relative;                    
+                    position: relative;   
+                    width: 100px;                 
                     /* border: 3px solid red; */
                 }
+
+                /* FW 선수들 */
+                #formation div:nth-child(1) img {
+                    left: 0px;
+                    top: 20px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    /* border: 1px solid red; */
+                }
                 
-                #formation img:nth-child(1) {
-                    left: 230px;
-                    top: 30px;
-                    /* background-color: royalblue; */
+                /* MF 선수들 */
+                #formation div:nth-child(2) img {                    
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    top: 20px;
+                    /* border: 1px solid blue; */
                 }
 
-                #formation img:nth-child(2) {
-                    left: 280px;
-                    top: 30px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(3) {
-                    left: -220px;
-                    top: 200px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(4) {
-                    left: -165px;
-                    top: 200px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(5) {
-                    left: -115px;
-                    top: 200px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(6) {
-                    left: 600px;
-                    top: 70px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(7) {
-                    left: -90px;
-                    top: 250px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(8) {
-                    left: -30px;
-                    top: 250px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(9) {
-                    left: 20px;
-                    top: 250px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(10) {
-                    left: 70px;
-                    top: 250px;
-                    /* background-color: royalblue; */
-                }
-
-                #formation img:nth-child(11) {
-                    left: 325px;
-                    top: 300px;
-                    /* background-color: royalblue; */
+                /* DF 선수들 */
+                #formation div:nth-child(3) img {                    
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    top: 20px;
+                    /* border: 1px solid greenyellow; */
                 }
 
                 #formationSelect select {
                     color: white; 
                     background-color: #1E3440 ;
                 }
-             
+                                
+
             </style>
         
             <script>
@@ -508,13 +513,46 @@
                     child = window.open(
                     "엔트리명단추가.html",
                     "check",
-                    "width=350, height=180"                                        
+                    "width=350, height=180"     
                 );
                }); 
                
-               $("#formation img").draggable({                    
-                    containment: "#formation"
+            //    $("#formation img").draggable({                    
+            //         containment: "#formation"
+            //    });
+
+               //FW는 FW-Field 지역만 위치조정이 가능하다.
+               $("#formation div:nth-child(1) img").draggable({                    
+                    //FW 박스 안에서만 움질일수 있도록
+                    containment: "#formation div:nth-child(1)" ,
+                    // 자석처럼 달라붙게
+                    // snap: "#formation div:nth-child(1)"
                });
+
+               //MF는 MF-Field 위치조정이 가능하다.
+               $("#formation div:nth-child(2) img").draggable({                    
+                    //MF 박스 안에서만 움질일수 있도록
+                    containment: "#formation div:nth-child(2)" ,
+                    // 자석처럼 달라붙게
+                    // snap: "#formation div:nth-child(1)"
+               });
+
+               //DF는 DF-Field 위치조정이 가능하다.
+               $("#formation div:nth-child(3) img").draggable({                    
+                    //DF 박스 안에서만 움질일수 있도록
+                    containment: "#formation div:nth-child(3)" ,
+                    // 자석처럼 달라붙게
+                    // snap: "#formation div:nth-child(1)"
+               });
+
+                //GK는 GK-Field 위치조정이 가능하다.
+                $("#formation div:nth-child(4) img").draggable({                    
+                    //GF 박스 안에서만 움질일수 있도록
+                    containment: "#formation div:nth-child(4)" ,
+                    // 자석처럼 달라붙게
+                    // snap: "#formation div:nth-child(1)"
+               });
+
 
                $("#formation img").dblclick(function() {                    
                     // alert($(this));

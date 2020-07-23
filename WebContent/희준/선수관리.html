@@ -82,8 +82,6 @@
 
                 <div id="centerMainBox">
                     <div id="centerbox1">
-                        <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
-                        
                         <select name="" id="selectrow">
                             <option value="">10개씩 보기</option>
                             <option value="">25개씩 보기</option>
@@ -96,10 +94,10 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
+                        <table class="" id="verticalTable" style="">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th><input type="checkbox" name="" id=""></th>
                                     <th>순번</th>
                                     <th>포지션</th> 
                                     <th>이름</th>
@@ -202,10 +200,12 @@
                     </div>
 
                     <div id="centerbox4">
-                        <div style="float: right; font-size: 20px; margin: 5px;">
+                        <div style="float: right;">
                            <input id="centerbox4Btn" type="button" value="방출하기" onclick="";>
                         </div>
                     </div>
+                    
+                    <div style="clear: both;"></div>
                     
                 </div>
 
@@ -222,71 +222,52 @@
             /* border: 1px solid black; */
             width: 1200px;
             /* height: 950px; */
-            margin: 0px auto;            
+            margin: 0px auto;     
+            font-size: 1.1em;       
         }
 
         #centerbox1 {
-            border-bottom: 1px solid black;
-            width: 1200px;
+            border-bottom: 1px solid black;            
             height: 50px;   
             margin-bottom: 10px;         
         }
 
         #centerbox2 {
-            /* border: 1px solid black; */
-            width: 1200px;
-            height: 650px;
+            /* border: 1px solid black; */            
         }
         #centerbox4 {
             /* border: 1px solid blue; */
-            width: 1200px;
-            height: 50px;            
-            margin-top: 10px;         
+            margin-top: 10px;   
+            float: right;
+            margin-bottom: 25px;
         }
 
         #centerbox1 span, #centerbox1 select  {
             /* border: 1px solid red; */
-            display: inline-block;
-            font-size: 20px;            
-        }
-
-        #verticalTable {
-            /* border: 1px solid blue; */            
         }
 
         #pagination {            
             /* border: 1px solid gold; */
         }
 
-
-        #submenutitle {            
-            font-size: 15px; padding: 10px; margin-left: 10px; border: 1px solid #0C1B23;
-            background-color: #0C1B23;
-            color: white;
-        }
-
         #sortform, #selectrow {
-            float: right;     
-            padding: 5px;            
+            float: right;                 
             /* border: 1px solid gold; */
         }
 
         #sortform {
             margin-right: 10px;
-            margin-top: 17px;
+            /* margin-top: 14px; */
         }
 
         #selectrow {
-            margin-top: 10px;
+            /* margin-top: 10px; */
             background-color: #1E3440;
             color: white;
         }
 
         #verticalTable {
-            width: 1200px; 
-            height: 650px;
-            font-size: 20px;  
-            border: 1px solid;             
+            width: 1200px;             
         }
 
         #verticalTable th:nth-child(1) {width: 25px;}
@@ -300,44 +281,37 @@
         #verticalTable td {height: 50px;}
 
         #verticalTable th, #verticalTable td { text-align: center; color: white; padding-top: 18px; }        
-        #verticalTable td { padding-top: 20px;}
+        /* #verticalTable td { padding-top: 20px;} */
         #verticalTable td:nth-child(4) a {color: white; }
 
-        #verticalTable thead tr th{
-            width: 800px;
+        #verticalTable thead tr th{            
             background-color: #92DAEC;
             color: #0C1B23;           
             /* border: 3px solid white */            
         }
 
-        #verticalTable tr{
-            width: 800px;
-            background-color: #1E3440;      
-            border: 1px solid white;                                   
+        #verticalTable tr{            
+            background-color: #1E3440;                  
         }
 
-        #verticalTable tr:nth-child(even){
-            width: 800px;
+        #verticalTable tr:nth-child(even){             
             background-color: #0C1B23
         }
 
-        #verticalTable td {
-            border: 0px;              
-        }
-        
         #centerbox4Btn {
             /* border: 1px solid red;             */
             color: white;   
             height: 30px;
-            background-color: #1E3440 ;
-            padding: 5px;
+            background-color: #1E3440 ;            
         }
         
         #sortform a {
             color: #1E3440;         
         }
 
-     
+        #centerMainBox select, #centerMainBox input {
+            height: 25px;
+        }
 
     </style>
 
@@ -362,7 +336,7 @@
             child = window.open(
             "선수관리상세조회.html",
             "check",
-            "width=720, height=720, top=250, left=750"
+            "width=720, height=760, top=180, left=730"
                                                 
         );
         }); 
@@ -372,7 +346,7 @@
             child = window.open(
             "방출하시겠습니까.html",
             "check",
-            "width=520, height=240, top=250, left=750"
+            "width=420, height=180, top=250, left=750"
                                                 
         );
         }); 
