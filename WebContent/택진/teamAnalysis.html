@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="../webproject/submain_2.css">
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
+    
+    
     <style>
         #title{
             border: 3px solid gray;
-            width: 800px;
-            margin-left: 250px;
+            width: 1000px;
+            margin-left: 150px;
             margin-top: 30px;
             background-color: #0C1B23;
         }
@@ -53,11 +55,11 @@
             font-size: 1.3em;
         }
         #redTeam{
-            margin-left: 50px;
+            margin-left: 150px;
             background-color: rgb(134, 0, 0);
         }
         #blueTeam{
-            background-color: rgb(11, 72, 255);
+            background-color:#005093;
         }
 
         select:nth-child(1){
@@ -69,8 +71,8 @@
             color: rgb(134, 0, 0);
         }
         select:nth-child(1n+3){
-            border:1px solid rgb(11, 72, 255);
-            color: rgb(11, 72, 255);
+            border:1px solid #005093;
+            color: #005093;
         }
         .acePhoto{
             width: 400px;
@@ -93,12 +95,21 @@
             font-weight: bold;
             font-size: 1.2em;
         }
+        .center{
+            background-color: rgb(238, 238, 238);
+        }
+        #data tr{
+            text-align: center;
+        }
+        #data th{
+            text-align: center;
+        }
 
     </style>
 </head>
 
 <body>
-
+    
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
     <!-- 상단부 -->
@@ -106,20 +117,20 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
                 </td>
             </tr>
             <tr id="menuTr">
-                <td class="menu"><span class="menuLabel">정규리그일정</span></td>
-                <td class="menu"><span class="menuLabel">구단현황</span></td>
-                <td class="menu"><span class="menuLabel">선수현황</span></td>
-                <td class="menu"><span class="menuLabel">전력분석</span></td>
-                <td class="menu"><span class="menuLabel">문자중계</span></td>
-                <td class="menu"><span class="menuLabel">게시판</span></td>
-                <td class="menu"><span class="menuLabel">공지사항</span></td>
+                <td class="menu menu1"><span class="menuLabel">정규리그일정</span></td>
+                <td class="menu menu2"><span class="menuLabel">구단현황</span></td>
+                <td class="menu menu3"><span class="menuLabel">선수현황</span></td>
+                <td class="menu menu4"><span class="menuLabel">전력분석</span></td>
+                <td class="menu menu5"><span class="menuLabel">문자중계</span></td>
+                <td class="menu menu6"><span class="menuLabel">게시판</span></td>
+                <td class="menu menu7"><span class="menuLabel">공지사항</span></td>
             </tr>
         </table>
     </nav>
@@ -134,15 +145,15 @@
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>커뮤니티</span>
+                    <span>전력분석</span>
                     <span>></span>
-                    <span>질문게시판</span>
+                    <span>팀 전력분석</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="#">팀분석</a></li>
-                            <li class="subMenuItem"><a href="#">선수분석</a></li>
+                            <li id="sumMenu1" class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="teamAnalysis.html">팀분석</a></li>
+                            <li id="sumMenu2" class="subMenuItem"><a href="playerAnalysis.html">선수분석</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -195,8 +206,8 @@
         </div>
         
         <!-- 주목할 선수 -->
-        <div style="float: left; width: 800px; margin-left: 250px; border: 3px solid rgb(37, 65, 80);">
-        <div class="ace" style="width: 300px; margin-left: 43px; border: 2px rgb(134, 0, 0) solid ;">
+        <div style="float: left; width: 1000px; margin-left: 150px; border: 3px solid rgb(37, 65, 80);">
+        <div class="ace" style="width: 300px; margin-left: 93px; border: 2px rgb(134, 0, 0) solid ;">
             <div class="playerTitle">주목할 선수</div>
             <img src="../images/man_01.png" alt="">
             <table class="table table-bordered">
@@ -218,7 +229,7 @@
                 </tr>
             </table>
         </div>
-        <div class="ace" style="margin-left: 100px; width: 300px; border: 2px solid rgb(11, 72, 255);">
+        <div class="ace" style="margin-left: 200px; width: 300px; border: 2px solid #005093;">
             <div class="playerTitle">주목할 선수</div>
             <img src="../images/man_02.png" alt="">
             <table class="table table-bordered">
@@ -242,50 +253,33 @@
         </div>
     </div>
     
-    <div style="border: solid 3px rgb(37, 65, 80); width: 800px; float: left; margin-left: 250px;">
-        <div style="width: 390px; float: left; margin-left: 3px;" >
+    <div style="border: solid 3px rgb(37, 65, 80); width: 1000px; float: left; margin-left: 150px;">
+        <div style="width: 99%; float: left; margin-left: 3px;" id="data">
             <h4 style="font-weight: bold;">팀 평균 데이터</h4>
             <table class="table table-bordered">
                 <tr>
+                    <td>3</td>
                     <th>평균득점</th>
                     <td>2.1</td>
                 </tr>
                 <tr>
+                    <td>2</td>
                     <th>평균도움</th>
                     <td>1.7</td>
                 </tr>
                 <tr>
+                    <td>8</td>
                     <th>평균평점</th>
                     <td>7.1</td>
                 </tr>
                 <tr>
-                    <th>승률</th>
                     <td>70%</td>
-                </tr>
-            </table>
-        </div>
-        <div style="width: 390px; float: left; margin-left: 11px;">
-            <br>
-            <br>
-            <table class="table table-bordered">
-                <tr>
-                    <th>평균득점</th>
-                    <td>1.1</td>
-                </tr>
-                <tr>
-                    <th>평균도움</th>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <th>평균평점</th>
-                    <td>6.2</td>
-                </tr>
-                <tr>
                     <th>승률</th>
-                    <td>40%</td>
+                    <td>50%</td>
                 </tr>
             </table>
         </div>
+        
         
     </div>
 
@@ -394,6 +388,8 @@
 
 
     <!-- 스크립트------------------------------------------------------------- -->
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
     <script>
 
         var flag = false;
@@ -423,7 +419,9 @@
 
 
 
+        
     </script>
+
 </body>
 
 </html>

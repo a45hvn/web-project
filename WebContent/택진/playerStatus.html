@@ -13,7 +13,7 @@
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
 
-        #playerSearch th,td{
+        #playerSearch tr{
             /* border: 1px solid black; */
             font-size: 1.2em;
         }
@@ -51,20 +51,20 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
                 </td>
             </tr>
             <tr id="menuTr">
-                <td class="menu"><span class="menuLabel">정규리그일정</span></td>
-                <td class="menu"><span class="menuLabel">구단현황</span></td>
-                <td class="menu"><span class="menuLabel">선수현황</span></td>
-                <td class="menu"><span class="menuLabel">전력분석</span></td>
-                <td class="menu"><span class="menuLabel">문자중계</span></td>
-                <td class="menu"><span class="menuLabel">게시판</span></td>
-                <td class="menu"><span class="menuLabel">공지사항</span></td>
+                <td class="menu menu1"><span class="menuLabel">정규리그일정</span></td>
+                <td class="menu menu2"><span class="menuLabel">구단현황</span></td>
+                <td class="menu menu3"><span class="menuLabel">선수현황</span></td>
+                <td class="menu menu4"><span class="menuLabel">전력분석</span></td>
+                <td class="menu menu5"><span class="menuLabel">문자중계</span></td>
+                <td class="menu menu6"><span class="menuLabel">게시판</span></td>
+                <td class="menu menu7"><span class="menuLabel">공지사항</span></td>
             </tr>
         </table>
     </nav>
@@ -84,7 +84,7 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="#">선수현황</a></li>
+                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerStatus.html">선수현황</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -109,8 +109,9 @@
                 <tr>
                     <th>선수검색</th>
                     <td>
-                        <input type="text">
-                        <input type="button" value="검색">
+                        <input type="text" id="playerSearchText">
+                        <input type="button" value="검색" id="playerSearchButton">
+                        <!-- <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search"> -->
                     </td>
                 </tr>
                 <tr>
@@ -142,7 +143,7 @@
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
                         </div>
                     </td>
                     <td>
@@ -159,12 +160,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">권진현</span></div>
                         </div>
                     </td>
                     <td>
@@ -181,12 +182,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">박진하</span></div>
                         </div>
                     </td>
                     <td>
@@ -203,12 +204,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">유재연</span></div>
                         </div>
                     </td>
                     <td>
@@ -225,12 +226,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">이재철</span></div>
                         </div>
                     </td>
                     <td>
@@ -247,12 +248,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">황용하</span></div>
                         </div>
                     </td>
                     <td>
@@ -269,12 +270,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">홍준식</span></div>
                         </div>
                     </td>
                     <td>
@@ -291,12 +292,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">김연우</span></div>
                         </div>
                     </td>
                     <td>
@@ -313,12 +314,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">최현우</span></div>
                         </div>
                     </td>
                     <td>
@@ -335,12 +336,12 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> 홍길동</div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"> <span class="playername">이철준</span></div>
                         </div>
                     </td>
                     <td>
@@ -357,7 +358,7 @@
                     </td>
                     <td>
                         <br>
-                        <input type="button" value="상세보기" class="button btn-primary"></td>
+                        <input type="button" value="상세보기" class="btn btn-primary"></td>
                 </tr>
                 
             </table>
@@ -519,15 +520,63 @@
 
         });
 
-        $(".button").click(function () {
+        $(".btn").click(function () {
 
             location.href="playerDetails.html"
             
         });
 
+        // 검색결과
+        
+        $("#playerSearchButton").click(function () {
+
+            var playerSearchText = $("#playerSearchText").val();
+            
+            var playername = $(".playername");
+            
+            for(var i=0; i<playername.length; i++) {
+                
+                // console.log(playerSearchText == playername[i]);
+
+                if(playerSearchText == playername[i].innerText) {
+
+                    playername[i].parentElement.parentElement.parentElement.parentElement.style.display = "flex";
+
+                } else {
+                    playername[i].parentElement.parentElement.parentElement.parentElement.style.display = "none";
+                }
+
+
+            }
+
+            
+            
+        });
+
+        // function filter(){
+
+        // var value, name, item, i;
+
+        // value = document.getElementById("value").value.toUpperCase();
+        // item = document.getElementsByClassName("item");
+
+        // for(i=0;i<item.length;i++){
+        // name = item[i].getElementsByClassName("name");
+        // if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
+        //     item[i].style.display = "flex";
+        // }else{
+        //     item[i].style.display = "none";
+        // }
+        // }
+        // }
+
+
 
 
     </script>
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
+
 </body>
 
 </html>
