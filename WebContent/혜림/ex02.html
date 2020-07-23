@@ -1,211 +1,596 @@
+
+  
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../webproject/submain_1.css">
+    <link rel="stylesheet" href="../webproject/submain_2.css">
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        
-        text{ 
-            height: 40px;
-            width: 400px;
-            border: 1px solid white;
-            background-color: #ffffff;
-            outline:  none;
-            float: right; 
-            color: white;
-        }
-        #tbl tbody{
-            width: 100%;
-            height: 500px;
-            margin-top: auto;
-        }
-
-        
-        
 
     </style>
 </head>
+
 <body>
-    
 
-        
-        
-        
-    <h1>구단 관리</h1>
+    <script src="../jquery/js/jquery-1.12.4.js"></script>
+    <script src="../jquery/js/jquery-ui.js"></script>
+    <!-- 상단부 -->
+    <nav id="main">
+        <table class="table table-default" id="mainMenu">
+            <tr id="menuTop">
+                <td colspan="3"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td colspan="4">
+                    <button type="button" class="btn btn-default">로그인</button>
+                    <button type="button" class="btn btn-default">마이페이지</button>
+                </td>
+            </tr>
+            <tr id="menuTr">
+                <td class="menu"><span class="menuLabel">정규리그일정</span></td>
+                <td class="menu"><span class="menuLabel">구단현황</span></td>
+                <td class="menu"><span class="menuLabel">선수현황</span></td>
+                <td class="menu"><span class="menuLabel">전력분석</span></td>
+                <td class="menu"><span class="menuLabel">문자중계</span></td>
+                <td class="menu"><span class="menuLabel">게시판</span></td>
+                <td class="menu"><span class="menuLabel">공지사항</span></td>
+            </tr>
+        </table>
+    </nav>
 
-    <div>
-        <input type="text"> 
-        <button>검색</button>
+    <div id="topBoard">
     </div>
 
-    <table border=auto bordercolor="blue"cellspacing="7" margin= "0" auto; >
-        <thead>
-            <tr align="center">
-                
-                <th>팀명</th>
-                <th>홈 구장</th>
-                <th>구단주</th>
-                <th>연고지</th>
-                <th>팀원수</th>
+    <div id="scoreBoard">
+        <div id="subOuter">
+            <div class="menuTitleBox">
+                <div class="menuTitle">구단관리</div>
+                <div class="breadcrumb">
+                    <span>HOME</span>
+                    <span>></span>
+                    <span>구단관리</span>
+                    <span>></span>
+                    <span>엔트리작성</span>
+                </div>
+                <div class="subMenuBox">
+                    <nav class="subMenu">
+                        <ul>
+                            <li class="subMenuItem"><a href="#">구단신청관리</a></li>
+                            <li class="subMenuItem"><a href="#">선수관리</a></li>
+                            <li class="subMenuItem"><a href="#">엔트리작성</a></li>
+                            <li class="subMenuItem"><a href="#">경기결과반영</a></li>
+                            <li class="subMenuItem"><a href="#">친선경기모집관리</a></li>
+                            <li class="subMenuItem"><a href="#"></a></li>
+                        </ul>
+                    </nav>
+                </div>
 
-            </tr>
+            </div>
+        </div>
 
-        </thead>
+    </div>
+    <!-- 상단부 끝 -->
 
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
+    <div class="center">
+        <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
+                class="contentTitle">엔트리작성</span></div>
 
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-            
-            </tr>
-        </tbody>
-
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr align="center" >
-                
-                <td>스파이스 가이스</td>
-                <td>정왕시장</td>
-                <td>조원준</td>
-                <td>서울</td>
-                <td>25명</td>
-                
-            </tr>
-        </tbody>
-
+                <div id="centerMainBox">
+                    <!-- 왼쪽 명단 추가하는 박스 -->
+                    <div id="centerbox2">
+                        <div id="centerbox2Left">
+                            <div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>포지션</th>
+                                            <th>번호</th>
+                                            <th>이름</th>
+                                            <th>나이</th>
+                                        </tr>                                
+                                    </thead>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td>MF</td>
+                                        <td>2</td>
+                                        <td>오희준</td>
+                                        <td>26</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td>MF</td>
+                                        <td>2</td>
+                                        <td>오희준</td>
+                                        <td>26</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td>MF</td>
+                                        <td>2</td>
+                                        <td>오희준</td>
+                                        <td>26</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="centerbox2LeftButton">
+                                <span><input type="button" value="추가" id="centerbox2LeftButtonAdd"></span>
+                                <!-- <span><input type="button" value="수정"></span> -->
+                                <span><input type="button" value="삭제" id="centerbox2LeftButtonDel"></span>
+                            </div>
+                        </div>
+                        <!-- 오른쪽 포메이션 박스 -->
+                        <div id="centerbox2Right">
+                            <div id="formation" style="background-image: url(../images/soccer.png);">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                                <img src="../images/soccer2.jpg" alt="">
+                            </div>
+                            <div id="formationSelect">
+                                <span style="font-weight: bold;">포메이션 : </span>
+                                <select style=" height: 30px;">
+                                    <option value="">442</option>
+                                    <option value="">433</option>
+                                    <option value="">352</option>
+                                    <option value="">4222</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
-      
-    </table>
+            <style>
+              
+              .center {            
+                    padding-top: 50px;
+                    background-color: #eee;     
+                }
+        
+                #centerMainBox {
+                    /* border: 1px solid black; */
+                    width: 1200px;
+                    height: 900px;
+                    margin: 0px auto;         
+                }     
+        
+                #centerbox2 {
+                    /* border: 2px solid blue; */
+                    width: 1200px;
+                    height: 900px;                    
+                    float: left;
+                    /* background-color: red;    */
+                }
+        
+                #centerbox2Left {
+                    /* border: 2px solid green; */
+                    width: 390px;
+                    height: 850px;
+                    float: left;
+                    margin-left: 10px;
+                    margin-top: 10px;
+                }
+        
+                #centerbox2Right {
+                    /* border: 1px solid black; */
+                    width: 790px;
+                    height: 850px;
+                    float: left;
+                    margin-left: 5px;         
+                    margin-top: 10px;           
+                }
+        
+                #centerbox2Left table{
+                    /* border: 1px solid blue; */
+                    height: 780px;
+                    width: 380px;            
+                }
+        
+                #centerbox2Left table th, #centerbox2Left table td{
+                    border: 1px solid black;     
+                    color: white;       
+                }
+        
+                #centerbox2Left table th {
+                    height: 30px;
+                    text-align: center;
+                    background-color: #92DAEC;
+                    color: #0C1B23;         
+                }
 
-    <form>
-        <input type ="checkbox" name="checkbox"value="checkbox">
-    </form>
-    
+                #formation {
+                    border: 3px solid #0C1B23;
+                }
 
-    <div id="centerBox1">            
-        <input class="writebtn" id="writebtn1" type="button" value="등록" ;>
-        <input class="writebtn" id="writebtn2" type="button" value="수정" ;>  
-        <input class="writebtn" id="writebtn3" type="button" value="삭제" ;>       
-    </div>
+                table tr{
+                    width: 800px;
+                    background-color: #1E3440  
+                }   
 
-    
-    <div class="pagingarea">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a href="#" class="active">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">7</a>
-        <a href="#">8</a>
-        <a href="#">9</a>
-        <a href="#">10</a>
+                table tr:nth-child(even){
+                    width: 800px;
+                    background-color: #0C1B23
+                }
 
-        <a href="#">&raquo;</a>     
-    </div>
-    <br>
+                #centerbox2Left table td {
+                    height: 30px;
+                    text-align: center;
+                    
+                }
+        
+                #centerbox2Left th:nth-child(1) {
+                    width: 25px;
+                }
+        
+                #centerbox2Left th:nth-child(2) {
+                    width: 50px;
+                }
+        
+                #centerbox2Left th:nth-child(3) {
+                    width: 50px;
+                }
+        
+                #centerbox2Left th:nth-child(4) {
+                    width: 50px;
+                }
+
+                #centerbox2Left th:nth-child(5) {
+                    width: 50px;
+                }
+                
+                #centerbox2LeftButton{
+                    float: right;
+                    margin-top: 15px;
+                    margin-right: 10px;
+                    font-size: 20px;
+                    
+                }
+
+                #centerbox2LeftButton input {
+                    color: white; 
+                    background-color: #1E3440 ;
+                }
+
+                #formation {
+                    /* border: 1px solid hotpink; */
+                    height: 780px;
+                    width: 780px;
+                }
+
+                #formationSelect {
+                    float: right;
+                    margin-top: 15px;
+                    margin-right: 10px;
+                    font-size: 20px;
+                }
+
+                #formation {
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: 800px 780px;
+                }
+
+                #formation img {
+                    position: relative;                    
+                    /* border: 3px solid red; */
+                }
+                
+                #formation img:nth-child(1) {
+                    left: 230px;
+                    top: 30px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(2) {
+                    left: 280px;
+                    top: 30px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(3) {
+                    left: -220px;
+                    top: 200px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(4) {
+                    left: -165px;
+                    top: 200px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(5) {
+                    left: -115px;
+                    top: 200px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(6) {
+                    left: 600px;
+                    top: 70px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(7) {
+                    left: -90px;
+                    top: 250px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(8) {
+                    left: -30px;
+                    top: 250px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(9) {
+                    left: 20px;
+                    top: 250px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(10) {
+                    left: 70px;
+                    top: 250px;
+                    /* background-color: royalblue; */
+                }
+
+                #formation img:nth-child(11) {
+                    left: 325px;
+                    top: 300px;
+                    /* background-color: royalblue; */
+                }
+
+                #formationSelect select {
+                    color: white; 
+                    background-color: #1E3440 ;
+                }
+             
+            </style>
+        
+            <script>
+
+                $("#centerbox2LeftButtonAdd").click(function() {                    
+                    // alert($(this));
+                    child = window.open(
+                    "엔트리명단추가.html",
+                    "check",
+                    "width=350, height=180"                                        
+                );
+               }); 
+               
+               $("#formation img").draggable({                    
+                    containment: "#formation"
+               });
+
+               $("#formation img").dblclick(function() {                    
+                    // alert($(this));
+                    child = window.open(
+                    "엔트리선수추천.html",
+                    "check",
+                    "width=700, height=500"                                        
+                );
+               });         
+
+               $("#centerbox2LeftButton input").mouseover(function() {
+
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+
+                })
+
+                $("#centerbox2LeftButton input").mouseout(function() {
+
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+
+                })
+
+
+            </script>
+
+    <!-- 하단부  -->
+
+    <nav class="sitemap">
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">경기정보조회</a></h2>
+            <li><a href="#">2020 정규리그 일정조회</a></li>
+            <li><a href="#">정규리그 결과 조회</a></li>
+            <li><a href="#">지난 정규리그 조회</a></li>
+            <li><a href="#">친선경기 결과 조회</a></li>
+        </ul>
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">구단현황</a></h2>
+            <li><a href="#">구단 정보</a></li>
+            <li><a href="#">구단 선수 정보 조회</a></li>
+            <li><a href="#">구단 경기 전적</a></li>
+        </ul>
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">선수현황</a></h2>
+            <li><a href="#">선수 검색</a></li>
+            <li><a href="#">선수 정보</a></li>
+            <li><a href="#">선수 응원댓글</a></li>
+            <li><a href="#">선수 DM</a></li>
+        </ul>
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">전력분석</a></h2>
+            <li><a href="#">팀분석</a></li>
+            <li><a href="#">선수분석</a></li>
+            <li><a href="#">시뮬레이션</a></li>
+        </ul>
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">게시판</a></h2>
+            <li><a href="#">질문게시판</a></li>
+            <li><a href="#">갤러리</a></li>
+            <li><a href="#">자유게시판</a></li>
+            <li><a href="#">강의게시판</a></li>
+            <li><a href="#">친선경기모집</a></li>
+            <li><a href="#">용병모집</a></li>
+        </ul>
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">공지사항</a></h2>
+        </ul>
+        <ul class="siteList">
+            <h2 class="listName"><a href="#">문자중계</a></h2>
+        </ul>
+
+    </nav>
+
 
     <div class="footer">
         <div class="footerBox">
@@ -254,10 +639,42 @@
         <div>본 사이트는 IT기업 (주)쌍용소프트가 시흥축구협회리그 선수들을 위해 운영하는 공식사이트입니다.</div>
         <div>Copyrightⓒ ssangyongsoft All Rights reserved.</div>
     </div>
-    
+
+
+    <!-- 하단부  끝 -->
+
+
+    <!-- 스크립트------------------------------------------------------------- -->
     <script>
+
+        var flag = false;
+        $(document).scroll(function () {
+
+            if ($(document).scrollTop() > $
+                ("#main").position().top) {
+
+                if (!flag) {
+                    $("#main").css({
+                        position: "fixed",
+                        top: -$("#main").outerHeight(),
+                        bottom: ""
+                    });
+
+                    $("#main").animate({
+                        top: "0px"
+                    }, 1000, function () {
+                        //alert();
+                        flag = true;
+                    });
+                }
+
+            }
+
+        });
+
 
 
     </script>
 </body>
+
 </html>
