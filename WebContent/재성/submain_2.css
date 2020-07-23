@@ -1,7 +1,7 @@
 #main {
-    /* border: 1px solid red; */
     width: 100%;
-    z-index: 1;
+    z-index: 10;
+    float: left;
 }
 
 #menuTr {
@@ -23,29 +23,14 @@
 
 .menu {
     background-color: rgb(37, 40, 42);
-    opacity: 0.9;
+    opacity: 0.7;
     cursor: pointer;
-    transition: all 0.5s;
+    font-weight: bold;
 }
 
-/* 새로추가한 내용입니다. */
-
-.menu:nth-child(4)::after {
-    border: 0px;
-}
-.menuLabel {
-    border: 1px;
-    border-radius: 20px;
-    background-color: rgb(37, 40, 42);
-    position: relative;
-    top: 0.6em;
-    padding: 1.1em;
-    transition: all 0.2s;
-}
-/*####여기까지####  */
 #menuTop {
     height: 20px;
-    background-color: rgb(37, 40, 42);
+    background-color: rgb(23, 25, 26);
 }
 
 #menuTop td:nth-child(3) {
@@ -54,7 +39,12 @@
 
 #scoreBoard {
     width: 1300px;
-    background-color: #0c1b23;
+    /* background-color: #0c1b23; */
+    background-image: url("../images/stadium.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: 90%;
     height: 350px;
     margin: 0px auto;
     /* margin-left: 400px; */
@@ -62,7 +52,7 @@
 
 #topBoard {
     width: 100%;
-    background-color: royalblue;
+    background-color: #0c1b23;
     height: 167px;
 }
 
@@ -162,13 +152,14 @@ h3 {
 .sitemap .siteList {
     float: left;
     list-style-type: none;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     width: 180px;
-    padding: 10px;
+    /* padding: 10px; */
+    /* border: 10px solid black; */
 }
 
 .sitemap .siteList:first-child {
-    margin-left: 50px;
+    margin-left: 150px;
 }
 
 .listName {

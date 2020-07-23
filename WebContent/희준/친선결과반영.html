@@ -82,8 +82,6 @@
 
                 <div id="centerMainBox">
                     <div id="centerbox1">
-                        <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
-                        
                         <select name="" id="selectrow">
                             <option value="">10개씩 보기</option>
                             <option value="">25개씩 보기</option>
@@ -96,10 +94,10 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
+                        <table class="" id="verticalTable">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th><input type="checkbox" name="" id=""></th>
                                     <th>순번</th>
                                     <th>경기</th>    
                                     <th>날짜</th> 
@@ -191,12 +189,13 @@
                     </div>
 
                     <div id="centerbox4">
-                        <div style="float: right; font-size: 20px; margin: 5px;">
+                        <div style="float: right;">
                            <input id="centerbox4Btn1" type="button" value="작성" onclick="";>
                            <input id="centerbox4Btn2" type="button" value="수정" onclick="";>
                            <input id="centerbox4Btn3" type="button" value="삭제" onclick="";>
                         </div>
                     </div>
+                    <div style="clear: both;"></div>
                     
                 </div>
 
@@ -213,34 +212,29 @@
             /* border: 1px solid black; */
             width: 1200px;
             /* height: 950px; */
-            margin: 0px auto;      
-            font-size: 20px;      
+            margin: 0px auto;     
         }
 
         #centerbox1 {
-            border-bottom: 1px solid black;
-            width: 1200px;
+            border-bottom: 1px solid black;            
             height: 50px;   
             margin-bottom: 10px;         
         }
 
         #centerbox2 {
-            /* border: 1px solid black; */
-            width: 1200px;
-            height: 650px;
+            /* border: 1px solid black; */            
         }
         #centerbox4 {
-            /* border: 1px solid blue; */
-            width: 1200px;
-            height: 50px;
-            display: inline-block;   
-            margin-top: 10px;         
+            /* border: 1px solid blue;             */
+            float: right;
+            margin-top: 25px;
+            margin-bottom: 25px;   
+            /* margin-top: 15px; */
         }
 
         #centerbox1 span, #centerbox1 select  {
             /* border: 1px solid red; */
             display: inline-block;
-            font-size: 20px;            
         }
 
         #verticalTable {
@@ -251,35 +245,33 @@
             /* border: 1px solid gold; */
         }
 
-
-        #submenutitle {            
-            font-size: 15px; padding: 10px; margin-left: 10px; border: 1px solid #0C1B23;
-            background-color: #0C1B23;
-            color: white;
-        }
-
         #sortform, #selectrow {
             float: right;     
             /* border: 1px solid gold; */
         }
 
         #sortform {
+            margin-right: 10px;            
+        }
+
+        #sortform {
             margin-right: 10px;
-            margin-top: 17px;
+            margin-top: 13px;
         }
 
         #selectrow {
             margin-top: 10px;
             background-color: #1E3440;
-            color: white;
-            padding-bottom: 5px;
+            color: white;            
+        }
+
+        #selectrow {            
+            background-color: #1E3440;
+            color: white;            
         }
 
         #verticalTable {
-            width: 1200px; 
-            height: 650px;
-            font-size: 20px;  
-            border: 1px solid;             
+            width: 1200px;                         
         }
 
         #verticalTable th:nth-child(1) {width: 40px;}
@@ -290,26 +282,24 @@
         #verticalTable th:nth-child(6) {width: 100px;}
 
         #verticalTable td {height: 50px;}
-
+        #verticalTable tr {height: 50px;}
         #verticalTable th, #verticalTable td { text-align: center; color: white; padding-top: 18px; }        
-        #verticalTable td { padding-top: 20px; }
+        #verticalTable td { padding-top: 0px; }
+        #verticalTable th { padding-top: 0px; }
         #verticalTable td:nth-child(3) a {color: white; }
 
-        #verticalTable thead tr th{
-            width: 800px;
+        #verticalTable thead tr th{            
             background-color: #92DAEC;
             color: #0C1B23;           
             /* border: 3px solid white */            
         }
 
         #verticalTable tr{
-            width: 800px;
             background-color: #1E3440;      
             border: 1px solid white;        
         }
 
         #verticalTable tr:nth-child(even){
-            width: 800px;
             background-color: #0C1B23
         }
 
@@ -330,7 +320,11 @@
         #centerbox4 input{
             color: white; 
             background-color: #1E3440 ;
-            padding: 5px;
+        }
+
+        #centerbox1 select, #centerbox4 input {
+            height: 25px;
+            font-size: 1.1em;
         }
 
     </style>
@@ -354,7 +348,7 @@
             child = window.open(
             "친선결과반영작성.html",
             "check",
-            "width=930, height=650, top=150, left=550"
+            "width=430, height=370, top=150, left=550"
         );
         }); 
 

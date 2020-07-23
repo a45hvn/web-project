@@ -82,8 +82,6 @@
 
                 <div id="centerMainBox">
                     <div id="centerbox1">
-                        <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
-                        
                         <select name="" id="selectrow">
                             <option value="">10개씩 보기</option>
                             <option value="">25개씩 보기</option>
@@ -96,7 +94,7 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table table-hover" id="verticalTable">
+                        <table class="" id="verticalTable">
                             <thead>
                                 <tr>
                                     <th>순번</th>
@@ -180,7 +178,7 @@
                     </div>
         
                     <div id="centerbox3">                
-                        <ul id="pagination" class="pagination" style="float: right; margin: 0;">
+                        <ul id="pagination" class="pagination" style="float: right;">
                             <li>
                                 <a href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
@@ -205,16 +203,16 @@
                     </div> 
                     
                     <div id="centerbox4">
-                        <div style="float: right; font-size: 15px; margin: 5px;">                
-                            <select style=" height: 30px;">
+                        <div style="float: right;">                
+                            <select>
                                 <option value="">제목</option>
                                 <option value="">내용</option>
                                 <option value="">제목+내용</option>
                                 <option value="">글쓴이</option>
                             </select>
-                            <input id="searchkeyword" type="text" size="35" style="height: 30px;">
+                            <input id="searchkeyword" type="text" size="35">
                             <a href=""><input id="searchbtn" type="button" value="검색" ></a>
-                           <input id="writebtn" type="button" value="글쓰기" onclick="location.href='ex01.html'";>
+                           <input id="writebtn" type="button" value="글쓰기" onclick="location.href=''";>
                         </div>
                     </div>
                     
@@ -234,39 +232,32 @@
             width: 1200px;
             /* height: 950px; */
             margin: 0px auto;            
+            font-size: 1.1em;
         }
 
         #centerbox1 {
-            border-bottom: 1px solid black;
-            width: 1200px;
+            border-bottom: 1px solid black;            
             height: 50px;   
             margin-bottom: 10px;         
         }
 
         #centerbox2 {
-            /* border: 1px solid black; */
-            width: 1200px;
-            height: 650px;
+            /* border: 5px solid black;*/
         }
 
         #centerbox3 {
-            /* border: 1px solid red; */
-            width: 1200px;
-            height: 50px;
-            margin-top: 40px;
+            /* border: 1px solid red; */            
         }
 
         #centerbox4 {
             /* border: 1px solid blue; */
-            width: 1200px;
-            height: 50px;
-            display: inline-block;            
+            width: 1200px;            
+            display: inline-block;    
+            margin-bottom: 25px;                                        
         }
 
         #centerbox1 span, #centerbox1 select  {
-            /* border: 1px solid red; */
-            display: inline-block;
-            font-size: 20px;            
+            /* border: 1px solid red; */            
         }
 
         #verticalTable {
@@ -278,15 +269,8 @@
         }
 
 
-        #submenutitle {            
-            font-size: 15px; padding: 10px; margin-left: 10px; border: 1px solid #0C1B23;
-            background-color: #0C1B23;
-            color: white;
-        }
-
         #sortform, #selectrow {
             float: right;     
-            /* border: 1px solid gold; */
         }
 
         #sortform {
@@ -297,14 +281,11 @@
         #selectrow {
             margin-top: 10px;
             background-color: #1E3440;
-            color: white;
-            padding-bottom: 5px;
+            color: white;            
         }
 
-        #verticalTable {
+        #verticalTable {           
             width: 1200px; 
-            height: 650px;
-            font-size: 20px;               
         }
 
         #verticalTable th:nth-child(1) {width: 65px;}
@@ -313,27 +294,31 @@
         #verticalTable th:nth-child(4) {width: 100px;}
         #verticalTable th:nth-child(5) {width: 65px;}
 
-        #verticalTable td {height: 50px;}
-
+        
+        /* 테이블 컬럼 */
+        /* #verticalTable th {font-size: 1.2em;} */
+        /* 테이블 각 tr */
+        #verticalTable tr {height: 50px;}
+        /* 테이블 각 th 너비 */
         #verticalTable th, #verticalTable td { text-align: center; color: white; }        
-        #verticalTable td { padding-top: 20px;}
+        /* 테이블 각각의 td */
+        #verticalTable td { padding-top: 15px;}
+        /* 제목 td */
         #verticalTable td:nth-child(2){ text-align: left;}
+        /* 제목 td에 a태그 */
         #verticalTable td:nth-child(2) a {color: white; }
 
-        #verticalTable thead tr th{
-            width: 800px;
+        /* 테이블 첫번째 tr */
+        #verticalTable thead tr th{            
             background-color: #92DAEC;
-            color: #0C1B23;           
-            /* border: 3px solid white */
+            color: #0C1B23;                       
         }
 
         #verticalTable tr{
-            width: 800px;
             background-color: #1E3440;                
         }
 
-        #verticalTable tr:nth-child(even){
-            width: 800px;
+        #verticalTable tr:nth-child(even){            
             background-color: #0C1B23
         }
 
@@ -342,8 +327,7 @@
         }
         
         #searchbtn, #writebtn {
-            color: white;   
-            height: 30px;
+            color: white;               
             background-color: #1E3440 ;
         }
 
@@ -357,12 +341,20 @@
         }
 
         #pagination .nowPage {
-            background-color: #92DAEC;
+            /* background-color: #92DAEC; */
         }
 
-        #centerbox4 select {
-            color: white; 
-            background-color: #1E3440 ;
+        #centerMainBox select, #centerMainBox input, #centerMainBox #pagination a{            
+            height: 25px;            
+        }
+
+        #pagination li a{            
+            /* background-color: #1E3440; */
+            /* color: white;             */
+            /* font-size: 1.1em;           */
+            height: 25px;             
+            padding-top: 1px;
+            padding-left: 10px;
         }
 
     </style>

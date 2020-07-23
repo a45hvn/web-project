@@ -43,6 +43,9 @@
 #verticalTable {
     color: white;
 }
+#verticalTable td {
+    border: 0px;
+}
 #verticalTable thead tr:first-child {
     background-color: #92daec;
 }

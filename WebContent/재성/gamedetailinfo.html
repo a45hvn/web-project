@@ -110,24 +110,31 @@
             <div class="middle">
                 <!-- 골넣은 결과 작성하는 곳 도움은 타이틀로 보이도록 함 -->
                 <div class="gameSummary">
-                    <div id="teamASum">
+                    <div id="teamSum">
                         <div id="evtA1" class="evts">
-                            <span class="Harf">전반</span><span class="evtTime">11</span>분
-                            <span class="evtBackNum">11</span>번 <span class="evtplayer">김찰찰</span>
+                            <div class="teamA">
+                                <span class="evtBackNum">11</span>번 <span class="evtplayer">김찰찰</span>
+                                <span class="assi"> 도움</span> [<span class="assiBackNum">11</span>번
+                                <span class="assiplayer">박철철</span>]
+                            </div>
+                            <div class="time"><span class="evtMinute">20</span><span class="bun">분</span></div>
+                            <div class="teamB"></div>
                         </div>
                         <div id="evtA2" class="evts">
-                            <span class="Harf">전반</span><span class="evtTime">11</span>분
-                            <span class="evtBackNum">16</span>번 <span class="evtplayer">김찰찰</span>
+                            <div class="teamA"></div>
+                            <div class="time"><span class="evtMinute">20</span><span class="bun">분</span></div>
+                            <div class="teamB"></div>
                         </div>
-                        <div id="evtA3" class="evts" title="14번 이청청 도움">
-                            <span class="Harf">후반</span><span class="evtTime">11</span>분
-                            <span class="evtBackNum">30</span>번 <span class="evtplayer">김찰찰</span>
-                        </div>
-                    </div>
-                    <div id="teamBSum">
-                        <div id="evtB1" class="evts">
-                            <span class="Harf">전반</span><span class="evtTime">11</span>분
-                            <span class="evtBackNum">15</span>번 <span class="evtplayer">김찰찰</span>
+                        <div id="evtA3" class="evts">
+                            <div class="teamA">
+                                <span class="evtBackNum">12</span>번 <span class="evtplayer">이청청</span>
+                                <span class="assi"> 도움</span> [<span class="assiBackNum">11</span>번
+                                <span class="assiplayer">박철철</span>]
+                            </div>
+                            <div class="time"><span class="evtMinute">20</span><span class="bun">분</span></div>
+                            <div class="teamB">
+                                <span class="evtBackNum">15</span>번 <span class="evtplayer">김찰찰</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,7 +144,13 @@
                 <div class="entryOuter">
                     <div class="entry" id="teamAEntry">
                         <div class="player teamAPlayer" id="teamAPlayer1">
+                            <span class="backNum">번호</span>
+                            <span class="playerName">이름</span>
+                            <span class="position">포지션</span>
+                        </div>
+                        <div class="player teamAPlayer" id="teamAPlayer1">
                             <span class="backNum">1</span>
+
                             <span class="playerName">이찬찬</span>
                             <span class="position">ST</span>
                         </div>
@@ -273,6 +286,11 @@
                         </ul>
                     </div>
                     <div class="entry" id="teamBEntry">
+                        <div class="player teamAPlayer" id="teamAPlayer1">
+                            <span class="backNum">번호</span>
+                            <span class="playerName">이름</span>
+                            <span class="position">포지션</span>
+                        </div>
                         <div class="player teaBAPlayer" id="teamBPlayer1">
                             <span class="backNum">1</span>
                             <span class="playerName">박박박</span>
@@ -495,5 +513,6 @@
                 }
             });
         </script>
+        <script src="../webproject/submain.js"></script>
     </body>
 </html>
