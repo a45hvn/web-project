@@ -2,6 +2,7 @@
     /* border: 1px solid red; */
     width: 100%;
     z-index: 1;
+    float: left;
 }
 
 #menuTr {
@@ -19,42 +20,29 @@
     font-size: 1.4em;
     display: block;
     padding-top: 20px;
+
 }
 
 .menu {
     background-color: rgb(37, 40, 42);
-    opacity: 0.9;
+    opacity: .7;
     cursor: pointer;
-    transition: all 0.5s;
+    font-weight: bold;
 }
 
-/* 새로추가한 내용입니다. */
-
-.menu:nth-child(4)::after {
-    border: 0px;
-}
-.menuLabel {
-    border: 1px;
-    border-radius: 20px;
-    background-color: rgb(37, 40, 42);
-    position: relative;
-    top: 0.6em;
-    padding: 1.1em;
-    transition: all 0.2s;
-}
-/*####여기까지####  */
 #menuTop {
     height: 20px;
-    background-color: rgb(37, 40, 42);
+    background-color: rgb(23, 25, 26);
 }
 
 #menuTop td:nth-child(3) {
     text-align: right;
 }
 
+
 #scoreBoard {
     width: 1300px;
-    background-color: #00BF88;
+    background-color: #0C1B23;
     height: 350px;
     margin: 0px auto;
     /* margin-left: 400px; */
@@ -62,7 +50,7 @@
 
 #topBoard {
     width: 100%;
-    background-color: royalblue;
+    background-color: #0C1B23;
     height: 167px;
 }
 
@@ -72,14 +60,19 @@ h3 {
     font-weight: bold;
 }
 
+
+
+
 * {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+
 /* ----------------------------------------------------------------- */
 .footer {
+
     border-top: 1px solid cornflowerblue;
     border-bottom: 1px solid cornflowerblue;
     min-width: 1300px;
@@ -101,26 +94,28 @@ h3 {
     margin: 0px auto;
 }
 
-.footerBox > div {
+.footerBox>div {
     text-align: center;
     width: 150px;
     float: left;
     margin-top: 15px;
+
 }
 
-.footerBox2 > div {
+.footerBox2>div {
     float: left;
     padding-top: 4px;
     padding-left: 42px;
 }
 
-.footerBox3 > div {
+.footerBox3>div {
     padding-top: 4px;
     padding-left: 47px;
+
 }
 
-.footerInfo > .info,
-.footerInfo > .infoItem {
+.footerInfo>.info,
+.footerInfo>.infoItem {
     display: inline;
     margin: 5px;
     padding-right: 20px;
@@ -133,15 +128,16 @@ h3 {
     margin-right: -30px;
 }
 
-.footerInfo > .info:last-child {
+.footerInfo>.info:last-child {
     border: 0px;
 }
 
-.footerBox > div > a:link {
+.footerBox>div>a:link {
     text-decoration: none;
+
 }
 
-.footerBox > div > a:hover {
+.footerBox>div>a:hover {
     text-decoration: none;
     color: #013e5f;
 }
@@ -156,8 +152,11 @@ h3 {
     height: 250px;
     margin: 0px auto;
     background-color: #254150;
-    color: #92daec;
+    color: #92DAEC;
+
+
 }
+
 
 .sitemap .siteList {
     float: left;
@@ -168,7 +167,9 @@ h3 {
 }
 
 .sitemap .siteList:first-child {
+
     margin-left: 50px;
+
 }
 
 .listName {
@@ -177,12 +178,12 @@ h3 {
     text-align: left;
 }
 
-.siteList > li > a {
+.siteList>li>a {
     text-decoration: none;
-    color: #92daec;
+    color: #92DAEC;
 }
 
-.listName > a {
-    color: #92daec;
+.listName>a {
+    color: #92DAEC;
     text-decoration: none;
 }

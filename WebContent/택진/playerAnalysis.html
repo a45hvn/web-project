@@ -41,7 +41,7 @@
         }
         .playerTitle{
             
-            border : 1px solid rgb(134, 0, 0);
+            border : 3px solid rgb(134, 0, 0);
             width: 600px;
             margin-top: 30px;
             height: 100px;
@@ -50,21 +50,21 @@
         }
         .playerTitle:nth-child(3){
             
-            border : 1px solid rgb(11, 72, 255);
+            border : 3px solid rgb(11, 72, 255);
             
         }
         .playerTitle img{
             width: 150px; 
-            float: left; 
+            /* float: left;  */
             margin-top: -40px ; 
-            margin-left: -40px;
+            /* margin-left: 50px; */
         }
         .playerTitle a{
             font-size: 1.3em;
             color: black;
         }
         .playerTitle span{
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
         .playerCharts{
             border-left: 1px solid rgb(134, 0, 0);
@@ -76,7 +76,7 @@
         .playerPhoto{
             /* border: 1px solid black; */
             width: 300px;
-            padding-left: 30px;
+            padding-left: 35px;
         }
         .playerPhoto img{
             border: 5px solid rgb(134, 0, 0);
@@ -92,6 +92,9 @@
         #playerInfo tbody th{
             text-align: center;
 
+        }
+        .pageContentTitle {
+            background-color: rgb(238, 238, 238);
         }
 /* ---------------------------------------------------------------- */
         #container {
@@ -132,7 +135,7 @@
         background: #f1f7ff;
         }
         rect {
-            fill: rgb(238, 238, 238);;
+            fill: rgb(238, 238, 238);
         }
     </style>
 </head>
@@ -146,20 +149,20 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
                 </td>
             </tr>
             <tr id="menuTr">
-                <td class="menu"><span class="menuLabel">정규리그일정</span></td>
-                <td class="menu"><span class="menuLabel">구단현황</span></td>
-                <td class="menu"><span class="menuLabel">선수현황</span></td>
-                <td class="menu"><span class="menuLabel">전력분석</span></td>
-                <td class="menu"><span class="menuLabel">문자중계</span></td>
-                <td class="menu"><span class="menuLabel">게시판</span></td>
-                <td class="menu"><span class="menuLabel">공지사항</span></td>
+                <td class="menu menu1"><span class="menuLabel">정규리그일정</span></td>
+                <td class="menu menu2"><span class="menuLabel">구단현황</span></td>
+                <td class="menu menu3"><span class="menuLabel">선수현황</span></td>
+                <td class="menu menu4"><span class="menuLabel">전력분석</span></td>
+                <td class="menu menu5"><span class="menuLabel">문자중계</span></td>
+                <td class="menu menu6"><span class="menuLabel">게시판</span></td>
+                <td class="menu menu7"><span class="menuLabel">공지사항</span></td>
             </tr>
         </table>
     </nav>
@@ -174,15 +177,15 @@
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>커뮤니티</span>
+                    <span>전력분석</span>
                     <span>></span>
-                    <span>질문게시판</span>
+                    <span>선수분석</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="#">팀분석</a></li>
-                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="#">선수분석</a></li>
+                            <li class="subMenuItem"><a href="teamAnalysis.html">팀분석</a></li>
+                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerAnalysis.html">선수분석</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -199,7 +202,7 @@
             class="contentTitle">전력분석(선수)</span>
         </div>
         <!--  -->
-        <div style="width: 100%; border: 1px solid gray; height: 850px; float: left; margin-top: 50px; background-color: rgb(238, 238, 238);">
+        <div style="width: 100%;  height: 850px; float: left; background-color: rgb(238, 238, 238);">
             <div>
                 <select name="" id="team1" style="margin-left: 160px;">
                     <option value="">경기</option>
@@ -239,21 +242,27 @@
                 </select>
             </div>
 
-            <div class="playerTitle" style="margin-left: 30px; border-top: 5px solid rgb(134, 0, 0);">
-                <img src="../images/rogo.png" alt="" class="rogo">
-                <a href="#" style="margin-left: 140px;" class="name">
-                    권현진
-                </a>
-                <div style="text-align: right;  margin-top: -20px;">
+            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid rgb(134, 0, 0);">
+                <div style="text-align: left; width: 250px; float: left;">
+                    
                     <span class="birth">1997-05-13</span><br>
                     <span class="spec">180/69kg</span><br>
                     <span class="position">MF</span>
+                    
+
                 </div>
+                
+                <span style=" float: left;width: 140px; margin-top: 30px;">권현진</span>
+
+                <img src="../images/rogo.png" alt="" class="rogo" style="margin-left: 50px;">
             </div>
-            <div class="playerTitle" style="margin-left: 30px; border-top: 5px solid rgb(11, 72, 255);">
-                <img src="../images/rogo.png" alt=""class="rogo">
-                <a href="#" style="margin-left: 140px;">김동현</a>
-                <div style="text-align: right;  margin-top: -20px;">
+
+            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid rgb(11, 72, 255);">
+                <img src="../images/rogo.png" alt=""class="rogo" style=" float: left;">
+
+                <span style="margin-left: 100px; display:block; float: left;  margin-top: 30px;">김동현</span>
+
+                <div style="text-align: right;  width: 290px; margin-left: 300px;">
                     <span class="birth">1995-07-13</span><br>
                     <span class="spec">170/60kg</span><br>
                     <span class="position">MF</span>
@@ -477,6 +486,8 @@
     $("text").css("font-size","1.3em").css("font-weight", "bold")
     $(".highcharts-credits").css("font-size","0em")
     </script>
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
     
 </body>
 

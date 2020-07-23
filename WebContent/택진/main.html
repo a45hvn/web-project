@@ -22,27 +22,24 @@
             height: 1px;
         }
 
-        table td {
-            /* border-right: 1px solid white; */
-            text-align: center;
-        }
-
-
-        img {
-            width: 150px;
-            border: 3px solid white;
+        #mainrogo {
+        width: 100px;
+        border: 3px solid white;
         }
 
         .menu span {
             color: white;
             text-align: center;
-            font-size: 1.4em;
+            font-size: 1.3em;
+            display: block;
         }
 
         .menu {
             background-color: rgb(37, 40, 42);
             opacity: .7;
             cursor: pointer;
+            font-weight: bold;
+            
         }
 
         #menuTop {
@@ -50,7 +47,11 @@
             background-color: rgb(23, 25, 26);
         }
 
-        span {
+        #menuTop td:nth-child(3) {
+        text-align: right;
+        }
+
+        .gamedate span{
             display: block;
             padding-top: 20px;
         }
@@ -60,7 +61,13 @@
             background-color: #0C1B23;
             height: 500px;
             margin: 0px auto;
+            background-image: url("../images/stadium.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position-x: center;
+            background-position-y: 90%;
             /* margin-left: 400px; */
+            
         }
 
 
@@ -95,7 +102,7 @@
         #topBoard {
             width: 100%;
             background-color: #0C1B23;
-            height: 167px;
+            height: 117px;
         }
 
         #rankList tr:nth-child(2n+1) {
@@ -189,8 +196,8 @@
         /* --------------------------------------------------------------- */
 
         .infoBox {
-            border: 3px dashed white;
-            width: 240px;
+            border: 3px solid rgb(25, 21, 39);
+            width: 260px;
             height: 240px;
             border-collapse: collapse;
             position: relative;
@@ -199,6 +206,7 @@
             background-color: rgb(37, 65, 80);
             color: white;
             margin-top: 60px;
+            padding: 0px 10px;
         }
 
         .infoOuter:last-child::after {
@@ -255,9 +263,9 @@
         }
 
         .infoOuter {
-            width: 2350px;
+            width: 2800px;
             /* border: 1px solid black; */
-            margin-left: 60px;
+            margin-left: 25px;
         }
 
         .outerWraper {
@@ -619,20 +627,20 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt=""></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
                 </td>
             </tr>
             <tr id="menuTr">
-                <td class="menu"><span>정규리그일정</span></td>
-                <td class="menu"><span>구단현황</span></td>
-                <td class="menu"><span>선수현황</span></td>
-                <td class="menu"><span>전력분석</span></td>
-                <td class="menu"><span>문자중계</span></td>
-                <td class="menu"><span>게시판</span></td>
-                <td class="menu"><span>공지사항</span></td>
+                <td class="menu menu1"><span>정규리그일정</span></td>
+                <td class="menu menu2"><span>구단현황</span></td>
+                <td class="menu menu3"><span>선수현황</span></td>
+                <td class="menu menu4"><span>전력분석</span></td>
+                <td class="menu menu5"><span>문자중계</span></td>
+                <td class="menu menu6"><span>게시판</span></td>
+                <td class="menu menu7"><span>공지사항</span></td>
 
             </tr>
         </table>
@@ -769,7 +777,7 @@
                     <!-- 리그 일정 정 보 -->
                     <div class="gamedate">
                         <span class="infoLeft">
-                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
                         <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
                     </div>
 
@@ -793,7 +801,7 @@
                     <!-- 리그 일정 정 보 -->
                     <div class="gamedate">
                         <span class="infoLeft">
-                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
                         <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
                     </div>
 
@@ -817,7 +825,7 @@
                     <!-- 리그 일정 정 보 -->
                     <div class="gamedate">
                         <span class="infoLeft">
-                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
                         <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
                     </div>
 
@@ -837,14 +845,37 @@
                     <div class="vs"><span class="badge">vs</span></div>
                 </div>
                 <!-- 8 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
             </div>
 
 
         </div>
 
         <div id="arrow">
-            <div class="glyphicon glyphicon-triangle-left"></div>
-            <div class="glyphicon glyphicon-triangle-right"></div>
+            <div class="glyphicon glyphicon-triangle-left" id="left"></div>
+            <div class="glyphicon glyphicon-triangle-right" id="right"></div>
         </div>
 
     </div>
@@ -1309,6 +1340,7 @@
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
 
+
         var flag = false;
         $(document).scroll(function () {
 
@@ -1338,6 +1370,29 @@
 
             location.href = "http://naver.com"
 
+        });
+
+        // 경기일정 오른쪽 화살표
+        $("#right").hover(function () {
+            $(this).css("cursor","pointer")
+        }).click(function () {
+
+            // $(".infoOuter").css("position","relative").css("left","-1550px").css("transitionDuration","1s");
+            
+            $(".infoBox").animate({
+                left : "-1550px",
+            },1000)
+
+        });
+        // 경기일정 왼쪽 화살표
+        $("#left").hover(function () {
+            $(this).css("cursor","pointer")
+        }).click(function () {
+
+            // $(".infoBox").css("position","relative").css("left","0px").css("transitionDuration","1s");
+            $(".infoBox").animate({
+                left : "0px",
+            },1000)
         });
 
         // ----------------------------------------------------------
@@ -1448,6 +1503,8 @@
 
 
     </script>
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
 </body>
 
 </html>

@@ -36,10 +36,10 @@
         }
 
         #bottomContent{
-            width: 80%;
-            border: 1px solid black;
-            background-color: rgb(37, 40, 42);
-            color: rgb(226, 226, 226);
+            width: 100%;
+            border: 1px solid gray;
+            /* background-color: rgb(37, 40, 42); */
+            /* color: rgb(226, 226, 226); */
 ;
         }
         h2{
@@ -53,7 +53,7 @@
         }
 
         #teamrogo{
-            border: 1px solid black;
+            /* border: 1px solid black; */
         }
         #teaminfo{
             /* border-left: 1px solid rgb(190, 190, 190); */
@@ -66,14 +66,14 @@
         #teaminfo div{
             border: 1px solid rgb(223, 216, 216);
             float: none;
-            width: 737px;
+            width: 998px;
             height: 16.6666666666%;
             font-size: 1.2em;
         }
 
         hr{
             border : 1px solid black;
-            width: 1178px;
+            width: 1300px;
         }
     </style>
 </head>
@@ -87,20 +87,20 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
                 </td>
             </tr>
             <tr id="menuTr">
-                <td class="menu"><span class="menuLabel">정규리그일정</span></td>
-                <td class="menu"><span class="menuLabel">구단현황</span></td>
-                <td class="menu"><span class="menuLabel">선수현황</span></td>
-                <td class="menu"><span class="menuLabel">전력분석</span></td>
-                <td class="menu"><span class="menuLabel">문자중계</span></td>
-                <td class="menu"><span class="menuLabel">게시판</span></td>
-                <td class="menu"><span class="menuLabel">공지사항</span></td>
+                <td class="menu menu1"><span class="menuLabel">정규리그일정</span></td>
+                <td class="menu menu2"><span class="menuLabel">구단현황</span></td>
+                <td class="menu menu3"><span class="menuLabel">선수현황</span></td>
+                <td class="menu menu4"><span class="menuLabel">전력분석</span></td>
+                <td class="menu menu5"><span class="menuLabel">문자중계</span></td>
+                <td class="menu menu6"><span class="menuLabel">게시판</span></td>
+                <td class="menu menu7"><span class="menuLabel">공지사항</span></td>
             </tr>
         </table>
     </nav>
@@ -328,6 +328,9 @@
 
 
     </script>
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
+
 </body>
 
 </html>
