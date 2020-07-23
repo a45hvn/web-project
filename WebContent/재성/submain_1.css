@@ -5,10 +5,10 @@
     /* height: 1000px; */
     background-color: white;
     margin: 0px auto;
+    padding: 0px 50px;
 }
 
 #subOuter {
-    background-color: #254150;
     width: 1300px;
     height: 150px;
     position: absolute;
@@ -16,23 +16,39 @@
 }
 
 .menuTitleBox {
-    border: 0px solid red;
+    width: 1300px;
+    height: 150px;
+    z-index: 2;
+}
+#crumbOuter {
+    background-color: #254150;
     width: 1300px;
     height: 90px;
+    opacity: 0.9;
+    position: relative;
     z-index: 1;
 }
 
 .menuTitle {
     color: #92daec;
-    font-size: 40px;
+    position: absolute;
+    font-size: 30px;
     width: 280px;
     height: 90px;
     text-align: center;
     font-weight: bold;
-    line-height: 80px;
+    line-height: 95px;
     border-radius: 5px;
     float: left;
     margin-left: 30px;
+    z-index: 2;
+}
+.breadCrumb {
+    color: #92daec;
+    position: absolute;
+    right: 2%;
+    top: 40px;
+    z-index: 2;
 }
 
 .subMenuBox {
@@ -71,22 +87,6 @@
     text-decoration: none;
 }
 
-.breadcrumb {
-    width: 300px;
-    height: 50px;
-    position: absolute;
-    left: 1000px;
-    background-color: none;
-    background-color: #254150;
-    padding: 35px;
-}
-
-.breadcrumb > span {
-    list-style-type: none;
-    float: left;
-    text-align: center;
-    color: #92daec;
-}
 .pageContentTitle {
     width: 1300px;
     height: 100px;

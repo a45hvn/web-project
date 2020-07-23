@@ -69,7 +69,7 @@
 }
 .underLine {
     height: 52px;
-    border-bottom: 5px solid white;
+    border-bottom: 5px solid #a33;
 }
 
 /*  */
@@ -91,21 +91,30 @@
     left: 25.6%;
     background-color: #254150;
 }
-#teamASum {
-    /* border: 1px solid blue; */
-    width: 49%;
-    height: 100%;
-    /* overflow-y: scroll; */
-    float: left;
+.evts {
+    position: relative;
 }
-#teamBSum {
-    text-align: right;
-    /* border: 1px solid blue; */
-    width: 49%;
-    height: 100%;
-    /* overflow-y: scroll; */
-    float: left;
+.teamA {
+    display: inline-block;
+    /* position: absolute; */
 }
+.teamB {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+.time {
+    display: inline-block;
+    position: absolute;
+    left: 45%;
+}
+.evtMinute {
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    /* left: -10px; */
+}
+
 #teamBSum::after {
     content: "";
     display: inline-block;
@@ -113,13 +122,16 @@
 }
 /* 선수 엔트리 및 문자 중계 */
 .middle2 {
-    background-color: #0b1216;
+    /* background-color: #0b1216; */
     /* border: 1px solid red; */
     width: 1300px;
     margin: 0px auto;
     color: white;
 }
-
+.menuTitle2 {
+    color: black;
+    font-size: 2em;
+}
 .entryOuter {
     /* border: 10px solid gold; */
     position: relative;
@@ -128,15 +140,22 @@
 .entry {
     /* border: 1px solid gold; */
     width: 20%;
-    color: white;
-    font-size: 2em;
+    color: whitesmoke;
+    font-size: 1em;
     padding: 3%;
+    /* background-color: #254150; */
+}
+.entry div:nth-child(odd) {
+    background-color: #254150;
+}
+.entry div:nth-child(even) {
+    background-color: #0c1a22;
 }
 .textBroadcast {
     /* border: 1px solid tomato; */
     text-align: center;
     width: 43%;
-    height: 600px;
+    height: 500px;
     position: absolute;
     left: 30%;
     top: 2%;
@@ -147,9 +166,7 @@
 }
 .textBroadcast::-webkit-scrollbar-thumb {
     background-color: #92daec;
-}
-.menuTitle2 {
-    font-size: 2em;
+    border-radius: 20px;
 }
 .textBroadcast {
     border: 2px solid #eee;
@@ -181,6 +198,10 @@
     position: relative;
     left: 78%;
 }
+.player {
+    width: 230px;
+    padding: 1%;
+}
 .backNum {
     color: turquoise;
     display: inline-block;
@@ -189,11 +210,14 @@
 .playerName {
     display: inline-block;
     position: absolute;
-    right: 30%;
+    left: 50%;
+}
+.entry div:first-of-type .position {
+    left: 80%;
 }
 .position {
     display: inline-block;
     position: absolute;
-    right: 0px;
+    left: 86%;
     color: gold;
 }
