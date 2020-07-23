@@ -11,58 +11,11 @@
         <script src="../bootstrap/js/jquery-1.12.4.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
         <style></style>
-        <style>
-         .pagingarea{
-            
-            width: 260px;
-            position: relative;
-            left: 1000px;
-            bottom: 50px;
-        }
-
-        
-        
-        .pagingarea a{
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            transition: background-color .3s;
-            border: 1px solid #ddd;
-        }
-
-        .pagingarea a.active {
-            background-color: #E32D38;
-            color : white;
-            border: 1px solid #E32D38;
-        }
-
-        .pagingarea a:hover:not(.active) {
-            background-color: #ccc;
-        }
-
-        #blackList{
-            width: 1300px;
-            /* border: 1px solid black; */
-            margin: 0px auto;
-        }
-        
-        
+        <style>        
         #searchBox{
            
             margin-left: 60%;
             margin-right: auto;
-        }
-       
-
-        .searchBtn{
-            width: 70px;
-            height: 30px;
-            border: 0px;
-            margin-left: 40px;
-            font-weight: bold;
-            font-size: 18px;
-            background-color: #E32D38;
-            color: white;
         }
  
         .selectbox{
@@ -70,25 +23,105 @@
             width: 140px;
             font-size: 15px;
         }
-
-        .btnOption{
-            
-            display: inline-block;
+        #searchbtn{
             position: relative;
-            left: 700px;
-            bottom: 10px;
+            left: 4px;
+        }
+        #btnOption{
+            
+            /* border: 1px solid orange;
+            position: relative;
+            left: 90%;
+            
             width: 80px;
             height: 40px;
-            margin-left: 40px;
-            background-color: #E32D38;
-            color: white;
             font-size: 18px;
             font-weight: bold;
-            border: 0;
+            border: 0; */
+            
+           position: relative;
+           margin-left: 94.2%;
+           width: 70px;
+           height: 30px;
+       
         }
 
         #tbl1{
-            font-size: 17px;
+            width: 1200px;
+            margin: 50px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        #tbl1 th{
+           text-align: center;
+           background-color: #92DAEC;
+            color: #0C1B23;    
+            font-weight: bold;
+            font-size: 1.1em;
+       }
+       #tbl1 tr{
+            width: 800px;
+            background-color: #1E3440;                
+        }
+        
+       .selectbox{
+           height: 25px;
+       }
+       #pagination .nowPage {
+            background-color: #92DAEC;
+        }
+        #searchbtn, #writebtn {
+            color: white;   
+            height: 30px;
+            background-color: #1E3440 ;
+        }
+
+        #pagination li > a {
+            color: white;
+            background-color: #1E3440;            
+        } 
+     
+        #centerbox4 select {
+            color: white; 
+            background-color: #1E3440 ;
+        }
+
+        #tbl1 td { padding-top: 20px; padding-bottom: 15px;}
+         #tbl1 td { text-align: center; color: white; } 
+        #tbl1 tr:nth-child(even){
+            width: 800px;
+            background-color: #0C1B23
+        }
+
+
+        .pageContentTitle{
+            height: 100px;
+            
+        }
+        #centerbox1{
+            position: relative;
+            margin: 0px auto;
+            width: 1200px;
+            height: 45px;
+            border-bottom: 1px solid black;
+        }
+        #centerbox2{
+            height: 650px;
+        }
+
+        #centerbox3 {
+            width: 1200px;
+            height: 50px;
+            margin-top: 40px;
+           
+        }
+
+        #centerbox4 {
+            width: 1200px;
+            height: 50px;
+            display: inline-block;   
+            
+                   
         }
 
         </style>
@@ -161,23 +194,16 @@
             </div>        
                 
                 
-                <br><br>
                 
-                <span id="searchBox">
-                    <select name="이름" class="selectbox">
-                        <option value="구단명/유저이름">구단명/유저이름</option>
-                        <option value="날짜">날짜</option>
-                        <option value="타입">타입</option>
-                    </select>
-                    <input type="text" class="searchKeyword">
-                    <input type="button" value="검색" class="searchBtn">
-                </span>
-                <br><br>
-                <br><br>
-        
-        
-                <table class="table" id="tbl1">
+                
+                <div id="centerbox1">
+                    <input type="button" value="삭제"class="btn btn-default btnOption"id="btnOption">
+                </div> 
+                <br>
+                <div id="centerbox2">
+                <table class="table table-hover" id="tbl1" style="margin-top: 0px;">
                     <tr>
+                        <th></th>
                         <th>번호</th>
                         <th>구단명/유저이름</th>
                         <th>날짜</th>
@@ -186,6 +212,7 @@
                         <th>제재횟수</th>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>1</td>
                         <td>헤헤헤</td>
                         <td>2020-06-06</td>
@@ -194,6 +221,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>2</td>
                         <td>엉엉엉</td>
                         <td>2020-06-10</td>
@@ -202,6 +230,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>3</td>
                         <td>월요일</td>
                         <td>2020-06-10</td>
@@ -210,6 +239,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>4</td>
                         <td>헤헤헤</td>
                         <td>2020-06-06</td>
@@ -218,6 +248,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>5</td>
                         <td>엉엉엉</td>
                         <td>2020-06-10</td>
@@ -226,6 +257,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>6</td>
                         <td>월요일</td>
                         <td>2020-06-10</td>
@@ -234,6 +266,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>7</td>
                         <td>헤헤헤</td>
                         <td>2020-06-06</td>
@@ -242,6 +275,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>8</td>
                         <td>엉엉엉</td>
                         <td>2020-06-10</td>
@@ -250,6 +284,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>9</td>
                         <td>월요일</td>
                         <td>2020-06-10</td>
@@ -258,6 +293,7 @@
                         <td>1</td>
                     </tr>
                     <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
                         <td>10</td>
                         <td>헤헤헤</td>
                         <td>2020-06-06</td>
@@ -265,38 +301,50 @@
                         <td>경기 출전 금지(1달)</td>
                         <td>1</td>
                     </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>엉엉엉</td>
-                        <td>2020-06-10</td>
-                        <td>구단명</td>
-                        <td>경기 출전 금지(1달)</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>월요일</td>
-                        <td>2020-06-10</td>
-                        <td>유저이름</td>
-                        <td>게시글 작성 제한(1주)</td>
-                        <td>1</td>
-                    </tr>
+                    
         
-                </table>
-                <br><br><br>
-                <br><br><br>
-                
-            
-                <input type="button" value="삭제"class="btnOption">
-                
-                <div class="pagingarea">
-                    <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a href="#" class="active">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">&raquo;</a>     
+                </table>            
                 </div>
+               
+                <div id="centerbox3">                
+                    <ul id="pagination" class="pagination" style="float: right; margin: 0;">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a class="nowPage" href="#" name="page">1</a></li>
+                        <li><a href="#" name="page">2</a></li>
+                        <li><a href="#" name="page">3</a></li>
+                        <li><a href="#" name="page">4</a></li>
+                        <li><a href="#" name="page">5</a></li>
+                        <li><a href="#" name="page">6</a></li>
+                        <li><a href="#" name="page">7</a></li>
+                        <li><a href="#" name="page">8</a></li>
+                        <li><a href="#" name="page">9</a></li>         
+                        <li><a href="#" name="page">10</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>   
+                </div> 
+                <div id="centerbox4">
+                    <div style="float: right; font-size: 15px; margin: 5px;">                
+                        <select style=" height: 30px;">
+                            <option value="">구단명/유저이름</option>
+                            <option value="">날짜</option>
+                            <option value="">타입</option>
+                        </select>
+                        <input id="searchkeyword" type="text" size="35" style="height: 30px;">
+                        <a href=""><input id="searchbtn" type="button" value="검색" ></a>
+                    </div>
+                </div>
+            
+                
+                
+                
         
         
             
