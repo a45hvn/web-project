@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>경기장 관리</title>
         <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="../webproject/submain_Admin_1.css" />
@@ -18,12 +18,18 @@
            margin-right: auto;
        } */
 
+       .pageContentTitle{
+            /* border: 1px solid green; */
+            position: relative;
+            top: 80px;
+        }
+
        #searchBox{
            position: relative;
            margin-left: 70%;
            bottom: 7px;
            
-       }
+            }
        .btnOption{
            position: relative;
            width: 70px;
@@ -32,6 +38,7 @@
        #btnOption{
            position: relative;
            margin-left: 81.8%;
+           bottom: 5px;
        }
 
        #tbl1{
@@ -51,7 +58,7 @@
             width: 800px;
             background-color: #1E3440;                
         }
-       #tbl1 td { padding-top: 20px;}
+       #tbl1 td { padding-top: 10px; border: none;} 
        .selectbox{
            height: 25px;
        }
@@ -74,21 +81,25 @@
             border-bottom: 1px solid black;
         }
        #centerbox2{
-         
-           height: 650px;
+            /* border: 1px solid blue; */
+           height: 570px;
        }
        #centerbox3 {
             /* border: 1px solid red; */
             width: 1200px;
             height: 50px;
-            margin-top: 40px;
+            margin: 0px auto;
+            /* margin-top: 40px; */
            
         }
 
         #centerbox4 {
             /* border: 1px solid blue; */
+            position: relative;
+            left: 55px;
             width: 1200px;
             height: 50px;
+            margin: 0px auto;
             display: inline-block;   
                    
         }
@@ -196,18 +207,14 @@
             </div>              
                 <br><br><br>
                 <div id="centerbox1">
-                    <span id="btnOption">
-                    <input type="button" value="추가" class="btn btn-default btnOption">
-                    <input type="button" value="수정"class="btn btn-default btnOption">
-                    <input type="button" value="삭제"class="btn btn-default btnOption">
-                    </span>
+                    
                 </div> 
                 
                 <br>
                 <div id="centerbox2">
                 <table class="table table-hover" id="tbl1" style="margin-top: 0px;">
                     <tr>
-                        <th></th>
+                        <th><input type="checkbox" name="" id="checkbox"></th>
                         <th>지역</th>
                         <th>경기장 이름</th>
                         <th>수용인원</th>
@@ -262,9 +269,46 @@
                         <td>경기도 성남시 분당구</td>
                         <td><input type="button" value="상세보기" id="map" class="btn btn-default btn-sm"></td>
                     </tr>
+                    <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
+                        <td>경기</td>
+                        <td>경기장5</td>
+                        <td>300명</td>
+                        <td>경기도 성남시 분당구</td>
+                        <td><input type="button" value="상세보기" id="map" class="btn btn-default btn-sm"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
+                        <td>경기</td>
+                        <td>경기장6</td>
+                        <td>300명</td>
+                        <td>경기도 성남시 분당구</td>
+                        <td><input type="button" value="상세보기" id="map" class="btn btn-default btn-sm"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
+                        <td>경기</td>
+                        <td>경기장5</td>
+                        <td>300명</td>
+                        <td>경기도 성남시 분당구</td>
+                        <td><input type="button" value="상세보기" id="map" class="btn btn-default btn-sm"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="" id="checkbox"></td>
+                        <td>경기</td>
+                        <td>경기장6</td>
+                        <td>300명</td>
+                        <td>경기도 성남시 분당구</td>
+                        <td><input type="button" value="상세보기" id="map" class="btn btn-default btn-sm"></td>
+                    </tr>
                 </table>
             </div>
-                <div id="centerbox3">                
+                <div id="centerbox3">    
+                    <span id="btnOption">
+                        <input type="button" value="추가" class="btn btn-default btnOption">
+                        <input type="button" value="수정"class="btn btn-default btnOption">
+                        <input type="button" value="삭제"class="btn btn-default btnOption">
+                        </span>            
                     <ul id="pagination" class="pagination" style="float: right; margin: 0;">
                         <li>
                             <a href="#" aria-label="Previous">
@@ -290,6 +334,7 @@
                 </div> 
 
                 <div id="centerbox4">
+                    
                     <div style="float: right; font-size: 15px; margin: 5px;">                
                         <select style=" height: 30px;">
                             <option value="">지역</option>

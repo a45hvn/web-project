@@ -12,233 +12,7 @@
     <link rel="stylesheet" href="../webproject/gamedetailinfo.css" />
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
-    <style>
-        .center {
-            padding-top: 50px;
-            background-color: #eee;
-            height: auto;
-        }
-
-        .centerInner {
-            /* border: 1px solid black; */
-            width: 1300px;
-            background-color: #10202A;
-            margin: 0px auto;
-        }
-
-        .outerbox {
-            width: 1300px;
-            height: 100px;
-        }
-
-        .teamOuter {
-            margin-top: 1.5%;
-            width: 43.9%;
-
-            height: 40px;
-            float: left;
-            position: relative;
-            background-color: #92daec;
-        }
-
-        .score {
-            margin-top: 1.5%;
-
-            float: left;
-            text-align: center;
-            height: 50px;
-            width: 12%;
-            background-color: #fef9ce;
-            font-size: 2.4em;
-        }
-
-        .insidescore {
-            position: relative;
-            /* top: 30%; */
-        }
-
-        .teamOuter img {
-            width: 80px;
-            height: 80px;
-            background-color: #92daec;
-            display: inline-block;
-            position: absolute;
-            border: 7px solid #92daec;
-            border-radius: 50%;
-            top: -14px;
-        }
-
-        #teamOuterA img {
-            right: -10px;
-        }
-
-        #teamOuterB img {
-            left: -10px;
-        }
-
-        .teamName {
-            width: 86%;
-            height: 25px;
-            /* border: 1px solid red; */
-            position: absolute;
-            color: white;
-            font-size: 1.7em;
-            font-style: italic;
-        }
-
-        #teamNameA {
-            text-align: right;
-            right: 14%;
-            top: 20%;
-        }
-
-        #teamNameB {
-            top: 20%;
-            left: 14%;
-        }
-
-        .underLine {
-            height: 52px;
-            border-bottom: 5px solid white;
-        }
-
-        /*  */
-        .middle {
-            background-color: #10202A;
-            border-bottom: 2px solid #eee;
-            width: 1300px;
-            height: 150px;
-            margin: 0px auto;
-            position: relative;
-            color: white;
-            font-size: 1.2em;
-        }
-
-        .gameSummary {
-            /* border: 1px solid gold; */
-            width: 640px;
-            height: 80%;
-            position: absolute;
-            left: 25.6%;
-            background-color: #254150;
-
-        }
-
-        #teamASum {
-            /* border: 1px solid blue; */
-            width: 49%;
-            height: 100%;
-            /* overflow-y: scroll; */
-            float: left;
-        }
-
-        #teamBSum {
-            text-align: right;
-            /* border: 1px solid blue; */
-            width: 49%;
-            height: 100%;
-            /* overflow-y: scroll; */
-            float: left;
-        }
-
-        #teamBSum::after {
-            content: "";
-            display: inline-block;
-            clear: both;
-        }
-
-        /* 선수 엔트리 및 문자 중계 */
-        .middle2 {
-            padding-top: 30px;
-            background-color: #10202A;
-            /* border: 1px solid red; */
-            width: 1300px;
-            height: 650px;
-            margin: 0px auto;
-            position: relative;
-            color: white;
-            /* font-size: 1.2em; */
-        }
-
-        .enrtyOuter {
-            width: 100%;
-        }
-
-        .entry {
-            /* border: 1px solid gold; */
-            width: 20%;
-            height: 100px;
-            /* float: left; */
-            position: absolute;
-            color: white;
-            font-size: 2em;
-        }
-
-        .textBroadcast {
-            /* border: 1px solid tomato; */
-            text-align: center;
-            width: 40%;
-            /* height: 1000px; */
-            position: absolute;
-            left: 30%;
-            top: 2%;
-            /* overflow-y: scroll; */
-        }
-
-        .menuTitle2 {
-            font-size: 2em;
-        }
-
-        .textBroadcast ul {
-            position: absolute;
-            left: 2.5%;
-            border: 2px solid #eee;
-            overflow-y: scroll;
-        }
-
-        .textBroadcast li {
-            list-style-type: none;
-            padding-top: 7px;
-            padding: 7px;
-            /* border: 1px solid black; */
-            width: 500px;
-        }
-
-        .textBroadcast li:nth-child(odd) {
-            background-color: #254150;
-        }
-
-        .textBroadcast li:nth-child(even) {
-            background-color: #0b1216;
-        }
-
-        #teamAEntry {
-            left: 3%;
-        }
-
-        #teamBEntry {
-            right: 3%;
-        }
-
-        .backNum {
-            color: turquoise;
-            display: inline-block;
-            right: 80%;
-        }
-
-        .playerName {
-            display: inline-block;
-            position: absolute;
-            right: 40%;
-        }
-
-        .position {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            color: gold;
-        }
-    </style>
+    <style></style>
 </head>
 
 <body>
@@ -311,7 +85,7 @@
                     <div class="teamOuter" id="teamOuterA">
                         <div>
                             <div class="teamName" id="teamNameA">홍길동FC</div>
-                            <img src="../images/1.jpg" />
+                            <img src="../images/1.png" />
                             <div class="underLine"></div>
                         </div>
                     </div>
@@ -325,7 +99,7 @@
                     <div class="teamOuter" id="teamOuterB">
                         <div>
                             <div class="teamName" id="teamNameB">하하하FC</div>
-                            <img src="../images/5.jpg" />
+                            <img src="../images/6.png" />
                             <div class="underLine"></div>
                         </div>
                     </div>
@@ -335,24 +109,31 @@
         <div class="middle">
             <!-- 골넣은 결과 작성하는 곳 도움은 타이틀로 보이도록 함 -->
             <div class="gameSummary">
-                <div id="teamASum">
+                <div id="teamSum">
                     <div id="evtA1" class="evts">
-                        <span class="Harf">전반</span><span class="evtTime">11</span>분
-                        <span class="evtBackNum">11</span>번 <span class="evtplayer">김찰찰</span>
+                        <div class="teamA">
+                            <span class="evtBackNum">11</span>번 <span class="evtplayer">김찰찰</span>
+                            <span class="assi"> 도움</span> [<span class="assiBackNum">11</span>번
+                            <span class="assiplayer">박철철</span>]
+                        </div>
+                        <div class="time"><span class="evtMinute">20</span><span class="bun">분</span></div>
+                        <div class="teamB"></div>
                     </div>
                     <div id="evtA2" class="evts">
-                        <span class="Harf">전반</span><span class="evtTime">11</span>분
-                        <span class="evtBackNum">16</span>번 <span class="evtplayer">김찰찰</span>
+                        <div class="teamA"></div>
+                        <div class="time"><span class="evtMinute">20</span><span class="bun">분</span></div>
+                        <div class="teamB"></div>
                     </div>
-                    <div id="evtA3" class="evts" title="14번 이청청 도움">
-                        <span class="Harf">후반</span><span class="evtTime">11</span>분
-                        <span class="evtBackNum">30</span>번 <span class="evtplayer">김찰찰</span>
-                    </div>
-                </div>
-                <div id="teamBSum">
-                    <div id="evtB1" class="evts">
-                        <span class="Harf">전반</span><span class="evtTime">11</span>분
-                        <span class="evtBackNum">15</span>번 <span class="evtplayer">김찰찰</span>
+                    <div id="evtA3" class="evts">
+                        <div class="teamA">
+                            <span class="evtBackNum">12</span>번 <span class="evtplayer">이청청</span>
+                            <span class="assi"> 도움</span> [<span class="assiBackNum">11</span>번
+                            <span class="assiplayer">박철철</span>]
+                        </div>
+                        <div class="time"><span class="evtMinute">20</span><span class="bun">분</span></div>
+                        <div class="teamB">
+                            <span class="evtBackNum">15</span>번 <span class="evtplayer">김찰찰</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -362,7 +143,13 @@
             <div class="entryOuter">
                 <div class="entry" id="teamAEntry">
                     <div class="player teamAPlayer" id="teamAPlayer1">
+                        <span class="backNum">번호</span>
+                        <span class="playerName">이름</span>
+                        <span class="position">포지션</span>
+                    </div>
+                    <div class="player teamAPlayer" id="teamAPlayer1">
                         <span class="backNum">1</span>
+
                         <span class="playerName">이찬찬</span>
                         <span class="position">ST</span>
                     </div>
@@ -448,6 +235,12 @@
                             <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
                         </li>
                         <li>
+                            <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </li>
+                        <li>
+                            <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </li>
+                        <li>
                             <span class="evtTime">40분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
                         </li>
                         <li>
@@ -455,6 +248,12 @@
                         </li>
                         <li>
                             <span class="evtTime">45분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
+                        </li>
+                        <li>
+                            <span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
+                        </li>
+                        <li>
+                            <span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
                         </li>
                         <li>
                             <span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
@@ -486,6 +285,31 @@
                     </ul>
                 </div>
                 <div class="entry" id="teamBEntry">
+                    <div class="player teamAPlayer" id="teamAPlayer1">
+                        <span class="backNum">번호</span>
+                        <span class="playerName">이름</span>
+                        <span class="position">포지션</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer1">
+                        <span class="backNum">1</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer1">
+                        <span class="backNum">1</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer1">
+                        <span class="backNum">1</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
+                    <div class="player teaBAPlayer" id="teamBPlayer1">
+                        <span class="backNum">1</span>
+                        <span class="playerName">박박박</span>
+                        <span class="position">ST</span>
+                    </div>
                     <div class="player teaBAPlayer" id="teamBPlayer1">
                         <span class="backNum">1</span>
                         <span class="playerName">박박박</span>
@@ -565,6 +389,7 @@
             </div>
         </div>
     </div>
+
     <!-- 하단부  -->
 
     <nav class="sitemap">
@@ -687,6 +512,7 @@
             }
         });
     </script>
+    <script src="../webproject/submain.js"></script>
 </body>
 
 </html>

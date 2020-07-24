@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>블랙리스트</title>
         <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="../webproject/submain_Admin_1.css" />
@@ -43,6 +43,7 @@
            margin-left: 94.2%;
            width: 70px;
            height: 30px;
+           bottom: 5px;
        
         }
 
@@ -51,6 +52,8 @@
             margin: 50px;
             font-size: 1.1em;
             text-align: center;
+            border: none;
+            
         }
         #tbl1 th{
            text-align: center;
@@ -61,7 +64,9 @@
        }
        #tbl1 tr{
             width: 800px;
-            background-color: #1E3440;                
+            border: none;
+            background-color: #1E3440;  
+                      
         }
         
        .selectbox{
@@ -86,7 +91,7 @@
             background-color: #1E3440 ;
         }
 
-        #tbl1 td { padding-top: 20px; padding-bottom: 15px;}
+        #tbl1 td { padding-top: 20px; padding-bottom: 15px; border: none;}
          #tbl1 td { text-align: center; color: white; } 
         #tbl1 tr:nth-child(even){
             width: 800px;
@@ -95,7 +100,10 @@
 
 
         .pageContentTitle{
-            height: 100px;
+            /* border: 1px solid green; */
+            position: relative;
+            top: 80px;
+            height: 150px;
             
         }
         #centerbox1{
@@ -110,18 +118,20 @@
         }
 
         #centerbox3 {
+            /* border: 1px solid red; */
             width: 1200px;
-            height: 50px;
-            margin-top: 40px;
+            height: 70px;
+            margin: 0px auto;
+            /* margin-top: 40px; */
            
         }
 
         #centerbox4 {
             width: 1200px;
             height: 50px;
-            display: inline-block;   
-            
-                   
+            /* display: inline-block;  */
+            margin: 0px auto;
+            /* border: 1px solid red;                    */
         }
 
         </style>
@@ -196,14 +206,14 @@
                 
                 
                 
-                <div id="centerbox1">
-                    <input type="button" value="삭제"class="btn btn-default btnOption"id="btnOption">
-                </div> 
+                 <div id="centerbox1">
+                       
+                    </div> 
                 <br>
                 <div id="centerbox2">
                 <table class="table table-hover" id="tbl1" style="margin-top: 0px;">
                     <tr>
-                        <th></th>
+                        <th><input type="checkbox" name="" id="checkbox"></th>
                         <th>번호</th>
                         <th>구단명/유저이름</th>
                         <th>날짜</th>
@@ -305,8 +315,9 @@
         
                 </table>            
                 </div>
-               
-                <div id="centerbox3">                
+                   
+                <div id="centerbox3">                 
+                    <input type="button" value="삭제"class="btn btn-default btnOption"id="btnOption">
                     <ul id="pagination" class="pagination" style="float: right; margin: 0;">
                         <li>
                             <a href="#" aria-label="Previous">
@@ -342,7 +353,7 @@
                     </div>
                 </div>
             
-                
+               
                 
                 
         
