@@ -7,20 +7,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../webproject/submain_1.css">
-    <link rel="stylesheet" href="../webproject/submain_2.css">
+    <link rel="stylesheet" href="css/submain_1.css">
+    <link rel="stylesheet" href="css/submain_2.css">
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
         .center {
             padding-top: 50px;
             background-color: #eee;
+
+        }
+
+        #contentsBox {
+            width: 1300px;
+            min-height: 700px;
         }
 
         .boardContentsOutBox {
             margin-top: 20px;
             width: 1200px;
-            height: 600px;
+            min-height: 500px;
             float: left;
             border: 1px solid #E1E1E1;
             border-top: 3px solid #0C1B23;
@@ -123,7 +129,7 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="images/rogo.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
@@ -147,58 +153,60 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">마이페이지</div>
+                <div class="menuTitle">커뮤니티</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>마이페이지</span>
+                    <span>커뮤니티</span>
                     <span>></span>
-                    <span>회원정보조회</span>
+                    <span>용병모집</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="#">회원정보조회</a></li>
-                            <li><a href="#">구단정보관리</a></li>
-                            <li><a href="#">친구관리</a></li>
-                            <li><a href="#">DM</a></li>
+                            <li class="subMenuItem"><a href="#">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="#">갤러리</a></li>
+                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="../webproject/friendlymatchrecruit.html">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="../webproject/mercenaryrecruit.html">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
 
             </div>
         </div>
-
     </div>
 
     <div class="center">
 
-        <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
+        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">용병모집</span></div>
-
-        <div class="boardContentsOutBox">
-            <div class="boardContentsTitleBox">
-                <div class="boardContentshead">[용병모집]</div>
-                <div class="boardContentsTitle">7월 25일 용병모집 </div>
-                <div class="writer">작성자 오희준</div>
-                <div class="date">2020.07.12</div>
-                <div class="view">조회 126</div>
-            </div>
-            <div class="teamName">모집팀 : Double Dragon FC </div>
-            <div class="boardContents">
-                <div class="detailContents">
-                    안녕하세요<br>
-                    Double Dragon FC구단주 오희준입니다.<br>
-                    7월 25일 경기를 같이 뛰실 용병 모집합니다.<br>
-                    신청해주시면 개별 연락 드리도록할게요<br>
-                    <br>
-                    일시: 2020년 7월 25일<br>
-                    장소: 서울시 서초구 양재동
+        <div id="contentsBox">
+            <div class="boardContentsOutBox">
+                <div class="boardContentsTitleBox">
+                    <div class="boardContentshead">[용병모집]</div>
+                    <div class="boardContentsTitle">7월 25일 용병모집 </div>
+                    <div class="writer">작성자 오희준</div>
+                    <div class="date">2020.07.12</div>
+                    <div class="view">조회 126</div>
+                </div>
+                <div class="teamName">모집팀 : Double Dragon FC </div>
+                <div class="boardContents">
+                    <div class="detailContents">
+                        안녕하세요<br>
+                        Double Dragon FC구단주 오희준입니다.<br>
+                        7월 25일 경기를 같이 뛰실 용병 모집합니다.<br>
+                        신청해주시면 개별 연락 드리도록할게요<br>
+                        <br>
+                        일시: 2020년 7월 25일<br>
+                        장소: 서울시 서초구 양재동
+                    </div>
                 </div>
             </div>
+            <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
+            <div><input type="button" value="목록보기" class="listBtn btn btn-default"></div>
         </div>
-        <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
-        <div><input type="button" value="목록보기" class="listBtn btn btn-default"></div>
     </div>
     </div>
 
@@ -331,12 +339,6 @@
 
         });
 
-        $("#item1").click(function () {
-
-            location.href = "http://naver.com"
-
-        });
-
         // ----------------------------------------------------------
 
 
@@ -344,6 +346,9 @@
 
 
     </script>
+    <script src="../webproject/js/submain.js"></script>
+    <script src="../webproject/js/event.js"></script>
+
 </body>
 
 </html>

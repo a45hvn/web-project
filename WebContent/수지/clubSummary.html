@@ -7,8 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../webproject/submain_1.css">
-    <link rel="stylesheet" href="../webproject/submain_2.css">
+    <link rel="stylesheet" href="css/submain_1.css">
+    <link rel="stylesheet" href="css/submain_2.css">
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
@@ -19,6 +19,7 @@
 
         #contentsBox {
             width: 1300px;
+            min-height: 700px;
         }
 
         #matchScore {
@@ -51,7 +52,7 @@
         #matchScore>table {
             max-width: 500px;
             font-size: 0.9em;
-            color: #FEF9CE;
+            color: white;
         }
 
         #matchScore>table>tbody>tr:nth-child(odd) {
@@ -88,7 +89,7 @@
         #transfer>table {
             max-width: 550px;
             font-size: 0.9em;
-            color: #FEF9CE;
+            color: white;
 
         }
 
@@ -123,6 +124,11 @@
         #container {
             height: 285px;
         }
+
+        i {
+            font-size: 0.9em;
+            padding: 5px;
+        }
     </style>
 </head>
 
@@ -139,7 +145,7 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="/images/rogo.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
@@ -174,10 +180,10 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="#">회원정보조회</a></li>
-                            <li><a href="#">구단정보관리</a></li>
-                            <li><a href="#">친구관리</a></li>
-                            <li><a href="#">DM</a></li>
+                            <li><a href="../webproject/mypage.html">회원정보조회</a></li>
+                            <li><a href="../webproject/clubSummary.html">구단정보관리</a></li>
+                            <li><a href="../webproject/friends.html">친구관리</a></li>
+                            <li><a href="../webproject/dm3.html">DM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -189,12 +195,12 @@
 
     <div class="center">
 
-        <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
+        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">구단 정보</span></div>
 
         <div id="contentsBox">
             <div id="matchScore">
-                <div>경기전적</div>
+                <div><i class="glyphicon glyphicon-object-align-bottom"></i>경기전적</div>
                 <table class="table">
                     <tr>
                         <th>경기</th>
@@ -285,7 +291,7 @@
             </div>
             <div id="contentsBox2">
                 <div id="transfer">
-                    <div>이적내역</div>
+                    <div><i class="glyphicon glyphicon-refresh"></i>이적내역</div>
                     <table class="table">
                         <tr>
                             <th>前 구단</th>
@@ -315,7 +321,7 @@
                     </table>
                 </div>
                 <div id="rank">
-                    <div>구단 내 순위</div>
+                    <div><i class="glyphicon glyphicon-stats"></i>구단 내 순위</div>
 
 
                     <figure class="highcharts-figure">
@@ -453,13 +459,9 @@
 
         });
 
-        $("#item1").click(function () {
 
-            location.href = "http://naver.com"
-
-        });
     </script>
-    // ----------------------------------------------------------
+    <!-- 구단 내 순위 차트  -->
     <script>
         Highcharts.chart('container', {
             chart: {
@@ -478,7 +480,13 @@
             yAxis: {
                 title: {
                     text: '순위'
-                }
+                },
+                allowDecimals: false,
+                reversed: true,
+                // min: 0.5,
+                startOnTick: false,
+                endOnTick: false,
+                // max: 3.5
             },
 
             xAxis: {
@@ -523,10 +531,12 @@
             }
 
         });
-        $("text").css("fill", "#FEF9CE");
+        $("text").css("fill", "white");
 
     </script>
 
+    <script src="../webproject/js/submain.js"></script>
+    <script src="../webproject/js/event.js"></script>
 
 </body>
 

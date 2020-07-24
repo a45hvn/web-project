@@ -9,7 +9,7 @@
 
 #subOuter {
 
-    background-color: #254150;
+    background-color: #254150;#00BF88;
     width: 1300px;
     height: 150px;
     position: absolute;
@@ -100,6 +100,8 @@
     margin-left: 50px;
     /* float: left;
     padding: 40px 40px; */
+    position: relative;
+    top: 50px;
 }
 
 .contentTitleImg {
