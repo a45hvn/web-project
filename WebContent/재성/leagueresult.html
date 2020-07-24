@@ -6,9 +6,9 @@
         <title>Document</title>
         <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="../webproject/submain_1.css" />
-        <link rel="stylesheet" href="../webproject/submain_2.css" />
-        <link rel="stylesheet" href="../webproject/leagueresult.css" />
+        <link rel="stylesheet" href="../webproject/css/submain_1.css" />
+        <link rel="stylesheet" href="../webproject/css/submain_2.css" />
+        <link rel="stylesheet" href="../webproject/css/leagueresult.css" />
         <script src="../bootstrap/js/jquery-1.12.4.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
         <style></style>
@@ -23,7 +23,7 @@
                 <tr id="menuTop">
                     <td colspan="3"></td>
                     <td rowspan="2" id="rogo" style="width: 1px;">
-                        <img src="../images/rogo.png" alt="" id="mainrogo" />
+                        <img src="images/rogo.png" alt="" id="mainrogo" />
                     </td>
                     <td colspan="4">
                         <button type="button" class="btn btn-default">로그인</button>
@@ -72,20 +72,35 @@
 
         <div class="center">
             <div class="pageContentTitle">
-                <img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
+                <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
                     >커뮤니티</span
                 >
             </div>
             <div class="outerBox">
-                <div class="boxContainer">
+                <div class="tab">
+                    <div class="" id="tab1">
+                        <div class="smallTitle"><span class="league">2020</span> 정규리그 팀 순위</div>
+                        <select id="selLeague" class="selBox">
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>    
+                        </div>
+                        <div id="tab2">
+                        <div class="smallTitle"><span class="league">2020</span> 정규리그 기록</div>
+                        <select id="selSort" class="selBox">
+                            <optgroup label="정렬기준">
+                            <option value="득점">득점</option>
+                            <option value="경기">경기</option>
+                            <option value="도움">도움</option>
+                            </optgroup>
+                        </select>
+                        </div>
+                    </div>
+                <div class="boxContainer" id="boxContainer">
                 <div class="leftSideBox sideBox" >
-                    <div class="smallTitle"><span class="league">2020</span> 정규리그 팀 순위</div>
-                    <select id="selLeague" class="selBox">
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                    </select>
+                    
                     <div class="tableBox">
                         <table class=" table lefttbl">
                             <tr>
@@ -246,15 +261,6 @@
                 </div>
 
                 <div class="rightSideBox sideBox">
-                    <div class="smallTitle"><span class="league">2020</span> 정규리그 기록</div>
-                    <select id="selSort" class="selBox">
-                        <optgroup label="정렬기준">
-                        <option value="득점">득점</option>
-                        <option value="경기">경기</option>
-                        <option value="도움">도움</option>
-                        </optgroup>
-                    </select>
-                    
                     <div class="tableBox">
                         <table class="table righttbl">
                             <tr>
@@ -611,7 +617,21 @@
                     }
                 }
             });
+            window.onload=function(){
+                $("#tab1").css({"background-color":"#92daec","border-bottom":"0px"})
+            }
+            $("#tab1").click(function(){
+                $("#tab2").css({"border-bottom":"", "background-color": "","border-bottom":""})
+                $(this).css({"border-bottom":"0px","background-color":"#92daec"})
+                $("#boxContainer").css({"transform": "translate(0px, 0px)"})
+
+            })
+            $("#tab2").click(function(){
+                $("#tab1").css({"border-bottom":"","background-color": "","border-bottom":""})
+                $(this).css({"border-bottom":"0px","background-color":"#92daec"})
+                $("#boxContainer").css({"transform": "translate(-1300px, 0px)"})
+            })
         </script>
-        <script src="../webproject/submain.js"></script>
+        <script src="../webproject/js/submain.js"></script>
     </body>
 </html>

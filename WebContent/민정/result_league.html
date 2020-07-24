@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>경기결과(리그)</title>
         <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="../webproject/submain_Admin_1.css" />
@@ -80,6 +80,7 @@
         } */
     </style>
     <style>
+        
         .center{
             width: 1300px;
             margin: 0px auto;
@@ -88,6 +89,8 @@
            position: relative;
            width: 70px;
            height: 35px;
+           bottom: 5px;
+
        }
        #btnOption{
            position: relative;
@@ -112,7 +115,7 @@
             width: 800px;
             background-color: #1E3440;                
         }
-       #tbl1 td { padding-top: 20px;}
+       #tbl1 td { padding-top: 20px; padding-bottom: 15px;  border: none;}
 
        .selectbox{
            height: 25px;
@@ -143,7 +146,7 @@
             width: 1200px;
             height: 50px;
             margin-top: 40px;
-           
+           margin: 0px auto;
         }
 
         #centerbox4 {
@@ -182,9 +185,9 @@
         .pageContentTitle{
             /* border: 3px solid gold; */
             position: relative;
-            top: 0px;
+            top: 80px;
             margin-bottom: 40px;
-            padding-top: 30px;
+            /* padding-top: 30px; */
             
         }
 
@@ -255,15 +258,11 @@
                     <span class="contentTitle">경기 결과(리그)</span>           
             </div>   
         <div id="centerbox1">    
-            <span id="btnOption">
-                <input type="button" value="추가" class="btn btn-default btnOption">
-                <input type="button" value="수정"class="btn btn-default btnOption">
-                <input type="button" value="삭제"class="btn btn-default btnOption">
-            </span>
+            
         </div> 
     <table id="tbl1" class="table table-hover"  style="margin-top: 0px;">
         <tr>
-            <th></th>
+            <th><input type="checkbox" name="" id="checkbox"></th>
             <th>날짜</th>
             <th>시간</th>
             <th>리그</th>
@@ -335,9 +334,41 @@
             <td>쌍용팀 VS 아무개팀</td>
             <td>7-4</td>
         </tr>
+        <tr>
+            <td><input type="checkbox" name="" id="checkbox"></td>
+            <td>06.19(금)</td>
+            <td>18:00</td>
+            <td>2020 써머 리그</td>
+            <td>주암 체육공원</td>
+            <td>쌍용팀 VS 아무개팀</td>
+            <td>7-4</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="" id="checkbox"></td>
+            <td>06.19(금)</td>
+            <td>18:00</td>
+            <td>2020 써머 리그</td>
+            <td>주암 체육공원</td>
+            <td>쌍용팀 VS 아무개팀</td>
+            <td>7-4</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="" id="checkbox"></td>
+            <td>06.19(금)</td>
+            <td>18:00</td>
+            <td>2020 써머 리그</td>
+            <td>주암 체육공원</td>
+            <td>쌍용팀 VS 아무개팀</td>
+            <td>7-4</td>
+        </tr>
         </tbody>
     </table>
     <div id="centerbox3">                
+        <span id="btnOption">
+            <input type="button" value="추가" class="btn btn-default btnOption">
+            <input type="button" value="수정"class="btn btn-default btnOption">
+            <input type="button" value="삭제"class="btn btn-default btnOption">
+        </span>
         <ul id="pagination" class="pagination" style="float: right; margin: 0;">
             <li>
                 <a href="#" aria-label="Previous">

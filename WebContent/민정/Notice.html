@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="../webproject/submain_Admin_2.css" />
     
     <style>
+        .pageContentTitle{
+            /* border: 1px solid green; */
+            position: relative;
+            top: 80px;
+          
+            
+        }
               #searchBox{
            position: relative;
            margin-left: 70%;
@@ -26,6 +33,7 @@
        #btnOption{
            position: relative;
            margin-left: 81.8%;
+           bottom: 5px;
        }
 
        #tbl1{
@@ -76,15 +84,19 @@
             /* border: 1px solid red; */
             width: 1200px;
             height: 50px;
+            margin: 0px auto;
             /* border: 1px solid green; */
            
         }
 
         #centerbox4 {
             /* border: 1px solid blue; */
+            position: relative;
             width: 1200px;
             height: 50px;
             display: inline-block;   
+            margin: 0px auto;
+            left: 52px;
             /* border: 1px solid indianred; */
 
                    
@@ -108,7 +120,7 @@
             background-color: #1E3440 ;
         }
 
-        #tbl1 td { padding-top: 20px; padding-bottom: 15px;}
+        #tbl1 td { padding-top: 20px; padding-bottom: 15px; border: none;}
         #tbl1 td { text-align: center; color: white; } 
         #tbl1 tr:nth-child(even){
             width: 800px;
@@ -190,18 +202,14 @@
         </div>   
         <br><br><br>
         <div id="centerbox1">
-            <span id="btnOption">
-            <input type="button" value="추가" class="btn btn-default btnOption">
-            <input type="button" value="수정"class="btn btn-default btnOption">
-            <input type="button" value="삭제"class="btn btn-default btnOption">
-            </span>
+            
         </div> 
         <br>
 
         <div id="centerbox2">
         <table class="table table-hover" id="tbl1" style="margin-top: 0px;">
             <tr>
-                <th></th>
+                <th><input type="checkbox" name="" id="checkbox" ></th>
                 <th>번호</th>
                 <th>날짜</th>
                 <th>제목</th>
@@ -269,10 +277,22 @@
                 <td>경기장 이용 필수 수칙</td>
                 <td>관리자1</td>
             </tr>
+            <tr>
+                <td><input type="checkbox" name="" id="checkbox" ></td>
+                <td>3</td>
+                <td>2020-06-18</td>
+                <td>경기장 이용 필수 수칙</td>
+                <td>관리자1</td>
+            </tr>
         </table>
         </div>
 
-        <div id="centerbox3">                
+        <div id="centerbox3">      
+            <span id="btnOption">
+                <input type="button" value="추가" class="btn btn-default btnOption">
+                <input type="button" value="수정"class="btn btn-default btnOption">
+                <input type="button" value="삭제"class="btn btn-default btnOption">
+                </span>          
             <ul id="pagination" class="pagination" style="float: right; margin: 0;">
                 <li>
                     <a href="#" aria-label="Previous">
