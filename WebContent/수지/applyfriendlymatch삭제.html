@@ -12,135 +12,68 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        /* -----------------------------친구 목록 보기-------------------------------- */
-        .DM {
-            width: 500px;
+        .center {
+            padding-top: 50px;
+            background-color: #eee;
+        }
+
+        .applyOutBox {
             float: left;
-            margin-left: 100px;
+            width: 1200px;
+            height: 600px;
+            border: 1px solid #E1E1E1;
+            border-top: 3px solid #0C1B23;
+            margin-left: 60px;
+            background-color: white;
+
+        }
+
+        .applyTitle {
+            width: 1200px;
+            height: 50px;
+            float: left;
+            background-color: #e1e1e1;
+            font-size: 2em;
             text-align: center;
-        }
-
-        #dmImgBox {
-            width: 100px;
-            height: 100px;
-            float: left;
-            position: relative;
-            left: 30px;
-        }
-
-        #dmImgBox>img {
-            width: 98px;
-            height: 98px;
-            border-radius: 50%;
-            float: left;
-            position: absolute;
-            left: 0px;
-        }
-
-        .DM>tbody>tr>td {
             line-height: 50px;
-            border: 0px;
+
         }
 
-        .DM>tbody>tr>th {
-            text-align: center;
-            font-size: 17px;
-            background-color: #92DAEC;
-            color: #0C1B23;
-        }
-
-        .DM>tbody>tr:nth-child(odd) {
-            line-height: 30px;
-            text-align: center;
-            font-size: 17px;
-
-            background-color: #0C1B23;
-            color: #FEF9CE;
-        }
-
-        .DM>tbody>tr:nth-child(even) {
-            text-align: center;
-            font-size: 17px;
-            background-color: #254150;
-            color: #FEF9CE;
-        }
-
-
-        .search {
-            width: 500px;
-            position: relative;
-            left: 100px;
-            margin-bottom: 20px;
-            z-index: 0;
-        }
-
-        .unfollow {
-            height: 30px;
-        }
-
-        .DM>tbody>tr>th>div {
-            margin-right: 10px;
-        }
-
-
-        .dmInfo {
-            float: left;
-            width: 300px;
-            height: 80px;
-            position: relative;
-            left: 55px;
-        }
-
-        .dmInfo>div {
+        .applyBtn {
+            margin: 20px 0 0 600px;
+            width: 160px;
             height: 40px;
-            text-align: left;
+            font-size: 16px;
         }
 
-        .dmInfo>div>span {
-            margin-left: 20px;
-            font-size: 0.8em;
-        }
-
-        #dmBox>pre {
-            line-height: 30px;
-            float: left;
+        .applyTableBox {
             width: 500px;
-            height: 300px;
-            position: relative;
-            left: 80px;
+            margin: 150px 0 0 350px;
+            text-align: center;
+            font-size: 1.4em;
         }
 
-        .inputDm {
+        .applyTable>tbody>tr>td {
             width: 300px;
-            position: relative;
-            left: 100px;
-            top: 50px;
         }
 
-        .sendBtn {
-            position: relative;
-            left: 100px;
-            top: 40px;
+        .applyTable>tbody>tr>td>input {
+            width: 260px;
         }
 
-        .dmImgInBox {
-            width: 70px;
-            height: 70px;
+        .applyCount {
+            height: 100px;
+            font-size: 1.5em;
+        }
+
+        .applyCount>div {
             float: left;
-            position: relative;
-            left: 60px;
-            top: 20px;
+            margin: 20px 10px 20px 500px;
         }
 
-        .contentBox {
-            width: 1300px;
-            height: 900px;
-        }
-
-
-        #dmBox>pre>img {
-            border-radius: 50%;
-
+        .applyCount>select {
+            min-width: 100px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -178,111 +111,67 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">마이페이지</div>
+                <div class="menuTitle">커뮤니티</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>마이페이지</span>
+                    <span>커뮤니티</span>
                     <span>></span>
-                    <span>회원정보조회</span>
+                    <span>자유게시판</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="#">회원정보조회</a></li>
-                            <li><a href="#">구단정보관리</a></li>
-                            <li><a href="#">친구관리</a></li>
-                            <li><a href="#">DM</a></li>
+                            <li class="subMenuItem"><a href="#">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="#">갤러리</a></li>
+                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="../webproject/friendlymatchrecruit.html">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="../webproject/mercenaryrecruit.html">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
 
             </div>
         </div>
-
     </div>
+
     <div class="center">
 
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">DM</span></div>
+                class="contentTitle">친선경기 신청</span></div>
 
-        <!-- 검색창 -->
-
-        <div class="search">
-            <div class="form-group">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요.">
-                </div>
+        <div class="applyOutBox">
+            <div class="applyTitle">친선경기 신청</div>
+            <div class="applyCount">
+                <div>신청팀 :</div>
+                <select>
+                    <option>Bears FC</option>
+                    <option>Lions FC</option>
+                    <option>HALLS FC</option>
+                    <option>Eclipse FC</option>
+                    <option>Stanley FC</option>
+                    <option>gram FC</option>
+                </select>
             </div>
-        </div>
-        <div class="contentBox">
-            <div>
-                <table class="DM table table-bordered">
+            <div class="applyTableBox">
+                <table class="applyTable table table-bordered">
                     <tr>
-                        <th colspan="2">
-                            <div class="glyphicon glyphicon-send"></div>
-                            DM
-                        </th>
+                        <th>이름: </th>
+                        <td><input type="text"></td>
                     </tr>
                     <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
+                        <th>전화번호: </th>
+                        <td><input type="text"></td>
                     </tr>
                     <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="dmImgBox"><img src="../images/movie_image6.jpg"></div>
-                            <div class="dmInfo">
-                                <div>권택진</div>
-                                <div>안녕하세요 권택진입니다.<span>2020.07.20</span></div>
-                            </div>
-                        </td>
+                        <th>포지션: </th>
+                        <td><input type="text"></td>
                     </tr>
                 </table>
             </div>
-            <div id="dmBox">
-                <pre>
-                <img src="../images/movie_image6.jpg" class="dmImgInBox">
-                권택진 
-                안녕하세요. 권택진입니다. 
-                <div></div>
-                <textarea class="inputDm form-control"></textarea>
-                <input type="button" value="답장보내기" style="cursor: pointer;" class="sendBtn btn btn-default">
-            </pre>
-            </div>
         </div>
+        <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
     </div>
 
 
@@ -425,9 +314,10 @@
 
 
 
-
-
     </script>
+
+    <script src="../webproject/js/submain.js"></script>
+    <script src="../webproject/js/event.js"></script>
 </body>
 
 </html>

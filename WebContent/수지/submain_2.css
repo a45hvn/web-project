@@ -1,7 +1,8 @@
 #main {
     /* border: 1px solid red; */
     width: 100%;
-    z-index: 1;
+    z-index: 10;
+    float: left;
 }
 
 #menuTr {
@@ -24,13 +25,14 @@
 
 .menu {
     background-color: rgb(37, 40, 42);
-    opacity: .9;
+    opacity: .7;
     cursor: pointer;
+    font-weight: bold;
 }
 
 #menuTop {
     height: 20px;
-    background-color: rgb(37, 40, 42);
+    background-color: rgb(23, 25, 26);
 }
 
 #menuTop td:nth-child(3) {
@@ -40,7 +42,12 @@
 
 #scoreBoard {
     width: 1300px;
-    background-color: #0C1B23;
+    /* background-color: #0c1b23; */
+    background-image: url("../images/stadium.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: 90%;
     height: 350px;
     margin: 0px auto;
     /* margin-left: 400px; */
@@ -48,7 +55,7 @@
 
 #topBoard {
     width: 100%;
-    background-color: royalblue;
+    background-color: #0C1B23;
     height: 167px;
 }
 
@@ -151,8 +158,6 @@ h3 {
     margin: 0px auto;
     background-color: #254150;
     color: #92DAEC;
-
-
 }
 
 
@@ -166,7 +171,7 @@ h3 {
 
 .sitemap .siteList:first-child {
 
-    margin-left: 50px;
+    margin-left: 110px;
 
 }
 

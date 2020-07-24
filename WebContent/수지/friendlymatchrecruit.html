@@ -55,7 +55,7 @@
                     <span>></span>
                     <span>커뮤니티</span>
                     <span>></span>
-                    <span>질문게시판</span>
+                    <span>친선경기모집</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
@@ -82,8 +82,6 @@
 
         <div id="centerMainBox">
             <div id="centerbox1">
-                <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
-
                 <select name="" id="selectrow">
                     <option value="">10개씩 보기</option>
                     <option value="">25개씩 보기</option>
@@ -96,11 +94,10 @@
                 </span>
             </div>
             <div id="centerbox2">
-                <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
+                <table class="table" id="verticalTable">
                     <thead>
                         <tr>
                             <th>순번</th>
-                            <th>말머리</th>
                             <th>제목</th>
                             <th>작성자</th>
                             <th>작성시간</th>
@@ -109,30 +106,33 @@
                     </thead>
                     <tr>
                         <td>1</td>
-                        <td>친선경기모집</td>
-                        <td><a href="#">7월 25일 친선경기 모집</a></td>
+                        <td><a href="#">7월 18일 친선경기 할 팀 모집 합니다.</a></td>
                         <td>오희준</td>
                         <td>2020.07.14 17:48</td>
                         <td>15</td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>친선경기모집</td>
-                        <td><a href="#">7월 26일 친선경기 모집</a></td>
-                        <td>권택진</td>
+                        <td><a href="#">7월 25일 친선경기 할 팀 모집 합니다.</a></td>
+                        <td>오희준</td>
                         <td>2020.07.14 17:48</td>
                         <td>15</td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>친선경기모집</td>
-                        <td><a href="#">8월 1일 친선경기 모집</a></td>
-                        <td>권택진</td>
+                        <td><a href="#">7월 26일 친선경기 할 팀 모집 합니다.</a></td>
+                        <td>오희준</td>
                         <td>2020.07.14 17:48</td>
                         <td>15</td>
                     </tr>
                     <tr>
                         <td></td>
+                        <td><a href="#"></a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td><a href="#"></a></td>
                         <td></td>
@@ -141,6 +141,12 @@
                     </tr>
                     <tr>
                         <td></td>
+                        <td><a href="#"></a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td><a href="#"></a></td>
                         <td></td>
@@ -149,7 +155,6 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td></td>
                         <td><a href="#"></a></td>
                         <td></td>
                         <td></td>
@@ -157,30 +162,12 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td></td>
                         <td><a href="#"></a></td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#"></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td></td>
                         <td><a href="#"></a></td>
                         <td></td>
@@ -191,7 +178,7 @@
             </div>
 
             <div id="centerbox3">
-                <ul id="pagination" class="pagination" style="float: right; margin: 0;">
+                <ul id="pagination" class="pagination" style="float: right;">
                     <li>
                         <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -216,16 +203,16 @@
             </div>
 
             <div id="centerbox4">
-                <div style="float: right; font-size: 15px; margin: 5px;">
-                    <select style=" height: 30px;">
+                <div style="float: right;">
+                    <select>
                         <option value="">제목</option>
                         <option value="">내용</option>
                         <option value="">제목+내용</option>
                         <option value="">글쓴이</option>
                     </select>
-                    <input id="searchkeyword" type="text" size="35" style="height: 30px;">
-                    <a href=""><input id="searchbtn" type="button" value="검색"></a>
-                    <input id="writebtn" type="button" value="글쓰기" onclick="location.href='ex01.html'" ;>
+                    <input id="searchkeyword" type="text" size="35">
+                    <a href=""><input id="searchbtn" type="button" value="검색" class="btn"></a>
+                    <input id="writebtn" type="button" value="글쓰기" onclick="location.href=''" ; class="btn">
                 </div>
             </div>
 
@@ -234,66 +221,52 @@
     </div>
 
     <style>
-        .center {
-            padding-top: 50px;
-            background-color: #eee;
-        }
-
         #centerMainBox {
             /* border: 1px solid black; */
             width: 1200px;
-            height: 950px;
+            /* height: 950px; */
             margin: 0px auto;
+            font-size: 1.1em;
         }
 
         #centerbox1 {
             border-bottom: 1px solid black;
-            width: 1200px;
             height: 50px;
             margin-bottom: 10px;
         }
 
         #centerbox2 {
-            /* border: 1px solid black; */
-            width: 1200px;
-            height: 650px;
+            /* border: 5px solid black;*/
         }
 
         #centerbox3 {
             /* border: 1px solid red; */
-            width: 1200px;
-            height: 50px;
-            margin-top: 40px;
         }
 
         #centerbox4 {
             /* border: 1px solid blue; */
             width: 1200px;
-            height: 50px;
             display: inline-block;
+            margin-bottom: 25px;
         }
 
         #centerbox1 span,
         #centerbox1 select {
             /* border: 1px solid red; */
-            display: inline-block;
-            font-size: 20px;
         }
 
-
-        #submenutitle {
-            font-size: 15px;
-            padding: 10px;
-            margin-left: 10px;
-            border: 1px solid #0C1B23;
-            background-color: #0C1B23;
-            color: white;
+        #verticalTable {
+            /* border: 1px solid blue; */
         }
+
+        #pagination {
+            /* border: 1px solid gold; */
+        }
+
 
         #sortform,
         #selectrow {
             float: right;
-            /* border: 1px solid gold; */
         }
 
         #sortform {
@@ -305,13 +278,10 @@
             margin-top: 10px;
             background-color: #1E3440;
             color: white;
-            padding-bottom: 5px;
         }
 
         #verticalTable {
             width: 1200px;
-            height: 650px;
-            font-size: 20px;
         }
 
         #verticalTable th:nth-child(1) {
@@ -319,11 +289,11 @@
         }
 
         #verticalTable th:nth-child(2) {
-            width: 120px;
+            width: 480px;
         }
 
         #verticalTable th:nth-child(3) {
-            width: 480px;
+            width: 120px;
         }
 
         #verticalTable th:nth-child(4) {
@@ -331,67 +301,66 @@
         }
 
         #verticalTable th:nth-child(5) {
-            width: 180px;
+            width: 65px;
         }
 
-        #verticalTable th:nth-child(6) {
-            width: 60px;
+
+        /* 테이블 컬럼 */
+        #verticalTable th {
+            border: 0px;
         }
 
-        #verticalTable td {
-            height: 50px;
+        /* 테이블 각 tr */
+        #verticalTable tr {
+            height: 38px;
         }
 
+        /* 테이블 각 th 너비 */
         #verticalTable th,
         #verticalTable td {
             text-align: center;
             color: white;
         }
 
-        #verticalTable td {
-            padding-top: 20px;
-        }
-
-        #verticalTable td:nth-child(3) {
+        /* 테이블 각각의 td */
+        /* #verticalTable td { padding-top: 15px;} */
+        /* 제목 td */
+        #verticalTable td:nth-child(2) {
             text-align: left;
         }
 
-        #verticalTable td:nth-child(3) a {
+        /* 제목 td에 a태그 */
+        #verticalTable td:nth-child(2) a {
             color: white;
         }
 
+        /* 테이블 첫번째 tr */
         #verticalTable thead tr th {
-            width: 800px;
             background-color: #92DAEC;
             color: #0C1B23;
-            /* border: 3px solid white */
         }
 
         #verticalTable tr {
-            width: 800px;
-            background-color: #1E3440
+            background-color: #1E3440;
         }
 
         #verticalTable tr:nth-child(even) {
-            width: 800px;
             background-color: #0C1B23
         }
 
         #verticalTable td {
-            border: 0px
+            border: 0px;
         }
 
         #searchbtn,
-        #writebtn {
+        #writebtn,
+        #centerbox4 select {
             color: white;
-            height: 30px;
             background-color: #1E3440;
+            line-height: 0.8em;
         }
 
-        #pagination li>a {
-            color: white;
-            background-color: #1E3440;
-        }
+
 
         #sortform a {
             color: black;
@@ -401,9 +370,18 @@
             background-color: #92DAEC;
         }
 
-        #centerbox4 select {
-            color: white;
+        #centerMainBox select,
+        #centerMainBox input,
+        #centerMainBox #pagination a {
+            height: 25px;
+            line-height: 0.8em;
+        }
+
+        #pagination li a {
             background-color: #1E3440;
+            color: white;
+            height: 25px;
+            line-height: 0.8em;
         }
     </style>
 
@@ -416,7 +394,6 @@
             $(this).addClass("nowPage");
 
         })
-
 
 
         $("#searchbtn").mouseover(function () {
@@ -580,6 +557,8 @@
 
 
     </script>
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
 </body>
 
 </html>

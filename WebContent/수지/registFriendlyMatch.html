@@ -55,7 +55,7 @@
                     <span>></span>
                     <span>커뮤니티</span>
                     <span>></span>
-                    <span>자유게시판</span>
+                    <span>친선경기모집</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
@@ -64,8 +64,8 @@
                             <li class="subMenuItem"><a href="#">갤러리</a></li>
                             <li class="subMenuItem"><a href="#">자유게시판</a></li>
                             <li class="subMenuItem"><a href="#">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="#">용병모집</a></li>
+                            <li class="subMenuItem"><a href="../webproject/friendlymatchrecruit.html">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="../webproject/mercenaryrecruit.html">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -105,25 +105,10 @@
                 <span>제목 : </span>
                 <input type="text" name="" id="" size="70px">
             </div>
-            <!-- 구장 선택시 주소 자동 입력  -->
-            <div id="info">
-                <select>
-                    <option>구단 선택 </option>
-                    <option>Bears FC </option>
-                    <option>Lions FC</option>
-                    <option>HALLS FC</option>
-                    <option>Eclipse FC</option>
-                    <option>Stanley FC</option>
-                    <option>gram FC</option>
-                </select>
-                <input type="date">
-            </div>
-
 
             <!-- 내용 입력 -->
             <div id="centerBox3">
-                <textarea name="" id="" cols="100" rows="17">내용 :
-                </textarea>
+                <textarea name="" id="" cols="120" rows="17">내용 :</textarea>
             </div>
 
             <!-- 파일첨부 -->
@@ -131,86 +116,72 @@
                 <div id="centerBox4">
                     <div>
                         <span>파일첨부 :</span>
-                        <span><input type="file" class="form-control"></span>
+                        <span><input type="file" class="form-control"
+                                style="height: 25px; font-size: 0.5em; padding: 1.8px;"></span>
                     </div>
                 </div>
             </div>
 
             <!-- 확인/미리보기 버튼 -->
             <div id="centerBox5">
-                <input class="writebtn " id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'" ;>
-                <input class="writebtn " id="writebtn2" type="button" value="미리보기" onclick="location.href='ex01.html'"
-                    ;>
+                <input class="btn" id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'" ;>
+                <input class="btn" id="writebtn2" type="button" value="미리보기" onclick="location.href='ex01.html'" ;>
             </div>
-
+            <div style="clear: both;"></div>
 
         </div>
 
     </div>
 
     <style>
-        .center {
-            padding-top: 50px;
-            background-color: #eee;
-        }
-
         #centerMainBox {
-            border: 1px solid black;
+            /* border: 1px solid black; */
             width: 1200px;
-            height: 700px;
+            /* height: 700px; */
             margin: 0px auto;
-            font-size: 20px;
+            font-size: 1.1em;
             font-weight: bold;
         }
 
         #centerBox1 {
             /* border: 1px solid red; */
             width: 1000px;
-            height: 50px;
             float: left;
             margin-left: 15px;
-            margin-top: 5px;
-            padding-top: 6px;
+            margin-bottom: 30px;
         }
 
         #centerBox2 {
             /* border: 1px solid red; */
-            width: 1000px;
-            height: 50px;
             display: inline-block;
             margin-left: 15px;
-            padding-top: 6px;
+            margin-bottom: 30px;
         }
 
         #centerBox3 {
-            /* border: 1px solid blue; */
-            width: 1150px;
-            height: 480px;
+            /* border: 1px solid blue;             */
             margin-left: 15px;
         }
 
         #centerBox4 {
-            /* border: 1px solid red; */
-            width: 800px;
-            height: 50px;
+            /* border: 1px solid red;             */
             margin-left: 15px;
-            margin-top: -10;
         }
 
         #centerBox5 {
             /* border: 1px solid red; */
-            width: 150px;
-            height: 50px;
             float: right;
-            margin-right: 58px;
-            padding-top: 3px;
-            margin-top: 25px;
+            margin-right: 95px;
+            margin-bottom: 25px;
+
         }
 
+        #centerBox3 textarea {
+            resize: none;
+        }
 
         #centerBox4 span:nth-child(2) {
             display: inline-block;
-            font-size: 15px;
             margin-top: 6px;
         }
 
@@ -218,26 +189,20 @@
             padding-top: 4px;
         }
 
-        #centerBox5 input {
-            padding: 3px;
+        #centerBox1 select {
+            height: 25px;
         }
 
-        #centerBox1 select,
-        #centerBox5 input,
+        #centerBox5 input {
+            color: white;
+            background-color: #1E3440;
+            line-height: 0.8em;
+            height: 25px;
+        }
+
         #centerBox4 input {
             color: white;
             background-color: #1E3440;
-            padding-bottom: 5px;
-        }
-
-        #info {
-            margin: 0 15px 15px 15px;
-        }
-
-        #info>select {
-            height: 40px;
-            float: left;
-            margin-right: 15px;
         }
     </style>
 
@@ -390,6 +355,8 @@
 
 
     </script>
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
 </body>
 
 </html>

@@ -19,9 +19,11 @@
             height: auto;
         }
 
+        #centerbox2 {
+            padding: 0 50px;
+        }
 
         #centerbox1 {
-
             height: 70px;
         }
 
@@ -39,8 +41,11 @@
 
         #outerBox {
             position: relative;
+            left: 50px;
             border-bottom: 2px solid black;
             height: 50px;
+            width: 1200px;
+            padding-top: 20px;
         }
 
         #selectgametype {
@@ -60,13 +65,12 @@
         #selectrow {
             position: absolute;
             right: 0;
-
-            height: 40px;
         }
 
         #verticalTable {
             color: white;
             /* width: 1200px; */
+            font-size: 1.1em;
         }
 
         #verticalTable thead tr:first-child {
@@ -81,9 +85,14 @@
             background-color: #254150;
         }
 
+        #verticalTable tbody tr td {
+            border: 0px;
+        }
+
         #centerbox3 {
             /* border: 1px solid red; */
             float: right;
+            margin-right: 50px;
         }
 
         #centerMainBox::after {
@@ -96,6 +105,23 @@
             height: 25px;
             font-size: 0.9em;
             line-height: 10px;
+        }
+
+        input,
+        select {
+            height: 25px;
+        }
+
+        #pagination li a {
+            background-color: #1E3440;
+            color: white;
+            height: 25px;
+            line-height: 0.8em;
+        }
+
+        .table>thead>tr>th {
+            border-bottom: 0px;
+            color: black;
         }
     </style>
 </head>
@@ -133,20 +159,16 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">리그일정</div>
+                <div class="menuTitle">문자중계</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>경기정보</span>
-                    <span>></span>
-                    <span>리그일정</span>
+                    <span>문자중계</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="#">정규리그일정</a></li>
-                            <li class="subMenuItem"><a href="#">정규리그결과</a></li>
-                            <li class="subMenuItem"><a href="#">친선경기결과</a></li>
+                            <li class="subMenuItem"><a href="#">문자중계</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -158,13 +180,13 @@
     <div class="center">
         <div class="pageContentTitle">
             <img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span
-                class="contentTitle">정규리그일정</span>
+                class="contentTitle">문자중계일정</span>
         </div>
 
         <div id="centerMainBox">
             <div id="centerbox1">
                 <div id="outerBox">
-                    <select name="" id="selectgametype" style="height: 40px;">
+                    <select name="" id="selectgametype">
                         <option value="1">정규리그</option>
                         <option value="2">친선경기</option>
                     </select>
@@ -176,10 +198,9 @@
                     </div>
                     <div class="searchBox">
                         <span id="searchcontent">팀이름 검색</span>
-                        <input id="searchkeyword" type="text" size="35" style="height: 40px;" />
-                        <a href=""><input id="searchbtn" type="button" value="검색"
-                                style="height: 40px; padding: 0px 8px;" /></a>
-                        <input id="writebtn" type="button" value="글쓰기" style="height: 40px; padding: 0px 8px;" />
+                        <input id="searchkeyword" type="text" />
+                        <a href=""><input id="searchbtn" type="button" value="검색" /></a>
+                        <input id="writebtn" type="button" value="글쓰기" />
                     </div>
                     <select name="" id="selectrow">
                         <option value="10">10개씩 보기</option>
@@ -526,6 +547,9 @@
                 console.log($(this).parent().text());
             });
     </script>
+    <script src="../webproject/js/submain.js"></script>
+    <script src="../webproject/js/event.js"></script>
+
 </body>
 
 </html>
