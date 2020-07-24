@@ -126,12 +126,12 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="#">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="#">갤러리</a></li>
-                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="../webproject/friendlymatchrecruit.html">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="../webproject/mercenaryrecruit.html">용병모집</a></li>
+                            <li class="subMenuItem"><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
+                            <li class="subMenuItem"><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="friendlymatchrecruit.html">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="mercenaryrecruit.html">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -282,7 +282,53 @@
         <div>Copyrightⓒ ssangyongsoft All Rights reserved.</div>
     </div>
 
+    <!-- 용병신청하기 Modal-->
+    <div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #25282A;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC;">탈퇴하시겠습니까?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">수정이 완료되었습니다.</div>
+                <div class="modal-footer">
+                    <!-- ok버튼 누르면 마이페이지 처음 메뉴로 되돌아가기 -->
+                    <a class="btn" id="modalY" href="#">ok</a>
+                    <button class="btn" type="button" data-dismiss="modal">아니요</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <style>
+        .modal-body {
+            text-align: center;
+            font-size: 1.2em;
+
+        }
+
+        .modal {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 768px) {
+            .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+            }
+        }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+    </style>
 
 
 
@@ -314,11 +360,6 @@
 
         });
 
-        $("#item1").click(function () {
-
-            location.href = "http://naver.com"
-
-        });
 
         // ----------------------------------------------------------
 
