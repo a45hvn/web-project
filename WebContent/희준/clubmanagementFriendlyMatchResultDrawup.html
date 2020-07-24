@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/submain_1.css">
     <link rel="stylesheet" href="css/submain_2.css">
-    <link rel="stylesheet" href="css/NoticeBoard.css">
+    <link rel="stylesheet" href="css/clubmanagementFriendlyMatchResultDrawup.css">
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
@@ -50,23 +50,23 @@
     <div id="scoreBoard">
         <div id="subOuter">
             <div class="menuTitleBox">
-                <div class="menuTitle">공지사항</div>
+                <div class="menuTitle">구단관리</div>
                 <div class="breadcrumb">
                     <span>HOME</span>
                     <span>></span>
-                    <span>공지사항</span>
-                    <!-- <span>></span>
-                    <span></span> -->
+                    <span>구단관리</span>
+                    <span>></span>
+                    <span>친선결과반영</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <!-- <li class="subMenuItem"><a href="#">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="#">갤러리</a></li>
-                            <li class="subMenuItem"><a href="#">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="#">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="#">용병모집</a></li> -->
+                            <li class="subMenuItem"><a href="clubmanagementClubApplicationManagement.html">구단신청관리</a></li>
+                            <li class="subMenuItem"><a href="clubmanagementPlayerManagement.html">선수관리</a></li>
+                            <li class="subMenuItem"><a href="clubmanagementEntrylistDrawup.html">엔트리작성</a></li>
+                            <li class="subMenuItem"><a href="clubmanagementFriendlyMatchResultDrawup.html">경기결과반영</a></li>
+                            <li class="subMenuItem"><a href="clubmanagementFriendlyMatchRecruitManagement.html">친선경기모집관리</a></li>
+                            <li class="subMenuItem"><a href="#"></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -79,12 +79,10 @@
 
     <div class="center">
         <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">공지사항</span></div>
+                class="contentTitle">친선결과반영</span></div>
 
                 <div id="centerMainBox">
                     <div id="centerbox1">
-                        <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
-                        
                         <select name="" id="selectrow">
                             <option value="">10개씩 보기</option>
                             <option value="">25개씩 보기</option>
@@ -97,126 +95,105 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table table-hover" id="verticalTable">
+                        <table class="table" id="verticalTable">
                             <thead>
                                 <tr>
+                                    <th><input type="checkbox" name="" id=""></th>
                                     <th>순번</th>
-                                    <th>제목</th>                
-                                    <th>작성자</th>
-                                    <th>작성시간</th>
-                                    <th>조회</th>
+                                    <th>경기</th>    
+                                    <th>날짜</th> 
+                                    <th>시간</th>
+                                    <th>장소</th>
                                 </tr>
                             </thead>
                                 <tr>
-                                    <td>1</td>
-                                    <td><a href="#">※ [코로나19] 6월 15일 ~ 무기한 시설중지(확진자 한 자리수 발생때 까지)</a></td>
-                                    <td>관리자</td>
-                                    <td>2020.07.14 17:48</td>
-                                    <td>48</td>                   
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th>1</th>
+                                    <td><a href="#">검단FC vs 화랑</a></td>            
+                                    <th>2020-07-18</th> 
+                                    <th>07:00</th>
+                                    <th>한국폴리텍</th>                                    
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td><a href="#">※ [코로나 19] 다중이용 시설 폐쇄에 따른 리그일정 중지</a></td>
-                                    <td>관리자</td>
-                                    <td>2020.07.14 17:48</td>
-                                    <td>157</td>      
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th>2</th>
+                                    <td><a href="#">화랑 vs 해병대</a></td>
+                                    <th>2020-06-13</th>   
+                                    <th>09:00</th>
+                                    <th>하원초등학교</th>   
                                 </tr>
                                 <tr>
-                                    <td>3</td>
-                                    <td><a href="#">※[우천취소] 7월 25일 전경기 우천취소!!</a></td>
-                                    <td>관리자</td>
-                                    <td>2020.07.14 17:48</td>
-                                    <td>22</td> 
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th>3</th>
+                                    <td><a href="#">시흥FC vs 고려</a></td>
+                                    <th>2020-03-28</th>   
+                                    <th>10:00</th>
+                                    <th>가천대학교</th>       
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>      
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>     
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>       
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>        
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>       
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>       
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th></th>
                                     <td><a href="#"></a></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td> 
+                                    <th></th>   
+                                    <th></th>
+                                    <th></th>      
                                 </tr>           
                         </table>                     
                     </div>
-        
-                    <div id="centerbox3">                
-                        <ul id="pagination" class="pagination" style="float: right;">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a class="nowPage" href="#" name="page">1</a></li>
-                            <li><a href="#" name="page">2</a></li>
-                            <li><a href="#" name="page">3</a></li>
-                            <li><a href="#" name="page">4</a></li>
-                            <li><a href="#" name="page">5</a></li>
-                            <li><a href="#" name="page">6</a></li>
-                            <li><a href="#" name="page">7</a></li>
-                            <li><a href="#" name="page">8</a></li>
-                            <li><a href="#" name="page">9</a></li>         
-                            <li><a href="#" name="page">10</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>   
-                    </div> 
-                    <div style="clear: both;"></div>
-                    
+
                     <div id="centerbox4">
-                        <div style="float: right;">                
-                            <select>
-                                <option value="">제목</option>
-                                <option value="">내용</option>
-                                <option value="">제목+내용</option>
-                                <option value="">글쓴이</option>
-                            </select>
-                            <input id="searchkeyword" type="text" size="35" style="height: 25px;">
-                            <a href=""><input id="searchbtn" type="button" value="검색" class="btn"></a>
-                           <input id="writebtn" type="button" value="글쓰기" onclick="location.href='ex01.html'"; class="btn">
+                        <div style="float: right;">
+                           <input id="centerbox4Btn1" type="button" value="작성" onclick=""; class="btn">
+                           <input id="centerbox4Btn2" type="button" value="수정" onclick=""; class="btn">
+                           <input id="centerbox4Btn3" type="button" value="삭제" onclick=""; class="btn">
                         </div>
                     </div>
                     <div style="clear: both;"></div>
@@ -227,49 +204,32 @@
 
     <style>
 
-    
-        
+          
+
     </style>
 
     <script>
-
-        $("#pagination > li >a").click(function() {
-
-            // alert($(this).text());            
-            $("#pagination > li>a").removeClass("nowPage");    
-            $(this).addClass("nowPage");            
-            
-        })  
-        
-             
-
-        $("#searchbtn").mouseover(function() {
-
-            // alert($(this).text());
-            $(this).css("background-color", "#92DAEC").css("color", "black");
-
-        })
-
-        $("#searchbtn").mouseout(function() {
-
-        // alert($(this).text());
-        $(this).css("background-color", "").css("color", "");
-
-        })
-
-        $("#writebtn").mouseover(function() {
-
+      
+        $("#centerbox4 input").mouseover(function() {
         // alert($(this).text());
         $(this).css("background-color", "#92DAEC").css("color", "black");
 
         })
 
-        $("#writebtn").mouseout(function() {
-
+        $("#centerbox4 input").mouseout(function() {
         // alert($(this).text());
         $(this).css("background-color", "").css("color", "");
 
         })
+
+        $("#centerbox4Btn1").click(function() {                    
+            // alert($(this));
+            child = window.open(
+            "clubmanagementFriendlyMatchResultDrawupAdd.html",
+            "check",
+            "width=430, height=390, top=150, left=550"
+        );
+        }); 
 
     </script>
 
