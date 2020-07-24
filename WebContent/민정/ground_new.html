@@ -34,11 +34,18 @@
     </style>
     <style>
 
-        .pageContentTitle{
-            /* border: 3px solid gold; */
+        #text1{
+            /* border: 1px solid green; */
             position: relative;
-            top: -10px;
-            margin-bottom: 40px;
+            left: 100px;
+        }
+
+
+        .pageContentTitle{
+            /* border: 1px solid green; */
+            position: relative;
+            top: 60px;
+          
             
         }
         .center {            
@@ -97,9 +104,20 @@
             height: 50px; 
             float: right;   
             margin-right: 58px;       
-            padding-top: 70px;  
+            padding-top: 300px;  
             margin-bottom: 100px;
+            position: relative;
+            left: 200px;
 
+        }
+
+        #centerBox6 {
+            /* border: 1px solid blue; */
+            width: 700px;
+            height: 50px; 
+            margin-left: 15px; 
+            margin-bottom: 40px;
+            padding-top: 40px;
         }
         #centerBox1 select, #centerBox5 input, #centerBox4 input {
             color: white; 
@@ -111,7 +129,7 @@
             width: 80px;
             height: 50px;
         }
-        #centerBox1, #centerBox2, #centerBox3, #centerBox4{
+        #centerBox1, #centerBox2, #centerBox3, #centerBox4 ,#centerBox6{
             /* border: 1px solid green; */
             position: relative;
             /* margin: 0px auto; */
@@ -121,6 +139,19 @@
             /* border: 1px solid hotpink; */
             width: 800px;
             margin: 0px auto;
+        }
+        #centerBox7{
+            border: 1px solid #ccc;
+            width: 402px;
+            height: 302px;
+            position: relative;
+            left: 470px;
+            bottom: 150px;
+            display: inline-block;
+        }
+        #address{
+            width: 400px;
+            height: 300px;
         }
     </style>
 </head>
@@ -208,17 +239,26 @@
                 <!-- 제목 입력 -->
                 <div id="centerBox2">
                     <span>이름 : </span>
-                    <input type="text" name="" id="" size="40px">
+                    <input type="text" name="" id="text1" size="40px">
                 </div>
 
                 <!-- 수용 인원 -->
                 <div id="centerBox3">
-                    수용 인원 : <input type="text" id="text1"> 
+                    수용 인원 : <input type="text" id="text1" class="text1" style="position: relative; left: 52px;"> 
+                </div>
+
+                <!-- 수용 인원 -->
+                <div id="centerBox6">
+                    주소 : <input type="text" id="text1"> 
+                </div>
+                <!-- 지도 -->
+                <div id="centerBox7">
+                    <img src="../images/seoul.png" alt="" id="address">
                 </div>
 
                 <!-- 확인/미리보기 버튼 -->
                 <div id="centerBox4"> 
-                    <input type="submit" value="등록" id="commonBtn">                  
+                    <input type="submit" value="등록" id="commonBtn" class="btn btn-default btn-sm">                  
                 </div>
                 <!-- <table id="tbl1">
                     <tr>
