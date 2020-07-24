@@ -2,6 +2,7 @@
     background-color: #eee;
     margin: 0px auto;
     width: 1300px;
+    padding-left: 50px;
 }
 .leftSideBox {
     width: 30%;
@@ -13,9 +14,12 @@
     float: left;
     /* border: 1px solid green; */
 }
+.entry {
+    border: 1px solid #dddddd;
+    width: 70%;
+}
 .entryOuter {
     margin-top: 0%;
-    padding-left: 10%;
     margin-bottom: 50px;
 }
 .center::after {
@@ -24,23 +28,11 @@
     clear: both;
 }
 
-.playerImgAndDetailedInfo {
-    color: white;
-    height: 140px;
-    margin-top: 3%;
-    margin-bottom: 5%;
-    width: 100%;
-}
-
 .playerImg {
     float: left;
     height: 150px;
     margin-right: 4%;
     width: 15%;
-}
-#playerImg {
-    /* outline: 4px dotted #92daec; */
-    background-color: white;
 }
 
 .playerDetailedInfo {
@@ -85,14 +77,15 @@
     position: relative;
     width: 50%;
     font-size: 1em;
-    width: 70%;
+    width: 100%;
     padding: 0px 15px 0px 15px;
 }
 .player:nth-child(odd) {
-    background-color: #254150;
+    /* background-color: #254150; */
 }
 .player:nth-child(even) {
-    background-color: #0c1b23;
+    /* background-color: #0c1b23; */
+    background-color: #f9f9f9;
 }
 .player span {
     /* position: absolute; */
@@ -107,7 +100,7 @@
     display: inline-block;
     position: absolute;
     right: 40%;
-    color: white;
+    color: black;
 }
 .position {
     display: inline-block;
@@ -117,19 +110,26 @@
 }
 
 .ttl {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-style: italic;
 }
-.infotbl:first-child th {
-    background-color: #92daec;
-    color: black;
-}
-.infotbl:first-child:nth-child(1) {
-    background-color: #0c1b23;
-    color: white;
-}
+
 .leagueAndGameInfo {
     padding-top: 0px;
     position: relative;
     top: -70px;
+}
+/* 우측박스내용들 */
+
+.title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+input {
+    margin-right: 10px;
+}
+.pageContentTitle {
+    /* border-bottom: 1px solid black; */
 }
