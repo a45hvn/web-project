@@ -77,15 +77,30 @@
                 >
             </div>
             <div class="outerBox">
-                <div class="boxContainer">
+                <div class="tab">
+                    <div class="" id="tab1">
+                        <div class="smallTitle"><span class="league">2020</span> 정규리그 팀 순위</div>
+                        <select id="selLeague" class="selBox">
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>    
+                        </div>
+                        <div id="tab2">
+                        <div class="smallTitle"><span class="league">2020</span> 정규리그 기록</div>
+                        <select id="selSort" class="selBox">
+                            <optgroup label="정렬기준">
+                            <option value="득점">득점</option>
+                            <option value="경기">경기</option>
+                            <option value="도움">도움</option>
+                            </optgroup>
+                        </select>
+                        </div>
+                    </div>
+                <div class="boxContainer" id="boxContainer">
                 <div class="leftSideBox sideBox" >
-                    <div class="smallTitle"><span class="league">2020</span> 정규리그 팀 순위</div>
-                    <select id="selLeague" class="selBox">
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                    </select>
+                    
                     <div class="tableBox">
                         <table class=" table lefttbl">
                             <tr>
@@ -246,15 +261,6 @@
                 </div>
 
                 <div class="rightSideBox sideBox">
-                    <div class="smallTitle"><span class="league">2020</span> 정규리그 기록</div>
-                    <select id="selSort" class="selBox">
-                        <optgroup label="정렬기준">
-                        <option value="득점">득점</option>
-                        <option value="경기">경기</option>
-                        <option value="도움">도움</option>
-                        </optgroup>
-                    </select>
-                    
                     <div class="tableBox">
                         <table class="table righttbl">
                             <tr>
@@ -611,6 +617,20 @@
                     }
                 }
             });
+            window.onload=function(){
+                $("#tab1").css({"background-color":"#92daec","border-bottom":"0px"})
+            }
+            $("#tab1").click(function(){
+                $("#tab2").css({"border-bottom":"", "background-color": "","border-bottom":""})
+                $(this).css({"border-bottom":"0px","background-color":"#92daec"})
+                $("#boxContainer").css({"transform": "translate(0px, 0px)"})
+
+            })
+            $("#tab2").click(function(){
+                $("#tab1").css({"border-bottom":"","background-color": "","border-bottom":""})
+                $(this).css({"border-bottom":"0px","background-color":"#92daec"})
+                $("#boxContainer").css({"transform": "translate(-1300px, 0px)"})
+            })
         </script>
         <script src="../webproject/submain.js"></script>
     </body>

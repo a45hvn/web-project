@@ -1,7 +1,7 @@
 #centerbox2 tr td img {
     width: 30px;
-    padding-left: 2px;
-    border: 1px solid red;
+    margin-left: 20px;
+    /* border: 1px solid red; */
 }
 
 #centerbox2 td:nth-child(1) {

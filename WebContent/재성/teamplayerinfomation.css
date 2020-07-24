@@ -14,8 +14,9 @@
     /* border: 1px solid green; */
 }
 .entryOuter {
-    margin-top: 5%;
+    margin-top: 0%;
     padding-left: 10%;
+    margin-bottom: 50px;
 }
 .center::after {
     content: "";
@@ -51,7 +52,6 @@
 }
 .infoLine {
     width: 100%;
-    font-size: 1.3em;
 }
 .infoLine:nth-child(odd) {
     background-color: #254150;
@@ -84,8 +84,9 @@
 .player {
     position: relative;
     width: 50%;
-    font-size: 1.5em;
+    font-size: 1em;
     width: 70%;
+    padding: 0px 15px 0px 15px;
 }
 .player:nth-child(odd) {
     background-color: #254150;
@@ -116,7 +117,7 @@
 }
 
 .ttl {
-    font-size: 2em;
+    font-size: 1.4em;
     font-style: italic;
 }
 .infotbl:first-child th {
@@ -128,5 +129,7 @@
     color: white;
 }
 .leagueAndGameInfo {
-    padding-top: 13%;
+    padding-top: 0px;
+    position: relative;
+    top: -70px;
 }

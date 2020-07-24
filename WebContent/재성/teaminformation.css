@@ -21,6 +21,7 @@
     /* 글자수 제한이 필요하다. */
     background-color: #ddd;
 }
+
 .smallTitle {
     font-size: 1.6em;
     margin-bottom: 3%;
@@ -29,7 +30,10 @@
 .join {
     position: absolute;
     right: 0;
-    top: 20px;
+    top: 5px;
+}
+#btn1 {
+    width: 300px;
 }
 .teamIntroBox {
     /* 팀로고 */
@@ -37,6 +41,28 @@
     width: 200px;
     height: 200px;
     background-color: #eee;
+}
+.coachBox {
+    border-top: 10px solid #eee;
+    border-bottom: 10px solid #eee;
+    background-color: #ddd;
+}
+.coachBox img {
+    width: 80px;
+}
+#coachBoxLeft {
+    float: left;
+}
+#coachBoxRight {
+    float: left;
+}
+#coachBoxRight span {
+    display: block;
+}
+.coachBox::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 #teamLogo {
     width: 200px;
@@ -48,7 +74,13 @@
     overflow-y: scroll;
     height: 700px;
 }
-
+.rightSideBox::-webkit-scrollbar {
+    border: 0px;
+}
+.rightSideBox::-webkit-scrollbar-thumb {
+    background-color: #92daec;
+    border-radius: 20px;
+}
 .tblBox th {
     background-color: #92daec;
 }

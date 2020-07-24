@@ -93,6 +93,7 @@
 }
 .evts {
     position: relative;
+    width: 100%;
 }
 .teamA {
     display: inline-block;
@@ -107,6 +108,10 @@
     display: inline-block;
     position: absolute;
     left: 45%;
+    height: 148px;
+    padding: 0px 15px 0px 15px;
+    border-left: #fef9ce 1px solid;
+    border-right: #fef9ce 1px solid;
 }
 .evtMinute {
     display: inline-block;
@@ -136,6 +141,7 @@
     /* border: 10px solid gold; */
     position: relative;
     width: 100%;
+    background-color: #ddd;
 }
 .entry {
     /* border: 1px solid gold; */

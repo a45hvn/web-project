@@ -2,10 +2,9 @@
 
 .center {
     width: 1300px;
-    /* height: 1000px; */
-    background-color: white;
     margin: 0px auto;
-    padding: 0px 50px;
+    padding-top: 50px;
+    background-color: #eee;
 }
 
 #subOuter {
