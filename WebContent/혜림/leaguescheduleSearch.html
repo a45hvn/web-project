@@ -4,10 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="submain_1.css" />
-        <link rel="stylesheet" href="submain_2.css" />
+        <link rel="stylesheet" href="jquery-ui.css" />
+        <link rel="stylesheet" href="bootstrap.css" />
+        <link rel="stylesheet" href="css/submain_1.css">
+        <link rel="stylesheet" href="css/submain_2.css">
         <link rel="stylesheet" href="leaguescheduleSearch.css" />
         <script src="../bootstrap/js/jquery-1.12.4.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
@@ -23,7 +23,7 @@
                 <tr id="menuTop">
                     <td colspan="3"></td>
                     <td rowspan="2" id="rogo" style="width: 1px;">
-                        <img src="../images/rogo.png" alt="" id="mainrogo" />
+                        <img src="../images/rogo_2.png" alt="" id="mainrogo" />
                     </td>
                     <td colspan="4">
                         <button type="button" class="btn btn-default">로그인</button>
@@ -63,23 +63,21 @@
                 <img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle">검색</span >
             </div>
 			
-            	<div id="centerbox1">
+            	<div id="centerbox5">
 					<div id="outerBox">
-                        <div class="dateBox">
-                            <span>날짜별 : </span>
-                            <input type="date" class="inputDate" id="selectedDate" />
-                        </div>
                         <div class="searchBox">
-                            <select name="" style="height: 35px;">
+                            <span>날짜별 : </span>
+                            <input type="date">
+                            <select name="" style="height: 40px; padding: 0px;">
                                 <option value="1">장소별</option>
-                                <option value="2">팀별</option>
+                                <option value="2">경기별</option>
                             </select>
-                            <input id="searchkeyword" type="text" size="30" style="height: 35px; padding: 0px 8px;" />
-                            <a href=""><input id="searchbtn" type="button" value="검색" style="height: 40px; padding: 0px 8px;" /></a>
+                            <input id="searchkeyword" type="text" size="20" style="height: 40px; padding:0;" />
+                            <a href=""><input id="searchbtn" type="button" value="검색" style="height: 40px; width:60px; padding:0;" /></a>
                         </div>
                 </div>
 			
-                    <div id="centerbox2">
+                    <div id="centerbox6">
                         <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
                             <thead>
                                 <tr>
@@ -93,105 +91,105 @@
                                 </tr>
                             </thead>
                                 <tr>
-                                    <th><input type="checkbox" name="chk_tree" value="0" onclick="checkTree(this);" /></th>
+                                    <td><input type="checkbox" name="chk_tree" value="0" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
                                     <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>평일야간시장</td>
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
+                                    <td>FLEX VS 레드포터스</td>
                                     <td>경기전</td>                                   
                                 </tr>
                                 <tr>
-                                    <th><input type="checkbox" name="chk_tree" value="1" onclick="checkTree(this);" /></th>
+                                    <td><input type="checkbox" name="chk_tree" value="1" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
                                     <td>20:00</td> 
-                                    <td>2020</td>
-                                    <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
+                                    <td>평일야간시장</td>
+                                    <td>소망축구장</td>
+                                    <td>무적파이터스 VS 판타지아</td>
                                     <td>경기전</td>                                     
                                 </tr>
                                 <tr>
-                                    <th><input type="checkbox" name="chk_tree" value="2" onclick="checkTree(this);" /></th>
+                                    <td><input type="checkbox" name="chk_tree" value="2" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
                                     <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>평일야간시장</td>
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>                                    
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td>                                   
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="3" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>  
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="4" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>  
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="5" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>  
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="6" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>  
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="7" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>  
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="8" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>   
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>
                                 <tr>
                                     <td><input type="checkbox" name="chk_tree" value="9" onclick="checkTree(this);" /></td>
                                     <td>07.20(수)</td>
-                                    <td>20:00</td> 
-                                    <td>2020</td>
+                                    <td>20:00</td>
+                                    <td>평일야간시장</td>   
                                     <td>정왕축구장</td>
-                                    <td>하하하FC vs 쌍용FC</td>
-                                    <td>경기전</td>  
+                                    <td>FLEX VS 레드포터스</td>
+                                    <td>경기전</td> 
                                 </tr>           
                         </table>                     
                     </div>
 
-                    <div id="centerbox3">
-                        <input id="registBtn" type="button" value="등록">
+                    <div id="centerbox7">
+                        <input id="registBtn" type="button" value="등록"onclick="teamRegister();">
                         <input id="modifyBtn" type="button" value="수정" onclick="confirmModify();">
-                        <input id="deleteBtn" type="button" value="삭제">
+                        <input id="deleteBtn" type="button" value="삭제" onclick="confirmDelete();">
                     </div>
 
-                    <div id="centerbox4">
+                    <div id="centerbox8">
                     <ul id="pagination" class="pagination" style="float: right; margin: 0;">
                         <li>
                             <a href="#" aria-label="Previous">
@@ -208,11 +206,6 @@
                         <li><a href="#" name="page">8</a></li>
                         <li><a href="#" name="page">9</a></li>
                         <li><a href="#" name="page">10</a></li>
-                        <li><a href="#" name="page">11</a></li>
-                        <li><a href="#" name="page">12</a></li>
-                        <li><a href="#" name="page">13</a></li>
-                        <li><a href="#" name="page">14</a></li>
-                        <li><a href="#" name="page">15</a></li>
                         <li>
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
@@ -347,38 +340,58 @@
             });
         </script>
 
-<script type="text/javascript">
-function checkTree(chk){
-    var chkNum=0
-    var obj = document.getElementsByName("chk_tree");
-    for(var i=0; i<obj.length; i++){
-        if(obj[i].checked == true){
-            chkNum++;
-            if(chkNum==2) {
-                chkNum=0;
-                chk.checked= false;
-                alert("하나만 선택할 수 있습니다.");
-                break;
-            }
-        }
-    }
-}
-</script>
+		<script type="text/javascript">
+		function checkTree(chk){
+			//체크박스 중복 체크 방지 함수
+			var chkNum=0
+			var obj = document.getElementsByName("chk_tree");
+			for(var i=0; i<obj.length; i++){
+				if(obj[i].checked == true){
+					chkNum++;
+					if(chkNum==2) {
+						chkNum=0;
+						chk.checked= false;
+						alert("하나만 선택할 수 있습니다.");
+						break;
+					}
+				}
+			}
+		}
+		</script>
+		
+		<script type = "text/javascript">
+			function teamRegister() {
+                var link = 'leaguescheduleRegister.html';
+                window.location.href = link;
+			}
+		</script>
+
+		<script type = "text/javascript">
+			function confirmModify() {
+				var retVal = confirm("수정하시겠습니까?");
+				if(retVal == true) {
+					var link = 'leaguescheduleRegister.html';
+					window.location.href = link;
+						return true;
+				}
+				else {
+					return false;
+				}
+			}
+		</script>
+
+		<script type = "text/javascript">
+			function confirmDelete() {
+				var retVal = confirm("삭제하시겠습니까?");
+				if(retVal == true) {
+					var link = 'leaguescheduleSearch.html';
+					window.location.href = link;
+						return true;
+				}
+				else {
+					return false;
+				}
+			}
+		</script>
     </body>
 </html>
-
-<script type = "text/javascript">
-         <!--
-            function confirmModify() {
-               var retVal = confirm("수정하시겠습니까?");
-               if(retVal == true) {
-                   var link = 'http://www.naver.com';
-                   window.location.href = link;
-                     <!-- 수정화면 -->
-                  return true;
-               } else {
-                  return false;
-               }
-            }
-         //-->
-      </script>

@@ -1,25 +1,6 @@
 
-#centerbox5 {
-    height: 70px;
-}
-
-#centerbox6 {
-    width:1200px;
-    margin: 0px auto;
-}
-
-	#centerbox6 td {
-		text-align: center;
-	}
-
-	#centerbox6 th {
-		text-align: center;
-	}
-
-
 #centerbox7 {
     width:300px;
-    margin: 0px auto;
     float: right;
 }
 	
@@ -37,19 +18,30 @@
 	left: 250px;
 	top: 45px;
 }
+
+#centerbox9 {
+    width:1200px;
+    margin: 0px auto;
+}
+
+	#centerbox9 td {
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	#centerbox9 th {
+		text-align: center;
+		vertical-align: middle;
+    }
+    #centerbox10 {
+        width:403px;
+	float: right;
+	position: relative;
+	left: 250px;
+	top: 45px;
+    }
+
 #outerBox::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-#selectrow {
-    position: absolute;
-    right: 0;
-    height: 40px;
-}
-
-#selectrow::after {
     content: "";
     display: block;
     clear: both;
