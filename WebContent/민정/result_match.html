@@ -6,8 +6,8 @@
         <title>Document</title>
         <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="../webproject/submain_Admin_1.css" />
-        <link rel="stylesheet" href="../webproject/submain_Admin_2.css" />
+        <link rel="stylesheet" href="css/submain_1.css">
+        <link rel="stylesheet" href="css/submain_2.css">
         <script src="../bootstrap/js/jquery-1.12.4.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
@@ -92,6 +92,7 @@
        #btnOption{
            position: relative;
            margin-left: 81.8%;
+           bottom: 5px;
        }
 
        #tbl1{
@@ -112,7 +113,7 @@
             width: 800px;
             background-color: #1E3440;                
         }
-       #tbl1 td { padding-top: 20px;}
+       #tbl1 td { padding-top: 20px; border: 0px;}
 
        .selectbox{
            height: 25px;
@@ -183,7 +184,8 @@
             /* border: 3px solid gold; */
             position: relative;
             top: 0px;
-            margin-bottom: 40px;
+            top: 80px;
+            margin-bottom: 60px;
             padding-top: 30px;
             
         }
@@ -255,11 +257,7 @@
                     <span class="contentTitle">경기 결과(친선)</span>           
             </div>   
         <div id="centerbox1">    
-            <span id="btnOption">
-                <input type="button" value="추가" class="btn btn-default btnOption">
-                <input type="button" value="수정"class="btn btn-default btnOption">
-                <input type="button" value="삭제"class="btn btn-default btnOption">
-            </span>
+            
         </div> 
     <table id="tbl1" class="table table-hover"  style="margin-top: 0px;">
         <tr>
@@ -329,7 +327,12 @@
         </tr>
         </tbody>
     </table>
-    <div id="centerbox3">                
+    <div id="centerbox3">  
+        <span id="btnOption">
+            <input type="button" value="추가" class="btn btn-default btnOption">
+            <input type="button" value="수정"class="btn btn-default btnOption">
+            <input type="button" value="삭제"class="btn btn-default btnOption">
+        </span>               
         <ul id="pagination" class="pagination" style="float: right; margin: 0;">
             <li>
                 <a href="#" aria-label="Previous">
