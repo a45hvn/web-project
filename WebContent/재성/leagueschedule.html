@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/leagueschedule.css" />
         <script src="../bootstrap/js/jquery-1.12.4.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
-
         <style></style>
     </head>
 
@@ -44,24 +43,23 @@
         </nav>
 
         <div id="topBoard"></div>
+
         <div id="scoreBoard">
             <div id="subOuter">
                 <div class="menuTitleBox">
-                    <div class="menuTitle">리그일정</div>
+                    <div class="menuTitle">정규리그일정</div>
                     <div class="breadcrumb">
                         <span>HOME</span>
                         <span>></span>
-                        <span>경기정보</span>
+                        <span>정규리그일정</span>
                         <span>></span>
-                        <span>리그일정</span>
+                        <span>정규리그일정</span>
                     </div>
-
                     <div class="subMenuBox">
                         <nav class="subMenu">
                             <ul>
-                                <li class="subMenuItem"><a href="#">정규리그일정</a></li>
-                                <li class="subMenuItem"><a href="#">정규리그결과</a></li>
-                                <li class="subMenuItem"><a href="#">친선경기결과</a></li>
+                                <li class="subMenuItem">정규리그일정</li>
+                                <li class="subMenuItem">경기결과조회</li>
                             </ul>
                         </nav>
                     </div>
@@ -71,208 +69,251 @@
         <!-- 상단부 끝 -->
 
         <div class="center">
-            <div class="pageContentTitle">
-                <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
-                    >정규리그일정</span
-                >
-            </div>
+            <div class="center">
+                <div class="pageContentTitle">
+                    <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
+                        >정규리그일정</span
+                    >
+                </div>
 
-            <div id="centerMainBox">
-                <div id="centerbox1">
-                    <div id="outerBox">
-                        <select name="" id="selectgametype" style="height: 40px;">
-                            <option value="1">정규리그</option>
-                            <option value="2">친선경기</option>
-                        </select>
-                        <div class="dateBox">
-                            <span>시작일 : </span>
-                            <input type="date" class="inputDate" id="startDate" />
-                            <span>종료일 : </span>
-                            <input type="date" class="inputDate" id="endDate" />
+                <div id="centerMainBox">
+                    <div id="centerbox1">
+                        <div id="outerBox">
+                            <select name="" id="selectgametype">
+                                <option value="1">정규리그</option>
+                                <option value="2">친선경기</option>
+                            </select>
+                            <div class="dateBox">
+                                <span>시작일 : </span>
+                                <input type="date" class="inputDate" id="startDate" />
+                                <span>종료일 : </span>
+                                <input type="date" class="inputDate" id="endDate" />
+                            </div>
+                            <div class="searchBox">
+                                <span id="searchcontent">팀이름 검색</span>
+                                <input id="searchkeyword" type="text" size="35" />
+                                <a href=""><input id="searchbtn" type="button" value="검색" class="btn" /></a>
+                                <input id="writebtn" type="button" value="글쓰기" class="btn" />
+                            </div>
+                            <select name="" id="selectrow">
+                                <option value="10">10개씩 보기</option>
+                                <option value="25">25개씩 보기</option>
+                                <option value="50">50개씩 보기</option>
+                            </select>
                         </div>
-                        <div class="searchBox">
-                            <span id="searchcontent">팀이름 검색</span>
-                            <input id="searchkeyword" type="text" size="35" style="height: 40px;" />
-                            <a href=""
-                                ><input
-                                    id="searchbtn"
-                                    type="button"
-                                    value="검색"
-                                    style="height: 40px; padding: 0px 8px;"
-                            /></a>
-                            <input id="writebtn" type="button" value="글쓰기" style="height: 40px; padding: 0px 8px;" />
-                        </div>
-                        <select name="" id="selectrow">
-                            <option value="10">10개씩 보기</option>
-                            <option value="25">25개씩 보기</option>
-                            <option value="50">50개씩 보기</option>
-                        </select>
                     </div>
-                </div>
-                <div id="centerbox2">
-                    <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
-                        <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>리그</th>
-                                <th>경기일</th>
-                                <th>장소</th>
-                                <th>경기</th>
-                                <th>승리</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2020</td>
-                                <td>2020. 07. 05.(일) <span id="beginTime">14:00</span></td>
-                                <td>역삼초등학교</td>
-                                <td>
-                                    <span class="team" id="teamA">하하하FC</span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB">쌍용FC</span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td>강남축구장</td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <span class="team" id="teamA"></span>
-                                    <span>vs</span>
-                                    <span class="team" id="teamB"></span>
-                                </td>
-                                <td><span class="team">하하하FC</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <div id="centerbox2">
+                        <table class="table table-striped" id="verticalTable">
+                            <thead>
+                                <tr>
+                                    <th>번호</th>
+                                    <th>리그</th>
+                                    <th>경기일</th>
+                                    <th>장소</th>
+                                    <th>경기</th>
+                                    <th>승리</th>
+                                    <th>문자중계</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2020</td>
+                                    <td>2020. 07. 05.(일) <span id="beginTime">14:00</span></td>
+                                    <td>역삼초등학교</td>
+                                    <td>
+                                        <span class="team" id="teamA">하하하FC</span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB">쌍용FC</span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>강남축구장</td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <span class="team" id="teamA"></span>
+                                        <span>vs</span>
+                                        <span class="team" id="teamB"></span>
+                                    </td>
+                                    <td><span class="team">하하하FC</span></td>
+                                    <td><input type="button" value="문자중계" class="textBtn btn btn-default" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <div id="centerbox3">
-                    <ul id="pagination" class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a class="nowPage" href="#" name="page">1</a></li>
-                        <li><a href="#" name="page">2</a></li>
-                        <li><a href="#" name="page">3</a></li>
-                        <li><a href="#" name="page">4</a></li>
-                        <li><a href="#" name="page">5</a></li>
-                        <li><a href="#" name="page">6</a></li>
-                        <li><a href="#" name="page">7</a></li>
-                        <li><a href="#" name="page">8</a></li>
-                        <li><a href="#" name="page">9</a></li>
-                        <li><a href="#" name="page">10</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <div id="centerbox3">
+                        <ul id="pagination" class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a class="nowPage" href="#" name="page">1</a></li>
+                            <li><a href="#" name="page">2</a></li>
+                            <li><a href="#" name="page">3</a></li>
+                            <li><a href="#" name="page">4</a></li>
+                            <li><a href="#" name="page">5</a></li>
+                            <li><a href="#" name="page">6</a></li>
+                            <li><a href="#" name="page">7</a></li>
+                            <li><a href="#" name="page">8</a></li>
+                            <li><a href="#" name="page">9</a></li>
+                            <li><a href="#" name="page">10</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div style="clear: both;"></div> -->
                 </div>
-                <!-- <div style="clear: both;"></div> -->
             </div>
         </div>
+
+        <style></style>
+
+        <script>
+            $("#pagination > li >a").click(function () {
+                // alert($(this).text());
+                $("#pagination > li>a").removeClass("nowPage");
+                $(this).addClass("nowPage");
+            });
+
+            $("#searchbtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
+
+            $("#searchbtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+
+            $("#writebtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
+
+            $("#writebtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+
+            $("#verticalTable a").click(function () {
+                // alert($(this));
+
+                location.href = "BulletinBoardContent.html";
+            });
+        </script>
 
         <!-- 하단부  -->
 
@@ -304,16 +345,16 @@
                 <li><a href="#">시뮬레이션</a></li>
             </ul>
             <ul class="siteList">
-                <h2 class="listName"><a href="#">게시판</a></h2>
-                <li><a href="#">질문게시판</a></li>
-                <li><a href="#">갤러리</a></li>
-                <li><a href="#">자유게시판</a></li>
-                <li><a href="#">강의게시판</a></li>
+                <h2 class="listName"><a href="community.html">게시판</a></h2>
+                <li><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
+                <li><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
+                <li><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
+                <li><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
                 <li><a href="#">친선경기모집</a></li>
                 <li><a href="#">용병모집</a></li>
             </ul>
             <ul class="siteList">
-                <h2 class="listName"><a href="#">공지사항</a></h2>
+                <h2 class="listName"><a href="NoticeBoard.html">공지사항</a></h2>
             </ul>
             <ul class="siteList">
                 <h2 class="listName"><a href="#">문자중계</a></h2>
@@ -395,37 +436,7 @@
                     }
                 }
             });
-            // main page
 
-            $("#pagination > li >a").click(function () {
-                // alert($(this).text());
-                $("#pagination > li>a").removeClass("nowPage");
-                $(this).addClass("nowPage");
-            });
-
-            $("#searchbtn").mouseover(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "#92DAEC").css("color", "black");
-            });
-
-            $("#searchbtn").mouseout(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "").css("color", "");
-            });
-
-            $("#writebtn").mouseover(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "#92DAEC").css("color", "black");
-            });
-
-            $("#writebtn").mouseout(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "").css("color", "");
-            });
-            // <span class="glyphicon glyphicon-map-marker"></span>
-            console.log($("#verticalTable tbody td:nth-child(3)").contents());
-
-            // 지도마크 넣고 연결시키기
             $("#verticalTable tbody td:nth-child(4)").append("<span class='glyphicon glyphicon-map-marker'></span>");
             $("#verticalTable tbody td:nth-child(4)")
                 .children()
@@ -436,8 +447,7 @@
                     console.log($(this).parent().text());
                 });
         </script>
-        <script src="../webproject/js/submain.js"></script>
-        <script src="js/submain.js"></script>
         <script src="js/event.js"></script>
+        <script src="js/submain.js"></script>
     </body>
 </html>
