@@ -1,5 +1,4 @@
 .center {
-    background-color: #eee;
     margin: 0px auto;
     width: 1300px;
     padding-left: 50px;
@@ -12,11 +11,18 @@
 .rightSideBox {
     width: 70%;
     float: left;
+    height: 900px;
     /* border: 1px solid green; */
 }
 .entry {
-    border: 1px solid #dddddd;
+    overflow-y: scroll;
+    height: 820px;
+    border-top: 1px solid #dddddd;
     width: 70%;
+}
+.entry::-webkit-scrollbar {
+    border: 0px;
+    width: 0px;
 }
 .entryOuter {
     margin-top: 0%;
@@ -78,23 +84,24 @@
     width: 50%;
     font-size: 1em;
     width: 100%;
-    padding: 0px 15px 0px 15px;
+    padding: 8px 15px 0px 15px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    height: 37px;
 }
-.player:nth-child(odd) {
-    /* background-color: #254150; */
+.player:last-child {
+    border-bottom: 1px solid #ddd;
 }
 .player:nth-child(even) {
     /* background-color: #0c1b23; */
     background-color: #f9f9f9;
 }
-.player span {
-    /* position: absolute; */
-}
 .backNum {
     color: turquoise;
     display: inline-block;
-    right: 70%;
+    left: 3%;
     font-size: 1.3em;
+    position: relative;
 }
 .playerName {
     display: inline-block;
@@ -105,7 +112,7 @@
 .position {
     display: inline-block;
     position: absolute;
-    right: 0px;
+    right: 10%;
     color: gold;
 }
 
@@ -132,4 +139,15 @@ input {
 }
 .pageContentTitle {
     /* border-bottom: 1px solid black; */
+}
+#playerHeader .backNum {
+    left: -10px;
+}
+#playerHeader .playerName {
+    left: 44%;
+    font-size: 1.2em;
+}
+#playerHeader .position {
+    right: 6%;
+    font-size: 1.2em;
 }

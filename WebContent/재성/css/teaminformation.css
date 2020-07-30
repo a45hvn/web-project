@@ -1,5 +1,5 @@
 .center {
-    background-color: #eee;
+    /* background-color: #eee; */
 }
 .outerBox {
     border-bottom: 10px solid white;
@@ -13,19 +13,34 @@
     /* border: 2px solid black; */
     position: relative;
     height: 610px;
+    background-color: #f9f9f9;
+}
+.leftSideBox .tblBox {
+    position: relative;
+    top: 10px;
 }
 .introduce {
     text-align: justify;
     height: 400px;
     /* border: 2px solid black; */
     /* 글자수 제한이 필요하다. */
-    background-color: #ddd;
+    /* background-color: #ddd; */
+    border-bottom: 8px solid white;
 }
-
+.smallTitleOuter {
+    position: relative;
+    height: 60px;
+}
 .smallTitle {
     font-size: 1.6em;
     margin-bottom: 3%;
     font-weight: bold;
+    position: relative;
+}
+.localhome {
+    position: absolute;
+    left: 180px;
+    top: 0px;
 }
 .join {
     position: absolute;
@@ -40,12 +55,11 @@
     float: left;
     width: 200px;
     height: 200px;
-    background-color: #eee;
+    background-color: #f9f9f9;
 }
 .coachBox {
-    border-top: 10px solid #eee;
-    border-bottom: 10px solid #eee;
-    background-color: #ddd;
+    background-color: #f9f9f9;
+    /* background-color: #ddd; */
 }
 .coachBox img {
     width: 80px;
@@ -71,27 +85,37 @@
 .rightSideBox {
     float: right;
     width: 38%;
-    overflow-y: scroll;
     height: 700px;
 }
 .rightSideBox::-webkit-scrollbar {
     border: 0px;
 }
 .rightSideBox::-webkit-scrollbar-thumb {
-    background-color: #92daec;
     border-radius: 20px;
 }
+.playerTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0px;
+}
+.playerTable td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    height: 25px;
+}
+.rightSideBox .tblBox {
+    overflow-y: scroll;
+    height: 650px;
+}
+.rightSideBox .tblBox::-webkit-scrollbar {
+    border: 0px;
+    width: 0px;
+}
 .tblBox th {
-    background-color: #92daec;
+    height: 25px;
+    /* background-color: #92daec; */
 }
-.tblBox tr:nth-child(odd) {
-    color: white;
-    background-color: #254150;
-}
-.tblBox tr:nth-child(even) {
-    color: white;
-    background-color: #0c1a22;
-}
+
 .outerBox::after {
     content: "";
     display: block;
@@ -130,6 +154,9 @@
     min-width: 360px;
     max-width: 800px;
     margin: 1em auto;
+    border: 2px solid black;
+    position: relative;
+    top: 10px;
 }
 
 .highcharts-data-table table {

@@ -131,7 +131,6 @@
     /* border: 1px solid red; */
     width: 1300px;
     margin: 0px auto;
-    color: white;
 }
 .menuTitle2 {
     color: black;
@@ -141,21 +140,25 @@
     /* border: 10px solid gold; */
     position: relative;
     width: 100%;
-    background-color: #ddd;
+    margin: 15px 0px;
 }
+
 .entry {
-    /* border: 1px solid gold; */
+    overflow-y: scroll;
+    height: 600px;
+    border-top: 1px solid #dddddd;
     width: 20%;
-    color: whitesmoke;
-    font-size: 1em;
-    padding: 3%;
-    /* background-color: #254150; */
+    position: relative;
+}
+.entry::-webkit-scrollbar {
+    border: 0px;
+    width: 0px;
 }
 .entry div:nth-child(odd) {
-    background-color: #254150;
+    /* background-color: #254150; */
 }
 .entry div:nth-child(even) {
-    background-color: #0c1a22;
+    /* background-color: #0c1a22; */
 }
 .textBroadcast {
     /* border: 1px solid tomato; */
@@ -163,23 +166,21 @@
     width: 43%;
     height: 500px;
     position: absolute;
-    left: 30%;
+    left: 28.6%;
     top: 2%;
     overflow-y: scroll;
 }
 .textBroadcast::-webkit-scrollbar {
-    border: 0px solid #eee;
+    border: 0px;
+    width: 0px;
 }
-.textBroadcast::-webkit-scrollbar-thumb {
-    background-color: #92daec;
-    border-radius: 20px;
-}
+
 .textBroadcast {
     border: 2px solid #eee;
 }
 .textBroadcast ul {
     position: absolute;
-    left: 2.5%;
+    left: 5%;
     /* border: 2px solid #eee; */
 }
 
@@ -191,10 +192,9 @@
     width: 500px;
 }
 .textBroadcast li:nth-child(odd) {
-    background-color: #254150;
+    background-color: #f9f9f9;
 }
 .textBroadcast li:nth-child(even) {
-    background-color: #0b1216;
 }
 #teamAEntry {
     position: absolute;
@@ -205,25 +205,50 @@
     left: 78%;
 }
 .player {
-    width: 230px;
-    padding: 1%;
+    position: relative;
+    width: 50%;
+    font-size: 1em;
+    width: 100%;
+    padding: 8px 15px 0px 15px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    height: 37px;
+}
+.player:last-child {
+    border-bottom: 1px solid #ddd;
+}
+.player:nth-child(even) {
+    /* background-color: #0c1b23; */
+    background-color: #f9f9f9;
 }
 .backNum {
     color: turquoise;
     display: inline-block;
-    right: 80%;
+    left: 3%;
+    font-size: 1.3em;
+    position: relative;
 }
 .playerName {
     display: inline-block;
     position: absolute;
-    left: 50%;
-}
-.entry div:first-of-type .position {
-    left: 80%;
+    right: 40%;
+    color: black;
 }
 .position {
     display: inline-block;
     position: absolute;
-    left: 86%;
+    right: 10%;
     color: gold;
+}
+
+.playerHeader .backNum {
+    left: -10px;
+}
+.playerHeader .playerName {
+    left: 110px;
+    font-size: 1.2em;
+}
+.playerHeader .position {
+    right: 6%;
+    font-size: 1.2em;
 }
