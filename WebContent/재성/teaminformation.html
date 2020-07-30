@@ -4,24 +4,24 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/submain_1.css" />
         <link rel="stylesheet" href="css/submain_2.css" />
         <link rel="stylesheet" href="css/teaminformation.css" />
-        <script src="../bootstrap/js/jquery-1.12.4.js"></script>
-        <script src="../bootstrap/js/bootstrap.js"></script>
+        <script src="js/jquery-1.12.4.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/modules/series-label.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="/js/jquery-ui.js"></script>
         <style></style>
     </head>
 
     <body>
-        <script src="../jquery/js/jquery-1.12.4.js"></script>
-        <script src="../jquery/js/jquery-ui.js"></script>
+        
         <!-- 상단부 -->
         <nav id="main">
             <table class="table table-default" id="mainMenu">
@@ -100,7 +100,7 @@
                             </div>
                          </div>
                         
-                         <table class="table tblBox">
+                         <table class="table table-bordered table-striped tblBox">
                             <tr>
                                 <th>리그 평균 승률</th>
                                 <th>리그 평균 득점</th>
@@ -119,7 +119,7 @@
                     <div class="rightSideBox">
                         <div class="smallTitle">구단 등록 선수 [<span id="memberNum">24</span>]</div>
                         <div class="tblBox">
-                            <table class="table playerTable" >
+                            <table class="table table-bordered table-striped playerTable" >
                                 <tr>
                                     <th>등번호</th>
                                     <th>이름</th>
@@ -248,6 +248,79 @@
                                     <td>183cm</td>
                                     <td>75kg</td>
                                 </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             </table>
                         </div>
 
@@ -255,8 +328,10 @@
                 </div>
                 <div class="underSideBox">
                     <div class="rightside">
+                        <div class="smallTitleOuter">
                         <div class="localplace smallTitle">연고지 : [<span>강남</span>]</div>
-                        <div class="smallTitle">홈구장 : [<span id="homeground">역삼초등학교</span>]</div>
+                        <div class="localhome smallTitle">홈구장 : [<span id="homeground">역삼초등학교</span>]</div>
+                        </div>
                        <div id="map" style="width: 680px; height: 400px; z-index: 3 ; border: 2px solid black;"></div>
                     </div>
                     <div class="leftside">
@@ -476,6 +551,6 @@ Highcharts.chart('container', {
         </script>
         <script src="js/submain.js"></script>
         <script src="js/event.js"></script>
-        <!-- <script src="js/구단현황.js"></script> -->
+        
     </body>
 </html>

@@ -1,9 +1,14 @@
 #centerMainBox {
     /* outline: 10px solid red; */
+    width: 1200px;
+    margin: 0 auto;
 }
+
 #centerbox1 {
-    /* outline: 10px solid red; */
-    height: 70px;
+    /* outline: 1px solid red; */
+    display: inline-block;
+    width: 1200px;
+    margin-top: 15px;
 }
 #outerBox::after {
     content: "";
@@ -17,7 +22,7 @@
 }
 #outerBox {
     position: relative;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     height: 50px;
 }
 
@@ -37,23 +42,22 @@
 #selectrow {
     position: absolute;
     right: 0;
-
-    height: 40px;
 }
 #verticalTable {
-    color: white;
+    color: black;
 }
-#verticalTable td {
+#verticalTable td,
+#verticalTable th {
     border: 0px;
 }
 #verticalTable thead tr:first-child {
-    background-color: #92daec;
+    /* background-color: #92daec; */
 }
 #verticalTable tbody tr:nth-child(odd) {
-    background-color: #0c1a22;
+    /* background-color: #0c1a22; */
 }
 #verticalTable tbody tr:nth-child(even) {
-    background-color: #254150;
+    /* background-color: #254150; */
 }
 
 #centerbox3 {
@@ -64,4 +68,28 @@
     content: "";
     clear: both;
     display: block;
+}
+
+/* 페이지 버튼 */
+#pagination li a {
+    color: black;
+    /* background-color: #1e3440; */
+    height: 25px;
+    line-height: 0.8em;
+}
+
+#selectgametype,
+#endDate,
+#startDate,
+#selectrow,
+#searchbtn,
+#writebtn {
+    height: 25px;
+    color: black;
+    /* background-color: #1e3440; */
+    line-height: 1em;
+}
+
+#pagination .nowPage {
+    background-color: #92daec;
 }

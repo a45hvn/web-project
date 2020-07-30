@@ -4,19 +4,19 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/submain_1.css" />
         <link rel="stylesheet" href="css/submain_2.css" />
         <link rel="stylesheet" href="css/teamlist.css" />
-        <script src="../bootstrap/js/jquery-1.12.4.js"></script>
-        <script src="../bootstrap/js/bootstrap.js"></script>
+        <script src="js/jquery-1.12.4.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-ui.js"></script>
         <style></style>
     </head>
 
     <body>
-        <script src="../jquery/js/jquery-1.12.4.js"></script>
-        <script src="../jquery/js/jquery-ui.js"></script>
+        
         <!-- 상단부 -->
         <nav id="main">
             <table class="table table-default" id="mainMenu">
@@ -60,7 +60,7 @@
                             <ul>
                                 <li class="subMenuItem">구단정보</li>
                                 <li class="subMenuItem">구단선수정보</li>
-                                <li class="subMenuItem">구단경기전적</li>
+                                <li class="subMenuItem">구단경기정보</li>
                             </ul>
                         </nav>
                     </div>
@@ -90,7 +90,7 @@
                     </span>
                 </div>
                 <div id="centerbox2">
-                    <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
+                    <table class="table table-striped table-bordered" id="verticalTable"">
                         <thead>
                             <tr>
                                 <th>순번</th>
@@ -230,9 +230,9 @@
                             <option value="">홈구장</option>
                         </select>
                         <input id="searchkeyword" type="text" size="35" style="" />
-                        <a href=""><input class="btn btn-default" id="searchbtn" type="button" value="검색" /></a>
+                        <a href=""><input class="btn btn-primary" id="searchbtn" type="button" value="검색" /></a>
                         <input
-                            class="btn btn-default"
+                            class="btn btn-primary"
                             id="writebtn"
                             type="button"
                             value="글쓰기"
@@ -304,8 +304,8 @@
 
             #selectrow {
                 margin-top: 10px;
-                background-color: #1e3440;
-                color: white;
+                
+                color: black;
                 padding-bottom: 5px;
             }
 
@@ -332,26 +332,26 @@
 
             #verticalTable th,
             #verticalTable td {
-                /* text-align: center; */
-                color: white;
-                border: 0px;
+                
+                color: black;
+                
             }
 
             #verticalTable thead tr th {
                 width: 800px;
-                background-color: #92daec;
-                color: #0c1b23;
-                /* border: 3px solid white */
+                
+                color: black;
+                
             }
 
             #verticalTable tr {
                 width: 800px;
-                background-color: #1e3440;
+                
             }
 
             #verticalTable tr:nth-child(even) {
                 width: 800px;
-                background-color: #0c1b23;
+                
             }
 
             /* 게시판 목록 형식 */
@@ -366,8 +366,7 @@
 
             /* 페이지 버튼 */
             #pagination li a {
-                color: white;
-                background-color: #1e3440;
+                color: black;
                 height: 25px;
                 line-height: 0.8em;
             }
@@ -378,8 +377,7 @@
             #searchbtn,
             #writebtn {
                 height: 25px;
-                color: white;
-                background-color: #1e3440;
+                color: black;
                 line-height: 0.8em;
             }
         </style>

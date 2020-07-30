@@ -20,7 +20,7 @@
     margin: 0px;
 }
 #boxContainer {
-    transform: translate(-1300px, 0px);
+    transform: translate(0px, 0px);
 }
 .boxContainer::after {
     content: "";
@@ -51,66 +51,47 @@
 .tableBox {
     position: relative;
     /* margin-top: 1px; */
-    color: white;
+    color: black;
     height: 80%;
-    /* border: 2px solid black; */
-}
-.righttbl tr:first-child {
-    /* position: fixed; */
+    border: 2px solid black;
+    border-top: 0px;
+    z-index: 1;
 }
 
 .tableBox th {
-    background-color: #92daec;
-    border: 0px solid;
+    height: 37px;
 }
-.tableBox .lefttbl td {
-    border: 0px solid;
-}
-.tableBox .righttbl td {
-    border: 0px solid;
-}
+
 .rightSideBox .tableBox {
     overflow-y: scroll;
 }
 .rightSideBox .tableBox::-webkit-scrollbar {
     border: 0px;
+    width: 0px;
 }
-.rightSideBox .tableBox::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background-color: #92daec;
-}
-.lefttbl tr:nth-child(odd) {
-    background-color: #25282a;
-}
-.lefttbl tr:nth-child(even) {
-    background-color: #0c1a22;
-}
+
 .lefttbl .righttbl {
     overflow: hidden;
 }
-.tableBox {
-    /* border-left: 2px solid black;
-    border-right: 2px solid black; */
-}
-.righttbl tr:nth-child(odd) {
-    background-color: #25282a;
-}
-.righttbl tr:nth-child(even) {
-    background-color: #0c1a22;
-}
+
 .smallTitle {
-    text-align: center;
-    font-size: 2em;
+    /* text-align: center; */
+    font-size: 1.2em;
     font-weight: bold;
     position: relative;
-    top: 25px;
+    /* border: 10px solid blue; */
+    width: 350px;
+    top: 3px;
+    left: 10px;
 }
 .tab {
-    /* border: 10px solid blue; */
+    width: 1300px;
+    position: relative;
+    margin-top: 20px;
+    height: 42px;
+    top: 0px;
 
-    /* padding: 0px 50px; */
-    width: 1200px;
-    height: 50px;
+    border-bottom: 2px solid black;
 }
 .tab::after {
     content: "";
@@ -118,36 +99,44 @@
     clear: both;
 }
 #tab1 {
-    border: 3px solid black;
-    width: 50%;
-    float: left;
-    height: 100px;
-    position: relative;
-
+    border: 2px solid black;
+    border-bottom: 0px;
+    width: 350px;
+    height: 42px;
+    position: absolute;
+    z-index: 2;
     /* background-color: #92daec; */
 }
 #tab2 {
-    border: 3px solid black;
-    width: 50%;
-    float: right;
-    height: 100px;
-    position: relative;
+    border: 2px solid black;
+    border-bottom: 0px;
+    width: 350px;
+    height: 42px;
+    position: absolute;
+    left: 30%;
+    z-index: 2;
 }
 
 #selLeague {
     position: absolute;
-    right: 3%;
+    left: 18%;
     width: 100px;
-    height: 30px;
-    font-size: 1.1em;
-    top: 30px;
+    height: 25px;
+    font-size: 1em;
+    top: 8px;
+    z-index: 3;
 }
 #selSort {
     /* border: 1px solid black; */
     position: absolute;
-    left: 3%;
+    left: 48%;
     width: 100px;
-    height: 30px;
-    font-size: 1.1em;
-    top: 30px;
+    height: 25px;
+    font-size: 1em;
+    top: 8px;
+    z-index: 3;
+}
+
+.table-bordered {
+    border-top: 0px;
 }
