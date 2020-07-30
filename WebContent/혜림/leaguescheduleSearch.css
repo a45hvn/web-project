@@ -1,10 +1,7 @@
 
-#centerbox5 {
-    height: 70px;
-}
-
 #centerbox6 {
     width:1200px;
+	height: 600px;
     margin: 0px auto;
 }
 
@@ -18,8 +15,8 @@
 
 
 #centerbox7 {
-    width:300px;
-    margin: 0px auto;
+    width:250px;
+    margin: 0 auto;
     float: right;
 }
 	
@@ -31,7 +28,7 @@
 
 
 #centerbox8 {
-    width:403px;
+    width:410px;
 	float: right;
 	position: relative;
 	left: 250px;
@@ -58,14 +55,19 @@
 #outerBox {
     position: relative;
     border-bottom: 2px solid black;
-    height: 50px;
+    height: auto;
     width:1200px;
     margin: 0px auto;
 }
 
 .searchBox {
-    position: absolute;
-    right: 0%;
+	width: 1200px;
+	float: right;
+	margin-bottom: 15px;
+}
+
+.searchBox input, span, select{
+	margin-left:2px;
 }
 
 #verticalTable {

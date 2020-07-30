@@ -27,8 +27,7 @@
 #clickbox {
     height: 30px;
     width: 205px;
-    margin-top: 45px;
-	float:right;
+    margin: 45px auto 45px auto;
 }
 
 #clickbox input {
@@ -84,7 +83,8 @@
 		width:150px;
 		height:150px;
 		margin:15px auto;
-		background-image: url("team0.png");
+		background-image: url("../images/man_01.png");
+		background-size: cover;
 	}
 
 #wrapper4{
@@ -111,7 +111,8 @@
 		width:150px;
 		height:150px;
 		margin:15px auto;
-		background-image: url("team0.png");
+		background-image: url("../images/man_01.png");
+		background-size: cover;
 	}
 
 .teamText{
