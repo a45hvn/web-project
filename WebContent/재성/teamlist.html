@@ -18,12 +18,12 @@
         <script src="../jquery/js/jquery-1.12.4.js"></script>
         <script src="../jquery/js/jquery-ui.js"></script>
         <!-- 상단부 -->
-        <nav id="main" style="float: left;">
+        <nav id="main">
             <table class="table table-default" id="mainMenu">
                 <tr id="menuTop">
                     <td colspan="3"></td>
                     <td rowspan="2" id="rogo" style="width: 1px;">
-                        <img src="../images/rogo.png" alt="" id="mainrogo" />
+                        <img src="images/rogo.png" alt="" id="mainrogo" />
                     </td>
                     <td colspan="4">
                         <button type="button" class="btn btn-default">로그인</button>
@@ -42,26 +42,25 @@
             </table>
         </nav>
 
+        <div id="topBoard"></div>
+
         <div id="scoreBoard">
-            <div id="subOuter" style="top: 200px;">
+            <div id="subOuter">
                 <div class="menuTitleBox">
-                    <div class="menuTitle">커뮤니티</div>
+                    <div class="menuTitle">구단현황</div>
                     <div class="breadcrumb">
                         <span>HOME</span>
                         <span>></span>
-                        <span>커뮤니티</span>
-                        <span>></span>
-                        <span>자유게시판</span>
+                        <span>구단현황</span>
+                        <span></span>
+                        <span></span>
                     </div>
                     <div class="subMenuBox">
                         <nav class="subMenu">
                             <ul>
-                                <li class="subMenuItem"><a href="#">질문게시판</a></li>
-                                <li class="subMenuItem"><a href="#">갤러리</a></li>
-                                <li class="subMenuItem"><a href="#">자유게시판</a></li>
-                                <li class="subMenuItem"><a href="#">강의게시판</a></li>
-                                <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                                <li class="subMenuItem"><a href="#">용병모집</a></li>
+                                <li class="subMenuItem">구단정보</li>
+                                <li class="subMenuItem">구단선수정보</li>
+                                <li class="subMenuItem">구단경기전적</li>
                             </ul>
                         </nav>
                     </div>
@@ -79,8 +78,6 @@
 
             <div id="centerMainBox">
                 <div id="centerbox1">
-                    <!-- <span id="submenutitle" style="font-size: 25px; margin-top: -15px;">질문게시판</span> -->
-
                     <select name="" id="selectrow">
                         <option value="">10개씩 보기</option>
                         <option value="">25개씩 보기</option>
@@ -201,7 +198,7 @@
                 </div>
 
                 <div id="centerbox3">
-                    <ul id="pagination" class="pagination" style="float: right; margin: 0;">
+                    <ul id="pagination" class="pagination" style="float: right;" class="pagination">
                         <li>
                             <a href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
@@ -226,13 +223,13 @@
                 </div>
 
                 <div id="centerbox4">
-                    <div style="float: right; font-size: 15px; margin: 5px;">
-                        <select style="height: 30px;">
+                    <div style="float: right;">
+                        <select style="">
                             <option value="">팀명</option>
                             <option value="">감독</option>
                             <option value="">홈구장</option>
                         </select>
-                        <input id="searchkeyword" type="text" size="35" style="height: 30px;" />
+                        <input id="searchkeyword" type="text" size="35" style="" />
                         <a href=""><input class="btn btn-default" id="searchbtn" type="button" value="검색" /></a>
                         <input
                             class="btn btn-default"
@@ -248,11 +245,6 @@
         </div>
 
         <style>
-            .center {
-                padding-top: 50px;
-                background-color: #eee;
-            }
-
             #centerMainBox {
                 /* border: 1px solid black; */
                 width: 1200px;
@@ -263,35 +255,32 @@
             #centerbox1 {
                 border-bottom: 1px solid black;
                 width: 1200px;
-                height: 50px;
                 margin-bottom: 10px;
+                display: inline-block;
             }
 
             #centerbox2 {
                 /* border: 1px solid black; */
                 width: 1200px;
-                height: 650px;
+                font-size: 1.1em;
             }
 
             #centerbox3 {
                 /* border: 1px solid red; */
                 width: 1200px;
-                height: 50px;
-                margin-top: 40px;
             }
 
             #centerbox4 {
                 /* border: 1px solid blue; */
                 width: 1200px;
-                height: 50px;
                 display: inline-block;
+                margin-bottom: 25px;
             }
 
             #centerbox1 span,
             #centerbox1 select {
                 /* border: 1px solid red; */
                 display: inline-block;
-                font-size: 20px;
             }
 
             #verticalTable {
@@ -300,15 +289,6 @@
 
             #pagination {
                 /* border: 1px solid gold; */
-            }
-
-            #submenutitle {
-                font-size: 15px;
-                padding: 10px;
-                margin-left: 10px;
-                border: 1px solid #0c1b23;
-                background-color: #0c1b23;
-                color: white;
             }
 
             #sortform,
@@ -331,8 +311,7 @@
 
             #verticalTable {
                 width: 1200px;
-                height: 650px;
-                font-size: 20px;
+                /* height: 650px; */
             }
 
             #verticalTable th:nth-child(1) {
@@ -350,14 +329,14 @@
             #verticalTable th:nth-child(5) {
                 width: 65px;
             }
+
             #verticalTable th,
             #verticalTable td {
                 /* text-align: center; */
                 color: white;
+                border: 0px;
             }
-            #verticalTable td {
-                /* padding-top: 20px; */
-            }
+
             #verticalTable thead tr th {
                 width: 800px;
                 background-color: #92daec;
@@ -375,33 +354,33 @@
                 background-color: #0c1b23;
             }
 
-            #verticalTable td {
-                border: 0px;
-            }
-
-            #searchbtn,
-            #writebtn {
-                color: black;
-                height: 30px;
-                /* background-color: #1e3440; */
-            }
-
-            #pagination li > a {
-                color: white;
-                background-color: #1e3440;
-            }
-
+            /* 게시판 목록 형식 */
             #sortform a {
-                color: black;
+                color: #1e3440;
+                margin-bottom: 15px;
             }
 
             #pagination .nowPage {
                 background-color: #92daec;
             }
 
-            #centerbox4 select {
+            /* 페이지 버튼 */
+            #pagination li a {
                 color: white;
                 background-color: #1e3440;
+                height: 25px;
+                line-height: 0.8em;
+            }
+
+            /* input 태그들 */
+            #centerbox4 select,
+            #selectrow,
+            #searchbtn,
+            #writebtn {
+                height: 25px;
+                color: white;
+                background-color: #1e3440;
+                line-height: 0.8em;
             }
         </style>
 
@@ -412,25 +391,41 @@
                 $(this).addClass("nowPage");
             });
 
-            // $("#searchbtn").mouseover(function () {
-            //     // alert($(this).text());
-            //     $(this).css("background-color", "#92DAEC").css("color", "black");
-            // });
+            $("#searchbtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
 
-            // $("#searchbtn").mouseout(function () {
-            //     // alert($(this).text());
-            //     $(this).css("background-color", "").css("color", "");
-            // });
+            $("#searchbtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
 
-            // $("#writebtn").mouseover(function () {
-            //     // alert($(this).text());
-            //     $(this).css("background-color", "#92DAEC").css("color", "black");
-            // });
+            $("#writebtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
 
-            // $("#writebtn").mouseout(function () {
-            //     // alert($(this).text());
-            //     $(this).css("background-color", "").css("color", "");
-            // });
+            $("#writebtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+
+            $("#verticalTable a").click(function () {
+                // alert($(this));
+
+                location.href = "BulletinBoardContent.html";
+            });
+
+            $("#centerbox2 td:last-child").append("<span class='glyphicon glyphicon-map-marker'></span>");
+            $("#centerbox2 td:last-child")
+                .children()
+                .mouseover(function () {
+                    $(this).css({ cursor: "pointer" });
+                })
+                .click(function () {
+                    console.log($(this).parent().text());
+                });
         </script>
 
         <!-- 하단부  -->
@@ -463,16 +458,16 @@
                 <li><a href="#">시뮬레이션</a></li>
             </ul>
             <ul class="siteList">
-                <h2 class="listName"><a href="#">게시판</a></h2>
-                <li><a href="#">질문게시판</a></li>
-                <li><a href="#">갤러리</a></li>
-                <li><a href="#">자유게시판</a></li>
-                <li><a href="#">강의게시판</a></li>
+                <h2 class="listName"><a href="community.html">게시판</a></h2>
+                <li><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
+                <li><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
+                <li><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
+                <li><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
                 <li><a href="#">친선경기모집</a></li>
                 <li><a href="#">용병모집</a></li>
             </ul>
             <ul class="siteList">
-                <h2 class="listName"><a href="#">공지사항</a></h2>
+                <h2 class="listName"><a href="NoticeBoard.html">공지사항</a></h2>
             </ul>
             <ul class="siteList">
                 <h2 class="listName"><a href="#">문자중계</a></h2>
@@ -554,26 +549,8 @@
                     }
                 }
             });
-
-            // 메뉴 클릭시 발생하는 이벤트
-            $(".menu").click(function () {
-                // 어떤 메뉴를 눌렀는지 알려준다.
-
-                var menu = $(this).children().text();
-                console.log(menu);
-            });
-
-            $("#centerbox2 td:last-child").append("<span class='glyphicon glyphicon-map-marker'></span>");
-            $("#centerbox2 td:last-child")
-                .children()
-                .mouseover(function () {
-                    $(this).css({ cursor: "pointer" });
-                })
-                .click(function () {
-                    console.log($(this).parent().text());
-                });
         </script>
-        <script src="../webproject/js/submain.js"></script>
-        <script src="../webproject/js/event.js"></script>
+        <script src="js/event.js"></script>
+        <script src="js/submain.js"></script>
     </body>
 </html>
