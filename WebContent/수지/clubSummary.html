@@ -12,39 +12,36 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
-        .center {
-            padding-top: 50px;
-            background-color: #eee;
-        }
-
         #contentsBox {
             width: 1300px;
-            min-height: 700px;
+            height: 900px;
         }
 
         #matchScore {
+            margin-top: 50px;
             width: 500px;
-            height: 800px;
+            height: 700px;
             float: left;
             margin-left: 60px;
+
         }
 
         #contentsBox2 {
+            margin-top: 50px;
             width: 650px;
-            height: 800px;
+            height: 700px;
             float: left;
             margin-left: 50px;
         }
 
         #transfer {
-            width: 550px;
+            width: 600px;
             height: 250px;
             margin-left: 50px;
-
         }
 
         #rank {
-            width: 550px;
+            width: 600px;
             height: 350px;
             margin-left: 50px;
         }
@@ -52,16 +49,16 @@
         #matchScore>table {
             max-width: 500px;
             font-size: 0.9em;
-            color: white;
+            /* color: white; */
         }
 
         #matchScore>table>tbody>tr:nth-child(odd) {
-            background-color: #0C1B23;
+            /* background-color: #0C1B23; */
 
         }
 
         #matchScore>table>tbody>tr:nth-child(even) {
-            background-color: #254150;
+            /* background-color: #254150; */
         }
 
 
@@ -71,35 +68,37 @@
         }
 
         #matchScore>table>tbody>tr>td {
-            border: 0px;
+            /* border: 0px; */
         }
 
         #matchScore>div:first-child {
             height: 40px;
-            background-color: #92DAEC;
+            background-color: #25282a;
             font-size: 1.5em;
             font-weight: bold;
             text-align: center;
             padding-top: 5px;
+            border-bottom: 3px solid #92DAEC;
+            font-size: 1.1em;
+            color: #92DAEC;
         }
-
 
 
 
         #transfer>table {
-            max-width: 550px;
+            max-width: 600px;
             font-size: 0.9em;
-            color: white;
+            /* color: white; */
 
         }
 
         #transfer>table>tbody>tr:nth-child(odd) {
-            background-color: #0C1B23;
+            /* background-color: #0C1B23; */
 
         }
 
         #transfer>table>tbody>tr:nth-child(even) {
-            background-color: #254150;
+            /* background-color: #254150; */
         }
 
 
@@ -108,21 +107,28 @@
         }
 
         #transfer>table>tbody>tr>td {
-            border: 0px;
+            /* border: 0px; */
         }
 
         #transfer>div:first-child,
         #rank>div:first-child {
             height: 40px;
-            background-color: #92DAEC;
+            background-color: #25282a;
             font-size: 1.5em;
             font-weight: bold;
             text-align: center;
             padding-top: 5px;
+            border-bottom: 3px solid #92DAEC;
+            font-size: 1.1em;
+            color: #92DAEC;
+            padding-top: 5px;
+            width: 600px;
         }
 
         #container {
-            height: 285px;
+            height: 289px;
+            width: 600px;
+            border: 1px solid rgb(239, 239, 239);
         }
 
         i {
@@ -145,7 +151,7 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="/images/rogo.png" alt="" id="mainrogo"></td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="images/rogo.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
@@ -175,15 +181,16 @@
                     <span>></span>
                     <span>마이페이지</span>
                     <span>></span>
-                    <span>회원정보조회</span>
+                    <span>구단정보관리</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="../webproject/mypage.html">회원정보조회</a></li>
-                            <li><a href="../webproject/clubSummary.html">구단정보관리</a></li>
-                            <li><a href="../webproject/friends.html">친구관리</a></li>
-                            <li><a href="../webproject/dm3.html">DM</a></li>
+                            <li class="subMenuItem"><a href="mypage.html">마이페이지</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a
+                                    href="clubSummary.html">구단정보관리</a></li>
+                            <li class="subMenuItem"><a href="friends.html">친구관리</a></li>
+                            <li class="subMenuItem"><a href="dm.html">DM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -201,7 +208,7 @@
         <div id="contentsBox">
             <div id="matchScore">
                 <div><i class="glyphicon glyphicon-object-align-bottom"></i>경기전적</div>
-                <table class="table">
+                <table class="table table-bordered table-striped">
                     <tr>
                         <th>경기</th>
                         <th>일시</th>
@@ -292,7 +299,7 @@
             <div id="contentsBox2">
                 <div id="transfer">
                     <div><i class="glyphicon glyphicon-refresh"></i>이적내역</div>
-                    <table class="table">
+                    <table class="table table-bordered table-striped"">
                         <tr>
                             <th>前 구단</th>
                             <th>이적구단</th>
@@ -320,15 +327,12 @@
                         </tr>
                     </table>
                 </div>
-                <div id="rank">
-                    <div><i class="glyphicon glyphicon-stats"></i>구단 내 순위</div>
-
-
-                    <figure class="highcharts-figure">
-                        <div id="container"></div>
-                        <p class="highcharts-description">
-                        </p>
-                    </figure>
+                <div class=" rankingchart" id="rank">
+                        <div><i class="glyphicon glyphicon-stats"></i>구단 내 순위</div>
+                        <figure class="highcharts-figure">
+                            <div id="container"></div>
+                            <p class="highcharts-description"></p>
+                        </figure>
                 </div>
             </div>
         </div>
@@ -459,14 +463,13 @@
 
         });
 
-
     </script>
     <!-- 구단 내 순위 차트  -->
     <script>
         Highcharts.chart('container', {
             chart: {
 
-                backgroundColor: "#254150"
+                // backgroundColor: "#254150"
             },
             title: {
                 text: '구단 내 순위',
@@ -531,7 +534,10 @@
             }
 
         });
-        $("text").css("fill", "white");
+        $("text").css("fill", "black");
+
+        //하이차트 로고 없애기
+        $(".highcharts-credits").remove();
 
     </script>
 

@@ -12,23 +12,25 @@
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
 
+
+
     <style>
         /* -----------------------------마이페이지------------------------------------- */
         .center {
-            padding-top: 50px;
-            background-color: #eee;
+            height: 1100px;
         }
 
         .myPageInfoBox {
-            border: 3px solid #25282A;
+            border: 1px solid rgb(239, 239, 239);
             width: 505px;
             height: 350px;
             position: relative;
             float: left;
             margin-left: 110px;
-            background-color: #254150;
-            color: whiste;
+            /* background-color: #254150; */
             margin-bottom: 60px;
+            margin-top: 50px;
+
         }
 
         #memberpic {
@@ -53,14 +55,12 @@
             font-weight: 600;
             line-height: 30px;
             font-size: 16px;
-            color: white;
         }
 
         #infoUpdate {
             width: 435px;
             height: 30px;
             float: left;
-            color: #25282A;
             position: relative;
             left: 80px;
         }
@@ -75,15 +75,13 @@
             width: 120px;
             font-weight: bold;
             margin-left: 200px;
-            color: #25282A;
         }
 
         #moreBtn2 {
             width: 120px;
             font-weight: bold;
             margin-left: 200px;
-            margin-top: -30px;
-            color: #25282A;
+            margin-top: -5px;
         }
 
 
@@ -113,72 +111,85 @@
             left: 320px;
         }
 
-
         .DM>tbody>tr>td {
-            border: 0px;
-            color: white;
-        }
-
-        .DM>tbody>tr>th {
-            text-align: center;
-            font-size: 10px;
-            background-color: #92DAEC;
-            color: #0C1B23;
-            border: 0px;
-        }
-
-        .DM>tbody>tr>th:first-child {
-            height: 30px;
-            font-size: 14px;
+            /* border: 1px; */
         }
 
         .DM>tbody>tr:nth-child(odd) {
             font-size: 10px;
-            background-color: #254150;
+            /* background-color: #254150; */
         }
 
         .DM>tbody>tr:nth-child(even) {
             font-size: 10px;
-            background-color: #0C1B23;
+            /* background-color: #0C1B23; */
         }
 
         #container {
             width: 400px;
-            height: 300px;
+            height: 290px;
             margin: 10px;
-            padding-left: 30px;
+            padding-left: 45px;
         }
 
         .topTitle {
-            width: 499px;
-            height: 30px;
-            background-color: #92DAEC;
+            border-bottom: 3px solid;
+            width: 502px;
+            height: 40px;
+            background-color: #25282a;
             text-align: center;
-            line-height: 30px;
-            color: #0C1B23;
+            line-height: 40px;
+            color: #92daec;
             font-weight: bold;
+            font-size: 1.1em;
+        }
 
+        .topTitle i {
+            margin-right: 10px;
         }
 
         .matchTable {
-            max-width: 500px;
+            max-width: 502px;
             font-size: 0.9em;
-            color: white;
         }
 
-        .matchTable>tbody>tr:nth-child(odd) {
-            background-color: #0C1B23;
+        .DM {
+            max-width: 502px;
         }
 
         .matchTable>tbody>tr {
             height: 30px;
 
         }
+    </style>
+    <!-- 모달  -->
+    <style>
+        .modal-body {
+            text-align: center;
+            font-size: 1.2em;
 
-        .matchTable>tbody>tr>td {
-            border: 0px;
+        }
+
+        .modal {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 768px) {
+            .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+            }
+        }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
         }
     </style>
+
 </head>
 
 <body>
@@ -221,16 +232,16 @@
                     <span>HOME</span>
                     <span>></span>
                     <span>마이페이지</span>
-                    <span>></span>
-                    <span>회원정보조회</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="../webproject/mypage.html">회원정보조회</a></li>
-                            <li><a href="../webproject/clubSummary.html">구단정보관리</a></li>
-                            <li><a href="../webproject/friends.html">친구관리</a></li>
-                            <li><a href="../webproject/dm3.html">DM</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a href=" mypage.html">
+                                    마이페이지</a></li>
+                            <li class="subMenuItem"><a href="clubSummary.html">구단정보관리</a>
+                            </li>
+                            <li class="subMenuItem"><a href="friends.html">친구관리</a></li>
+                            <li class="subMenuItem"><a href="dm.html">DM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -261,13 +272,8 @@
 
             </div>
             <div class="myPageInfoBox">
-                <table class="DM table " style="border:0px;">
-                    <tr>
-                        <th colspan="2">
-                            <div class="glyphicon glyphicon-send"></div>
-                            DM
-                        </th>
-                    </tr>
+                <div class="topTitle"><i class="glyphicon glyphicon-send"></i>DM</div>
+                <table class="DM table table-bordered table-striped " style="border:0px;">
                     <tr>
                         <td>
                             <div id="dmImgBox"><img src="images/movie_image6.jpg"></div>
@@ -319,7 +325,7 @@
             </div>
             <div class="myPageInfoBox">
                 <div class="topTitle"><i class="glyphicon glyphicon-calendar"></i>경기일정</div>
-                <table class="matchTable table table-borderd">
+                <table class="matchTable table table-bordered table-striped">
                     <tr>
                         <th>경기</th>
                         <th>일시</th>
@@ -382,7 +388,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #25282A;">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC;">탈퇴신청</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">탈퇴신청</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">X</span>
                     </button>
@@ -393,65 +399,19 @@
                 </div>
                 <div class="modal-footer">
                     <!-- 비밀번호를 입력하고 ok버튼 누르면 회원 비밀번호와 비교하여 일치했을시 다시 물어보기  -->
-                    <a class="btn" id="modalY" href="#">ok</a>
+                    <a class="btn" id="modalY" href="mypage.html">ok</a>
                     <button class="btn" type="button" data-dismiss="modal">cancle</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- 탈퇴하기 Modal-->
-    <div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #25282A;">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC;">탈퇴하시겠습니까?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="modal-body">수정이 완료되었습니다.</div>
-                <div class="modal-footer">
-                    <!-- ok버튼 누르면 마이페이지 처음 메뉴로 되돌아가기 -->
-                    <a class="btn" id="modalY" href="#">ok</a>
-                    <button class="btn" type="button" data-dismiss="modal">아니요</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <style>
-        .modal-body {
-            text-align: center;
-            font-size: 1.2em;
-
-        }
-
-        .modal {
-            text-align: center;
-        }
-
-        @media screen and (min-width: 768px) {
-            .modal:before {
-                display: inline-block;
-                vertical-align: middle;
-                content: " ";
-                height: 100%;
-            }
-        }
-
-        .modal-dialog {
-            display: inline-block;
-            text-align: left;
-            vertical-align: middle;
-        }
-    </style>
 
     <!-- 차트 -->
     <script>
         Highcharts.chart('container', {
             chart: {
-                backgroundColor: "#254150"
+                // backgroundColor: "#254150"
             },
             title: {
                 text: '리그 및 구단 개인 순위',
@@ -524,7 +484,7 @@
             }
 
         });
-        $("text").css("fill", "white");
+        $("text").css("fill", "black");
 
     </script>
 
@@ -659,6 +619,8 @@
 
         });
 
+        //하이차트 로고 없애기
+        $(".highcharts-credits").remove();
     </script>
 
 
@@ -688,7 +650,7 @@
     <!-- dm페이지로 이동 -->
     <script>
         $("#moreBtn").click(function () {
-            location.href = "../webproject/dm3.html";
+            location.href = "../webproject/dm.html";
         });
     </script>
     <!-- 경기 일정 페이지로 이동 -->

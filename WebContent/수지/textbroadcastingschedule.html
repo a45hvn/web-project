@@ -2,21 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../jquery/css/jquery-ui.css" />
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../jquery/css/jquery-ui.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/submain_1.css">
     <link rel="stylesheet" href="css/submain_2.css">
-    <link rel="stylesheet" href="../webproject/leagueschedule.css" />
     <script src="../bootstrap/js/jquery-1.12.4.js"></script>
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
         .center {
-            padding-top: 50px;
-            background-color: #eee;
-            height: auto;
+            /* background-color: #eee; */
+            /* height: auto; */
         }
 
         #centerbox2 {
@@ -24,7 +22,9 @@
         }
 
         #centerbox1 {
-            height: 70px;
+            /* border: 1px solid red; */
+            display: inline-block;
+            margin-bottom: 5px;
         }
 
         #outerBox::after {
@@ -42,7 +42,7 @@
         #outerBox {
             position: relative;
             left: 50px;
-            border-bottom: 2px solid black;
+            border-bottom: 1px solid black;
             height: 50px;
             width: 1200px;
             padding-top: 20px;
@@ -68,25 +68,25 @@
         }
 
         #verticalTable {
-            color: white;
+            /* color: white; */
             /* width: 1200px; */
             font-size: 1.1em;
         }
 
         #verticalTable thead tr:first-child {
-            background-color: #92daec;
+            /* background-color: #92daec; */
         }
 
         #verticalTable tbody tr:nth-child(odd) {
-            background-color: #0c1a22;
+            /* background-color: #0c1a22; */
         }
 
         #verticalTable tbody tr:nth-child(even) {
-            background-color: #254150;
+            /* background-color: #254150; */
         }
 
         #verticalTable tbody tr td {
-            border: 0px;
+            /* border: 1px solid black; */
         }
 
         #centerbox3 {
@@ -107,14 +107,7 @@
             line-height: 10px;
         }
 
-        input,
-        select {
-            height: 25px;
-        }
-
         #pagination li a {
-            background-color: #1E3440;
-            color: white;
             height: 25px;
             line-height: 0.8em;
         }
@@ -123,10 +116,27 @@
             border-bottom: 0px;
             color: black;
         }
+
+        #selectgametype,
+        #endDate,
+        #startDate,
+        #selectrow,
+        #searchbtn,
+        #writebtn {
+            height: 25px;
+            /* color: white;                */
+            /* background-color: #1E3440 ;                   */
+            line-height: 1em;
+        }
+
+        #pagination .nowPage {
+            background-color: #92DAEC;
+        }
     </style>
 </head>
 
 <body>
+
     <script src="../jquery/js/jquery-1.12.4.js"></script>
     <script src="../jquery/js/jquery-ui.js"></script>
     <!-- 상단부 -->
@@ -134,9 +144,7 @@
         <table class="table table-default" id="mainMenu">
             <tr id="menuTop">
                 <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;">
-                    <img src="images/rogo.png" alt="" id="mainrogo" />
-                </td>
+                <td rowspan="2" id="rogo" style="width: 1px;"><img src="images/rogo.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
                     <button type="button" class="btn btn-default">로그인</button>
                     <button type="button" class="btn btn-default">마이페이지</button>
@@ -154,7 +162,8 @@
         </table>
     </nav>
 
-    <div id="topBoard"></div>
+    <div id="topBoard">
+    </div>
 
     <div id="scoreBoard">
         <div id="subOuter">
@@ -168,16 +177,20 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="textbroadcastingschedule.html">문자중계</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a
+                                    href="textbroadcastingschedule.html">문자중계</a></li>
                         </ul>
                     </nav>
                 </div>
+
             </div>
         </div>
+
     </div>
     <!-- 상단부 끝 -->
 
     <div class="center">
+
         <div class="pageContentTitle">
             <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle">문자중계일정</span>
         </div>
@@ -198,8 +211,8 @@
                     <div class="searchBox">
                         <span id="searchcontent">팀이름 검색</span>
                         <input id="searchkeyword" type="text" />
-                        <a href=""><input id="searchbtn" type="button" value="검색" /></a>
-                        <input id="writebtn" type="button" value="글쓰기" />
+                        <a href=""><input id="searchbtn" type="button" value="검색" class="btn btn-primary" /></a>
+                        <input id="writebtn" type="button" value="글쓰기" class="btn btn-primary" />
                     </div>
                     <select name="" id="selectrow">
                         <option value="10">10개씩 보기</option>
@@ -209,7 +222,7 @@
                 </div>
             </div>
             <div id="centerbox2">
-                <table class="table table-hover" id="verticalTable" style="margin-top: 0px;">
+                <table class="table table-bordered table-striped" id="verticalTable" style="margin-top: 0px;">
                     <thead>
                         <tr>
                             <th>번호</th>
@@ -232,7 +245,7 @@
                                 <span>vs</span>
                                 <span class="team" id="teamB">쌍용FC</span>
                             </td>
-                            <td><span class="team">하하하FC</span></td>
+                            <td><span class="team"></span></td>
                             <td><input type="button" value="문자중계" class="textBtn btn btn-default"></td>
                         </tr>
                         <tr>
@@ -241,11 +254,11 @@
                             <td></td>
                             <td>강남축구장</td>
                             <td>
-                                <span class="team" id="teamA"></span>
+                                <span class="team" id="teamA">안녕FC</span>
                                 <span>vs</span>
-                                <span class="team" id="teamB"></span>
+                                <span class="team" id="teamB">애플FC</span>
                             </td>
-                            <td><span class="team">하하하FC</span></td>
+                            <td><span class="team">애플FC</span></td>
                             <td><input type="button" value="문자중계" class="textBtn btn btn-default"></td>
                         </tr>
                         <tr>
@@ -382,7 +395,22 @@
             </div>
             <!-- <div style="clear: both;"></div> -->
         </div>
+
     </div>
+
+    <style>
+
+
+
+    </style>
+
+    <script>
+
+
+
+
+
+    </script>
 
     <!-- 하단부  -->
 
@@ -414,21 +442,23 @@
             <li><a href="#">시뮬레이션</a></li>
         </ul>
         <ul class="siteList">
-            <h2 class="listName"><a href="#">게시판</a></h2>
-            <li><a href="#">질문게시판</a></li>
-            <li><a href="#">갤러리</a></li>
-            <li><a href="#">자유게시판</a></li>
-            <li><a href="#">강의게시판</a></li>
+            <h2 class="listName"><a href="community.html">게시판</a></h2>
+            <li><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
+            <li><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
+            <li><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
+            <li><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
             <li><a href="#">친선경기모집</a></li>
             <li><a href="#">용병모집</a></li>
         </ul>
         <ul class="siteList">
-            <h2 class="listName"><a href="#">공지사항</a></h2>
+            <h2 class="listName"><a href="NoticeBoard.html">공지사항</a></h2>
         </ul>
         <ul class="siteList">
             <h2 class="listName"><a href="#">문자중계</a></h2>
         </ul>
+
     </nav>
+
 
     <div class="footer">
         <div class="footerBox">
@@ -478,33 +508,38 @@
         <div>Copyrightⓒ ssangyongsoft All Rights reserved.</div>
     </div>
 
+
     <!-- 하단부  끝 -->
+
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
+
         var flag = false;
         $(document).scroll(function () {
-            if ($(document).scrollTop() > $("#main").position().top) {
+
+            if ($(document).scrollTop() > $
+                ("#main").position().top) {
+
                 if (!flag) {
                     $("#main").css({
                         position: "fixed",
                         top: -$("#main").outerHeight(),
-                        bottom: "",
+                        bottom: ""
                     });
 
-                    $("#main").animate(
-                        {
-                            top: "0px",
-                        },
-                        1000,
-                        function () {
-                            //alert();
-                            flag = true;
-                        }
-                    );
+                    $("#main").animate({
+                        top: "0px"
+                    }, 1000, function () {
+                        //alert();
+                        flag = true;
+                    });
                 }
+
             }
+
         });
+
         // main page
 
         $("#pagination > li >a").click(function () {
@@ -552,9 +587,8 @@
         })
 
     </script>
-    <script src="../webproject/js/submain.js"></script>
-    <script src="../webproject/js/event.js"></script>
-
+    <script src="js/event.js"></script>
+    <script src="js/submain.js"></script>
 </body>
 
 </html>

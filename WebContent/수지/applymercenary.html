@@ -13,57 +13,63 @@
     <script src="../bootstrap/js/bootstrap.js"></script>
     <style>
         .center {
-            padding-top: 50px;
-            background-color: #eee;
+            height: 800px;
+
         }
 
         .applyOutBox {
-            float: left;
-            width: 1200px;
+            position: relative;
+            top: 40px;
+            width: 700px;
             height: 500px;
             border: 1px solid #E1E1E1;
             border-top: 3px solid #0C1B23;
-            margin-left: 60px;
             background-color: white;
+            margin: 30px auto;
+            overflow: auto;
 
         }
 
         .applyTitle {
-            width: 1200px;
+            width: 698px;
             height: 50px;
             float: left;
             background-color: #e1e1e1;
-            font-size: 2em;
+            font-size: 1.5em;
             text-align: center;
             line-height: 50px;
 
         }
 
-        .applyBtn {
-            margin: 20px 0 0 600px;
-            width: 160px;
-            height: 40px;
+        #applyBtn {
+            position: relative;
+            left: 620px;
+            top: 30px;
             font-size: 16px;
         }
 
         .applyTableBox {
             width: 500px;
-            margin: 150px 0 0 350px;
+            margin: 40px 0 0 95px;
             text-align: center;
             font-size: 1.4em;
         }
 
         .applyTable>tbody>tr>td {
-            width: 300px;
+            width: 100px;
         }
 
-        .applyTable>tbody>tr>td>input {
-            width: 260px;
+        .applyTable th {
+            text-align: center;
+        }
+
+        .applyTable input {
+            width: 120px;
         }
 
         .applyCount {
             height: 100px;
-            font-size: 1.5em;
+            font-size: 1.2em;
         }
 
         .applyCount>div {
@@ -130,8 +136,9 @@
                             <li class="subMenuItem"><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
                             <li class="subMenuItem"><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
                             <li class="subMenuItem"><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="friendlymatchrecruit.html">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="mercenaryrecruit.html">용병모집</a></li>
+                            <li class="subMenuItem;"><a href="friendlymatchrecruit.html">친선경기모집</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a href="
+                                mercenaryrecruit.html">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -140,7 +147,7 @@
         </div>
     </div>
 
-    <div class="center">
+    <div class=" center">
 
         <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">용병모집 신청</span></div>
@@ -166,21 +173,20 @@
                 <div class="applyTableBox">
                     <table class="applyTable table table-bordered">
                         <tr>
-                            <th>이름: </th>
-                            <td><input type="text"></td>
+                            <th>이름</th>
+                            <th>전화번호</th>
+                            <th>포지션</th>
                         </tr>
                         <tr>
-                            <th>전화번호: </th>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
                             <td><input type="text"></td>
                         </tr>
-                        <tr>
-                            <th>포지션: </th>
-                            <td><input type="text"></td>
-                        </tr>
+
                     </table>
                 </div>
             </div>
-            <div><input type="button" value="신청하기" class="applyBtn btn btn-default"></div>
+            <div><input type="button" value="신청하기" class="btn btn-info" id="applyBtn"></div>
         </div>
     </div>
 
@@ -283,21 +289,20 @@
     </div>
 
     <!-- 용병신청하기 Modal-->
-    <div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #25282A;">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC;">탈퇴하시겠습니까?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">용병신청</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">X</span>
                     </button>
                 </div>
-                <div class="modal-body">수정이 완료되었습니다.</div>
+                <div class="modal-body">용병신청이 완료되었습니다.</div>
                 <div class="modal-footer">
-                    <!-- ok버튼 누르면 마이페이지 처음 메뉴로 되돌아가기 -->
-                    <a class="btn" id="modalY" href="#">ok</a>
-                    <button class="btn" type="button" data-dismiss="modal">아니요</button>
+                    <a class="btn" id="modalY" href="mercenarycontents.html">확인</a>
+                    <button class="btn" type="button" data-dismiss="modal">cancle</button>
                 </div>
             </div>
         </div>
@@ -330,7 +335,8 @@
         }
     </style>
 
-
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
@@ -362,6 +368,10 @@
 
 
         // ----------------------------------------------------------
+        $("#applyBtn").click(function (e) {
+            e.preventDefault();
+            $("#applyModal").modal("show");
+        });
 
 
 

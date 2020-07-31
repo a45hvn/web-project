@@ -14,7 +14,8 @@
     <style>
         /* -----------------------------마이페이지------------------------------------- */
         .center {
-            height: auto;
+            /* height: auto; */
+            height: 550px;
         }
 
         #infoUpdate {
@@ -40,7 +41,9 @@
         #infoUpdateBtn {
             position: relative;
             left: 350px;
-            top: 10px
+            top: 10px;
+            margin-bottom: 70px;
+
         }
 
         #infoUpateTable {
@@ -89,16 +92,15 @@
                     <span>HOME</span>
                     <span>></span>
                     <span>마이페이지</span>
-                    <span>></span>
-                    <span>회원정보조회</span>
                 </div>
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li><a href="../webproject/mypage.html">회원정보조회</a></li>
-                            <li><a href="../webproject/clubSummary.html">구단정보관리</a></li>
-                            <li><a href="../webproject/friends.html">친구관리</a></li>
-                            <li><a href="../webproject/dm3.html">DM</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a
+                                    href="mypage.html">마이페이지</a></li>
+                            <li class="subMenuItem"><a href="clubSummary.html">구단정보관리</a></li>
+                            <li class="subMenuItem"><a href="friends.html">친구관리</a></li>
+                            <li class="subMenuItem"><a href="dm.html">DM</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -254,7 +256,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #25282A;">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC;">수정 완료</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">수정 완료</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white; font-size: 0.9em;">X</span>
                     </button>
@@ -262,7 +264,7 @@
                 <div class="modal-body">수정이 완료되었습니다.</div>
                 <div class="modal-footer">
                     <!-- ok버튼 누르면 마이페이지 처음 메뉴로 되돌아가기 -->
-                    <a class="btn" id="modalY" href="#">ok</a>
+                    <a class="btn" id="modalY" href="mypage.html">확인</a>
                     <!-- <button class="btn" type="button" data-dismiss="modal">아니요</button> -->
                 </div>
             </div>
@@ -358,10 +360,6 @@
             $("#updateModal").clientX = ("100px");
             // clientY: 100px;
         });
-
-        $("#modalY").click(function () {
-            location.href = "../webproject/mypage.html"
-        })
 
     </script>
     <script src="../webproject/js/submain.js"></script>
