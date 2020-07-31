@@ -58,9 +58,9 @@
                     <div class="subMenuBox">
                         <nav class="subMenu">
                             <ul>
-                                <li class="subMenuItem"><a href="../webproject/teaminformation.html">구단 정보</a></li>
-                                <li class="subMenuItem"><a href="#">구단 선수 정보</a></li>
-                                <li class="subMenuItem"><a href="#">구단 경기 정보</a></li>
+                                <li class="subMenuItem">구단정보</a></li>
+                                <li class="subMenuItem">구단선수정보</a></li>
+                                <li class="subMenuItem">구단경기정보</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -72,13 +72,18 @@
         <div class="center" style="overflow: hidden;">
             <div class="pageContentTitle">
                 <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
-                    >커뮤니티</span
+                    >구단선수정보</span
                 >
             </div>
             <div class="leftSideBox">
                 <div class="entryOuter">
                     <div class="teamName"><span>홍길동FC</span></div>
                     <div class="entry" id="teamAEntry">
+                         <div class="player" id="playerHeader">
+                            <span class="backNum">등번호</span>
+                            <span class="playerName">이름</span>
+                            <span class="position">포지션</span>
+                        </div>
                         <div class="player" id="">
                             <span class="backNum">7</span>
                             <span class="playerName">이찬찬</span>
@@ -162,20 +167,15 @@
                     </div>
                 </div>
             </div>
-            <div class="rightSideBox">
-                <div class="pageContentTitle">
-                    <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
-                        >선수정보 상세보기</span
-                    >
-                </div>
+            <div class="rightSideBox" style="position: relative;">
                 <div style="position: relative; width: 100%; margin-top: 0px;">
                     <img
-                        src="/재성/man_03.png"
+                        src="images/man_03.png"
                         alt=""
                         width="25%"
                         style="
                             position: relative;
-                            top: -252px;
+                            top: -150px;
                             display: inline-block;
                             margin-right: 50px;
                             border: 3px solid black;
@@ -417,6 +417,8 @@
                 }
             });
         </script>
-        <script src="../webproject/js/submain.js"></script>
+        <script src="js/event.js"></script>
+        <script src="js/submain.js"></script>
+        <!-- <script src="js/구단현황.js"></script> -->
     </body>
 </html>

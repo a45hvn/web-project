@@ -6,6 +6,14 @@ for (var i = 0; i < menus.length; i++) {
     menus[i].className += " menu" + (i + 1);
 }
 
+// 메뉴에 숫자 넣기
+// var btns = document.getElementsByClassName("btn-default");
+// for (var i = 0; i < btns.length; i++) {
+//     // console.log(menus[i]);
+//     btns[i].id += " btn" + (i + 1);
+//     console.log(btns[i]);
+// }
+
 // 메뉴 호버
 $("#menuTr")
     .children()
@@ -68,3 +76,52 @@ $("#mainrogo")
     .click(function () {
         location.href = "main.html";
     });
+
+// 서브메뉴 이벤트
+// $("li").mouseover(function (params) {
+
+//     $(this).css("background-color", "rgb(15, 13, 13);");
+
+// }).mouseout(function (params) {
+
+//     $(this).css("background-color", "#25282a");
+
+// });
+
+// 상단 로그인 이벤트
+// $("#btn1").click(function () {
+//     location.href="login.html"
+//     console.log(1)
+// })
+// $("#btn3").click(function () {
+//     alert();
+//     location.href="mypage.html"
+// })
+
+$(".btn").click(function () {
+    if ($(this).text() == "로그인") {
+        location.href = "login.html";
+    } else if ($(this).text() == "마이페이지") {
+        location.href = "mypage.html";
+    }
+});
+
+// 서브 메뉴 클릭이벤트
+$(".subMenuItem").click(function () {
+    var menu = $(this).text();
+    console.log(menu);
+    // 구단현황
+    if (menu == "구단정보") {
+        location.href = "teamlist.html";
+    } else if (menu == "구단선수정보") {
+        location.href = "teamplayerinfomation.html";
+    } else if (menu == "구단경기정보") {
+        location.href = "teamrecord.html";
+    }
+    // 정규리그일정
+    else if (menu == "정규리그일정") {
+        location.href = "leagueschedule.html";
+    } else if (menu == "경기결과조회") {
+        location.href = "leagueresult.html";
+    }
+});
