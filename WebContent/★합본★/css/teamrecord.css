@@ -4,6 +4,7 @@
 #centerbox1 {
     /* outline: 10px solid red; */
     height: 70px;
+    /* position: relative; */
 }
 #outerBox::after {
     content: "";
@@ -20,7 +21,7 @@
     border-bottom: 2px solid black;
     width: 1200px;
     height: 50px;
-    top: 15px;
+    top: 100px;
 }
 
 #selectgametype {
@@ -28,13 +29,14 @@
 }
 .dateBox {
     position: absolute;
-    left: 10%;
+    left: 0%;
+    top: 10px;
 }
 
 .searchBox {
     position: absolute;
-    right: 12%;
-    top: 0px;
+    left: 40%;
+    top: 10px;
     height: 25px;
 }
 #searchkeyword {
@@ -42,12 +44,13 @@
 }
 #selectrow {
     position: absolute;
-    right: 0;
-
+    left: 78%;
+    top: 10px;
     height: 25px;
 }
 #verticalTable {
     color: black;
+    width: 1200px;
 }
 #verticalTable td {
     border: 0px;
@@ -65,6 +68,10 @@
 #centerbox3 {
     /* border: 1px solid red; */
     float: right;
+}
+#centerbox2 {
+    position: relative;
+    top: 50px;
 }
 #centerMainBox::after {
     content: "";
@@ -84,4 +91,10 @@
 }
 #selectgametype {
     height: 25px;
+    top: 10px;
+    left: 90%;
+}
+
+.subMenuItem:nth-child(3) {
+    background-color: #0f0d0d;
 }

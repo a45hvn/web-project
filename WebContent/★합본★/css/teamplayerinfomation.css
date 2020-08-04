@@ -151,3 +151,7 @@ input {
     right: 6%;
     font-size: 1.2em;
 }
+
+.subMenuItem:nth-child(2) {
+    background-color: #0f0d0d;
+}

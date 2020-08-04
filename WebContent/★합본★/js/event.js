@@ -6,7 +6,6 @@ for (var i = 0; i < menus.length; i++) {
     menus[i].className += " menu" + (i + 1);
 }
 
-
 // 메뉴 호버
 $("#menuTr")
     .children()
@@ -70,40 +69,36 @@ $("#mainrogo")
         location.href = "main.html";
     });
 
-
-
-$(".btn").click(function(){
-    
-    if($(this).text()=="로그인"){
-        location.href="login.html"
-    } else if($(this).text()=="마이페이지"){
-        location.href="mypage.html"
-    }
-})
-
-// 서브 메뉴 클릭이벤트
-$(".subMenuItem")
-.css({cursor:"pointer"})
-.click(function () {
-    var menu = $(this).text();
-    console.log(menu);
-    // 구단현황
-    if (menu == "구단정보") {
-        location.href = "teamlist.html";
-    } else if (menu == "구단선수정보") {
-        location.href = "teamplayerinfomation.html";
-    } else if (menu == "구단경기정보") {
-        location.href = "teamrecord.html";
-    }
-    // 정규리그일정
-    else if (menu == "정규리그일정") {
-        location.href = "leagueschedule.html";
-    } else if (menu == "경기결과조회") {
-        location.href = "leagueresult.html";
+$(".btn").click(function () {
+    if ($(this).text() == "로그인") {
+        location.href = "login.html";
+    } else if ($(this).text() == "마이페이지") {
+        location.href = "mypage.html";
     }
 });
 
+// 서브 메뉴 클릭이벤트
+$(".subMenuItem")
+    .css({ cursor: "pointer" })
+    .click(function () {
+        var menu = $(this).text();
+        console.log(menu);
+        // 구단현황
+        if (menu == "구단목록") {
+            location.href = "teamlist.html";
+        } else if (menu == "구단선수정보") {
+            location.href = "teamplayerinfomation.html";
+        } else if (menu == "구단경기정보") {
+            location.href = "teamrecord.html";
+        }
+        // 정규리그일정
+        else if (menu == "정규리그일정") {
+            location.href = "leagueschedule.html";
+        } else if (menu == "경기결과조회") {
+            location.href = "leagueresult.html";
+        }
+    });
 
 // if (location.href.indexOf("communityFreeBulletinBoard") > -1) {
 //     $(".subMenuItem").eq(2).css("background-color", "yellow");
-// } 
+// }

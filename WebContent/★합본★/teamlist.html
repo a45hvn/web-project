@@ -58,7 +58,7 @@
                     <div class="subMenuBox">
                         <nav class="subMenu">
                             <ul>
-                                <li class="subMenuItem">구단정보</li>
+                                <li class="subMenuItem">구단목록</li>
                                 <li class="subMenuItem">구단선수정보</li>
                                 <li class="subMenuItem">구단경기정보</li>
                             </ul>
@@ -71,7 +71,7 @@
 
         <div class="center">
             <div class="pageContentTitle">
-                <img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
+                <img src="images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle"
                     >전체 팀 목록</span
                 >
             </div>
@@ -243,6 +243,7 @@
                 </div>
             </div>
         </div>
+
         <style>
             #centerMainBox {
                 /* border: 1px solid black; */
@@ -381,6 +382,50 @@
             }
         </style>
 
+        <script>
+            $("#pagination > li >a").click(function () {
+                // alert($(this).text());
+                $("#pagination > li>a").removeClass("nowPage");
+                $(this).addClass("nowPage");
+            });
+
+            $("#searchbtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
+
+            $("#searchbtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+
+            $("#writebtn").mouseover(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "#92DAEC").css("color", "black");
+            });
+
+            $("#writebtn").mouseout(function () {
+                // alert($(this).text());
+                $(this).css("background-color", "").css("color", "");
+            });
+
+            $("#verticalTable a").click(function () {
+                // alert($(this));
+
+                location.href = "BulletinBoardContent.html";
+            });
+
+            $("#centerbox2 td:last-child").append("<span class='glyphicon glyphicon-map-marker'></span>");
+            $("#centerbox2 td:last-child")
+                .children()
+                .mouseover(function () {
+                    $(this).css({ cursor: "pointer" });
+                })
+                .click(function () {
+                    console.log($(this).parent().text());
+                });
+        </script>
+
         <!-- 하단부  -->
 
         <nav class="sitemap">
@@ -489,7 +534,7 @@
                             bottom: "",
                         });
 
-                        $("#main").animate(
+                        $("a#main").animate(
                             {
                                 top: "0px",
                             },
@@ -502,49 +547,6 @@
                     }
                 }
             });
-            
-            $("#pagination > li >a").click(function () {
-                // alert($(this).text());
-                $("#pagination > li>a").removeClass("nowPage");
-                $(this).addClass("nowPage");
-            });
-
-            $("#searchbtn").mouseover(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "#92DAEC").css("color", "black");
-            });
-
-            $("#searchbtn").mouseout(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "").css("color", "");
-            });
-
-            $("#writebtn").mouseover(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "#92DAEC").css("color", "black");
-            });
-
-            $("#writebtn").mouseout(function () {
-                // alert($(this).text());
-                $(this).css("background-color", "").css("color", "");
-            });
-
-            $("#verticalTable a").click(function () {
-                // alert($(this));
-
-                location.href = "BulletinBoardContent.html";
-            });
-
-            $("#centerbox2 td:last-child").append("<span class='glyphicon glyphicon-map-marker'></span>");
-            $("#centerbox2 td:last-child")
-                .children()
-                .mouseover(function () {
-                    $(this).css({ cursor: "pointer" });
-                })
-                .click(function () {
-                    console.log($(this).parent().text());
-                });
-        
         </script>
         <script src="js/event.js"></script>
         <script src="js/submain.js"></script>

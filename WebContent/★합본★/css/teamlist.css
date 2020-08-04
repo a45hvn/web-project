@@ -25,3 +25,7 @@
 #centerbox2 td:nth-child(7) {
     width: 30%;
 }
+
+.subMenuItem:nth-child(1) {
+    background-color: #0f0d0d;
+}
