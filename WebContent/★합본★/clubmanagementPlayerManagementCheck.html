@@ -119,42 +119,95 @@
         </div>
         <div id="box3">
             <span>
-                <input type="button" value="삭제" class="btn">
+                <input type="button" value="삭제" class="btn btn-primary" id="del">
             </span>
             <span>
-                <input type="button" value="수정" class="btn">
+                <input type="button" value="수정" class="btn btn-primary" id="update">
             </span>
             <span>
-                <input type="button" value="추가" class="btn">
+                <input type="button" value="추가" class="btn btn-primary" id="add">
             </span>
         </div>
 
     </div>
 
+        <!-- 삭제하기 Modal-->
+        <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 400px;">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #25282A;">
+                    <div class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;" >수정 완료</div>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white; font-size: 0.9em;">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">삭제 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <!-- 예/아니오 선택 버튼 -->
+                    <a class="btn btn-primary" id="modalY" href="#" data-dismiss="modal">예</a>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">아니요</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
     <style>
 
-        
-       
+        /* 모달 */
+        .modal-body {
+            text-align: center;
+            font-size: 1.1em;
+
+        }
+
+        .modal {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 768px) {
+            .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+            }
+        }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+   
 
     </style>
-
+  
     <script>
 
-        $("#box3 span").mouseover(function() {
+        $("#box3 input" ).mouseover(function() {
 
         // alert($(this).text());
-        $(this).css("background-color", "#92DAEC").css("color", "black");
+        $(this).css("background-color", "red").css("color", "black");
 
         })
 
-        $("#box3 span").mouseout(function() {
+        $("#box3 input").mouseout(function() {
 
         // alert($(this).text());
         $(this).css("background-color", "").css("color", "");
 
         })
+        
+        // 삭제하기 모달
+        $("#del").click(function (e) {
+            e.preventDefault();
+            $("#delModal").modal("show");
+        });
 
     </script>
+    <script src="../bootstrap/js/jquery-1.12.4.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
 
 </body>
 

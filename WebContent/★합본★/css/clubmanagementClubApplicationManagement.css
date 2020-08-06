@@ -4,14 +4,14 @@
     /* height: 950px; */
     margin: 0px auto;         
     /* padding-bottom: 10px;    */
-    font-size: 1.1em;
 }
 
 #centerbox1 {
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     width: 1200px;
     height: 50px;   
-    margin-bottom: 10px;         
+    margin-bottom: 10px;    
+    display: inline-block;     
 }
 
 #centerbox2 {
@@ -30,7 +30,7 @@
 }
 
 #centerbox5 {
-    margin-top: 25px;
+    /* margin-top: 25px; */
     /* border: 1px solid blue; */
     float: right;            
 }
@@ -42,6 +42,7 @@
 #verticalTable {
     /* border: 1px solid blue; */
     width: 1200px;
+    font-size: 1.1em;
 }
 
 #pagination {            
@@ -60,12 +61,13 @@
 
 #selectrow {
     margin-top: 10px;
-    background-color: #1E3440;
-    color: white;                
+    /* background-color: #1E3440; */
+    /* color: white;                 */    
 }
 
-#verticalTable {                        
-    /* border: 1px solid;              */                        
+#verticalTable th, #verticalTable td{                        
+    /* border: 1px solid;              */         
+    border: 1px solid black                
 }
 
 #verticalTable th:nth-child(1) {width: 25px;}
@@ -76,50 +78,49 @@
 #verticalTable th:nth-child(6) {width: 100px;}
 
 /* 테이블 컬럼 */
-#verticalTable th {border: 0px;}
+/* #verticalTable th {border: 0px;} */
 /* 테이블 각 tr */
 #verticalTable tr {height: 38px;}
 
-#verticalTable th, #verticalTable td { text-align: center; color: white; }                
-#verticalTable td:nth-child(3) a {color: white; }
+#verticalTable th, #verticalTable td { text-align: center; }                
+#verticalTable td:nth-child(3) a {color: black; }
 
 #verticalTable thead tr th{            
-    background-color: #92DAEC;
-    color: #0C1B23;           
-    /* border: 3px solid white */            
+    /* background-color: #92DAEC; */
+    /* color: #0C1B23;            */
+    /* border: 3px solid white */   
 }
 
 #verticalTable tr{                        
-    background-color: #1E3440;      
+    /* background-color: #1E3440;       */
 }
 
 #verticalTable tr:nth-child(even){            
-    background-color: #0C1B23;            
+    /* background-color: #0C1B23;             */
 }
 
 #verticalTable td {
-    border: 0px;                          
 }
 
 #centerbox4Btn {
-    color: white;               
-    background-color: #1E3440 ;
+    /* color: white;                */
+    /* background-color: #1E3440 ; */
 }
 
 #sortform a {
-    color: #1E3440;         
+    color: black;         
 }
 
 #searchbtn, #acceptBtn, #refuseBtn {
-    color: white;               
-    background-color: #1E3440 ;        
+    /* color: white;                */
+    /* background-color: #1E3440 ;         */
     height: 25px;
     line-height: 0.8em;    
 }
 
 #pagination li > a {
-    color: white;
-    background-color: #1E3440;            
+    /* color: white; */
+    /* background-color: #1E3440;             */
 }
 
 #pagination .nowPage {
@@ -127,8 +128,8 @@
 }
 
 #centerbox4 select {
-    color: white; 
-    background-color: #1E3440 ;            
+    /* color: white;  */
+    /* background-color: #1E3440 ;             */
 }
 
 #centerMainBox select, #centerMainBox #pagination a{
@@ -137,6 +138,6 @@
 }
 
 #pagination li a{            
-    background-color: #1E3440;
-    color: white;                                             
+    /* background-color: #1E3440; */
+    /* color: white;                                              */
 }

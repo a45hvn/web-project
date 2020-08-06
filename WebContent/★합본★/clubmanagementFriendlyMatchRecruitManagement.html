@@ -65,7 +65,7 @@
                             <li class="subMenuItem"><a href="clubmanagementPlayerManagement.html">선수관리</a></li>
                             <li class="subMenuItem"><a href="clubmanagementEntrylistDrawup.html">엔트리작성</a></li>
                             <li class="subMenuItem"><a href="clubmanagementFriendlyMatchResultDrawup.html">경기결과반영</a></li>
-                            <li class="subMenuItem"><a href="clubmanagementFriendlyMatchRecruitManagement.html">친선경기모집관리</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a href="clubmanagementFriendlyMatchRecruitManagement.html">친선경기모집관리</a></li>
                             <li class="subMenuItem"><a href="#"></a></li>
                         </ul>
                     </nav>
@@ -95,10 +95,10 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table" id="verticalTable">
+                        <table class="table table-striped" id="verticalTable">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th><input type="checkbox" name="" id="checkAll"></th>
                                     <th>순번</th>
                                     <th>말머리</th> 
                                     <th>제목</th>
@@ -212,8 +212,8 @@
                     </div>
 
                     <div id="centerbox5">
-                        <input id="acceptBtn" type="button" value="승인" class="btn">
-                        <input id="refuseBtn" type="button" value="거절" class="btn">
+                        <input id="acceptBtn" type="button" value="승인" class="btn btn-primary">
+                        <input id="refuseBtn" type="button" value="거절" class="btn btn-primary">
                     </div>
                     <div style="clear: both;"></div>
 
@@ -252,7 +252,7 @@
                                 <option value="">글쓴이</option>
                             </select>
                             <input id="searchkeyword" type="text" size="35">
-                            <a href=""><input id="searchbtn" type="button" value="검색" class="btn"></a>                           
+                            <a href=""><input id="searchbtn" type="button" value="검색" class="btn btn-primary"></a>                           
                         </div>
                     </div>
                     <div style="clear: both;"></div>
@@ -291,23 +291,29 @@
 
         })
 
-        $("#centerbox2 a").click(function() {                    
-            // alert($(this));
-            child = window.open(
-            "friendlyMatchRecruitManagementCheckMercenary.html",
-            "check",
-            "width=650, height=500, top=350, left=750"
-                                         
-        );
-        }); 
-
         $("#verticalTable a").click(function() {                    
             // alert($(this));
             child = window.open(
             "clubmanagementFriendlyMatchRecruitManagementCheckMercenary.html",
             "check",
-            "width=430, height=390, top=150, left=550"
+            "width=640, height=520, top=350, left=650"
         );
+        }); 
+
+        // 전체선택
+        $("#checkAll").click(function () {
+        
+        //만약 전체 선택 체크박스가 체크된상태일경우 
+        if($("#checkAll").prop("checked")) { 
+            //해당화면에 전체 checkbox들을 체크해준다 
+        $("input[type=checkbox]").prop("checked",true); 
+        
+        } 
+            // 전체선택 체크박스가 해제된 경우 
+        else { 
+            //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+        $("input[type=checkbox]").prop("checked",false); }
+        
         }); 
 
     </script>

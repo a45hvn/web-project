@@ -64,7 +64,7 @@
                             <li class="subMenuItem"><a href="clubmanagementClubApplicationManagement.html">구단신청관리</a></li>
                             <li class="subMenuItem"><a href="clubmanagementPlayerManagement.html">선수관리</a></li>
                             <li class="subMenuItem"><a href="clubmanagementEntrylistDrawup.html">엔트리작성</a></li>
-                            <li class="subMenuItem"><a href="clubmanagementFriendlyMatchResultDrawup.html">경기결과반영</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a href="clubmanagementFriendlyMatchResultDrawup.html">경기결과반영</a></li>
                             <li class="subMenuItem"><a href="clubmanagementFriendlyMatchRecruitManagement.html">친선경기모집관리</a></li>
                             <li class="subMenuItem"><a href="#"></a></li>
                         </ul>
@@ -95,10 +95,10 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table" id="verticalTable">
+                        <table class="table table-striped" id="verticalTable">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th><input type="checkbox" name="" id="checkAll"></th>
                                     <th>순번</th>
                                     <th>경기</th>    
                                     <th>날짜</th> 
@@ -191,9 +191,9 @@
 
                     <div id="centerbox4">
                         <div style="float: right;">
-                           <input id="centerbox4Btn1" type="button" value="작성" onclick=""; class="btn">
-                           <input id="centerbox4Btn2" type="button" value="수정" onclick=""; class="btn">
-                           <input id="centerbox4Btn3" type="button" value="삭제" onclick=""; class="btn">
+                           <input id="centerbox4Btn1" type="button" value="작성" onclick=""; class="btn btn-primary">
+                           <input id="centerbox4Btn2" type="button" value="수정" onclick=""; class="btn btn-primary">
+                           <input id="centerbox4Btn3" type="button" value="삭제" onclick=""; class="btn btn-primary">
                         </div>
                     </div>
                     <div style="clear: both;"></div>
@@ -230,6 +230,23 @@
             "width=430, height=390, top=150, left=550"
         );
         }); 
+
+        // 전체선택
+        $("#checkAll").click(function () {
+            
+            //만약 전체 선택 체크박스가 체크된상태일경우 
+            if($("#checkAll").prop("checked")) { 
+                //해당화면에 전체 checkbox들을 체크해준다 
+            $("input[type=checkbox]").prop("checked",true); 
+            
+            } 
+                // 전체선택 체크박스가 해제된 경우 
+            else { 
+                //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+            $("input[type=checkbox]").prop("checked",false); }
+            
+        });
+
 
     </script>
 

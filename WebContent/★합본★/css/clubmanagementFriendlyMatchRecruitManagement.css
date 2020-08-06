@@ -6,9 +6,11 @@
 }
 
 #centerbox1 {
-    border-bottom: 1px solid black;            
+    /* border-bottom: 1px solid black;             */
     height: 50px;   
-    margin-bottom: 10px;         
+    margin-bottom: 10px;      
+    display: inline-block;   
+    width: 1200px;
 }
 
 #centerbox2 {
@@ -29,7 +31,7 @@
 #centerbox5 {
     /* border: 1px solid blue; */
     float: right;
-    margin-top: 25px;
+    /* margin-top: 25px; */
 }
 
 #centerbox1 span, #centerbox1 select  {
@@ -47,8 +49,11 @@
 
 #sortform, #selectrow {
     float: right;     
+    color: black;
     /* border: 1px solid gold; */
 }
+
+
 
 #sortform {
     margin-right: 10px;
@@ -57,8 +62,8 @@
 
 #selectrow {
     margin-top: 10px;
-    background-color: #1E3440;
-    color: white;            
+    /* background-color: #1E3440; */
+    /* color: white;             */
 }
 
 #verticalTable {
@@ -77,44 +82,44 @@
 
 
 
-#verticalTable th, #verticalTable td { text-align: center; color: white; border: 0px;}                
-#verticalTable td:nth-child(4) a {color: white; }
+#verticalTable th, #verticalTable tr td { text-align: center; border: 1px solid black;}                
+#verticalTable td:nth-child(4) a {color: black; }
 
 #verticalTable thead tr th{            
-    background-color: #92DAEC;
-    color: #0C1B23;           
+    /* background-color: #92DAEC; */
+    /* color: #0C1B23;            */
     /* border: 3px solid white */            
 }
 
 #verticalTable tr{
-    background-color: #1E3440;                  
+    /* background-color: #1E3440;                   */
 }
 
 #verticalTable tr:nth-child(even){
-    background-color: #0C1B23
+    /* background-color: #0C1B23 */
 }
 
 #verticalTable td {
-    border: 0px;              
+    /* border: 0px;               */
 }
 
 #centerbox4Btn {
-    color: white;   
-    background-color: #1E3440 ;
+    /* color: white;    */
+    /* background-color: #1E3440 ; */
 }
 
 #sortform a {
-    color: #1E3440;           
+    color: black;           
 }
 
 #searchbtn, #acceptBtn, #refuseBtn {
-    color: white;   
-    background-color: #1E3440;
+    /* color: white;    */
+    /* background-color: #1E3440; */
 }
 
 #pagination li > a {
-    color: white;
-    background-color: #1E3440;
+    /* color: white; */
+    /* background-color: #1E3440; */
     height: 25px;         
     line-height: 0.8em;
 }
@@ -124,8 +129,8 @@
 }
 
 #centerbox4 select {
-    color: white; 
-    background-color: #1E3440 ;
+    /* color: white;  */
+    /* background-color: #1E3440 ; */
 }
 
 #centerbox1 select, #centerbox4 input, #centerbox4 select, #centerbox5 input {

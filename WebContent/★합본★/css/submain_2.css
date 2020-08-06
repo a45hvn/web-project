@@ -42,6 +42,10 @@
     text-align: right;
 }
 
+#menuTop .btn{
+    font-weight: bold;
+}
+
 
 #scoreBoard {
     width: 100%;

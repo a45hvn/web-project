@@ -42,32 +42,33 @@ table tr, table td {
 
 
 table th {
-   background-color: black;
-   color: white;
+   /* background-color: black; */
+   /* color: white; */
 }
 
 table tr{
-   background-color: #0C1B23;
-   color: white;
+   /* background-color: #0C1B23; */
+   /* color: white; */
 }
 
 table tr:nth-child(1){
-    background-color: #92DAEC;
-    color: black;
+    /* background-color: #92DAEC; */
+    /* color: black; */
 }
 
 table tr:nth-child(even){
     width: 800px;
-    background-color: #1E3440;
+    /* background-color: #1E3440; */
 }
 
 #box2 input {
-    color: white; 
-    background-color: #1E3440 ;
+    /* color: white;  */
+    /* background-color: #1E3440 ; */
     height: 25px;
     line-height: 0.8em;
 }
 
 #mainBox #box1 table td, #mainBox #box1 table th {
-    border: 0px;
+    /* border: 0px; */
+    border: 1px solid black;
 }

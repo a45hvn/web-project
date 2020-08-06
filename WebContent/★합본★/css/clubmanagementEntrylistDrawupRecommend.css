@@ -30,15 +30,15 @@
 table {
     width: 650px;
     /* height: 350px;                */
-    color: #0C1B23;              
+    /* color: #0C1B23;               */
 }
 
 #box1 table th, #box1 table td {
-    border: 0;
+    border: 1px solid black;   
 }
 
 table th {            
-    background-color: #92DAEC;
+    /* background-color: #92DAEC; */
     text-align: center;    
 }
 
@@ -49,14 +49,14 @@ table td{
 
 table tr{
     width: 800px;
-    background-color: #1E3440;
-    color: white;        
+    /* background-color: #1E3440; */
+    /* color: white;         */
 }   
 
 table tr:nth-child(even){
     width: 800px;
-    background-color: #0C1B23;
-    color: white;            
+    /* background-color: #0C1B23; */
+    /* color: white;             */    
 }
 
 th:nth-child(1) {
@@ -80,6 +80,6 @@ th:nth-child(5) {
 }
 
 #box2 input {
-    color: white; 
-    background-color: #1E3440 ;
+    /* color: white;  */
+    /* background-color: #1E3440 ; */
 }

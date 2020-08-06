@@ -109,22 +109,22 @@
                 <div class="content">홈화면에서 등록하기 누르시면 됩니다~</div>
                 <div>
                     <span>2020.07.18 21:40</span>
-                    <span><input type="button" value="답글쓰기" class="btn"></span>
+                    <span><input type="button" value="답글쓰기" class="btn btn-primary"></span>
                 </div>
             </div>       
             <!-- 답변하기 -->
             <div id="centerBox4" class="centerBox">
                 <div>글쓴이 이름</div>
-                <div><textarea name="" id="" cols="103" rows="1"> 댓글을 남겨보세요</textarea></div>
+                <div><textarea name="" id="" cols="103" rows="1" placeholder="댓글을 남겨보세요."></textarea></div>
                 <div>
-                    <span><input type="button" value="이모티콘" class="btn"></span>
-                    <span><input type="button" value="등록" class="btn"></span>
+                    <span><input type="button" value="이모티콘" class="btn btn-primary"></span>
+                    <span><input type="button" value="등록" class="btn btn-primary"></span>
                 </div>
             </div>
             <!-- 목록, Top -->
             <div id="centerBox5" class="centerBox">
-                <span><input type="button" value="▲TOP" class="btn"></span>
-                <span><input type="button" value="목록" class="btn"></span>
+                <span><input type="button" value="▲TOP" class="btn btn-primary"></span>
+                <span><input type="button" value="목록" class="btn btn-primary"></span>
             </div>
 
         </div>   
@@ -154,6 +154,7 @@
             border-top: 1px solid #0C1B23; 
             border-bottom-style: dashed;
             width: 1150px;            
+            display: inline-block;
         }
 
         /* 답글내용 박스 */
@@ -269,8 +270,8 @@
 
         /* 모든 버튼들 */
         #centerBox5 > span input, #centerBox4 span input, #centerBox3 input {            
-            background-color: #1E3440;
-            color: white;  
+            /* background-color: #1E3440; */
+            /* color: white;   */
             height: 25px;
             line-height: 0.8em;
         }

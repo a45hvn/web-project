@@ -62,7 +62,7 @@
                     <nav class="subMenu">
                         <ul>
                             <li class="subMenuItem"><a href="clubmanagementClubApplicationManagement.html">구단신청관리</a></li>
-                            <li class="subMenuItem"><a href="clubmanagementPlayerManagement.html">선수관리</a></li>
+                            <li class="subMenuItem" style="background-color:rgb(15, 13, 13);"><a href="clubmanagementPlayerManagement.html">선수관리</a></li>
                             <li class="subMenuItem"><a href="clubmanagementEntrylistDrawup.html">엔트리작성</a></li>
                             <li class="subMenuItem"><a href="clubmanagementFriendlyMatchResultDrawup.html">경기결과반영</a></li>
                             <li class="subMenuItem"><a href="clubmanagementFriendlyMatchRecruitManagement.html">친선경기모집관리</a></li>
@@ -95,10 +95,10 @@
                         </span>            
                     </div>
                     <div id="centerbox2">
-                        <table class="table" id="verticalTable" style="">
+                        <table class="table table-striped" id="verticalTable" style="">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" name="" id=""></th>
+                                    <th><input type="checkbox" name="" id="checkAll"></th>
                                     <th>순번</th>
                                     <th>포지션</th> 
                                     <th>이름</th>
@@ -202,7 +202,7 @@
 
                     <div id="centerbox4">
                         <div style="float: right;">
-                           <input id="centerbox4Btn" type="button" value="방출하기" onclick=""; class="btn">
+                           <input id="centerbox4Btn" type="button" value="방출하기" onclick=""; class="btn btn-primary">
                         </div>
                     </div>
                     
@@ -254,6 +254,21 @@
         );
         }); 
 
+        // 전체선택
+        $("#checkAll").click(function () {
+        
+        //만약 전체 선택 체크박스가 체크된상태일경우 
+        if($("#checkAll").prop("checked")) { 
+            //해당화면에 전체 checkbox들을 체크해준다 
+        $("input[type=checkbox]").prop("checked",true); 
+        
+        } 
+            // 전체선택 체크박스가 해제된 경우 
+        else { 
+            //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+        $("input[type=checkbox]").prop("checked",false); }
+        
+        }); 
 
 
     </script>

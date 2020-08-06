@@ -2,11 +2,13 @@
     /* border: 1px solid black; */
     width: 1200px;
     height: 1075px;
-    margin: 0px auto;         
-    font-size: 1.1em;
+    margin: 0px 50px;         
+    /* font-size: 1.1em; */
+    display: inline-block;
+    
 }     
 
-#centerbox2 {
+#centerbox2 {    
     /* border: 2px solid blue; */
     width: 1200px;      
     float: left;
@@ -25,7 +27,7 @@
 #centerbox2Right {
     /* border: 1px solid black; */
     /* width: 790px; */
-    /* height: 850px; */
+    height: 850px;
     float: left;
     margin-left: 95px;         
     margin-top: 10px;        
@@ -37,28 +39,30 @@
     width: 380px;            
 }
 
-#centerbox2Left table th, #centerbox2Left table td{
-    /* border: 1px solid black;      */
-    color: white;       
+#centerbox2Left table th, #centerbox2Left table tr td{
+    border: 1px solid black;     
+    /* color: white;        */
+    height: 38px;
 }
 
 #centerbox2Left table th {                    
     text-align: center;
-    background-color: #92DAEC;
-    color: #0C1B23;           
-    border: 0px;                  
+    /* background-color: #92DAEC; */
+    /* color: #0C1B23;            */
+    /* border: 0px;               */
+ 
 }
 
 #formation {
-    border: 3px solid #0C1B23;
+    /* border: 3px solid #0C1B23; */
 }
 
 table tr{                    
-    background-color: #1E3440;           
+    /* background-color: #1E3440;            */
 }   
 
 table tr:nth-child(even){                    
-    background-color: #0C1B23;                           
+    /* background-color: #0C1B23;                            */
 }
 
 #centerbox2Left table td {                    
@@ -92,8 +96,8 @@ table tr:nth-child(even){
 }
 
 #centerbox2LeftButton input {
-    color: white; 
-    background-color: #1E3440 ;
+    /* color: white;  */
+    /* background-color: #1E3440 ; */
     height: 25px;
     line-height: 0.8em;
 }
@@ -106,8 +110,8 @@ table tr:nth-child(even){
 
 #formationSelect {
     float: right;
-    margin-top: 15px;
-    margin-right: 10px;
+    margin-top: 20px;
+    /* margin-right: 10px; */
 }
 
 #formation {
@@ -186,7 +190,7 @@ table tr:nth-child(even){
 }
 
 #formationSelect select {
-    color: white; 
-    background-color: #1E3440 ;
+    /* color: white;  */
+    /* background-color: #1E3440 ; */
 }
                 

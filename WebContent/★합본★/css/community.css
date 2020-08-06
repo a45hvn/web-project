@@ -1,3 +1,7 @@
+body {
+    background-color: white;
+}
+
 #centerMainBox {
     /* border: 1px solid black; */
     width: 1200px;
@@ -9,12 +13,15 @@
 #centerbox1 {
     /* background-color: red; */
     border-bottom: 1px solid black;            
-    height: 50px;   
-    margin-bottom: 10px;                     
+    /* height: 50px;    */
+    margin-bottom: 10px;    
+    padding-bottom: 10px;
+    width: 1200px;
+    display: inline-block;                 
 }
 
 #centerbox2 {
-    /* border: 1px solid black; */                    
+    /* border: 1px solid black;                     */
 }
 
 #centerbox3 {
@@ -45,7 +52,7 @@
 #sortform {
     margin-right: 10px;    
     margin-top: 5px;        
-    font-size: 1.1em;
+    /* font-size: 1.1em; */
 }
 
 #verticalTable {
@@ -58,24 +65,24 @@
 #verticalTable th:nth-child(4) {width: 100px;}
 #verticalTable th:nth-child(5) {width: 65px;}
 
-#verticalTable th {border: 0px}
-#verticalTable th, #verticalTable td {height: 38px;}
+#verticalTable th {border: 0px }
+#verticalTable th, #verticalTable tr td {height: 38px; border: 1px solid black;}
 
-#verticalTable th, #verticalTable td { text-align: center; color: white; }                
+#verticalTable th, #verticalTable td { text-align: center; }                
 #verticalTable td:nth-child(2){ text-align: left;}
-#verticalTable td:nth-child(2) a {color: white; }
+#verticalTable td:nth-child(2) a {color: black; }
 
 #verticalTable thead tr th{            
-    background-color: #92DAEC;
-    color: #0C1B23;                       
+    /* background-color: #92DAEC; */
+    /* color: #0C1B23;                        */
 }
 
 #verticalTable tr{            
-    background-color: #1E3440;                
+    /* background-color: #1E3440;                 */
 }
 
 #verticalTable tr:nth-child(even){            
-    background-color: #0C1B23
+    /* background-color: #0C1B23 */
 }
 
 #verticalTable td {
@@ -84,14 +91,14 @@
 
 #centerbox4 select, #selectrow, #searchbtn, #writebtn {
     height: 25px;
-    color: white;               
-    background-color: #1E3440 ;                  
+    /* color: white;                */
+    /* background-color: #1E3440 ;                   */
     line-height: 0.8em;
 }
 
 #pagination li a {
-    color: white;
-    background-color: #1E3440;         
+    /* color: white; */
+    /* background-color: #1E3440;          */
     height: 25px;            
     line-height: 0.8em;     
 }

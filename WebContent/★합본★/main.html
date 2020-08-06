@@ -48,7 +48,11 @@
         }
 
         #menuTop td:nth-child(3) {
-        text-align: right;
+            text-align: right;
+        }
+
+        #menuTop .btn{
+            font-weight: bold;
         }
 
         .gamedate span{
@@ -57,9 +61,9 @@
         }
 
         #scoreBoard {
-            width: 1300px;
+            width: 1903px;
             background-color: #0C1B23;
-            height: 500px;
+            height: 350px;
             margin: 0px auto;
             background-image: url("../images/stadium.jpg");
             background-repeat: no-repeat;
@@ -67,7 +71,6 @@
             background-position-x: center;
             background-position-y: 90%;
             /* margin-left: 400px; */
-            
         }
 
 
@@ -94,7 +97,7 @@
         }
 
         #contents>div:nth-child(3) {
-            width: 90%;
+            width: 96%;
             background-color: rgb(37, 65, 80);
         }
 
@@ -161,7 +164,7 @@
             height: 275px;
             background-color: rgb(12, 27, 35);
             float: left;
-            margin-left: 80px;
+            margin-left: 100px;
             margin-bottom: 30px;
             margin-top: 30px;
         }
@@ -202,13 +205,15 @@
             height: 240px;
             border-collapse: collapse;
             position: relative;
+            /* left: 300px; */
             float: left;
             margin: 0px 25px;
             background-color: rgb(37, 65, 80);
             color: white;
-            margin-top: 60px;
+            margin-top: 20px;
             padding: 0px 10px;
         }
+
 
         .infoOuter:last-child::after {
             content: "";
@@ -266,12 +271,15 @@
         .infoOuter {
             width: 2800px;
             /* border: 1px solid black; */
-            margin-left: 25px;
+            /* position: relative;
+            left: 300px; */
         }
 
         .outerWraper {
             overflow: hidden;
             width: 1240px;
+            position: relative;
+            left: 330px;
         }
 
         #mainMenu {
@@ -286,8 +294,8 @@
         }
 
         #arrow div:nth-child(1) {
-            margin-left: 1100px;
-            margin-top: 30px;
+            margin-left: 1450px;
+            margin-top: 10px;
         }
 
         #arrow div:nth-child(2) {
@@ -578,7 +586,7 @@
         }
 
         .sitemap {
-            width: 1300px;
+            width: 1900px;
             height: 250px;
             margin: 0px auto;
             background-color: #254150;
@@ -587,17 +595,22 @@
 
         }
 
+
         .sitemap .siteList {
             float: left;
             list-style-type: none;
-            margin-left: 10px;
+            /* margin-left: 90px; */
             width: 180px;
             padding: 10px;
+            position: relative;
+            left: 340px;
         }
+
+
 
         .sitemap .siteList:first-child {
 
-            margin-left: 50px;
+            /* margin-left: 340px; */
 
         }
 
@@ -630,9 +643,9 @@
                 <td colspan="3"></td>
                 <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
                 <td colspan="4">
-                    <button type="button" class="btn btn-default">로그인</button>
-                    <button type="button" class="btn btn-default" id="join">회원가입</button>
-                    <button type="button" class="btn btn-default">마이페이지</button>
+                    <button type="button" class="btn btn-default glyphicon glyphicon-ok"> 로그인</button>
+                    <button type="button" class="btn btn-default glyphicon glyphicon-wrench" id="join"> 회원가입</button>
+                    <button type="button" class="btn btn-default glyphicon glyphicon-user"> 마이페이지</button>
                 </td>
             </tr>
             <tr id="menuTr">
@@ -997,6 +1010,12 @@
                     <td>10</td>
                     <td>너도fc</td>
                     <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>달려FC</td>
+                    <td>6</td>
                     <td>10</td>
                 </tr>
             </table>

@@ -4,7 +4,7 @@
     width: 1200px;
     /* height: 1100px; */
     margin: 0px auto;      
-    font-size: 1.1em;                 
+    /* font-size: 1.1em;                  */
 }  
 
 /* 글목록 보는 방식, 10개씩 보기 */
@@ -91,9 +91,9 @@
 
 /* 페이지 버튼 */
 #pagination li a{            
-    background-color: #1E3440;
-    color: white;            
-    font-size: 1.1em;          
+    /* background-color: #1E3440; */
+    /* color: white;             */
+    /* font-size: 1.1em;           */
     height: 25px;             
     padding-top: 1px;
     padding-left: 10px;
@@ -101,14 +101,14 @@
 
 /* 모든 버튼 */
 #centerBox4 select {                        
-    background-color: #1E3440;
-    color: white;        
+    /* background-color: #1E3440; */
+    /* color: white;         */
     /* font-size: 1.1em; */
 }
 
 #writebtn, #searchbtn{                        
-    background-color: #1E3440;
-    color: white;        
+    /* background-color: #1E3440; */
+    /* color: white;         */
     height: 25px;            
     line-height: 0.8em;
 }
@@ -116,14 +116,14 @@
 /* 이미지 보는 형식 3가지 */
 #centerBox1 span a{            
     color: #0C1B23;            
-    font-size: 1.1em;                 
+    /* font-size: 1.1em;                  */
 }
 
 /* 10개 씩 보기 */
 #centerBox1 select {
-    background-color: #1E3440;
-    color: white;
-    margin-left: 15px;            
+    /* background-color: #1E3440; */
+    /* color: white; */
+    margin-left: 5px;            
     height: 25px;                   
 }
 

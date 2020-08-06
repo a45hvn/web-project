@@ -59,24 +59,31 @@
     width: 702px;
     height: 400px;
     text-align: center;
-    color: white;         
-    border-left: 1px solid black;   
-    border-right: 1px solid black;   
+    /* color: white;          */
+    /* border-left: 1px solid black;    */
+    /* border-right: 1px solid black;    */
 }
 
 #box2 table thead th {
     height: 45px;
     text-align: center;            
-    background-color: #92DAEC;
-    color: black;
+    /* background-color: #92DAEC; */
+    /* color: black; */
+    border: 1px solid black
 }
 
 #box2 table tr:nth-child(odd) {            
-    background-color: #1E3440;
+    /* background-color: #1E3440; */
+    border: 1px solid black
 }
 
 #box2 table tr:nth-child(even) {            
-    background-color: #0C1B23;
+    /* background-color: #0C1B23; */
+    border: 1px solid black
+}
+
+#box2 table td {
+    border: 1px solid black
 }
 
 #box3 input {
@@ -86,7 +93,7 @@
     height: 25px;            
     margin-left: 5px;
     margin-top: 5px;
-    background-color: #1E3440;
-    color: white;         
-    line-height: 0.8em;   
+    /* background-color: #1E3440; */
+    /* color: white;          */
+    line-height: 0.8em;       
 }

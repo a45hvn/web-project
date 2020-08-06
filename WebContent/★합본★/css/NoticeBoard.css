@@ -6,9 +6,11 @@
 }
 
 #centerbox1 {
-    border-bottom: 1px solid black;            
+    /* border-bottom: 1px solid black;             */
     height: 50px;   
     margin-bottom: 10px;         
+    display: inline-block;
+    width: 1200px;
 }
 
 #centerbox2 {
@@ -19,7 +21,7 @@
     /* border: 1px solid red; */
     width: 1200px;
     height: 50px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 #centerbox4 {
@@ -55,11 +57,12 @@
 
 #selectrow {
     margin-top: 10px;
-    background-color: #1E3440;
-    color: white;
+    /* background-color: #1E3440; */
+    /* color: white; */
 }
 
 #verticalTable {
+    font-size: 1.1em;
 }
 
 #verticalTable th:nth-child(1) {width: 65px;}
@@ -68,24 +71,20 @@
 #verticalTable th:nth-child(4) {width: 100px;}
 #verticalTable th:nth-child(5) {width: 65px;}
 
-#verticalTable th, #verticalTable td { text-align: center; color: white; }        
-#verticalTable td {height: 38px;}
+/* #verticalTable th, #verticalTable td { text-align: center; color: white; }         */
+#verticalTable th {border: 1px solid black}
+#verticalTable tr th, #verticalTable tr td {height: 38px; border: 1px solid black; text-align: center;} 
 #verticalTable td:nth-child(2){ text-align: left;}
-#verticalTable td:nth-child(2) a {color: white; }
+#verticalTable td:nth-child(2) a {color: black; }
 
-#verticalTable thead tr th{            
-    background-color: #92DAEC;
-    color: #0C1B23;           
-    /* border: 3px solid white */
-    border: 0;
-}
+
 
 #verticalTable tr{            
-    background-color: #1E3440;                
+    /* background-color: #1E3440;                 */
 }
 
 #verticalTable tr:nth-child(even){
-    background-color: #0C1B23
+    /* background-color: #0C1B23 */
 }
 
 #verticalTable td {
@@ -93,15 +92,15 @@
 }
 
 #searchbtn, #writebtn, #centerMainBox #centerbox4 select, #selectrow {
-    color: white;   
+    /* color: white;    */
     height: 25px;
     line-height: 0.8em;
-    background-color: #1E3440 ;
+    /* background-color: #1E3440 ; */
 }
 
 #pagination li > a {
-    color: white;
-    background-color: #1E3440;          
+    /* color: white; */
+    /* background-color: #1E3440;           */
     height: 25px;
     line-height: 0.8em;  
 }

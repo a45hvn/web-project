@@ -36,27 +36,27 @@ table th {
 table tr, table td {
    border: 1px solid #1E3440;
    text-align: center;  
-   color: white;
+   /* color: white; */
    padding: 5px;
 }
 
 
 table th {
-   background-color: #92DAEC;
-   color: #0C1B23;
+   /* background-color: #92DAEC; */
+   /* color: #0C1B23; */
 }
 
 table tr{
-   background-color: #0C1B23;
+   /* background-color: #0C1B23; */
 }
 
 table tr:nth-child(odd){
-   background-color: #1E3440;
+   /* background-color: #1E3440; */
 }
 
 #box2 input {
-    color: white; 
-    background-color: #1E3440 ;
+    /* color: white;  */
+    /* background-color: #1E3440 ; */
     padding: 5px;
    
 }

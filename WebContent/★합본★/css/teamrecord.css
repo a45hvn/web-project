@@ -1,5 +1,7 @@
 #centerMainBox {
     /* outline: 10px solid red; */
+    position: relative;
+    top: 100px;
 }
 #centerbox1 {
     /* outline: 10px solid red; */
@@ -18,9 +20,10 @@
 #outerBox {
     position: relative;
     border-bottom: 2px solid black;
-    width: 1200px;
+    width: 1300px;
     height: 50px;
     top: 15px;
+    
 }
 
 #selectgametype {
@@ -33,7 +36,7 @@
 
 .searchBox {
     position: absolute;
-    right: 12%;
+    right: 10%;
     top: 0px;
     height: 25px;
 }
@@ -83,5 +86,7 @@
     padding: 0px;
 }
 #selectgametype {
+    position: absolute;
     height: 25px;
+    left: 0px;
 }
