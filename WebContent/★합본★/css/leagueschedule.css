@@ -1,11 +1,14 @@
 #centerMainBox {
     /* outline: 10px solid red; */
-    position: relative;
-    top: 100px;
+    width: 1200px;
+    margin: 0 auto;
 }
+
 #centerbox1 {
-    /* outline: 10px solid red; */
-    height: 70px;
+    /* outline: 1px solid red; */
+    display: inline-block;
+    width: 1200px;
+    margin-top: 15px;
 }
 #outerBox::after {
     content: "";
@@ -19,11 +22,8 @@
 }
 #outerBox {
     position: relative;
-    border-bottom: 2px solid black;
-    width: 1300px;
+    border-bottom: 1px solid black;
     height: 50px;
-    top: 15px;
-    
 }
 
 #selectgametype {
@@ -36,23 +36,18 @@
 
 .searchBox {
     position: absolute;
-    right: 10%;
-    top: 0px;
-    height: 25px;
+    right: 12%;
 }
-#searchkeyword {
-    height: 25px;
-}
+
 #selectrow {
     position: absolute;
     right: 0;
-
-    height: 25px;
 }
 #verticalTable {
     color: black;
 }
-#verticalTable td {
+#verticalTable td,
+#verticalTable th {
     border: 0px;
 }
 #verticalTable thead tr:first-child {
@@ -75,18 +70,26 @@
     display: block;
 }
 
-#vs {
-    display: inline-block;
-    margin-right: 2em;
-    color: red;
+/* 페이지 버튼 */
+#pagination li a {
+    color: black;
+    /* background-color: #1e3440; */
+    height: 25px;
+    line-height: 0.8em;
 }
 
-.inputDate {
+#selectgametype,
+#endDate,
+#startDate,
+#selectrow,
+#searchbtn,
+#writebtn {
     height: 25px;
-    padding: 0px;
+    color: black;
+    /* background-color: #1e3440; */
+    line-height: 1em;
 }
-#selectgametype {
-    position: absolute;
-    height: 25px;
-    left: 0px;
+
+#pagination .nowPage {
+    background-color: #92daec;
 }
