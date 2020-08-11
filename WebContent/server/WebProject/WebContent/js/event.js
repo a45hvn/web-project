@@ -93,7 +93,7 @@ $("#mainrogo")
         $(this).css("cursor", "pointer");
     })
     .click(function () {
-        location.href = "main.jsp";
+        location.href = "../main/main.jsp";
     });
 
 
