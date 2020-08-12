@@ -23,7 +23,7 @@
 
 
 </style>
-</head>
+</head>  
 
 <%@include file="/WEB-INF/views/inc/header.jsp"%>
 

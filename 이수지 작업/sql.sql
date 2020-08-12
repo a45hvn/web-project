@@ -1,0 +1,1 @@
+select * from tblboard where category_seq=5 order by seq;
