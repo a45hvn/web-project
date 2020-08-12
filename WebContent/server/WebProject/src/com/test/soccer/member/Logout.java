@@ -2,26 +2,33 @@ package com.test.soccer.member;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+@WebServlet("/member/logout.do")
+public class Logout extends HttpServlet{
 
-@WebServlet("/member/signUp.do")
-public class SignUp extends HttpServlet{
-	
-	
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/signUp.jsp");
+		//1. 인증 티켓 제거
+		//2. 시작 페이지로 이동
 		
-		dispatcher.forward(req, resp);	
+		//1.
+		HttpSession session = req.getSession();
+		
+//		session.removeAttribute("id"); //로그아웃
+//		session.removeAttribute("name");
+		
+		session.invalidate();
+		
+		//2.
+		resp.sendRedirect("/soccer/main.do");
+		
 	}
 	
 }
-

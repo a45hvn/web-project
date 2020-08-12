@@ -70,7 +70,7 @@
             background-color: #0C1B23;
             height: 350px;
             margin: 0px auto;
-            background-image: url("../images/stadium.jpg");
+            background-image: url("/soccer/images/stadium.jpg");
             background-repeat: no-repeat;
             background-size: 100%;
             background-position-x: center;
@@ -637,33 +637,12 @@
     </style>
 </head>
 
-   	 <nav id="main">
-        <table class="table table-default" id="mainMenu">
-            <tr id="menuTop">
-                <td colspan="3"></td>
-                <td rowspan="2" id="rogo" style="width: 1px;"><img src="../images/rogo_2.png" alt="" id="mainrogo"></td>
-                <td colspan="4">
-                    <button type="button" class="btn btn-default glyphicon glyphicon-ok"> 로그인</button>
-                    <button type="button" class="btn btn-default glyphicon glyphicon-wrench" id="join"> 회원가입</button>
-                    <button type="button" class="btn btn-default glyphicon glyphicon-user"> 마이페이지</button>
-                </td>
-            </tr>
-            <tr id="menuTr">
-                <td class="menu menu1"><span>정규리그일정</span></td>
-                <td class="menu menu2"><span>구단현황</span></td>
-                <td class="menu menu3"><span>선수현황</span></td>
-                <td class="menu menu4"><span>전력분석</span></td>
-                <td class="menu menu5"><span>문자중계</span></td>
-                <td class="menu menu6"><span>게시판</span></td>
-                <td class="menu menu7"><span>공지사항</span></td>
+	<%@include file="/WEB-INF/views/inc/header.jsp" %>
 
-            </tr>
-        </table>
-    </nav>
+   	 
 
     <div id="topBoard"></div>
 
-    </div>
 
     <div id="scoreBoard">
         <div class="outerWraper">
@@ -1285,7 +1264,7 @@
         location.href="login.html"
     })
     $("#join").click(function () {
-        location.href="join.html"
+        location.href="../member/signUp.jsp"
     })
     $(".btn3").click(function () {
         location.href="mypage.html"
