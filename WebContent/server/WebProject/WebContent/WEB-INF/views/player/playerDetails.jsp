@@ -195,7 +195,7 @@
     <script>
     
     $("#message").click(function () {
-        window.open("message.jsp","message","width=550, height = 400, left = 700, top = 200")
+        window.open("message.do","message","width=550, height = 400, left = 700, top = 200")
         
     });
     /* $("#comment").click(function (){

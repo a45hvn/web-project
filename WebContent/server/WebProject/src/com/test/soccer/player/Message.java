@@ -1,4 +1,4 @@
-package com.test.soccer.member;
+package com.test.soccer.player;
 
 import java.io.IOException;
 
@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/member/signUp.do")
-public class SignUp extends HttpServlet{
+@WebServlet("/player/message.do")
+public class Message extends HttpServlet{
 	
 	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/signUp.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/player/message.jsp");
 		
 		dispatcher.forward(req, resp);	
 	}

@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="/soccer/css/bootstrap.css">
     <script src="/soccer/js/bootstrap.js"></script>
     <script src="/soccer/js/jquery-1.12.4.js"></script>
+    <script src="/soccer/js/jquery-ui.js"></script>
 	<style>
 
         #mainForm {
-           width: 600px;
+           width: 700px;
            margin: 0px auto;
         }
         
@@ -28,7 +29,7 @@
         }
 
         #agreeform{
-            width: 600px;
+            width: 700px;
             margin: 0px auto;
         }
         #agreeform > div{
@@ -59,7 +60,6 @@
         }
 
         .inputText{
-            opacity: .7;
             margin-bottom: 20px;
             height: 35px;
         }
@@ -68,37 +68,58 @@
         	position: relative;
         	left: 150px
         }
-
-
-
-
+        
+        hr {
+        	border: 1px solid black;
+        }
 
 	</style>
 </head>
 <body>
+    <script src="/soccer/js/jquery-ui.js"></script>
 		<div id="mainForm">
         <div><img src="../images/rogo.png" alt="" id="mainrogo"></div>
         <div id="input">
             <h3><span class="glyphicon glyphicon-ok"></span>  회원가입</h3>
             <hr>
-            <form action="" autocomplete="off">
+            <form method="POST" action="/soccer/member/signUpok.do" enctype="multipart/form-data" autocomplete="off" id="signForm">
                 <div>아이디</div> 
-                <input type="text" id="id" size="50px" class="inputText">
-                <input type="button" value="중복검사" >
+                <input type="text" id="id" name="id" size="50px" class="inputText" placeholder="아이디를 입력하세요" >
+                <button type="button" id="btnCheck" >중복검사</button>
+                <span id="result"></span>
                 <div>비밀번호</div>
-                <input type="password" id="password" size="50px" class="inputText" > <b>* 8자리이상(영문 + 숫자)</b>
+                <input type="password" id="password" name="password" size="50px" class="inputText" placeholder="비밀번호를 입력하세요" > <b>* 8자리이상(영문 + 숫자)</b>
                 <div>비밀번호확인</div>
-                <input type="password" id="rePassword" size="50px" class="inputText">
+                <input type="password" id="rePassword" name="repassword" size="50px" class="inputText" placeholder="비밀번호를 다시 입력하세요" >
                 <div>이름</div>
-                <input type="text" id="name" size="50px" class="inputText" >
+                <input type="text" id="name" name="name" size="50px" class="inputText" placeholder="이름을 입력하세요" >
                 <div>생년월일</div>
-                <input type="text" id="date" size="50px" class="inputText" >
+                <input type="text" id="date" name="date" size="50px" class="inputText" placeholder="생년원일을 선택하세요" >
+                <div>주소</div>
+                <input type="text" id="address" name="address" size="50px" class="inputText" placeholder="주소를 입력하세요" >
+                <div>연고지</div>
+                <select name="homeseq" id="homeseq" class="inputText">
+                <option value="1:서울">1:서울</option>
+                <option value="2:부산">2:부산</option>
+                <option value="3:대구">3:대구</option>
+                <option value="4:인천">4:인천</option>
+                <option value="5:광주">5:광주</option>
+                <option value="6:대전<">6:대전</option>
+                <option value="7:울산">7:울산</option>
+                <option value="8:세종">8:세종</option>
+                <option value="9:경기">9:경기</option>
+                <option value="10:강원">10:강원</option>
+                <option value="11:충북">11:충북</option>
+                <option value="12:충남">12:충남</option>
+                <option value="13:전북">13:전북</option>
+                <option value="14:전남">14:전남</option>
+                <option value="15:경북">15:경북</option>
+                <option value="16:경남">16:경남</option>
+                <option value="17:제주">17:제주</option>
+            	</select>
                 <div>휴대전화번호</div>
-                <input type="text" id="tel" size="7px" class="inputText" style="text-align: center;" maxlength="3" > 
-                - 
-                <input type="text" id="tel2" size="7px" class="inputText" style="text-align: center;" maxlength="4" >
-                - 
-                <input type="text" id="tel3" size="7px" class="inputText" style="text-align: center;" maxlength="4">
+                <input type="text" id="tel" name="tel" size="20px" class="inputText" style="text-align: center;" maxlength="13" > 
+                <input type="file" id="image" name="image" name="image" placeholder="사진" class="inputText">
             </form>
         </div>
         <hr >
@@ -204,118 +225,138 @@
 
     
     <div id="agreeButton">
-        <button type="button" class="btn btn-primary">회원가입</button>
+        <button type="button" class="btn btn-primary" id="btnSubmit">회원가입</button>
         
-            
     </div>
 
 
 	<script>
-        $("#date").datepicker({
-			dateFormat: "yy-mm-dd",
-        });
+	
+	 //아이디 중복검사
+    $("#btnCheck").click(function() {
+		//ajax 처리
+		$.ajax({
+			type: "POST",
+			url: "/soccer/member/idCheck.do",
+			data: "id=" + $("#id").val(),
+			dataType: "json",
+			success: function(result) {
+				
+				//result = { "use": 1 }
+				//alert(result.use);
+				if (result.use == 0) {
+					$("#result").text("사용 가능한 아이디입니다.");
+					$("#result").css("color", "royalblue");
+				} else {
+					$("#result").text("이미 사용중인 아이디입니다.");
+					$("#result").css("color", "red");
+				}
+				
+			},
+			error: function(a,b,c) {
+				
+				console.log(a,b,c);
+			}
+		});
+		
+	});
+	
+	$("#date").datepicker({
+		dateFormat: "yy-mm-dd",
+    });
+    
+    // 약관모두동의
+    $("#checkAll").click(function () {
+        //만약 전체 선택 체크박스가 체크된상태일경우 
+        if($("#checkAll").prop("checked")) { 
+            //해당화면에 전체 checkbox들을 체크해준다 
+        $("input[type=checkbox]").prop("checked",true); 
+        // 전체선택 체크박스가 해제된 경우 
+        } 
+        else { 
+            //해당화면에 모든 checkbox들의 체크를해제시킨다. 
+        $("input[type=checkbox]").prop("checked",false); }
         
-        $(".inputText").focus(function () {
+    });
 
+    //div 숨기기
+    // $("#updateModal").hide();
+
+    //유효성검사
+    $("#btnSubmit").click(function () {
+
+        var id = $("#id").val();
+        var pw = $("#password").val();
+        var rpw = $("#rePassword").val();
+        var name = $("#name").val();
+        var date = $("#date").val();
+        var tel = $("#tel").val();
+        var reg = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/;
+        var namechk = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+
+        if(id == "") {
+            alert("아이디를 입력 해주세요.")
+
+            $("#id").focus();
+        }
+
+        else if(pw == "") {
+            alert("비밀번호를 입력 해주세요.")
+
+            $("#password").focus();
+        }
+
+        else if(false === reg.test(pw)) {
+            alert("비밀번호를 확인 해주세요.")
             
-            $(this).css("opacity","1")
+            $("#password").focus();
+        }
 
-        });
+        else if(pw != rpw) {
+            alert("비밀번호가 일치하지 않습니다.")
 
-        // 약관모두동의
-        $("#checkAll").click(function () {
-            //만약 전체 선택 체크박스가 체크된상태일경우 
-            if($("#checkAll").prop("checked")) { 
-                //해당화면에 전체 checkbox들을 체크해준다 
-            $("input[type=checkbox]").prop("checked",true); 
-            // 전체선택 체크박스가 해제된 경우 
-            } 
-            else { 
-                //해당화면에 모든 checkbox들의 체크를해제시킨다. 
-            $("input[type=checkbox]").prop("checked",false); }
-            
-        });
-
-        //div 숨기기
-        // $("#updateModal").hide();
-
-
-        //유효성검사
-        $("#agreeButton").click(function () {
-
-            var id = $("#id").val();
-            var pw = $("#password").val();
-            var rpw = $("#rePassword").val();
-            var name = $("#name").val();
-            var date = $("#date").val();
-            var tel = $("#tel").val();
-            var reg = /^(?=.*?[a-zA-Z])(?=.*?[0-9]).{8,}$/;
-            var namechk = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-
-            if(id == "") {
-                alert("아이디를 입력 해주세요.")
-
-                $("#id").focus();
-            }
-
-            else if(pw == "") {
-                alert("비밀번호를 입력 해주세요.")
-
-                $("#password").focus();
-            }
-
-            else if(false === reg.test(pw)) {
-                alert("비밀번호를 확인 해주세요.")
-                
-                $("#password").focus();
-            }
-
-            else if(pw != rpw) {
-                alert("비밀번호가 일치하지 않습니다.")
-
-                $("#rePassword").focus();
-            }
-            
-            else if( name == "") {
-                alert("이름을 입력 해주세요.")
-
-                $("#name").focus();
-            }
-            else if (false == namechk.test(name)) {
-                alert("이름은 한글만 입력가능합니다.")
-
-                $("#name").focus();
-            }
-
-            else if( date == "") {
-                alert("생년월일을 입력 해주세요.")
-
-                $("#date").focus();
-            }
-            else if( tel == "") {
-                alert("휴대전화번호를 입력 해주세요.")
-
-                $("#tel").focus();
-            }
-
-            else if ( $("#check1").is(":checked") == false ) {
-                alert("약관에 동의해주세요.")
-            }
-
-            else if ( $("#check2").is(":checked") == false ) {
-                alert("약관에 동의해주세요.")
-            }
-
-            else{
-                alert("회원가입완료!")
-
-                location.href="login.html"
-                
-            }
-        });
-
+            $("#rePassword").focus();
+        }
         
+        else if( name == "") {
+            alert("이름을 입력 해주세요.")
 
+            $("#name").focus();
+        }
+        else if (false == namechk.test(name)) {
+            alert("이름은 한글만 입력가능합니다.")
+
+            $("#name").focus();
+        }
+
+        else if( date == "") {
+            alert("생년월일을 입력 해주세요.")
+
+            $("#date").focus();
+        }
+        else if( tel == "") {
+            alert("휴대전화번호를 입력 해주세요.")
+
+            $("#tel").focus();
+        }
+
+        else if ( $("#check1").is(":checked") == false ) {
+            alert("약관에 동의해주세요.")
+        }
+
+        else if ( $("#check2").is(":checked") == false ) {
+            alert("약관에 동의해주세요.")
+        }
+        else {
+        	
+			$("#signForm").submit();    
+		
+        }
+    });
+    
+   
+    
+ 	 
 
     </script>
     <script src="/soccer/js/event.js"></script>

@@ -60,13 +60,13 @@ $("#menuTr")
 $("#menuTr")
     .children(".menu3")
     .click(function () {
-        location.href = "playerStatus.jsp";
+        location.href = "/soccer/player/playerStatus.do";
     });
 // 전력분석
 $("#menuTr")
     .children(".menu4")
     .click(function () {
-        location.href = "/WebProject2/WEB_INF/views/playeranalysis/playerAnalysis.jsp";
+        location.href = "/soccer/analysis/teamAnalysis.do";
     });
 // 문자중계
 $("#menuTr")
@@ -93,7 +93,7 @@ $("#mainrogo")
         $(this).css("cursor", "pointer");
     })
     .click(function () {
-        location.href = "../main/main.jsp";
+        location.href = "/soccer/main.do";
     });
 
 

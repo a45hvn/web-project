@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/player/playerDetails.jsp")
+@WebServlet("/player/playerDetails.do")
 public class PlayerDetails extends HttpServlet{
 	
 	
