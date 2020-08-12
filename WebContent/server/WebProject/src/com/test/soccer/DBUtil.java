@@ -20,9 +20,11 @@ public class DBUtil {
 	public Connection open() {
 		
 //		String url="jdbc:oracle:thin:@192.168.0.1:1521:xe";//쌍용학원
+
 		String url="jdbc:oracle:thin:@webproject.c5mw9almbigu.ap-northeast-2.rds.amazonaws.com:1521:aa";//집
 		String id="a45hvn";
 		String pw="20200804";
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn=DriverManager.getConnection(url, id, pw);//접속 버튼과 동일
@@ -43,7 +45,7 @@ public class DBUtil {
 	 */
 	public Connection open(String host, String id, String pw) {
 		
-		String url="jdbc:oracle:thin:@"+host+":1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -51,6 +53,8 @@ public class DBUtil {
 			return conn;
 
 		} catch (Exception e) {
+			System.out.println("DBUtil.getConnection()");
+			e.printStackTrace();
 			// TODO: handle exception
 		}
 		return null;
@@ -63,6 +67,7 @@ public class DBUtil {
 		try {
 			conn.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
 		}
 		

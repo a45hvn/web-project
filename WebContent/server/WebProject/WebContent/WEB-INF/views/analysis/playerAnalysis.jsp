@@ -156,8 +156,8 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="teamAnalysis.html">팀분석</a></li>
-                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="teamAnalysis.jsp">선수분석</a></li>
+                            <li class="subMenuItem"><a href="teamAnalysis.do">팀분석</a></li>
+                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerAnalysis.do">선수분석</a></li>
                         </ul>
                     </nav>
                 </div>
