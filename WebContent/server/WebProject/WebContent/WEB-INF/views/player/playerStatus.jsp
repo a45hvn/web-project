@@ -421,7 +421,7 @@
 
     $(".btn-primary").click(function () {
 
-        location.href="playerDetails.jsp"
+        location.href="playerDetails.do"
         
     });
 

@@ -1,6 +1,7 @@
-package com.test.soccer.member;
+package com.test.soccer.team;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,19 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/member/signUp.do")
-public class SignUp extends HttpServlet{
-	
-	
+@WebServlet("/team/teamlist.do")
+public class teamlist extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/signUp.jsp");
+		//DB갔다오자
+		TeamlistDAO dao=new TeamlistDAO();
+		ArrayList<TeamlistDTO> list= dao.list();
 		
-		dispatcher.forward(req, resp);	
-	}
+		RequestDispatcher dispatcher= req.getRequestDispatcher("/WEB-INF/views/team/teamlist.jsp");
+		 dispatcher.forward(req, resp);
+	}//doget
 	
-}
-
+}//teamlist

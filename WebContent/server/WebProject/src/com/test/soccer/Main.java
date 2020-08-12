@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/main/main.jsp")
+@WebServlet("/main.do")
 public class Main extends HttpServlet{
 	
 	
@@ -18,7 +18,7 @@ public class Main extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main/main.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main.jsp");
 		
 		dispatcher.forward(req, resp);	
 	}
