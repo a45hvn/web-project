@@ -241,7 +241,7 @@
 							<td>${dto.coachname }</td>
 							<td>${dto.birth}</td>
 							<td>${dto.count}명</td>
-							<td>${dto.ground}<span class='glyphicon glyphicon-map-marker' id="showmapbtn" onclick="map(${dto.lat},${dto.lng})" ></span></td>
+							<td>${dto.ground}<span class='glyphicon glyphicon-map-marker showmapbtn' id="showmapbtn" onclick="e(${dto.lat}, ${dto.lng});" ></span></td>
 							<%-- 연고지 따위는 넣지 않습니다. --%>
 							
 						</tr>
@@ -255,8 +255,15 @@
 					</div>
 					
 					<div class="modal-body">
+						
 						<!-- 여기서 지도가 나옴 -->
-						<div id="map" style="width: 100%; height: 350px;"></div>
+						
+						
+						
+						<div id="map" style="width: 100%; height: 350px;">
+						
+						</div>
+						
 					</div>
 					
 					<div class="modal-footer">
@@ -299,17 +306,14 @@
 
 <!-- 스크립트------------------------------------------------------------- -->
 <script>
-// 탈퇴하기 모달
-$("#showmapbtn").click(function (e) {
-    e.preventDefault();
-    $("#showmap").modal("show");
-});
 
-$("#modalYbtn").click(function (e) {
-    e.preventDefault();
-    $("#showmap").modal("show");
-});
-//모달 끝
+function e(lat, lng){
+	 $("#showmap").modal("show");
+		setTimeout(function(){
+			map(lat,lng);
+			map.relayout(); 
+				}, 200);
+}
 
 
 
