@@ -30,21 +30,29 @@ public class BoardDAO {
 		}
 	}
 	
-	//List 서블릿 -> 게시판 목록 주세요.
+	//communityFreeBulletinBoard 서블릿 -> 게시판 목록 주세요.
 	public ArrayList<BoardDTO> list(HashMap<String, String> map) {
 		
 		try {
 			
 			String where = "";
-		
+			String begin = map.get("begin");
+			String end = map.get("end");
+			String category = map.get("category");
+			String search = map.get("search");
+			String selectKeyword = map.get("selectKeyword");
+			
 			
 			//검색어가 있을때
-			if (map.get("search") != null) {
-				 where = String.format("and title like '%%%s%%'", map.get("search"));
+			if (search != null) {
+				 where = String.format("and %s like '%%%s%%'", selectKeyword , search);
+			
 			}
 			
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard where category_seq = 3 %s order by seq) a) where rnum >= %s and rnum <= %s", where, map.get("begin"), map.get("end"));
-		
+			//String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard where category_seq = %s %s order by seq) a) where rnum >= %s and rnum <= %s",category, where, begin, end);
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard b inner join tblMember m on m.seq = b.member_seq where category_seq = %s %s order by b.seq) a) where rnum >= %s and rnum <= %s",category, where, begin, end);
+			
+			
 			stat = conn.prepareStatement(sql);			
 			rs = stat.executeQuery(sql);
 						
@@ -56,6 +64,7 @@ public class BoardDAO {
 				// 레코드 1줄 -> BoardDTO 1개
 				BoardDTO dto = new BoardDTO();
 				
+				
 				dto.setSeq(rs.getString("seq"));				//번호
 				dto.setTitle(rs.getString("title"));			//제목
 				dto.setContent(rs.getString("content"));		//내용
@@ -64,6 +73,8 @@ public class BoardDAO {
 				//dto.setReadcount(rs.getInt("category_seq"));	//게시판 카테고리번호
 				dto.setMember_seq(rs.getString("member_seq"));	//회원 번호
 				dto.setImage(rs.getString("image"));			//이미지
+				dto.setName(rs.getString("name"));				//회원이름
+				
 				
 				list.add(dto);
 				
@@ -79,19 +90,23 @@ public class BoardDAO {
 		return null;
 	}
 
-	//list 서블릿 -> 페이지
+	//communityFreeBulletinBoard 서블릿 -> 페이지(총 게시글 수)
 	public int getTotalCount(HashMap<String, String> map) {
 				
 		try {
 			
 			String where = "";
 			
-			if(map.get("search") != null) {
-				where = String.format("and title like '%%%s%%'", map.get("search"));
+			String search = map.get("search");
+			String selectKeyword = map.get("selectKeyword");
+			
+			if (search != null) {
+				 where = String.format("and %s like '%%%s%%'", selectKeyword , search);
+			
 			}
 			
-			String sql = String.format("select count(*) as cnt from tblboard where category_seq = 3 %s", where);
-			
+			String sql = String.format("select count(*) as cnt from tblboard b inner join tblMember m on m.seq = b.member_seq where category_seq = 3 %s", where);
+		
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
 			
@@ -189,13 +204,26 @@ public class BoardDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		
+	//BulletinBoardContent 서블릿 -> 글번호 주고 게시물 받아오기
+	public BoardDTO content(String seq) {
+		
+		try {
+			
+			String sql = select 
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println("BoardDAO.content()");
+			e.printStackTrace();
+			
+
 		}
 		
 		return null;
 	}
-	
-	
-	
+
 	
 	
 	
