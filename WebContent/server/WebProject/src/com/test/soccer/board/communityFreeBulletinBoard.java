@@ -22,39 +22,48 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		//2. 결과값 전달 + JSP 호출하기
 		
 		
-		//communityFreeBulletinBoard.jsp에서 보낸 검색어(searchkeyword) 받아오기
-		String search = req.getParameter("searchkeyword");
+		//검색어 받아오기
+		String search = req.getParameter("search");
+
+		//한페이지 당 출력 갯수 받아오기
+		String selectrow=req.getParameter("selectrow");
 		
-		//** 검색어를  Hashmap에 담는건데, 이거 모르겠다...
-		HashMap<String, String> map = new HashMap<String, String>();
+		//검색 방법 받아오기
+		String selectKeyword = req.getParameter("selectKeyword");
+		
+		//한페이지 당 출력 갯수 초기값이 null이라 10으로 default
+		if(selectrow == null) {
+			selectrow = 10+"";
+		}
+		
+		HashMap<String, String> map = new HashMap<String, String>();		
+		
+		//검색어 담기
 		map.put("search", search);
-		
+		//카테고리 3 = 자유게시판
+		map.put("category","3");
+		//검색 방법 선택
+		map.put("selectKeyword", selectKeyword);
 		
 		//페이징 처리 관련 변수
-		int nowPage = 0;			//현재 페이지 번호
-		int totalCount = 0;			//총 게시물 수
-		int pageSize = 10;			//한페이지 당 출력 갯수
-		int totalPage = 0;			//총 페이지 수
-		int begin = 0;				//rnum 시작 번호
-		int end = 0;				//rnum 끝 번호
-		int n = 0;					//페이지바 관련 변수
-		int loop = 0;				//페이지바 관련 변수
-		int blockSize = 10;			//페이지바 관련 변수
+		int nowPage = 0;								//현재 페이지 번호
+		int totalCount = 0;								//총 게시물 수
+		int pageSize = Integer.parseInt(selectrow);		//한페이지 당 출력 갯수
+		int totalPage = 0;								//총 페이지 수
+		int begin = 0;									//rnum 시작 번호
+		int end = 0;									//rnum 끝 번호
+		int n = 0;										//페이지바 관련 변수
+		int loop = 0;									//페이지바 관련 변수
+		int blockSize = 10;								//페이지바 관련 변수
 		
-		//communityFreeBulletinBoard.jsp에서 클릭한 페이지 받아오기
-		//** 이거 어디서 받아오는거임?
+		//클릭한 페이지 받아오기
 		String page = req.getParameter("page");
-		
-//		System.out.println(page);
 		
 		if(page == null || page == "") nowPage = 1; //default
 		else nowPage = Integer.parseInt(page); //보고싶은 페이지
 		
 		begin = ((nowPage - 1) * pageSize) + 1;
 		end = begin + pageSize - 1;
-		
-//		System.out.println(begin);
-//		System.out.println(end);
 		
 		map.put("begin", begin + "");
 		map.put("end", end + "");
@@ -93,9 +102,19 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		//##검색어 부각##
 		if (search != null && search != "") {
 			
-			String title = dto.getTitle();
-			title = title.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");
-			dto.setTitle(title);
+			String tomato = "";
+			
+			//제목 검색일때 제목만 부각
+			if(selectKeyword.equals("title")) {				
+				tomato = dto.getTitle();
+				tomato = tomato.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");
+				dto.setTitle(tomato);
+			} else { //글쓴이 검색일때 글쓴이 부각
+				tomato = dto.getName();
+				tomato = tomato.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");
+				dto.setName(tomato);
+			}
+			
 			
 		}
 		
@@ -115,13 +134,18 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		//이전 10페이지
 		if (n == 1) {
 			pagebar += "<li class='disabled'>";
-			pagebar += "<a href=\"#!\" aria-label=\"Previous\">";
+			pagebar += "<a href=\"#!\" aria-label=\"Previo"
+					+ "xus\">";
 			pagebar += "<span aria-hidden=\"true\">&laquo;</span>";
 			pagebar += "</a>";
 			pagebar += "</li>";
 		} else {
 			pagebar += "<li>";
-			pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d\" aria-label=\"Previous\">", n - 1);
+			if (search == null) {
+			pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d&selectrow=%s\" aria-label=\"Previous\">", n - 1, selectrow);
+			} else {
+			pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d&selectKeyword=%s&search=%s&selectrow=%s\" aria-label=\"Previous\">", n - 1, selectKeyword, search, selectrow);				
+			}			
 			pagebar += "<span aria-hidden=\"true\">&laquo;</span>";
 			pagebar += "</a>";
 			pagebar += "</li>";
@@ -135,9 +159,13 @@ public class communityFreeBulletinBoard extends HttpServlet{
 				pagebar += String.format("<a href=\"#!\">%d</a>", n); //#! 의미없는 링크를 만들떄, 현재페이지는 클릭안되게
 				pagebar += "</li>";	
 			
-			} else {
+			} else {				
 				pagebar += "<li>";
-				pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d\">%d</a>", n, n);
+				if (search == null) {
+				pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d&selectrow=%s\">%d</a>", n, selectrow, n);
+				} else {
+				pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d&selectKeyword=%s&search=%s&selectrow=%s\">%d</a>", n, selectKeyword, search, selectrow, n);
+				}
 				pagebar += "</li>";	
 			}
 			loop++;
@@ -152,8 +180,12 @@ public class communityFreeBulletinBoard extends HttpServlet{
 			pagebar += "</a>";
 			pagebar += "</li>";
 		} else {
-			pagebar += "<li>";
-			pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d\" aria-label=\"Next\">", n);
+			pagebar += "<li>";			
+			if (search == null) {
+			pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d&selectrow=%s\" aria-label=\"Next\">", n, selectrow);
+			} else {
+			pagebar += String.format("<a href=\"/soccer/board/communityFreeBulletinBoard.do?page=%d&selectKeyword=%s&search=%s&selectrow=%s\" aria-label=\"Next\">", n, selectKeyword, search, selectrow);																	
+			}
 			pagebar += "<span aria-hidden=\"true\">&raquo;</span>";
 			pagebar += "</a>";
 			pagebar += "</li>";
@@ -168,11 +200,21 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		//검색어
 		req.setAttribute("search", search);
 		//페이지
+		//page 값이 null이면 1페이지
+		if(page==null || page=="") page="1"; 
 		req.setAttribute("page", page);
+		
 		req.setAttribute("totalCount", totalCount);
 		req.setAttribute("totalPage", totalPage);
 		
 		req.setAttribute("pagebar", pagebar);
+		
+		//한페이지 당 출력 갯수		
+		req.setAttribute("selectrow", selectrow);
+				
+		//검색 방법
+		req.setAttribute("selectKeyword", selectKeyword);
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/communityFreeBulletinBoard.jsp");
 		dispatcher.forward(req, resp);

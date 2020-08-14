@@ -11,9 +11,15 @@ public class BoardDTO {
 	private String member_seq; 		//회원번호
 	private String category_seq;	//카테고리 번호
 	private String image;			//이미지
+	private String name; 			//회원 이름
 	
 	
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getCategory_seq() {
 		return category_seq;
 	}

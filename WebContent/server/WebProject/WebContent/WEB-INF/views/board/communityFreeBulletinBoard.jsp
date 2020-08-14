@@ -66,10 +66,11 @@
 
                 <div id="centerMainBox">
                     <div id="centerbox1">
-                        <select name="" id="selectrow">
-                            <option value="">10개씩 보기</option>
-                            <option value="">25개씩 보기</option>
-                            <option value="">50개씩 보기</option>   
+                    	<!-- 한페이지 당 출력 갯수 -->
+                        <select name="selectrow" id="selectrow">
+                            <option value="10" id="10">10개씩 보기</option>
+                            <option value="25" id="25">25개씩 보기</option>
+                            <option value="50" id="50">50개씩 보기</option>   
                         </select>
                         <span id="sortform">
                             <a href="#" class="glyphicon glyphicon-list"></a>
@@ -81,7 +82,7 @@
                     <!-- 테이블 -->
                     <div id="centerbox2">
                         <table class="table table-striped" id="verticalTable" style="">
-                            <thead>
+                            <thead>                            	
                                 <tr>
                                     <th>순번</th>
                                     <th>제목</th>                
@@ -105,12 +106,16 @@
                             		</tr>
                             	</c:if>
                             	
-                            
+                            	<!-- 게시물 내용 -->
                             	<c:forEach items="${list}" var="dto">
                                 <tr>
                                     <td>${dto.seq}</td>
-                                    <td><a href="#">${dto.title}</a></td>
-                                    <td>${dto.member_seq}</td>
+                                    <td>
+                                    	<a href="/soccer/board/BulletinBoardContent.do?seq=${dto.seq}">
+                                    		${dto.title}
+                                    	</a>
+                                    </td>
+                                    <td>${dto.name}</td>
                                     <td>${dto.regdate}</td>
                                     <td>${dto.readcount}</td>                   
                                 </tr>    
@@ -118,32 +123,9 @@
                         </table>                     
                     </div>
         
-        			<!-- 페이지 버튼 -->
                     <div id="centerbox3">                
-                    
-                        <!-- <ul id="pagination" class="pagination" style="float: right;">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a class="nowPage" href="#" name="page">1</a></li>
-                            <li><a href="#" name="page">2</a></li>
-                            <li><a href="#" name="page">3</a></li>
-                            <li><a href="#" name="page">4</a></li>
-                            <li><a href="#" name="page">5</a></li>
-                            <li><a href="#" name="page">6</a></li>
-                            <li><a href="#" name="page">7</a></li>
-                            <li><a href="#" name="page">8</a></li>
-                            <li><a href="#" name="page">9</a></li>         
-                            <li><a href="#" name="page">10</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>    -->
-                        
+                    	
+        				<!-- 페이지 버튼 -->
                         ${pagebar}
                         
                     </div> 
@@ -152,16 +134,18 @@
                         <div style="float: right;">
                         <!-- 검색창 -->                
                             <form method="GET" action="/soccer/board/communityFreeBulletinBoard.do" id="searchForm" style="display: inline;">
-	                            <select>
+	                            <select id="selectKeyword" name="selectKeyword">
 	                                <option value="title" id="title">제목</option>
 	                                <option value="content" id="content">내용</option>
 	                                <option value="title_content" id="title_content">제목+내용</option>
-	                                <option value="writer" id="writer">글쓴이</option>
+	                                <option value="name" id="name" >글쓴이</option>
 	                            </select>                            
-	                            <input id="searchkeyword" name="searchkeyword" type="text" size="35" style="height: 25px;" required value="${search}">
+	                            <input id="search" name="search" type="text" size="35" style="height: 25px;" required value="${search}">
 	                            <input id="searchbtn" type="button" value="검색" class="btn btn-primary" onclick="$('#searchForm').submit();">
+	                            
+	                            <input type="hidden" name="selectrow" value="${selectrow}">
                             </form>                           
-                            <input id="writebtn" type="button" value="글쓰기" onclick=""; class="btn btn-primary">
+                            <input id="writebtn" type="button" value="글쓰기" onclick=""; class="btn btn-primary">                          
                         </div>
                     </div>
                     
@@ -183,71 +167,47 @@
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
 
-        $("#pagination > li >a").click(function() {
-
-            //alert($(this).text());            
-            $("#pagination > li>a").removeClass("nowPage");    
-            $(this).addClass("nowPage");            
-            
-        })  
-        
-             
-
         $("#searchbtn").mouseover(function() {
-
-            // alert($(this).text());
             $(this).css("background-color", "#92DAEC").css("color", "black");
-
         })
 
         $("#searchbtn").mouseout(function() {
-
-        // alert($(this).text());
-        $(this).css("background-color", "").css("color", "");
-
+        	$(this).css("background-color", "").css("color", "");
         })
 
         $("#writebtn").mouseover(function() {
-
-        // alert($(this).text());
-        $(this).css("background-color", "#92DAEC").css("color", "black");
-
+       		$(this).css("background-color", "#92DAEC").css("color", "black");
         })
 
         $("#writebtn").mouseout(function() {
-
-        // alert($(this).text());
-        $(this).css("background-color", "").css("color", "");
-
+        	$(this).css("background-color", "").css("color", "");
         })
-
-        $("#verticalTable a").click(function() {                    
-             alert($(this));
-         
-            location.href = "BulletinBoardContent.html"
-                  
-        }); 
+             
+        //한페이지 당 출력 갯수
+    	document.getElementById("selectrow").onchange = function(){    
         
-       /* 
-               검색 방법선택하는건데 이 방법 아닌것 같음..
-       
-       var itemValue="";
-        $("#centerbox4 div form select").selectmenu({
-        	change: function (event, data) {
-        		itemValue=data.item.value;
-        		alert(data.item.value);
-        		location.href="/soccer/board/communityFreeBulletinBoard.do?type="+itemValue;	
-        		
-        	}
         	
-        }); 
+        	location.href = "/soccer/board/communityFreeBulletinBoard.do?selectrow=" + $("#selectrow").val() 
+        			+ "&selectKeyword=" + $("#selectKeyword").val()
+        			+ "&search=" + $("#search").val()    
+        			+ "&page=" + ${page};
+    	};
+    	
+    	//검색 키워드
+ 		$("#${selectKeyword}").attr("selected","selected");
+ 		
+    	//한페이지당 출력 갯수
+ 		$("#${selectrow}").attr("selected","selected");
         
-        */
-  
+  		
+ 		
+ 		
+ 
         
 
     </script>
     
+  
     
 </body>
 
