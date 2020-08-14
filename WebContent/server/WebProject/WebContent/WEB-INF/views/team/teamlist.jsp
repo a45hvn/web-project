@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +14,6 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <style>
-
 </style>
 </head>
 
@@ -29,10 +26,8 @@
 		<div class="menuTitleBox">
 			<div class="menuTitle">구단현황</div>
 			<div class="breadcrumb">
-				<span>HOME</span>
-				<span>></span>
-				<span>구단현황</span>
-				  
+				<span>HOME</span> <span>></span> <span>구단현황</span>
+
 			</div>
 			<div class="subMenuBox">
 				<nav class="subMenu">
@@ -70,6 +65,7 @@
 			</span>
 		</div>
 		<div id="centerbox2">
+				
 			<table class="table table-striped table-bordered" id="verticalTable"">
 				<thead>
 					<tr>
@@ -83,133 +79,36 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td><img src="../images/chelsea.png" alt="" /></td>
-						<td>첼시FC</td>
-						<td>김감독</td>
-						<td>2020. 07. 03.(화)</td>
-						<td>24명</td>
-						<td>강남초등학교운동장<span class='glyphicon glyphicon-map-marker'></span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+				
+					<c:forEach items="${list}" var="dto">
+						<tr>
+							<td>${dto.seq}</td>
+							<td><img src="/soccer/images/${dto.logo==null?nopic.png:dto.logo}" alt="" /></td>
+							<td>${dto.name}FC</td>
+							<td>${dto.coachname }</td>
+							<td>${dto.birth}</td>
+							<td>${dto.count}명</td>
+							<td>${dto.ground}<span class='glyphicon glyphicon-map-marker'>${dto.lat},${dto.lng }</span></td>
+							<%-- 연고지 따위는 넣지 않습니다. --%>
+						</tr>
+					 </c:forEach>
 				</tbody>
 			</table>
 		</div>
-
-		<div id="centerbox3">
-			<ul id="pagination" class="pagination" style="float: right;"
-				class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li><a class="nowPage" href="#" name="page">1</a></li>
-				<li><a href="#" name="page">2</a></li>
-				<li><a href="#" name="page">3</a></li>
-				<li><a href="#" name="page">4</a></li>
-				<li><a href="#" name="page">5</a></li>
-				<li><a href="#" name="page">6</a></li>
-				<li><a href="#" name="page">7</a></li>
-				<li><a href="#" name="page">8</a></li>
-				<li><a href="#" name="page">9</a></li>
-				<li><a href="#" name="page">10</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
-		</div>
-
+	
+		<!-- 페이지 바 들어가는 곳 -->
 		<div id="centerbox4">
 			<div style="float: right;">
-				<select style="">
-					<option value="">팀명</option>
-					<option value="">감독</option>
-					<option value="">홈구장</option>
-				</select> <input id="searchkeyword" type="text" size="35" style="" /> <a
-					href=""><input class="btn btn-primary" id="searchbtn"
-					type="button" value="검색" /></a> <input class="btn btn-primary"
-					id="writebtn" type="button" value="글쓰기"
-					onclick="location.href='ex01.html'" ;
-                        />
+				<form id="sendForm" method="GET" action="/team/teamlist.do">
+					<select name="selectrow" id="selectrow">
+						<option value="teamname">팀명</option>
+						<option value="coach">감독</option>
+						<option value="teamground">홈구장</option>
+					</select>
+					<input id="searchkeyword" type="text" size="35" style="" />
+					<input class="btn btn-primary" id="searchbtn" type="button" value="검색" />
+					<input class="btn btn-primary" id="writebtn" type="button" value="글쓰기" onclick=$(#sendForm).submit()/>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -347,7 +246,7 @@
 
 <!-- 하단부  -->
 <!-- 하단부  -->
-    <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 <!-- 스크립트------------------------------------------------------------- -->
 <script>
@@ -378,11 +277,6 @@
                 $(this).css("background-color", "").css("color", "");
             });
 
-            $("#verticalTable a").click(function () {
-                // alert($(this));
-
-                location.href = "BulletinBoardContent.html";
-            });
 
             
             $("#centerbox2 td:last-child")

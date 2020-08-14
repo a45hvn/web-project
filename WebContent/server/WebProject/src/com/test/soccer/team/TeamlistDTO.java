@@ -1,7 +1,7 @@
 package com.test.soccer.team;
 
 public class TeamlistDTO {
-	
+	//--seq, logo, name, coachname, birth, count, ground, lat,lng, points,league_seq
 	private String seq;
 	private String logo;
 	private String name;
@@ -11,6 +11,22 @@ public class TeamlistDTO {
 	private String ground;
 	private String lat;
 	private String lng;
+	private String points;
+	private String league_seq;
+	
+	
+	public String getPoints() {
+		return points;
+	}
+	public void setPoints(String points) {
+		this.points = points;
+	}
+	public String getLeague_seq() {
+		return league_seq;
+	}
+	public void setLeague_seq(String league_seq) {
+		this.league_seq = league_seq;
+	}
 	public String getSeq() {
 		return seq;
 	}
