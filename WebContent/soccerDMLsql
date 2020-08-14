@@ -9,17 +9,23 @@ select*from tblmember order by seq;
 select*from tblcoach;
 select*from tblmember_team;
 select*from tblteam;
-create or replace view teamlist;
+select * from tblteamentry;
+
+----------------------------------------------------------------------------------------
 --순번, 로고, 팀명, 감독, 창단일, 팀원수 홈구장, 위도, 경고
---seq, logo, name, coachname, birth, count, ground, lat,lng
-select distinct team.seq, team.logo logo, team.name name, (select name from tblmember member where coach.member_seq=member.seq and coach.team_seq=team.seq) coachname, team.birth birth,(select count(*) from tblmember_team mt1 inner join tbltransfer tf1 on mt1.transfer_seq=tf1.seq where mt1.state=1 and tf1.team_seq=tf.team_seq group by tf.team_seq) count,ground.name ground, ground.lat lat, ground.lng lng from tblmember_team mt
+--seq, logo, name, coachname, birth, count, ground, lat,lng, points,league_seq
+select*from teamlist;
+create or replace view teamlist as
+select distinct team.seq, team.logo logo, team.name name, (select name from tblmember member where coach.member_seq=member.seq and coach.team_seq=team.seq) coachname, team.birth birth,(select count(*) from tblmember_team mt1 inner join tbltransfer tf1 on mt1.transfer_seq=tf1.seq where mt1.state=1 and tf1.team_seq=tf.team_seq group by tf.team_seq) count,ground.name ground, ground.lat lat, ground.lng lng, entry.points points, entry.league_seq league_seq from tblmember_team mt
     inner join tbltransfer tf on mt.transfer_seq=tf.seq
         inner join tblteam team on tf.team_seq=team.seq
             inner join tblmember member on member.seq=tf.member_seq
                 inner join (select*from tblcoach where state=1) coach on coach.team_seq=team.seq
                     inner join tblteamground ground on ground.seq=team.teamground
+                    ------------------여기부터는 신규내역
+                        left outer join tblteamentry entry on entry.team_seq = team.seq
                     where mt.state=1 order by seq;
-
+----------------------------------------------------------------------------------------
 select
     tf.team_seq, count(*)
     from tblmember_team mt
@@ -27,3 +33,5 @@ select
             where mt.state=1
                 group by tf.team_seq
                     order by tf.team_seq;
+                    
+                    
