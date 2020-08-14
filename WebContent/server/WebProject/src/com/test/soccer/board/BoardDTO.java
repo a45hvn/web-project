@@ -10,7 +10,7 @@ public class BoardDTO {
 	//private int heart; 			//추천수
 	private String member_seq; 		//회원번호
 	private String category_seq;	//카테고리 번호
-	private String img;				//이미지
+	private String image;			//이미지
 	
 	
 	
@@ -20,12 +20,7 @@ public class BoardDTO {
 	public void setCategory_seq(String category_seq) {
 		this.category_seq = category_seq;
 	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
+
 	public String getSeq() {
 		return seq;
 	}
@@ -67,6 +62,12 @@ public class BoardDTO {
 	}
 	public void setMember_seq(String member_seq) {
 		this.member_seq = member_seq;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	

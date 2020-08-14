@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/communityQuestionBulletinBoard.do")
+@WebServlet("/board/communityQuestionBulletinBoard.do")
 public class communityQuestionBulletinBoard extends HttpServlet{
 	
 	@Override
