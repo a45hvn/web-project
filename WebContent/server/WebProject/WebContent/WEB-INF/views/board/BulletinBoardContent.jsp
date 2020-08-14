@@ -83,7 +83,6 @@
 
         /* 질문박스 제목 */
         #centerBox2 span:nth-child(1) {
-            /* background-color: red; */
             float: left;            
             padding-left: 5px;                        
         }
@@ -134,8 +133,7 @@
         
         /* 이미티콘버튼, 등록버튼 */
         #centerBox4 div span input {
-            /* border: 1px solid indigo;                         */
-            /* background-color: red; */
+            /* border: 1px solid indigo;                         */        
         }
 
         /* 댓글쓰기 내용 */
@@ -153,8 +151,7 @@
         }
 
         /* 모든 버튼들 */
-        #centerBox5 > span input, #centerBox4 span input, #centerBox3 input {            
-            /* background-color: #1E3440; */
+        #centerBox5 > span input, #centerBox4 span input, #centerBox3 input {  
             /* color: white;   */
             height: 25px;
             line-height: 0.8em;
@@ -223,7 +220,7 @@
 	<!-- Center -------------------------------------------- -->
 
     <div class="center">
-        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
+        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">자유게시판</span></div>
 
         <div id="centerBoxMain">
@@ -231,13 +228,12 @@
             <!-- 질문한 글 -->
             <div id="centerBox2" class="centerBox">
                 <div>
-                    <span>제목: [등록/이적]구단 등록 어떻게 하나요?</span>
-                    <span>작성시간: 2020.07.18 21:35</span>
-                    <span>작성자 | hejun</span>
+                    <span>제목:${dto.seq}</span>
+                    <span>작성시간: ${dto.regdate}</span>
+                    <span>작성자 | ${dto.name}</span>
                     <div style="clear: both;"></div>
                 </div>
-                <div class="content">새로 가입했는데 <br>
-                    구단 등록 하려면 어떻게 해야 되나요?
+                <div class="content">${dto.content}
                 </div>
             </div>
             <!-- 답변목록 -->
@@ -291,15 +287,13 @@
 
     	$("#centerBox5 > span input, #centerBox4 span input, #centerBox3 input ").mouseover(function() {
 
-        // alert($(this).text());
-        $(this).css("background-color", "#92DAEC").css("color", "black");
+       		$(this).css("background-color", "#92DAEC").css("color", "black");
 
         })
 
         $("#centerBox5 > span input, #centerBox4 span input, #centerBox3 input ").mouseout(function() {
 
-        // alert($(this).text());
-        $(this).css("background-color", "").css("color", "");
+        	$(this).css("background-color", "").css("color", "");
 
         })
 
