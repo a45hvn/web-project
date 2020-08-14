@@ -11,8 +11,9 @@ public class BoardDTO {
 	private String member_seq; 		//회원번호
 	private String category_seq;	//카테고리 번호
 	private String image;			//이미지
-	
-	
+	private String name;			//회원이름	
+	private String team;
+	private int gap;
 	
 	public String getCategory_seq() {
 		return category_seq;
@@ -68,6 +69,24 @@ public class BoardDTO {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getGap() {
+		return gap;
+	}
+	public void setGap(int gap) {
+		this.gap = gap;
+	}
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
 	}
 	
 	
