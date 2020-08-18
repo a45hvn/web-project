@@ -26,7 +26,7 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		String search = req.getParameter("search");
 
 		//한페이지 당 출력 갯수 받아오기
-		String selectrow=req.getParameter("selectrow");
+		String selectrow= req.getParameter("selectrow");
 		
 		//검색 방법 받아오기
 		String selectKeyword = req.getParameter("selectKeyword");
@@ -67,8 +67,7 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		
 		map.put("begin", begin + "");
 		map.put("end", end + "");
-		
-		
+	
 		//1.
 		BoardDAO dao = new BoardDAO();
 		
@@ -102,18 +101,21 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		//##검색어 부각##
 		if (search != null && search != "") {
 			
-			String tomato = "";
-			
-			//제목 검색일때 제목만 부각
-			if(selectKeyword.equals("title")) {				
+			String tomato = "";			
+						
+			if(selectKeyword.equals("title")) { //제목 검색일때 				
 				tomato = dto.getTitle();
 				tomato = tomato.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");
 				dto.setTitle(tomato);
-			} else { //글쓴이 검색일때 글쓴이 부각
+			} else if(selectKeyword.equals("name")) { //글쓴이 검색일때
 				tomato = dto.getName();
 				tomato = tomato.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");
 				dto.setName(tomato);
-			}
+			} 	else if(selectKeyword.equals("title_content")) { //제목+내용 검색일때
+				tomato = dto.getTitle();				
+				tomato = tomato.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");				
+				dto.setTitle(tomato);				
+			} 
 			
 			
 		}

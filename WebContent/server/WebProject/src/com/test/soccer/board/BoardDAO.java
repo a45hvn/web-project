@@ -36,23 +36,35 @@ public class BoardDAO {
 		try {
 			
 			String where = "";
+			String whereTemp = "";
 			String begin = map.get("begin");
 			String end = map.get("end");
 			String category = map.get("category");
 			String search = map.get("search");
 			String selectKeyword = map.get("selectKeyword");
 			
-			
 			//검색어가 있을때
 			if (search != null) {
+				
 				 where = String.format("and %s like '%%%s%%'", selectKeyword , search);
-			
+				 
+				 //제목 + 내용 검색 일때
+				 if(selectKeyword.equals("title_content")) {
+					 
+					 selectKeyword = "title";
+					 
+					 whereTemp = String.format("and %s like '%%%s%%'", selectKeyword , search);
+					 
+					 selectKeyword = "content";
+					 
+					 where = String.format("and %s like '%%%s%%' %s", selectKeyword, search, whereTemp);
+					 
+				 }
+				 
 			}
 			
-			//String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard where category_seq = %s %s order by seq) a) where rnum >= %s and rnum <= %s",category, where, begin, end);
 			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard b inner join tblMember m on m.seq = b.member_seq where category_seq = %s %s order by b.seq) a) where rnum >= %s and rnum <= %s",category, where, begin, end);
-			
-			
+									
 			stat = conn.prepareStatement(sql);			
 			rs = stat.executeQuery(sql);
 						
@@ -90,25 +102,51 @@ public class BoardDAO {
 		return null;
 	}
 
+	
 	//communityFreeBulletinBoard 서블릿 -> 페이지(총 게시글 수)
 	public int getTotalCount(HashMap<String, String> map) {
 				
 		try {
 			
 			String where = "";
+			String whereTemp = "";
 			
 			String search = map.get("search");
 			String selectKeyword = map.get("selectKeyword");
 			
+			//검색어가 있을때
 			if (search != null) {
 				 where = String.format("and %s like '%%%s%%'", selectKeyword , search);
-			
+		
+				if(selectKeyword.equals("title_content")) { //제목 + 내용 검색 일때
+				
+				 selectKeyword = "title";//제목 + 내용 검색 일때
+				 
+				 whereTemp = String.format("and %s like '%%%s%%'", selectKeyword , search);
+				 
+				 selectKeyword = "content";
+				 
+				 where = String.format("and %s like '%%%s%%' %s", selectKeyword, search, whereTemp);		
+				 
+				}	
+				
+			} else if (search == "") { //처음 게시판에 들어왔을때 검색어가 없어 null오류가 떠서 했음
+				where = "";
 			}
 			
+				
+				
+//			if (search != null) {
+//				where = "";
+//			} else {
+//				where = String.format("and %s like '%%%s%%'", selectKeyword , search);
+//			}
+						
 			String sql = String.format("select count(*) as cnt from tblboard b inner join tblMember m on m.seq = b.member_seq where category_seq = 3 %s", where);
-		
+	
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
+			
 			
 			if(rs.next()) {
 				return rs.getInt("cnt");
@@ -126,12 +164,31 @@ public class BoardDAO {
 
 		
 	//BulletinBoardContent 서블릿 -> 글번호 주고 게시물 받아오기
-	public BoardDTO content(String seq) {
+	public BoardDTO content(BoardDTO dto2) {
 		
 		try {
 			
-			String sql = select 
+			String sql = "select a.*, (select name from tblmember where seq = a.member_seq) as name, (select id from tblmember where seq = ?) as id from tblBoard a where seq = ?";
 			
+			pstat = conn.prepareStatement(sql);			
+			pstat.setString(1, dto2.getMember_seq()); //회원번호			
+			pstat.setString(2, dto2.getSeq());  //글번호
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setMember_seq(rs.getString("member_seq"));
+				dto.setName(rs.getString("name"));
+				
+				return dto;
+			}
 			
 		} catch (Exception e) {
 			
@@ -143,6 +200,7 @@ public class BoardDAO {
 		return null;
 	}
 
+	
 	
 	
 	
