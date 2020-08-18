@@ -134,14 +134,6 @@ public class BoardDAO {
 				where = "";
 			}
 			
-				
-				
-//			if (search != null) {
-//				where = "";
-//			} else {
-//				where = String.format("and %s like '%%%s%%'", selectKeyword , search);
-//			}
-						
 			String sql = String.format("select count(*) as cnt from tblboard b inner join tblMember m on m.seq = b.member_seq where category_seq = 3 %s", where);
 	
 			stat = conn.createStatement();
@@ -199,7 +191,7 @@ public class BoardDAO {
 				dto.setMember_seq(rs.getString("member_seq"));
 				dto.setName(rs.getString("name"));
 //				dto.setHeart(rs.getInt("heart"));
-//
+
 //				dto.setThread(rs.getInt("thread"));
 //				dto.setDepth(rs.getInt("depth"));
 
@@ -242,7 +234,10 @@ public class BoardDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		
+		}
+		return null;
+	}
+	
 	//BulletinBoardContent 서블릿 -> 글번호 주고 게시물 받아오기
 	public BoardDTO content(BoardDTO dto2) {
 		
