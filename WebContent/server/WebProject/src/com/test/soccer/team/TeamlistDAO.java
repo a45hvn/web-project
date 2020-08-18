@@ -34,14 +34,15 @@ public class TeamlistDAO {
 		// TODO Auto-generated method stub
 		try {
 			//--seq, logo, name, coachname, birth, count, ground, lat,lng, points,league_seq
-			String sql="select seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng, points,league_seq from teamlist";
+			String sql="select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng, points,league_seq from teamlist";
 			stat=conn.createStatement();
 			rs=stat.executeQuery(sql);
 			//seq, logo, name, coachname, birth, count, ground, lat,lng
 			ArrayList<TeamlistDTO> list=new ArrayList<TeamlistDTO>();
 			while(rs.next()) {
 				TeamlistDTO dto=new TeamlistDTO();
-				dto.setSeq(rs.getString("seq"));
+				dto.setRnum(rs.getString("rnum"));
+				dto.setTeam_seq(rs.getString("team_seq"));
 				dto.setLogo(rs.getString("logo"));
 				dto.setName(rs.getString("name"));
 				dto.setCoachname(rs.getString("coachname"));

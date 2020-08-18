@@ -162,6 +162,86 @@ public class BoardDAO {
 		return 0;
 	}
 
+	public void updateReadCount(String seq) {
+		try {
+			String sql = "update tblBoard set readcount = readcount+1 where seq=?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			pstat.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+	}
+
+	//게시판의 내용을 보여주기 위해 가져오는 쿼리
+	public BoardDTO get(BoardDTO dto2) {
+
+		try {
+
+			String sql = "select a.*, (select name from tblmember where seq = a.mseq)as name, (select count(*) from tblHeart where bseq = a.seq and mseq=?) as heart from tblBoard a where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto2.getMember_seq());
+			pstat.setString(2, dto2.getSeq());
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				BoardDTO dto = new BoardDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setReadcount(rs.getInt("readcount"));
+				dto.setMember_seq(rs.getString("member_seq"));
+				dto.setName(rs.getString("name"));
+//				dto.setHeart(rs.getInt("heart"));
+//
+//				dto.setThread(rs.getInt("thread"));
+//				dto.setDepth(rs.getInt("depth"));
+
+				return dto;
+			}	
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+
+	//댓글 목록 가져오기
+	public ArrayList<CommentDTO> listComment(String seq) {
+	
+		try {
+			
+			String sql =  String.format("select *, (select name from tblMember where seq = tblcomment.member_seq) as name from tblcomment where board_seq = %s");
+			stat = conn.createStatement();
+			rs  = stat.executeQuery(sql);
+			
+			ArrayList<CommentDTO> clist = new ArrayList<CommentDTO>();
+			
+			while(rs.next()) {
+				// 레코드 1줄 -> BoardDTO 1개
+				CommentDTO dto = new CommentDTO();
+			
+				dto.setSeq(rs.getString("seq"));
+				dto.setName(rs.getString("name"));
+				dto.setMember_seq(rs.getString("member_seq"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+
+				clist.add(dto);
+			
+			}
+			return clist;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		
 	//BulletinBoardContent 서블릿 -> 글번호 주고 게시물 받아오기
 	public BoardDTO content(BoardDTO dto2) {
@@ -195,6 +275,7 @@ public class BoardDAO {
 			System.out.println("BoardDAO.content()");
 			e.printStackTrace();
 			
+
 		}
 		
 		return null;

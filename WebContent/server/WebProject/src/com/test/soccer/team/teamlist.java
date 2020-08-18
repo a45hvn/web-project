@@ -110,17 +110,17 @@ public class teamlist extends HttpServlet{
 					//1. list.do -> null 반환
 					//2. list.do?search=홍길동 -> '홍길동' 반환
 					//3. list.do?search= -> 빈문자열 반환
-				for(TeamlistDTO dto: list) {
-					if(search!=null && search !="") {
-						String subject = dto.getSubject();
-						subject = subject.replace(search, "<span style='font-weight:bold;color:tomato;'>" + search + "</span>");
-						dto.setSubject(subject);
-						
-						String name = dto.getName();
-						name = name.replace(search, "<span style='font-weight:bold;color:tomato;'>" + search + "</span>");
-						dto.setName(name);
-					}
-				}//for
+//				for(TeamlistDTO dto: list) {
+//					if(search!=null && search !="") {
+//						String subject = dto.getSubject();
+//						subject = subject.replace(search, "<span style='font-weight:bold;color:tomato;'>" + search + "</span>");
+//						dto.setSubject(subject);
+//						
+//						String name = dto.getName();
+//						name = name.replace(search, "<span style='font-weight:bold;color:tomato;'>" + search + "</span>");
+//						dto.setName(name);
+//					}
+//				}//for
 				
 				//새로고침 조회수 증가 방지
 				session.setAttribute("read", false);
