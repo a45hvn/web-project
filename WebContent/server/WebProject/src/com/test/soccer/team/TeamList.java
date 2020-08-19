@@ -16,13 +16,13 @@ import com.test.soccer.board.BoardDAO;
 import com.test.soccer.board.BoardDTO;
 
 @WebServlet("/team/teamlist.do")
-public class teamlist extends HttpServlet{
+public class TeamList extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		//DB갔다오자
-		
+				
 		
 				//1. DB 작업 > select
 			
@@ -32,22 +32,20 @@ public class teamlist extends HttpServlet{
 				//목록 or 검색
 				// - 목록 : list.do
 				// - 검색 : list.do?search=홍길동
-				String search=req.getParameter("search");
-				
+				String search=req.getParameter("search"); // 검색어
+				String searchKeyword=req.getParameter("searchKeyword"); // teamname, coachname, teamground 
 				//정렬기준
-				// - list.do -> seq 정렬로 default
-				// - list.do?sort=seq
-				// - list.do?sort=heart
-				// - list.do?sort=readcount
-				String sort=req.getParameter("sort");
-				if(sort==null ||sort=="") {
-					sort="thread"; //기본값
+				String selectRow=req.getParameter("selectRow");
+				int rownum=10;
+				if(selectRow!=null) {
+					rownum=Integer.parseInt(selectRow);
 				}
+				
 				
 				//페이징 처리 관련 변수
 				int nowPage=0;		//현재 페이지 번호
 				int totalCount=0;	//총 게시물 수
-				int pageSize=10;	//한 페이지당 출력 갯수
+				int pageSize=rownum;	//한 페이지당 출력 갯수
 				int totalPage=0;	//총 페이지 수
 				int begin=0;		// rnum 시작 번호
 				int end=0;			//rnum 끝 번호
@@ -72,8 +70,9 @@ public class teamlist extends HttpServlet{
 				map.put("begin",begin+"");
 				map.put("end",end+"");
 				map.put("search", search);
-				map.put("sort", sort);
-					
+				map.put("searchKeyword", searchKeyword);
+
+				
 				//1.
 				
 				
@@ -83,12 +82,12 @@ public class teamlist extends HttpServlet{
 				
 				TeamlistDAO dao=new TeamlistDAO();
 				ArrayList<TeamlistDTO> list= dao.list(map);
-				dao.close();
+				//dao.close();
+				
 				totalCount =dao.getTotalCount(map);
-				System.out.println(totalCount);
+				//System.out.println(totalCount);
 				
 				totalPage=(int)Math.ceil((double)totalCount/pageSize);
-				System.out.println(totalPage);
 				//list : 게시판 목록 원본
 				// -> list 가공
 				
@@ -142,7 +141,7 @@ public class teamlist extends HttpServlet{
 					pagebar+="</li>";
 				}else {
 					pagebar+="<li>";
-					pagebar+=String.format("<a href='/codestudy/board/list.do?page=%d' aria-label='Previous'>",n-1);
+					pagebar+=String.format("<a href='/soccer/team/teamlist.do?page=%d?selectRow=%s' aria-label='Previous'>",n-1,selectRow);
 					pagebar+="<span aria-hidden='true'>&laquo;</span>";
 					pagebar+="</a>";
 					pagebar+="</li>";
@@ -160,7 +159,7 @@ public class teamlist extends HttpServlet{
 					pagebar+="</li>";
 				}else {
 					pagebar+="<li>";
-					pagebar+=String.format("<a href='/codestudy/board/list.do?page=%d'>%d</a>",n,n);
+					pagebar+=String.format("<a href='/soccer/team/teamlist.do?page=%d&search=%s&searchKeyword=%s'>%d</a>",n,search,searchKeyword,n);
 					pagebar+="</li>";
 				}
 				loop++;
@@ -176,7 +175,7 @@ public class teamlist extends HttpServlet{
 					pagebar+="</li>";	
 				}else {
 					pagebar+="<li>";
-					pagebar+=String.format("<a href=\"/codestudy/board/list.do?page=%d\" aria-label=\"Next\">",n);
+					pagebar+=String.format("<a href=\"/soccer/team/teamlist.do?page=%d\" aria-label=\"Next\">",n);
 					pagebar+="<span aria-hidden=\"true\">&raquo;</span>";
 					pagebar+="</a>";
 					pagebar+="</li>";	
@@ -184,16 +183,16 @@ public class teamlist extends HttpServlet{
 				pagebar+="</ul>";
 				pagebar+=" </nav>";
 				
-				//2.
-				req.setAttribute("list", list);
-				req.setAttribute("search", search);
-				req.setAttribute("sort", sort);
-				req.setAttribute("page", page);
-				req.setAttribute("totalCount", totalCount);
-				req.setAttribute("totalPage", totalPage);
-				req.setAttribute("pagebar", pagebar);
+			//2.
+			req.setAttribute("list", list);
+			req.setAttribute("search", search);
+			req.setAttribute("searchKeyword", searchKeyword);
+			req.setAttribute("page", page);
+			req.setAttribute("totalCount", totalCount);
+			req.setAttribute("totalPage", totalPage);
+			req.setAttribute("pagebar", pagebar);
+			req.setAttribute("selectRow", selectRow);
 		
-		req.setAttribute("list", list);
 		RequestDispatcher dispatcher= req.getRequestDispatcher("/WEB-INF/views/team/teamlist.jsp");
 		dispatcher.forward(req, resp);
 		

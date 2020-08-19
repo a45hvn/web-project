@@ -32,11 +32,30 @@ public class TeamlistDAO {
 	//teamlist 서블릿 -> 팀목록
 	public ArrayList<TeamlistDTO> list(HashMap<String,String> map) {
 		// TODO Auto-generated method stub
+		
+		String where="";
+		String search=map.get("search");
+		String searchKeyword=map.get("searchKeyword");
+		
+		
+		if(searchKeyword==null||searchKeyword.equals("")) {
+			searchKeyword="teamname";
+		}
+		
+		where=String.format("where %s like '%%%s%%' ",searchKeyword,search);
+
+		if(search==null||search=="") {
+			where="";
+		}
+		System.out.println(where);
 		try {
 			//--seq, logo, name, coachname, birth, count, ground, lat,lng, points,league_seq
-			String sql="select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng, points,league_seq from teamlist";
-			stat=conn.createStatement();
-			rs=stat.executeQuery(sql);
+			String sql=String.format("select a.* from (select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng from teamlist2 %s) a where rnum between ? and ?",where);
+			pstat=conn.prepareStatement(sql);
+			pstat.setString(1,map.get("begin"));
+			pstat.setString(2,map.get("end"));
+			rs=pstat.executeQuery();
+			
 			//seq, logo, name, coachname, birth, count, ground, lat,lng
 			ArrayList<TeamlistDTO> list=new ArrayList<TeamlistDTO>();
 			while(rs.next()) {
@@ -51,13 +70,15 @@ public class TeamlistDAO {
 				dto.setGround(rs.getString("ground"));
 				dto.setLat(rs.getString("lat"));
 				dto.setLng(rs.getString("lng"));
-				dto.setPoints(rs.getString("points"));
-				dto.setLeague_seq(rs.getString("league_seq"));
+				//dto.setPoints(rs.getString("points"));
+				//dto.setLeague_seq(rs.getString("league_seq"));
 				
 				list.add(dto);
 			}
-			stat.close();
+			
+			//stat.close(); 이거때매 오류 났었음!!!!
 			return list;
+						
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -66,7 +87,142 @@ public class TeamlistDAO {
 	}
 	//teamlist 서블릿 -> 리스트의 총 개수를 돌려준다.
 	public int getTotalCount(HashMap<String, String> map) {
-		// TODO Auto-generated method stub
+		
+		try {
+			
+			String where = "";
+			
+			String search = map.get("search");
+			String searchKeyword = map.get("searchKeyword");
+			
+			//검색어가 있을때
+			if (search != null) {
+				 where = String.format("where %s like '%%%s%%'", searchKeyword , search);
+				 //teamname, coachname, ground
+					
+			} else if (search == ""|| search==null) { //처음 게시판에 들어왔을때 검색어가 없어 null오류가 떠서 했음
+				where = "";
+			}
+			
+			//String sql = String.format("select count(*) cnt from(select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng from teamlist2) where rnum between ? and ?");
+			String sql = String.format("select count(*) cnt from teamlist2 %s",where);
+			System.out.println(sql);
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			
+			if(rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+
+			System.out.println("BoardDAO.getTotalCount()");
+			e.printStackTrace();
+			
+		}
+		
 		return 0;
+	}
+	//teaminformation.do 에서 개별 팀정보를 전해준다.
+	public TeamInformationDTO getTeamInformation(String teamname) {
+		// TODO Auto-generated method stub
+		try {
+			/*
+			 team.seq seq,member.name coachname, member.image image, coach.introduce,team.logo logo,
+			 team.name teamname, team.birth birth, team.slogan slogan, team.hello hello,
+			 teamground.name ground, teamground.address address, teamground.lat lat, teamground.lng lng,
+			 home.home home
+			 */
+			String where="";
+			if(teamname!=null) {
+				where=String.format("where teamname='%s'",teamname);
+			}
+			String sql=String.format("select*from team %s",where);
+			System.out.println(sql);
+			pstat=conn.prepareStatement(sql);
+
+			rs=pstat.executeQuery();
+			
+			while(rs.next()) {
+				TeamInformationDTO dto=new TeamInformationDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setCoachname(rs.getString("coachname"));
+				dto.setImage(rs.getString("image"));
+				dto.setIntroduce(rs.getString("introduce"));
+				dto.setLogo(rs.getString("logo"));
+				dto.setTeamname(rs.getString("teamname"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setSlogan(rs.getString("slogan"));
+				dto.setHello(rs.getString("hello"));
+				dto.setGround(rs.getString("ground"));
+				dto.setAddress(rs.getString("address"));
+				dto.setLat(rs.getString("lat"));
+				dto.setLng(rs.getString("lng"));
+				dto.setHome(rs.getString("home"));
+				
+				System.out.println("image : "+dto.getImage());
+				System.out.println("address : "+dto.getAddress());
+				System.out.println("birth : "+dto.getBirth());
+				System.out.println("coachname : "+dto.getCoachname());
+				System.out.println("ground : "+dto.getGround());
+				System.out.println("hello : "+dto.getHello());
+				System.out.println("home : "+dto.getHome());
+				System.out.println("introduce : "+dto.getIntroduce());
+				System.out.println("logo"+dto.getLogo());
+				return dto;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
+	//teaminformation 에서 선수 정보를 준다
+	public ArrayList<PlayerInformationDTO> getPlayerInformation(String teamname) {
+		// TODO Auto-generated method stub
+		/*
+		 select*from player
+		 mt.seq member_Seq, mt.backnumber backnumber, mt.height height,
+	     mt.weight weight, position.position position, member.name playername,
+	     member.image playerimage, to_char(member.birth,'yyyymmdd') birth,
+	     team.name teamname, to_char(transfer.completedate,'yyyymmdd') completedate
+		 */
+		try {
+			String where ="";
+			if(teamname!=null||teamname!="") {
+				where=String.format("where teamname='%s'",teamname);
+			}
+			String sql=String.format("select*from player %s",where);
+			
+			//return 할 ArrayList<>
+			ArrayList<PlayerInformationDTO> playerInfo=new ArrayList<PlayerInformationDTO>();
+			
+			pstat=conn.prepareStatement(sql);
+			rs=pstat.executeQuery();
+			while(rs.next()) {
+				PlayerInformationDTO dto=new PlayerInformationDTO();
+				dto.setMember_seq(rs.getString("member_seq"));
+				dto.setBacknumber(rs.getString("backnumber"));
+				dto.setHeight(rs.getString("height"));
+				dto.setWeight(rs.getString("weight"));
+				dto.setPlayerimage(rs.getString("playerimage"));
+				dto.setPlayername(rs.getString("playername"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setCompletedate(rs.getString("completedate"));
+				dto.setPosition(rs.getString("position"));
+				dto.setTeamname(rs.getString("teamname"));
+				
+				playerInfo.add(dto);
+			}
+			
+			return playerInfo;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
 	}
 }//TeamlistDAO
