@@ -8,7 +8,7 @@
             <tr id="menuTop">
                 <td colspan="3"></td>
                 <td rowspan="2" id="rogo" style="width: 1px;"><img src="/soccer/images/rogo_2.png" alt="" id="mainrogo"></td>
-                <td colspan="3">
+                <td colspan="4">
                     <!-- 로그인 전 -->
 					<c:if test="${empty id}">
 					<span>
@@ -38,7 +38,6 @@
 					
 					</c:if>
                 </td>
-                <td></td>
             </tr>
             <tr id="menuTr">
                 <td class="menu menu1"><span class="menuLabel">정규리그일정</span></td>

@@ -191,7 +191,7 @@
         <div style="float: left; width: 1000px; margin-left: 150px; border: 3px solid rgb(37, 65, 80);">
         <div class="ace" style="width: 300px; margin-left: 93px; border: 2px rgb(134, 0, 0) solid ;">
             <div class="playerTitle">주목할 선수</div>
-            <img src="images/man_01.png" alt="">
+            <img src="/soccer/images/man_02.png" alt="">
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>
@@ -213,7 +213,7 @@
         </div>
         <div class="ace" style="margin-left: 200px; width: 300px; border: 2px solid #005093;">
             <div class="playerTitle">주목할 선수</div>
-            <img src="images/man_02.png" alt="">
+            <img src="/soccer/images/man_02.png" alt="">
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>

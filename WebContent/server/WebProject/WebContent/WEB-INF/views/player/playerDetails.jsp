@@ -58,7 +58,7 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerStatus.html">선수현황</a>
+                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerStatus.do">선수현황</a>
                         </ul>
                     </nav>
                 </div>
@@ -81,31 +81,31 @@
             <table class="table table-striped table-bordered">
                 <tr>
                     <th>선수이름</th>
-                    <td>홍길동</td>
+                    <td>${dto.name}</td>
                 </tr>
                 <tr>
                     <th>생년월일</th>
-                    <td>1995-04-15</td>
+                    <td>${dto.birth}</td>
                 </tr>
                 <tr>
                     <th>소속팀</th>
-                    <td>쌍용FC</td>
+                    <td>${dto.team }FC</td>
                 </tr>
                 <tr>
                     <th>등번호</th>
-                    <td>9</td>
+                    <td>${dto.backnumber }</td>
                 </tr>
                 <tr>
                     <th>포지션</th>
-                    <td>FW</td>
+                    <td>${dto.position }</td>
                 </tr>
                 <tr>
                     <th>신장</th>
-                    <td>177</td>
+                    <td>${dto.height }</td>
                 </tr>
                 <tr>
                     <th>체중</th>
-                    <td>70kg</td>
+                    <td>${dto.weight }</td>
                 </tr>
             </table>
         </div>
@@ -138,7 +138,7 @@
                 </tr>
             </table>
         </div>
-        <div class="title glyphicon glyphicon-list">리그 성적</div>
+        <div class="title glyphicon glyphicon-list"> 리그성적</div>
         <div style="margin-left: 50px;">
             <table class="table table-bordered table-striped">
                 <tr>
@@ -161,23 +161,7 @@
                 </tr>
             </table>
         </div>
-        <div class="title glyphicon glyphicon-list">댓글목록</div>
-        <div style="margin-left: 50px;">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>번호</th>
-                    <th>작성자</th>
-                    <th>작성일자</th>
-                    <th>내용</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>축구왕</td>
-                    <td>2020-07-20</td>
-                    <td>저번경기 잘 봤습니다.</td>
-                </tr>
-            </table>
-        </div>
+        
     </div>
 	
 	
