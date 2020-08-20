@@ -23,7 +23,7 @@
 
 
 </style>
-</head>
+</head>  
 
 <%@include file="/WEB-INF/views/inc/header.jsp"%>
 
@@ -58,7 +58,7 @@
 
 
 <!-- 내용 시작 -->
-
+<%-- <c:if test = "${not empty id}"> --%>
 <div class="center">
 
 	<div class="pageContentTitle">
@@ -66,19 +66,21 @@
 			class="contentTitle">마이페이지</span>
 	</div>
 	<div class="mypageContents">
+	
+	<c:forEach items="${list}" var="dto">
 		<div class="myPageInfoBox">
 			<div class="topTitle">
 				<i class="glyphicon glyphicon-user"></i>회원정보
 			</div>
 			<div id="memberpic">
-				<img src="images/man_02.png">
+				<img src="/images/${dto.image}">
 			</div>
 			<div id="membername">
-				<div>이선웅</div>
-				<div>Double Dragon FC</div>
-				<div>Striker</div>
-				<div>185cm</div>
-				<div>84kg</div>
+				<div>${dto.name}</div>
+				<div>${dto.team}</div>
+				<div>${dto.position}</div>
+				<div>${dto.height}</div>
+				<div>${dto.weight}</div>
 			</div>
 			<div id="infoUpdate">
 				<input type="button" class="btn" id="updateBtn" value="정보 수정하기">
@@ -86,6 +88,8 @@
 			</div>
 
 		</div>
+		</c:forEach>
+		
 		<div class="myPageInfoBox">
 			<div class="topTitle">
 				<i class="glyphicon glyphicon-send"></i>DM
@@ -252,7 +256,7 @@
 
 
 
-
+<%-- </c:if> --%>
 
 
 

@@ -14,7 +14,7 @@
 	<script src="https://code.highcharts.com/modules/series-label.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>	
-    <link rel="stylesheet" href="css/communityGalleryBulletinBoard.css">
+    <link rel="stylesheet" href="/soccer/css/communityGalleryBulletinBoard.css">
     
     <style>
     
@@ -61,7 +61,7 @@
 	<!-- 내용 시작 -->
 	
 	   <div class="center">
-        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
+        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">갤러리</span></div>
 
                 <div id="centerMainBox" >   

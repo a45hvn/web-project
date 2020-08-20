@@ -89,9 +89,17 @@ create table TblTeam(
     logo varchar2(1000),
     birth date not null,
     slogan varchar2(200) not null,
-    home_seq number not null
+    TEAMhomnumber not null
 );
+create table tblteamground(
+    seq number primary key,
+    name varchar2(100) not null,
+    address varchar2(500) not null,
+    lat number not null,
+    lng number not null,
+    home_seq number not null
 
+)
 create table TblCoach(
     seq number primary key,
     team_seq number not null,
@@ -233,3 +241,9 @@ create table tblHeart(
     member_seq number not null,
     board_seq number not null
 );
+
+create table tblfriends(
+	seq number primary key,
+	FOLLOW__MEMBER_SEQ number not null,
+	FOLLOWER__MEMBER_SEQ number not null,	
+)
