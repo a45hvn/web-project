@@ -3,6 +3,7 @@ package com.test.soccer.member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -235,12 +236,103 @@ public class MemberDAO {
 		}
 
 
-		public MemberDTO getData() {
-			// TODO Auto-generated method stub
+		public ArrayList<MemberDTO> getData() {
+			
+			
+			try {
+				
+				String sql = "select * from tblhome";
+				stat = conn.createStatement();
+				rs = stat.executeQuery(sql);
+				ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+				
+				while(rs.next()) {
+					MemberDTO dto = new MemberDTO();
+					dto.setHome(rs.getString("home"));
+					
+					
+					list.add(dto);
+					
+				}
+				
+				return list;
+				
+				
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			
 			return null;
 		}
 
 
+		public MemberDTO team1Stat(String team1) {
+			
+			
+			try {
+				String sql = "select distinct  membername from vwteamanlysis where teamname= ?";
+			
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, team1); //회원번호
+				
+				rs = pstat.executeQuery();
+				
+				String membername = "";
+				
+				for(int i=0; i<1; i++) {
+					
+					if(rs.next()) {
+						
+						membername += rs.getString("membername");
+						
+					}
+					
+				}
+				
+				
+				System.out.println(membername);
+				
+				stat.close();
+				rs.close();
+				
+				sql = "select sum(goal) as goal, sum(assist) as assist, sum(foul) as foul from vwteamanlysis where membername = ?";
+				
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, membername); //회원번호
+				
+				rs = pstat.executeQuery();
+				
+				
+				ArrayList<MemberDTO> team1list = new ArrayList<MemberDTO>();
+				
+				while(rs.next()) {
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setName(membername);
+					dto.setLgoal(rs.getString("goal"));
+					dto.setAssist(rs.getString("assist"));
+					dto.setFoul(rs.getString("foul"));
+					
+//					System.out.println(dto.getLgoal());
+//					System.out.println(dto.getAssist());
+//					System.out.println(dto.getFoul());
+					
+					return dto;
+				}
+				
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return null;
+		}
 
 
 

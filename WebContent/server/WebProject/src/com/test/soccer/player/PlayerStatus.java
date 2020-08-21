@@ -86,6 +86,7 @@ public class PlayerStatus extends HttpServlet{
 				
 				ArrayList<MemberDTO> list = dao.getMemberInfo(map);
 				
+				
 				//list : 게시판 목록 원본
 				// -> list 가공
 				
