@@ -31,10 +31,23 @@ public class BulletinBoardContent extends HttpServlet{
 		String selectKeyword = req.getParameter("selectKeyword");	//검색방
 		String selectrow = req.getParameter("selectrow");			//검색 출력 갯수
 		
+	
+		//처음에 아무것도 검색안하고 게시물을 보고 목록 버튼을 누르면 NullPointerException 오류가 떠서 초기값으로 title을 임의로 줬음
+		if(selectKeyword == "") {
+			selectKeyword = "title";
+		}
+		
 		//2.
 		BoardDAO dao = new BoardDAO();
+				
+		//북마크 할경우 -> session.getAttribute("read") == null
+		if(session.getAttribute("read") == null || (boolean)session.getAttribute("read") == false ) {
 		
+			//조회수 증가
+			dao.updateReadCount(seq);
 		
+			session.setAttribute("read", true);			
+		}	
 		
 		BoardDTO dto2 = new BoardDTO();			
 		dto2.setSeq(seq);
@@ -48,14 +61,17 @@ public class BulletinBoardContent extends HttpServlet{
 		content = content.replace("\r\n", "<br>");
 		dto.setContent(content);
 		
+		//&& selectKeyword == "title_content"
 		//b. 검색어 부각시키기
-		if(search != null && search != "") {
+		
+		//검색어가 있고 또는 빈문자가 아니고 && 내용 검색 또는 (제목+내용)검색
+		if((search != null || search != "") && (selectKeyword.equals("content") || selectKeyword.equals("title_content"))) {
 						
 			content = content.replace(search, "<span style='font-weight:bold; color:tomato;'>"+ search + "</span>");
 			dto.setContent(content);
 			
 		}
-		
+	
 	
 		//내용 보내기
 		req.setAttribute("dto", dto);

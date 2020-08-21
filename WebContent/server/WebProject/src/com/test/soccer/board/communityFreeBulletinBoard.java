@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/board/communityFreeBulletinBoard.do")
 public class communityFreeBulletinBoard extends HttpServlet{
@@ -21,6 +23,8 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		//1. DB작업 > select
 		//2. 결과값 전달 + JSP 호출하기
 		
+		//세션 얻어오기
+		HttpSession session = req.getSession();
 		
 		//검색어 받아오기
 		String search = req.getParameter("search");
@@ -123,6 +127,8 @@ public class communityFreeBulletinBoard extends HttpServlet{
 				
 		}//for
 		
+		//새로고침 조회수 증가 방지
+		session.setAttribute("read", false);		
 		
 		//페이지 제작
 		loop = 1; //평범한 루프		

@@ -145,9 +145,12 @@
 	                            
 	                            <input type="hidden" name="selectrow" value="${selectrow}">
                             </form>              
-                            </form>             
-                            <input id="writebtn" type="button" value="글쓰기" onclick=""; class="btn btn-primary">
-                            <form>                          
+                       
+                            <!-- 로그인 시 글쓰기 가능 -->
+                            <c:if test="${not empty id}">
+                            <input id="writebtn" type="button" value="글쓰기" onclick="location.href='/soccer/board/writingDrawup.do';" class="btn btn-primary">
+							</c:if>
+							                                                      
                         </div>
                     </div>
                     
