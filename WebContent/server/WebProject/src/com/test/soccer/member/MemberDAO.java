@@ -3,7 +3,10 @@ package com.test.soccer.member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.test.soccer.DBUtil;
 
@@ -111,6 +114,229 @@ public class MemberDAO {
 			
 			return null;
 		}
+
+		
+		
+		//회원 명단 리스트
+		public ArrayList<MemberDTO> getMemberInfo(HashMap<String, String> map) {
+			
+			
+			try {
+				String where = "";
+				
+				//검색어 있을때
+				if(map.get("search") != null) {
+					
+				
+					where = String.format("and membername like '%%%s%%'", map.get("search"));
+					
+				}
+				
+				
+				String sql = String.format("select * from (select a.*, rownum as rnum from vwplayerInfo a) where rnum >= %s and rnum <= %s %s",map.get("begin"), map.get("end"),where);
+//				System.out.println(map.get("begin"));
+//				System.out.println(map.get("end"));
+				stat = conn.createStatement();
+				rs = stat.executeQuery(sql);
+				
+				
+				ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+				
+				while(rs.next()) {
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setMseq(rs.getString("memberseq"));
+					dto.setImage(rs.getString("image"));
+					dto.setName(rs.getString("membername"));
+					dto.setTeam(rs.getString("teamname"));
+					dto.setBirth(rs.getString("birth").substring(0, 10));
+					dto.setPosition(rs.getString("position"));
+					
+					list.add(dto);
+					
+				}
+				
+				
+				
+				return list;
+				
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			return null;
+		}
+
+
+		public int getTotalCount(HashMap<String, String> map) {
+			try {
+//				System.out.println(map.toString());
+				String where = "";
+				
+				if (map.get("search") != null) {
+					//이름 & 제목 & 내용 - 포괄 검색
+					where = String.format("where membername like '%s'", map.get("search"));
+				}
+
+				String sql = String.format("select count(*) as cnt from vwplayerInfo %s", where);
+				
+				stat = conn.createStatement();
+				rs = stat.executeQuery(sql);
+				
+				if (rs.next()) {
+					return rs.getInt("cnt");
+				}
+				
+
+			} catch (Exception e) {
+//				System.out.println("MemberDAO.getTotalCount()");
+				e.printStackTrace();
+			}
+			
+			return 0;
+		}
+
+
+		public MemberDTO get(String mseq) {
+			
+			try {
+				
+				String sql = "select a.* from(select distinct memberseq, image, membername, teamname, birth, positions, backnumber, height, weight from vwplayerDetails where memberseq = ?)a";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, mseq); //회원번호
+				
+				rs = pstat.executeQuery();
+				
+				if (rs.next()) {
+					
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setMseq(rs.getString("memberseq"));
+					dto.setName(rs.getString("membername"));
+					dto.setBirth(rs.getString("birth").substring(0, 10));
+					dto.setTeam(rs.getString("teamname"));
+					dto.setPosition(rs.getString("positions"));
+					dto.setBacknumber(rs.getString("backnumber"));
+					dto.setHeight(rs.getString("height"));
+					dto.setWeight(rs.getString("weight"));
+					
+					return dto;				
+				}
+
+			} catch (Exception e) {
+				System.out.println("MemberDAO.get()");
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
+
+
+		public ArrayList<MemberDTO> getData() {
+			
+			
+			try {
+				
+				String sql = "select * from tblhome";
+				stat = conn.createStatement();
+				rs = stat.executeQuery(sql);
+				ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+				
+				while(rs.next()) {
+					MemberDTO dto = new MemberDTO();
+					dto.setHome(rs.getString("home"));
+					
+					
+					list.add(dto);
+					
+				}
+				
+				return list;
+				
+				
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			
+			return null;
+		}
+
+
+		public MemberDTO team1Stat(String team1) {
+			
+			
+			try {
+				String sql = "select distinct  membername from vwteamanlysis where teamname= ?";
+			
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, team1); //회원번호
+				
+				rs = pstat.executeQuery();
+				
+				String membername = "";
+				
+				for(int i=0; i<1; i++) {
+					
+					if(rs.next()) {
+						
+						membername += rs.getString("membername");
+						
+					}
+					
+				}
+				
+				
+				System.out.println(membername);
+				
+				stat.close();
+				rs.close();
+				
+				sql = "select sum(goal) as goal, sum(assist) as assist, sum(foul) as foul from vwteamanlysis where membername = ?";
+				
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, membername); //회원번호
+				
+				rs = pstat.executeQuery();
+				
+				
+				ArrayList<MemberDTO> team1list = new ArrayList<MemberDTO>();
+				
+				while(rs.next()) {
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setName(membername);
+					dto.setLgoal(rs.getString("goal"));
+					dto.setAssist(rs.getString("assist"));
+					dto.setFoul(rs.getString("foul"));
+					
+//					System.out.println(dto.getLgoal());
+//					System.out.println(dto.getAssist());
+//					System.out.println(dto.getFoul());
+					
+					return dto;
+				}
+				
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			return null;
+		}
+
+
+
+		
 	
 	
 }

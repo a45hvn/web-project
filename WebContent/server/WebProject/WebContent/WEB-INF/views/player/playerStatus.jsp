@@ -61,7 +61,7 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerStatus.jsp">선수현황</a></li>
+                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="playerStatus.do">선수현황</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -80,30 +80,46 @@
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">전체선수목록</span></div>
       
+    <form method="GET" action="/soccer/player/playerStatus.do" id="searchForm">
+	                <div class="input-group search" style="width: 200px">
+	                    <input type="text" class="form-control" placeholder="선수검색" aria-describedby="basic-addon2" name="search" id="search" required value="${search}">
+	                    <span class="input-group-addon" id="basic-addon2" style="cursor:pointer;" onclick="$('#searchForm').submit();"><span class="glyphicon glyphicon-search"></span></span>
+	                </div>
+	               <!--  <div class="input-group search" style="margin-top: 10px">
+	                    <select name="position1" id="position1">
+                            <option value="all">포지션</option>
+                            <option value="FW">FW</option>
+                            <option value="MF">MF</option>
+                            <option value="DF">DF</option>
+                            <option value="GK">GK</option>
+                        </select>
+	                </div> -->
+      </form>
+      <!-- 
         <div id="playerSearch">
             <table class="table table-bordered" style="border: 1px solid black;">
                 <tr>
                     <th>선수검색</th>
                     <td>
-                        <input type="text" id="playerSearchText">
+                        <input type="text" id="playerSearchText" name="playerSearchText">
                         <input type="button" value="검색" id="playerSearchButton">
-                        <!-- <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search"> -->
+                        <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
                     </td>
                 </tr>
                 <tr>
                     <th>포지션</th>
                     <td>
                         <select name="position1" id="position1">
-                            <option>전체</option>
-                            <option>공격수(FW)</option>
-                            <option>미드필더(MF)</option>
-                            <option>수비수(DF)</option>
-                            <option>골키퍼(GK))</option>
+                            <option value="all">전체</option>
+                            <option value="FW">FW</option>
+                            <option value="MF">MF</option>
+                            <option value="DF">DF</option>
+                            <option value="GK">GK</option>
                         </select>
                     </td>
                 </tr>
             </table>
-        </div>
+        </div> -->
 
         <hr style="border: 1px solid black;">
 
@@ -116,292 +132,44 @@
                     <th>포지션</th>
                     <th>상세보기</th>
                 </tr>
+                <c:forEach items="${list}" var="dto">
+                
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">${dto.name}</span></div>
                         </div>
                     </td>
                     <td>
                         <br>
                         <br>
-                        <span class="teamName">쌍용FC</span>
+                        <span class="teamName">${dto.team}FC</span>
                     </td>
                     <td>
                         <br>
                         <br>
-                        <span class="birth">1980-04-15</span>
+                        <span class="birth">${dto.birth}</span>
                     </td>
                     <td>
                         <br>
                         <br>
-                        <span class="positions">공격수(FW)</span>
+                        <span class="positions">${dto.position}</span>
                     </td>
                     <td>
                         <br>
                         <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
+                        <a href="/soccer/player/playerDetails.do?seq=${dto.mseq}">
+                        	상세보기
+                        </a> 
+                    </td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">권진현</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">골키퍼(GK)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">황용하</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">미드필더(MF)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">김호연</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">수비수(DF)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">미드필더(MF)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">공격수(FW)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">공격수(FW)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">공격수(FW)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">공격수(FW)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="playerInfo">
-                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">홍길동</span></div>
-                        </div>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="teamName">쌍용FC</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="birth">1980-04-15</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <span class="positions">공격수(FW)</span>
-                    </td>
-                    <td>
-                        <br>
-                        <br>
-                        <input type="button" value="상세보기" class="btn btn-primary"></td>
-                </tr>
+                </c:forEach>
                 
             </table>
-
-            <div>
-                <nav>
-                    <ul class="pagination">
-                      <li>
-                        <a href="#" aria-label="Previous">
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li>
-                        <a href="#" aria-label="Next">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                  
-            </div>
+			
+            
         </div>
+		${pagebar}
         
     </div>
 	
@@ -419,51 +187,14 @@
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
 
-    $(".btn-primary").click(function () {
+  /*   $(".btn-primary").click(function () {
 
         location.href="playerDetails.do"
         
-    });
+    }); */
 
-    // 검색결과
+
     
-    $("#playerSearchButton").click(function () {
-
-        //선수이름 입력창 값
-        var playerSearchText = $("#playerSearchText").val();
-        //선수 포지션 선택값
-        var playerPositionS = $("#position1 option:selected").val();
-        
-        //선수리스트 이름 목록
-        var playername = $(".playername");
-
-        //선수리스트 포지션 목록
-        var playerPositionL = $(".positions");
-
-
-
-        // console.log(playerPosition);
-        // console.log(playerPositionL[0].innerText);
-        
-        for(var i=0; i<playername.length; i++) {
-            
-            // console.log(playerSearchText == playername[i]);
-
-            if(playerSearchText == playername[i].innerText && playerPositionS == playerPositionL[i].innerText) {
-
-                playername[i].parentElement.parentElement.parentElement.parentElement.style.display = "show";
-
-             } else {
-                playername[i].parentElement.parentElement.parentElement.parentElement.style.display = "none";
-            }
-
-
-        }
-        
-        
-    }); 
-
-        
     </script>
     
     
