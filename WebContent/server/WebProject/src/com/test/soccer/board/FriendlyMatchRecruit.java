@@ -92,7 +92,7 @@ public class FriendlyMatchRecruit extends HttpServlet{
 	totalCount = dao.getTotalCount(map);
 	System.out.println(totalCount);
 	totalPage = (int)Math.ceil((double)totalCount/pageSize);
-	System.out.println(totalPage);
+	//System.out.println(totalPage);
 		
 	ArrayList<BoardDTO> list = dao.list(map);
 

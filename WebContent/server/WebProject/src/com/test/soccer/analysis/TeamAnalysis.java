@@ -1,6 +1,8 @@
 package com.test.soccer.analysis;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import com.test.soccer.member.AjaxDAO;
 import com.test.soccer.member.MemberDAO;
 import com.test.soccer.member.MemberDTO;
 
@@ -23,12 +29,16 @@ public class TeamAnalysis extends HttpServlet{
 		
 		MemberDAO dao = new MemberDAO();
 		
-		MemberDTO dto = dao.getData();
 		
+		ArrayList<MemberDTO> list = dao.getData();
+		
+		
+		
+		
+		req.setAttribute("list", list);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/analysis/teamAnalysis.jsp");
-		
 		dispatcher.forward(req, resp);	
 	}
 	

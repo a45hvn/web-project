@@ -22,12 +22,28 @@ public class MemberDTO {
 	private String mseq;	//플레이어 번호
 	private String pgoal;	//친선골
 	private String lgoal;	//리그골
+	private String assist;
+	private String foul;
+	
+	private String home; //연고지
 	
 	
 	
 
 
 	
+	public String getAssist() {
+		return assist;
+	}
+	public void setAssist(String assist) {
+		this.assist = assist;
+	}
+	public String getFoul() {
+		return foul;
+	}
+	public void setFoul(String foul) {
+		this.foul = foul;
+	}
 	public String getBacknumber() {
 		return backnumber;
 	}
@@ -135,6 +151,12 @@ public class MemberDTO {
 	}
 	public void setMseq(String mseq) {
 		this.mseq = mseq;
+	}
+	public String getHome() {
+		return home;
+	}
+	public void setHome(String home) {
+		this.home = home;
 	}
 	
 	

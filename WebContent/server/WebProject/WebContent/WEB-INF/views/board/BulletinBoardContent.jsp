@@ -192,9 +192,7 @@
         }
 
         #centerBox6 span {
-            background-color: #1E3440;
             font-size: 1.1em;
-            color: white;  
             padding: 3px;
             font-weight: bold;
         }
@@ -266,7 +264,7 @@
             <!-- 답변목록 -->
             <div id="centerBox3" class="centerBox">                
                 <div id="centerBox6">
-                    <span>댓글</span>
+                    <span>[댓글]</span>
                     <a href="">최신순</a>
                     <a href="">등록순</a>
                 </div>
@@ -288,10 +286,20 @@
                     <span><input type="button" value="등록" class="btn btn-primary"></span>
                 </div>
             </div>
-            <!-- 목록, Top -->
+            <!-- 목록, Top, 수정, 삭제 -->
             <div id="centerBox5" class="centerBox">
                 <span><input type="button" id="top" value="▲TOP" class="btn btn-primary"></span>
-                <span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span> 
+                <span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+               
+				
+                <c:if test="${id == dto.id}">
+                <span><input type="button" value="수정" class="btn btn-primary" onclick="location.href='/soccer/board/edit.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:if>
+                
+                <c:if test="${id == dto.id}">
+                <span><input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/soccer/board/delete.do?seq=${dto.seq}';"></span>
+                </c:if>
+                 
             </div>
 
         </div>   
