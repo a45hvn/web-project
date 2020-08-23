@@ -25,18 +25,28 @@ public class TeamInformation extends HttpServlet{
 		TeamInformationDTO teamInfo=dao.getTeamInformation(teamname);
 		
 		//팀이름 넘겨주고 선수 정보들을 받아온다.(view player)
-		ArrayList<PlayerInformationDTO> playerInfo=new ArrayList<PlayerInformationDTO>();
-		playerInfo=dao.getPlayerInformation(teamname);
+		ArrayList<PlayerInformationDTO> playerInfo = dao.getPlayerInformation(teamname);
 		
-		//팀이름 넘겨주고 팀기록 받아온다.(view teamrecord)
-
-		//선수 총합
+		
+		//차트 만들기
+		//1.팀이름 넘겨주고 rnum 받아온다.(view teamrecord)
+		 int rnum=dao.rnum(teamname);
+		
+		 ArrayList<TeamInformationDTO> rival=dao.getRival(rnum);
+		
+		//리그의 정보를 받아온다.
+		ArrayList<LeagueDTO> league=dao.getLeague();
+		
+		
+		//선수 총합( N 명)
 		int playerInfoSize=playerInfo.size();
 		
 		//이제 정보 넘어갑니다.
 		req.setAttribute("teamInfo", teamInfo);
 		req.setAttribute("playerInfo", playerInfo);
 		req.setAttribute("playerInfoSize", playerInfoSize);
+		req.setAttribute("league", league);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/team/teaminformation.jsp");
 		dispatcher.forward(req, resp);
 		dao.close();
