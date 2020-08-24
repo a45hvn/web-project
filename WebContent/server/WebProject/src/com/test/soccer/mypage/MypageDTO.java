@@ -17,10 +17,7 @@ public class MypageDTO {
 	private String height;
 	private String weight;
 	
-	
-	
-	
-	
+
 	
 	public String getSeq() {
 		return seq;

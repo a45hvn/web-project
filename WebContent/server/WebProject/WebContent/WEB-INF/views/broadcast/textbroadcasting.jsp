@@ -209,60 +209,11 @@
                     <span class="menuTitle2">문자 생중계</span>
 
                     <ul>
+                    <c:forEach items="${broadCastList}" var="dto">
                         <li>
-                            <span class="evtTime">10분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
+                            <span class="evtTime">${dto.time}</span>${dto.team} ${dto.playerName} ${dto.event}
                         </li>
-                        <li>
-                            <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">40분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">41분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">45분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">46분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">69분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">80분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">81분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">90분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">10분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">21분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">40분</span>Lorem ipsum dolor sit amet consectetur adipisicing.
-                        </li>
-                        <li>
-                            <span class="evtTime">41분</span>Lorem ipsum dolor, sit amet consectetur adipisicing.
-                        </li>
+                       </c:forEach>
                     </ul>
                 </div>
                 <div class="entry" id="teamBEntry">
@@ -273,96 +224,6 @@
                     </div>
                     <div class="player teaBAPlayer" id="teamBPlayer1">
                         <span class="backNum">1</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer1">
-                        <span class="backNum">1</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer1">
-                        <span class="backNum">1</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer1">
-                        <span class="backNum">1</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer1">
-                        <span class="backNum">1</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer2">
-                        <span class="backNum">2</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer3">
-                        <span class="backNum">3</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer4">
-                        <span class="backNum">4</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer5">
-                        <span class="backNum">5</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer6">
-                        <span class="backNum">6</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer7">
-                        <span class="backNum">7</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer8">
-                        <span class="backNum">8</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer9">
-                        <span class="backNum">9</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer10">
-                        <span class="backNum">10</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer11">
-                        <span class="backNum">11</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer12">
-                        <span class="backNum">12</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer13">
-                        <span class="backNum">13</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer14">
-                        <span class="backNum">14</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teaBAPlayer" id="teamBPlayer15">
-                        <span class="backNum">15</span>
                         <span class="playerName">박박박</span>
                         <span class="position">ST</span>
                     </div>

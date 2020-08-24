@@ -15,15 +15,8 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <style>
-
-
-
-
-
-
-
 </style>
-</head>  
+</head>
 
 <%@include file="/WEB-INF/views/inc/header.jsp"%>
 
@@ -40,11 +33,11 @@
 				<nav class="subMenu">
 					<ul>
 						<li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a
-							href=" mypage.html"> 마이페이지</a></li>
-						<li class="subMenuItem"><a href="clubSummary.html">구단정보관리</a>
+							href="/soccer/mypage/mypage.do"> 마이페이지</a></li>
+						<li class="subMenuItem"><a href="/soccer/mypage/clubsummary.do">구단정보관리</a>
 						</li>
-						<li class="subMenuItem"><a href="friends.html">친구관리</a></li>
-						<li class="subMenuItem"><a href="dm.html">DM</a></li>
+						<li class="subMenuItem"><a href="/soccer/mypage/friends.do">친구관리</a></li>
+						<li class="subMenuItem"><a href="/soccer/mypage/dm.do">DM</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -62,110 +55,88 @@
 <div class="center">
 
 	<div class="pageContentTitle">
-		<img src="images/rogowithoutletter.png" class="contentTitleImg"><span
-			class="contentTitle">마이페이지</span>
+		<img src="/soccer/images/rogowithoutletter.png"
+			class="contentTitleImg"><span class="contentTitle">마이페이지</span>
 	</div>
 	<div class="mypageContents">
-	
-	<c:forEach items="${list}" var="dto">
-		<div class="myPageInfoBox">
-			<div class="topTitle">
-				<i class="glyphicon glyphicon-user"></i>회원정보
-			</div>
-			<div id="memberpic">
-				<img src="/images/${dto.image}">
-			</div>
-			<div id="membername">
-				<div>${dto.name}</div>
-				<div>${dto.team}</div>
-				<div>${dto.position}</div>
-				<div>${dto.height}</div>
-				<div>${dto.weight}</div>
-			</div>
-			<div id="infoUpdate">
-				<input type="button" class="btn" id="updateBtn" value="정보 수정하기">
-				<input type="button" class="btn" id="withdrawalbtn" value="탈퇴하기">
+
+			<div class="myPageInfoBox">
+				<div class="topTitle">
+					<i class="glyphicon glyphicon-user"></i>회원정보
+				</div>
+		<c:forEach items="${list}" var="dto">
+				<div id="memberpic">
+					<img src="/soccer/images/${dto.image}">
+				</div>
+				<div id="membername">
+					<div>${dto.name}</div>
+					<c:choose>
+						<c:when test="${not empty dto.team }">
+							<div>${dto.team}FC</div>
+						</c:when>
+						<c:otherwise>
+				 <div>팀이 없습니다.</div>
+				</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${not empty dto.position}">
+							<div>${dto.position}</div>
+						</c:when>
+						<c:otherwise>
+				 <div>포지션이 없습니다.</div>
+				</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${not empty dto.height}">
+							<div>${dto.height}cm</div>
+						</c:when>
+						<c:otherwise>
+				<div>--cm</div>
+				</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${not empty dto.weight}">
+							<div>${dto.weight}kg</div>
+						</c:when>
+						<c:otherwise>
+				<div>--kg</div>
+				</c:otherwise>
+					</c:choose>
+				</div>
+				<div id="infoUpdate">
+					<input type="button" class="btn" id="updateBtn" value="정보 수정하기"
+						onclick="location.href='/soccer/mypage/mypageinfoupdate.do?seq=${dto.seq}';">
+					<input type="button" class="btn" id="withdrawalbtn" value="탈퇴하기">
+				</div>
+
+		</c:forEach>
 			</div>
 
-		</div>
-		</c:forEach>
-		
 		<div class="myPageInfoBox">
 			<div class="topTitle">
 				<i class="glyphicon glyphicon-send"></i>DM
 			</div>
 			<table class="DM table table-bordered table-striped "
 				style="border: 0px;">
-				<tr>
-					<td>
-						<div id="dmImgBox">
-							<img src="images/movie_image6.jpg">
-						</div>
-						<div class="dmInfo">
-							<div>권택진</div>
-							<div>
-								안녕하세요 권택진입니다.<span>2020.07.20</span>
+				<c:forEach items="${dmlist}" var="dto2">
+					<tr>
+						<td>
+							<div id="dmImgBox">
+								<img src="/soccer/images/${dto2.writer_image}">
 							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="dmImgBox">
-							<img src="images/rogowithoutletter.png">
-						</div>
-						<div class="dmInfo">
-							<div>오희준</div>
-							<div>
-								안녕하세요<span>2020.07.20</span>
+							<div class="dmInfo">
+								<div>${dto2.writer_name}</div>
+								<div>
+									${dto2.content}<span>${dto2.regdate}</span>
+								</div>
 							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="dmImgBox">
-							<img src="images/고양이.jpg">
-						</div>
-						<div class="dmInfo">
-							<div>이수지</div>
-							<div>
-								안녕<span>2020.07.20</span>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="dmImgBox">
-							<img src="images/movie_image6.jpg">
-						</div>
-						<div class="dmInfo">
-							<div>최재성</div>
-							<div>
-								안녕하세요.<span>2020.07.20</span>
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="dmImgBox">
-							<img src="images/movie_image6.jpg">
-						</div>
-						<div class="dmInfo">
-							<div>유민정</div>
-							<div>
-								친구해요<span>2020.07.20</span>
-							</div>
-						</div>
-					</td>
-				</tr>
+						</td>
+					</tr>
+				</c:forEach>
 			</table>
 			<input type="button" class="btn" value="더보기" id="moreBtn">
-
 		</div>
-		<div class="myPageInfoBox">
+		<div class="myPageInfoBox" style="overflow:scroll;">
 			<div class="topTitle">
 				<i class="glyphicon glyphicon-calendar"></i>경기일정
 			</div>
@@ -175,42 +146,14 @@
 					<th>일시</th>
 					<th>장소</th>
 				</tr>
+				
+			<c:forEach items="${leaguelist}" var="dto3">
 				<tr>
-					<td>vs Bears FC</td>
-					<td>2020.07.25</td>
-					<td>서울시 강남구 역삼동 역삼초등학교</td>
-
+					<td>VS ${dto3.awayName}</td>
+					<td>${dto3.gameDate} </td>
+					<td>${dto3.ground}</td>
 				</tr>
-				<tr>
-					<td>vs Lions</td>
-					<td>2020.08.01</td>
-					<td>서울시 강남구 역삼동 역삼초등학교</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+			</c:forEach>
 			</table>
 			<input type="button" class=" btn" value="더보기" id="moreBtn2">
 
@@ -241,13 +184,14 @@
 					<span aria-hidden="true">X</span>
 				</button>
 			</div>
+			
 			<div class="modal-body">
-				<div>비밀번호를 입력해주세요.</div>
+				<div>탈퇴하시려면 비밀번호를 입력해주세요.</div>
 				<input type="password">
 			</div>
 			<div class="modal-footer">
 				<!-- 비밀번호를 입력하고 ok버튼 누르면 회원 비밀번호와 비교하여 일치했을시 다시 물어보기  -->
-				<a class="btn" id="modalY" href="mypage.html">ok</a>
+				<a class="btn" id="modalY" href="mypage.html" onclick="location.href='/soccer/memberdeleteok.do?seq=${seq}'">ok</a>
 				<button class="btn" type="button" data-dismiss="modal">cancle</button>
 			</div>
 		</div>
@@ -351,13 +295,13 @@
 	$("text").css("fill", "black");
 	$(".highcharts-credits").remove();
 </script>
-<script src="../bootstrap/js/jquery-1.12.4.js"></script>
-<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="/soccer/js/jquery-1.12.4.js"></script>
+<script src="/soccer/js/bootstrap.js"></script>
 
 <script>
 	// 정보수정 버튼 클릭
 	$("#updateBtn").click(function() {
-		location.href = "../webproject/mypageinfoupdate.html"
+		location.href = "/soccer/mypageinfoupdate.do";
 	});
 
 	// 탈퇴하기 모달

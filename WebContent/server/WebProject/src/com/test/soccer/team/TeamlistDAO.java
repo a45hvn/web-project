@@ -162,16 +162,7 @@ public class TeamlistDAO {
 				dto.setLat(rs.getString("lat"));
 				dto.setLng(rs.getString("lng"));
 				dto.setHome(rs.getString("home"));
-				
-				System.out.println("image : "+dto.getImage());
-				System.out.println("address : "+dto.getAddress());
-				System.out.println("birth : "+dto.getBirth());
-				System.out.println("coachname : "+dto.getCoachname());
-				System.out.println("ground : "+dto.getGround());
-				System.out.println("hello : "+dto.getHello());
-				System.out.println("home : "+dto.getHome());
-				System.out.println("introduce : "+dto.getIntroduce());
-				System.out.println("logo"+dto.getLogo());
+
 				return dto;
 			}
 		} catch (Exception e) {
@@ -219,6 +210,108 @@ public class TeamlistDAO {
 			}
 			
 			return playerInfo;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public ArrayList<LeagueDTO> getLeague() {
+		// TODO Auto-generated method stub
+		
+		try {
+			ArrayList<LeagueDTO> list=new ArrayList<LeagueDTO>();
+			String sql="select seq, name, to_char(startdate,'yyyymmdd') startdate,to_char(enddate,'yyyymmdd') enddate from tblleague";
+			stat=conn.createStatement();
+			
+			rs=stat.executeQuery(sql);
+			
+			while(rs.next()) {
+				LeagueDTO dto=new LeagueDTO();
+				dto.setSeq(rs.getString("seq"));
+				dto.setName(rs.getString("name"));
+				dto.setStartDate(rs.getString("startdate"));
+				dto.setEndDate(rs.getString("enddate"));
+				
+				list.add(dto);
+			}//while
+			return list;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	//teaminformation 서블릿에 rnum 건내주기
+	public int rnum(String teamname) {
+		// TODO Auto-generated method stub
+		try {
+			String sql="select * from ranking where name = ? and league_seq>0";
+			pstat=conn.prepareStatement(sql);
+			pstat.setString(1,teamname);
+			rs=pstat.executeQuery();
+			if(rs.next()) {
+				return rs.getInt("rnum");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public ArrayList<TeamInformationDTO> getRival(int rnum) {
+		// TODO Auto-generated method stub
+		
+		int league_seq=((rnum-1)/16) +1;
+		int rank=rnum%16;
+		
+		int up=0;
+		int down=0;
+		
+		if(rank==1) {
+			up=rank;
+			down=rank+2;
+		}else if(rank==0) {
+			up=rank-2;
+			down=16;
+		}else {
+			up=rank-1;
+			down=rank+1;
+		}
+		
+		ArrayList<TeamInformationDTO> list= new ArrayList<TeamInformationDTO>();
+		String[] teamseq=new String[3];
+		try {
+			String sql="select seq from ranking where rnum between ? and ?";
+			pstat=conn.prepareStatement(sql);
+			pstat.setInt(1, up);
+			pstat.setInt(2, down);
+			
+			rs=pstat.executeQuery();
+			
+			while(rs.next()) {
+				int i=0;
+				teamseq[i++]=rs.getString("seq");
+			}
+			pstat.close();
+			
+			String sql2="select * from ranking where seq in(?,?,?)";
+			pstat=conn.prepareStatement(sql2);
+			pstat.setString(1, teamseq[0]);
+			pstat.setString(2, teamseq[1]);
+			pstat.setString(3, teamseq[2]);
+			
+			rs=pstat.executeQuery();
+			while(rs.next()) {
+				TeamInformationDTO dto=new TeamInformationDTO();
+				
+				dto.setRnum(rs.getString("rnum"));
+			}
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

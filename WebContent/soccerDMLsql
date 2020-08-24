@@ -28,7 +28,7 @@ select distinct team.seq team_seq, team.logo logo, team.name name, (select name 
         inner join tblteam team on tf.team_seq=team.seq
             inner join tblmember member on member.seq=tf.member_seq
                 inner join (select*from tblcoach where state=1) coach on coach.team_seq=team.seq
-                    inner join tblteamground ground on ground.seq=team.teamground
+                    inner join tblteamground ground on ground.seq=team.teamground_seq
                     ------------------여기부터는 신규내역
                         left outer join tblteamentry entry on entry.team_seq = team.seq
                     where mt.state=1 order by seq;
@@ -50,13 +50,13 @@ select distinct team.seq team_seq, team.logo logo, team.name name, (select name 
         inner join tblteam team on tf.team_seq=team.seq
             inner join tblmember member on member.seq=tf.member_seq
                 inner join (select*from tblcoach where state=1) coach on coach.team_seq=team.seq
-                    inner join tblteamground ground on ground.seq=team.teamground
+                    inner join tblteamground ground on ground.seq=team.teamground_seq
                     ------------------여기부터는 신규내역
                         left outer join tblteamentry entry on entry.team_seq = team.seq
                     where mt.state=1 order by count;
 commit;
 
-select * from(select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng from teamlist2) where rnum between 1 and 10
+select * from(select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng from teamlist2) where rnum between 1 and 10;
 select count(*) cnt from tbllist2;
 select*from tblleaguegame;
 select*from home;
