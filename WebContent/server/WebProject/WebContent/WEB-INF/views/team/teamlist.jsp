@@ -311,7 +311,7 @@ function e(lat, lng){
 	 $("#showmap").modal("show");
 		setTimeout(function(){
 			map(lat,lng);
-			map.relayout(); 
+// 			map.relayout(); 
 				}, 200);
 }
 

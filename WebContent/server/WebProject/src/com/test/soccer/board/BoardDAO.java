@@ -204,13 +204,17 @@ public class BoardDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		return null;
 		
+	}
+	
 	//BulletinBoardContent 서블릿 -> 글번호 주고 게시물 받아오기
 	public BoardDTO content(String seq) {
 		
 		try {
 			
-			String sql = select 
+//			String sql = select 
 			
 			
 		} catch (Exception e) {
