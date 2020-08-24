@@ -234,6 +234,8 @@ public class BoardDAO {
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setMember_seq(rs.getString("member_seq"));
 				
+				dto.setOrgfilename(rs.getString("image"));
+				
 				dto.setName(rs.getString("name"));
 				dto.setId(rs.getString("id"));
 				return dto;
