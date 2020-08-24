@@ -26,16 +26,30 @@ public class Mypage extends HttpServlet {
 		String name = (String) session.getAttribute("name");
 		String pic = (String) session.getAttribute("pic");
 
-		//1. 작업 위임 
+		// 작업 위임 
 		
 		MypageDAO dao = new MypageDAO();
 		MypageDTO dto = new MypageDTO();
 		
+		DmDTO dto2 = new DmDTO();
+		LeagueDTO dto3 = new LeagueDTO();
 		
 		ArrayList<MypageDTO> list = dao.list(seq);
+		ArrayList<DmDTO> dmlist = dao.dmlist(seq);
+		ArrayList<LeagueDTO> leaguelist = dao.leaguelist(seq);
 	
+		
+		
+		
+		//데이터 반환하기
 		req.setAttribute("list", list);
+		req.setAttribute("dmlist", dmlist);
+		req.setAttribute("seq", seq);
+		req.setAttribute("leaguelist", leaguelist);
 		System.out.println(list);
+		System.out.println(dmlist);
+		System.out.println(leaguelist);
+		
 		
 	RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp");
 	dispatcher.forward(req, resp);

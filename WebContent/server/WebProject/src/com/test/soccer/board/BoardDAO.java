@@ -206,6 +206,9 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return null;
+		
+	}
+	
 	}
 	
 	
@@ -215,6 +218,7 @@ public class BoardDAO {
 		
 		try {
 			
+//			String sql = select 
 			String sql = "select a.*, (select name from tblmember where seq = a.member_seq) as name, (select id from tblmember where seq = a.member_seq) as id from tblBoard a where seq = ?";
 			
 			
