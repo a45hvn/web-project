@@ -56,6 +56,7 @@
             float: right;   
             margin-right: 80px;       
             margin-bottom: 25px;
+            margin-right: 85px;
             
         }
       
@@ -73,10 +74,11 @@
         }
         
         #centerBox1 select {
-            height: 25px;
+            height: 30px;
+            padding: 0px;
         }
 
-        #centerBox5 input {
+        #centerBox5 input, #centerBox5 button{
             /* color: white;  */
             /* background-color: #1E3440 ; */
             line-height: 0.8em;
@@ -86,6 +88,14 @@
         #centerBox4 input {
             /* color: white;  */
             /* background-color: #1E3440 ; */
+        }
+        
+        #centerBox2 input {
+        	padding: 5px;
+        }
+        
+        #centerBox3 textarea {
+        	padding: 5px;
         }
     	
     
@@ -128,40 +138,49 @@
     <!-- 상단부 끝 -->
 
 	<!-- 내용 시작 -->
-	
+	<!--  SEQ, max 또는 .nextval
+	    TITLE, title
+	  CONTENT, content 
+	  REGDATE, default sysdate
+	READCOUNT, ?
+	    IMAGE, image
+   MEMBER_SEQ, session에서 가져옴
+ CATEGORY_SEQ  CATEGORY_SEQ
+ 	 -->
 	     <div class="center">
             <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
                     class="contentTitle">자유게시판</span></div>
     
                 <!-- 메인박스  -->
-                    <div id="centerMainBox">
-                                 
+                <form method="POST" enctype="multipart/form-data" action="/soccer/board/writingDrawupok.do">
+                    <div id="centerMainBox">                                 
                         <!-- 게시판 선택 -->
                         <div id="centerBox1">
                             <span>게시판 :</span>
-                            <select name="" id="selectrow">
-                                <option value="">게시판 선택</option>
-                                <option value="">질문게시판</option>
-                                <option value="">갤러리</option>   
-                                <option value="">자유게시판</option>   
-                                <option value="">강의게시판</option>   
-                                <option value="">친선경기모집</option>  
-                                <option value="">용병모집</option> 
+                            <select name="category_seq" id="category_seq">
+                                <optgroup label="게시판 선택">
+	                                <option value="1">질문게시판</option>
+	                                <option value="2">갤러리</option>   
+	                                <option value="3">자유게시판</option>   
+	                                <option value="4">강의게시판</option>   
+	                                <option value="5">친선경기모집</option>  
+	                                <option value="6">용병모집</option>
+                                </optgroup> 
                             </select>
-                            <select name="" id="selectrow">
+                            <select name="neglect" id="neglect">
                                 <option value="">말머리 선택</option>                
                             </select>
                         </div>        
                 
-                        <!-- 제목 입력 -->
+                        <!-- 제목  -->
                         <div id="centerBox2">
                             <span>제목 : </span>
-                            <input type="text" name="" id="" size="70px">
+                            <input type="text" name="title" id="title" size="70px" placeholder="제목을 입력해주세요" required>
                         </div>
                         
-                        <!-- 내용 입력 -->
+                        <!-- 본문  -->
                         <div id="centerBox3">          
-                            <textarea name="" id="" cols="120" rows="17"></textarea>
+                            <textarea name="content" id="content" cols="120" rows="17" placeholder="내용을 입력해주세요" required></textarea>
                         </div>
                         
                         <!-- 파일첨부 -->
@@ -169,20 +188,21 @@
                             <div id="centerBox4">
                                 <div>
                                     <span>파일첨부 :</span>
-                                    <span><input type="file" class="form-control" style="height: 25px; font-size: 0.5em; padding: 1.8px;" ></span>
+                                    <span><input type="file" id="attach" name="attach" class="form-control" style="height: 25px; font-size: 0.5em; padding: 1.8px;" ></span>
                                 </div>
                             </div>                          
                         </div>
                         
                         <!-- 확인/미리보기 버튼 -->
                         <div id="centerBox5">            
-                                <input class="btn btn-primary" id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'";>
-                                <input class="btn btn-primary" id="writebtn2" type="button" value="미리보기" onclick="location.href='ex01.html'";>         
+                                <!-- <input class="btn btn-primary" id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'";> -->
+                                <button class="btn btn-primary" id="writebtn1" type="submit" value="확인"><span>확인</span></button>
+                                <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do';">         
                         </div>
                         <div style="clear: both;"></div>
                         
                     </div>
-    
+    			</form>
         </div>
 	
 	

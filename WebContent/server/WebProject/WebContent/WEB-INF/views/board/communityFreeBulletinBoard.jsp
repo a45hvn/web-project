@@ -111,7 +111,7 @@
                                 <tr>
                                     <td>${dto.seq}</td>
                                     <td>
-                                    	<a href="/soccer/board/BulletinBoardContent.do?seq=${dto.seq}">
+                                    	<a href="/soccer/board/BulletinBoardContent.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}">
                                     		${dto.title}
                                     	</a>
                                     </td>
@@ -144,8 +144,13 @@
 	                            <input id="searchbtn" type="button" value="검색" class="btn btn-primary" onclick="$('#searchForm').submit();">
 	                            
 	                            <input type="hidden" name="selectrow" value="${selectrow}">
-                            </form>                           
-                            <input id="writebtn" type="button" value="글쓰기" onclick=""; class="btn btn-primary">                          
+                            </form>              
+                       
+                            <!-- 로그인 시 글쓰기 가능 -->
+                            <c:if test="${not empty id}">
+                            <input id="writebtn" type="button" value="글쓰기" onclick="location.href='/soccer/board/writingDrawup.do';" class="btn btn-primary">
+							</c:if>
+							                                                      
                         </div>
                     </div>
                     
@@ -185,8 +190,7 @@
              
         //한페이지 당 출력 갯수
     	document.getElementById("selectrow").onchange = function(){    
-        
-        	
+                	
         	location.href = "/soccer/board/communityFreeBulletinBoard.do?selectrow=" + $("#selectrow").val() 
         			+ "&selectKeyword=" + $("#selectKeyword").val()
         			+ "&search=" + $("#search").val()    

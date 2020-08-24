@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
+    
     <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/series-label.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -47,7 +48,7 @@
         .team{
             width: 200px;
             border: 1px black solid;
-            height: 90px;
+            height: 60px;
             margin-top: 10px;
             margin-bottom: 10px;
             border-radius: 10% 10%;
@@ -152,38 +153,54 @@
         </div>
 
         <div>
-            <select name="" id="team1" style="margin-left: 260px;">
-                <option value="">경기</option>
+            <select name="home1" id="home1" style="margin-left: 260px;" > <!-- onchange="this.form.submit()" -->
+            	
+            	<option value="">지역선택</option>
+            	<option value="">전체</option>
+            	<c:forEach items="${list}" var="dto">
+            	
+                <option value="${dto.home}">${dto.home}</option>
+                
+                </c:forEach>
             </select>
-            <select name="" id="team1">
-                <option value="">쌍용FC</option>
-                <option value="">타겟FC</option>
-                <option value="">쌍용FC</option>
-                <option value="">쌍용FC</option>
-                <option value="">쌍용FC</option>
+            
+            <select name="team1" id="team1">
+                <%-- <c:forEach items="${listteam}" var="dto">
+            	
+                <option value="${dto.team}">${dto.team}</option>
+                
+                </c:forEach> --%>
             </select>
-            <select name="" id="team1" style="margin-left: 450px;">
-                <option value="">서울</option>
+            
+            
+            
+            <select name="home2" id="home2" style="margin-left: 450px;" >
+                
+                <option value="">지역선택</option>
+                <option value="">전체</option>
+                
+                <c:forEach items="${list}" var="dto">
+            	
+                <option value="${dto.home}">${dto.home}</option>
+                
+                </c:forEach>
             </select>
-            <select name="" id="team1">
-                <option value="">청춘FC</option>
-                <option value="">역삼FC</option>
-                <option value="">강남FC</option>
-                <option value="">종로FC</option>
-                <option value="">천호FC</option>
+            <select name="team2" id="team2">
+                <!-- <option value="">청춘FC</option> -->
             </select>
+            
         </div>
 
         <!-- 팀 vs 팀  -->
         <div id="title" style="float: left">
             <div id="redTeam" class="team" style="float: left;">
-                쌍용FC <br> (경기) <br> 상대전적 : 2승
+                <div id="blueTeamName"></div>  <div id="blueTeamHome"></div>            
             </div>
             <div id="vs" style="float: left">
                 vs
             </div>
             <div id="blueTeam" class="team" style="float: left">
-                청춘FC <br> (서울) <br> 상대전적 : 2패
+                <div id="redTeamName"></div>  <div id="redTeamHome"></div>   
             </div>
         </div>
         
@@ -191,29 +208,29 @@
         <div style="float: left; width: 1000px; margin-left: 150px; border: 3px solid rgb(37, 65, 80);">
         <div class="ace" style="width: 300px; margin-left: 93px; border: 2px rgb(134, 0, 0) solid ;">
             <div class="playerTitle">주목할 선수</div>
-            <img src="images/man_01.png" alt="">
+            <img src="/soccer/images/man_02.png" alt="">
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>
-                    <td>홍길동</td>
+                    <td><span id="blueTeamPlayer"></span></td>
                 </tr>
                 <tr>
                     <th>득점</th>
-                    <td>10</td>
+                    <td><span id="blueTeamGoal"></span></td>
                 </tr>
                 <tr>
                     <th>도움</th>
-                    <td>5</td>
+                    <td><span id="blueTeamAssist"></span></td>
                 </tr>
                 <tr>
-                    <th>평균평점</th>
-                    <td>7</td>
+                    <th>파울</th>
+                    <td><span id="blueTeamFoul"></span>}</td>
                 </tr>
             </table>
         </div>
         <div class="ace" style="margin-left: 200px; width: 300px; border: 2px solid #005093;">
             <div class="playerTitle">주목할 선수</div>
-            <img src="images/man_02.png" alt="">
+            <img src="/soccer/images/man_02.png" alt="">
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>
@@ -283,9 +300,105 @@
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
 
-        
-
-        
+    /* function sm() {
+    	document.frm.submit();
+    	}
+ */
+       $("#home1").change(function(){
+    	   
+    		$("#team1").text("");
+    	   
+    		$.ajax({
+    		   type:"GET",
+    		   url: "/soccer/analysis/teamAnalysisok.do",
+    		   data : "home1=" + $("#home1 option:selected").val(),
+    		   dataType: "json",
+    		   success:function(result){
+    			   $(result).each(function(index,item){
+    				   $("#team1").append("<option value="+item.team+">" + item.team+"FC"+ "</option>");   
+    			   })
+    			   
+    			   
+    		   },
+    		   error:function(a,b,c){
+    			   console.log(a,b,c);
+    		   }
+    	   })
+       }) 
+       
+       $("#home2").change(function(){
+    	   
+    		$("#team2").text("");
+    	   
+    		$.ajax({
+    		   type:"GET",
+    		   url: "/soccer/analysis/teamAnalysisok.do",
+    		   data : "home1=" + $("#home2 option:selected").val(),
+    		   dataType: "json",
+    		   success:function(result){
+    			   $(result).each(function(index,item){
+    				   $("#team2").append("<option value="+item.team+">" + item.team+"FC"+ "</option>");   
+    			   })
+    			   
+    			   
+    		   },
+    		   error:function(a,b,c){
+    			   console.log(a,b,c);
+    		   }
+    	   });
+    	   
+    	   
+       }) 
+       
+      
+     $("#team1").change(function(){
+    	   
+    		
+    		$("#blueTeamName").text($("#team1 option:selected").val()+"FC");
+    		$("#blueTeamHome").text("[ "+$("#home1 option:selected").val()+" ]");
+    	   
+    		 $.ajax({
+    		   type:"GET",
+    		   url: "/soccer/analysis/teamAnalysisok.do",
+    		   data : "team1=" + $("#team1 option:selected").val(),
+    		   dataType: "json",
+    		   success:function(result){
+    			   
+    			   
+    			   item.each(function(item, index){
+    				   
+    				   
+    				   
+    			   )} 
+    		   },
+    		   error:function(a,b,c){
+    			   console.log(a,b,c);
+    		   }
+    	   }) 
+       })  
+       
+       
+       $("#team2").change(function(){
+    	   
+    		
+    		$("#redTeamName").text($("#team2 option:selected").val()+"FC");
+    		$("#redTeamHome").text("[ "+$("#home2 option:selected").val()+" ]");
+    	   
+    		 $.ajax({
+    		   type:"GET",
+    		   url: "/soccer/analysis/teamAnalysisok.do",
+    		   data : "team2=" + $("#team2 option:selected").val(),
+    		   dataType: "json",
+    		   success:function(result){
+    			  
+    			   
+    		   },
+    		   error:function(a,b,c){
+    			   console.log(a,b,c);
+    		   }
+    	   }) 
+       })  
+       
     </script>
     
     

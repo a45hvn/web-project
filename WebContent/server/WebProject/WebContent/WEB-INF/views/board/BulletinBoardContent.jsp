@@ -19,7 +19,7 @@
 
         .center {            
             padding-top: 50px;
-            background-color: #eee;     
+            /* background-color: #eee;      */
         }
 
         /* 박스전체 */
@@ -35,7 +35,7 @@
         #centerBox2 {
             margin-top: 25px;
             border-bottom: 1px solid #0C1B23; 
-            border-top: 1px solid #0C1B23; 
+            /* border-top: 1px solid #0C1B23; */ 
             border-bottom-style: dashed;
             width: 1150px;            
             display: inline-block;
@@ -72,20 +72,46 @@
         }
 
         /* 질문박스 span들 */
-        #centerBox2 span {
+        #centerBox2 div:nth-child(1) span:nth-child(1) {
+            /* border: 1px solid blue;                         */
+            padding-top: 5px;            
+            margin-left: 5px;         
+            margin-right: 5px;   
+            font-weight: bold;                 ;                 
+        }
+        
+        
+        #centerBox2 div:nth-child(1) span:nth-child(2) {
             /* border: 1px solid blue;                         */
             padding-top: 5px;            
             margin-left: 5px;   
             float: right;                 
-            margin-right: 5px;   
+            margin-right: 15px;   
+            font-weight: bold;                 ;                 
+        }
+        
+        #centerBox2 span:nth-child(3) {
+            /* border: 1px solid blue;                         */
+            padding-top: 5px;            
+            margin-left: 5px;   
+            float: right;                 
+            margin-right: 15px;   
             font-weight: bold;                 ;                 
         }
 
         /* 질문박스 제목 */
-        #centerBox2 span:nth-child(1) {
-            float: left;            
-            padding-left: 5px;                        
+        #centerBox2 div:nth-child(1) {
+            /* float: left;  */           
+            padding-left: 5px;
+            width: 1150px;         
+            border-bottom: 1px solid #0C1B23;
+            border-top: 1px solid #0C1B23;
+            background-color: #eee; 
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
+        
+        
 
         /* 질문박스 내용 */
         #centerBox2 .content {
@@ -139,6 +165,7 @@
         /* 댓글쓰기 내용 */
         #centerBox4 textarea {
             resize:none;
+            padding-left: 5px;
         }
 
         /* 목록버튼, TOP버튼 */
@@ -165,9 +192,7 @@
         }
 
         #centerBox6 span {
-            background-color: #1E3440;
             font-size: 1.1em;
-            color: white;  
             padding: 3px;
             font-weight: bold;
         }
@@ -228,7 +253,7 @@
             <!-- 질문한 글 -->
             <div id="centerBox2" class="centerBox">
                 <div>
-                    <span>제목:${dto.seq}</span>
+                    <span>제목:${dto.title}</span>
                     <span>작성시간: ${dto.regdate}</span>
                     <span>작성자 | ${dto.name}</span>
                     <div style="clear: both;"></div>
@@ -239,7 +264,7 @@
             <!-- 답변목록 -->
             <div id="centerBox3" class="centerBox">                
                 <div id="centerBox6">
-                    <span>댓글</span>
+                    <span>[댓글]</span>
                     <a href="">최신순</a>
                     <a href="">등록순</a>
                 </div>
@@ -261,10 +286,20 @@
                     <span><input type="button" value="등록" class="btn btn-primary"></span>
                 </div>
             </div>
-            <!-- 목록, Top -->
+            <!-- 목록, Top, 수정, 삭제 -->
             <div id="centerBox5" class="centerBox">
-                <span><input type="button" value="▲TOP" class="btn btn-primary"></span>
-                <span><input type="button" value="목록" class="btn btn-primary"></span>
+                <span><input type="button" id="top" value="▲TOP" class="btn btn-primary"></span>
+                <span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+               
+				
+                <c:if test="${id == dto.id}">
+                <span><input type="button" value="수정" class="btn btn-primary" onclick="location.href='/soccer/board/edit.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:if>
+                
+                <c:if test="${id == dto.id}">
+                <span><input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/soccer/board/delete.do?seq=${dto.seq}';"></span>
+                </c:if>
+                 
             </div>
 
         </div>   
@@ -284,19 +319,27 @@
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
-
+	
+    	//마우스를 버튼위로 올렸을 때 색 변화
     	$("#centerBox5 > span input, #centerBox4 span input, #centerBox3 input ").mouseover(function() {
 
        		$(this).css("background-color", "#92DAEC").css("color", "black");
 
         })
 
+        //마우스를 버튼위로 내렸을 때 색 변화
         $("#centerBox5 > span input, #centerBox4 span input, #centerBox3 input ").mouseout(function() {
 
         	$(this).css("background-color", "").css("color", "");
 
         })
 
+        $("#top").click(function(){
+        	
+        	window.scrollTo(0,450);
+        	
+        });
+        
         
     </script>
     

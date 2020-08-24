@@ -62,7 +62,7 @@
 	
 }
 
-#sortform, #selectrow {
+#sortform, #selectRow {
 	float: right;
 	/* border: 1px solid gold; */
 }
@@ -72,7 +72,7 @@
 	margin-top: 17px;
 }
 
-#selectrow {
+#selectRow {
 	margin-top: 10px;
 	color: black;
 	padding-bottom: 5px;
@@ -200,16 +200,15 @@
 
 <div class="center">
 	<div class="pageContentTitle">
-		<img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span
-			class="contentTitle">전체 팀 목록</span>
+		<img src="../images/rogowithoutletter.png" class="contentTitleImg" /><span class="contentTitle">전체 팀 목록</span>
 	</div>
 
 	<div id="centerMainBox">
 		<div id="centerbox1">
-			<select name="" id="selectrow">
-				<option value="">10개씩 보기</option>
-				<option value="">25개씩 보기</option>
-				<option value="">50개씩 보기</option>
+			<select name="selectRow" id="selectRow" >
+				<option value="10">10개씩 보기</option>
+				<option value="25">25개씩 보기</option>
+				<option value="50">50개씩 보기</option>
 			</select> <span id="sortform"> <a href="#"
 				class="glyphicon glyphicon-list"></a> <a href="#"
 				class="glyphicon glyphicon-list-alt"></a> <a href="#"
@@ -217,7 +216,6 @@
 			</span>
 		</div>
 		<div id="centerbox2">
-
 			<table class="table table-striped table-bordered" id="verticalTable"">
 				<thead>
 					<tr>
@@ -231,68 +229,55 @@
 					</tr>
 				</thead>
 				<tbody>
-
 					<c:forEach items="${list}" var="dto">
 						<tr>
 							<td>${dto.rnum}</td>
-							<td><img
-								src="/soccer/images/${dto.logo==null?nopic.png:dto.logo}" alt="" /></td>
-							<td>${dto.name}FC</td>
+							<td><img src="/soccer/images/${dto.logo==null?nopic.png:dto.logo}" alt="" /></td>
+							<td><span onclick="location.href='/soccer/team/teaminformation?teamname=${dto.name}'">${dto.name}FC</span></td>
 							<td>${dto.coachname }</td>
 							<td>${dto.birth}</td>
 							<td>${dto.count}명</td>
 							<td>${dto.ground}<span class='glyphicon glyphicon-map-marker showmapbtn' id="showmapbtn" onclick="e(${dto.lat}, ${dto.lng});" ></span></td>
 							<%-- 연고지 따위는 넣지 않습니다. --%>
-							
 						</tr>
-						
-						
-						<div class="modal fade" id="showmap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header" style="background-color: #25282A;">
-						<h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">홈구장 위치</h5>
-					</div>
-					
-					<div class="modal-body">
-						
-						<!-- 여기서 지도가 나옴 -->
-						
-						
-						
-						<div id="map" style="width: 100%; height: 350px;">
-						
+
+						<!-- 모달 -->
+						<div class="modal fade" id="showmap" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header" style="background-color: #25282A;">
+										<h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">홈구장 위치</h5>
+									</div>
+										<!-- 여기서 지도가 나옴 -->
+									<div class="modal-body">
+										<div id="map" style="width: 100%; height: 350px;"></div>
+									</div>
+										<!--  종료버튼  -->
+									<div class="modal-footer">
+										<button class="btn" type="button" data-dismiss="modal">나가기</button>
+									</div>
+								</div>
+							</div>
 						</div>
-						
-					</div>
-					
-					<div class="modal-footer">
-						<!--   -->
-						<a class="btn" id="modalY" href="mypage.html">ok</a>
-						<button class="btn" type="button" data-dismiss="modal">cancle</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<!-- 모달 -->
-		
+
 		<!-- 페이지 바 들어가는 곳 -->
+		<div id="pagebar" style="float:right">${pagebar}</div>
+		
 		<div id="centerbox4">
 			<div style="float: right;">
-				<form id="sendForm" method="GET" action="/team/teamlist.do">
-					<select name="selectrow" id="selectrow">
-						<option value="teamname">팀명</option>
-						<option value="coach">감독</option>
-						<option value="teamground">홈구장</option>
-					</select> <input id="searchkeyword" type="text" size="35" style="" /> <input
-						class="btn btn-primary" id="searchbtn" type="button" value="검색" />
-					<input class="btn btn-primary" id="writebtn" type="button"
-						value="글쓰기" onclick="$('#searchForm').submit();" />
+				<form id="sendForm" method="GET" action="/soccer/team/teamlist.do">
+					<select name="searchKeyword" id="searchKeyword">
+						<option value="name">팀명</option>
+						<option value="coachname">감독</option>
+						<option value="ground">홈구장</option>
+					</select>
+					<input id="search" name="search" type="text" size="35" style="" value="${search}" />
+					<input class="btn btn-primary" id="searchbtn" type="submit" value="검색" />
 				</form>
 			</div>
 		</div>
@@ -349,10 +334,8 @@ $("#centerbox2 td:last-child")
     .children()
     .mouseover(function () {
         $(this).css({ cursor: "pointer" });
-    })
-    .click(function () {
-        console.log($(this).parent().text());
     });
+    
             
         //지도창 열고 보내준다.
         function map(lat, lng){
@@ -363,6 +346,12 @@ $("#centerbox2 td:last-child")
 <!-- 카카오맵 받아오기 -->
 <script type="text/javascript"	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a12f06129cc70984e1f6a7fa73684a75"></script>
 <script>
+$("#selectRow").change(function(){
+	location.href="/soccer/team/teamlist.do?selectRow="+$("#selectRow").val();
+})
+$("#selectRow").val(${selectRow});
+
+$('#searchKeyword').val('${searchKeyword}').prop("selected",true);
 function map(lat,lng){
 	
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 

@@ -8,7 +8,7 @@
             <tr id="menuTop">
                 <td colspan="3"></td>
                 <td rowspan="2" id="rogo" style="width: 1px;"><img src="/soccer/images/rogo_2.png" alt="" id="mainrogo"></td>
-                <td colspan="3">
+                <td colspan="4">
                     <!-- 로그인 전 -->
 					<c:if test="${empty id}">
 					<span>
@@ -38,7 +38,6 @@
 					
 					</c:if>
                 </td>
-                <td></td>
             </tr>
             <tr id="menuTr">
                 <td class="menu menu1"><span class="menuLabel">정규리그일정</span></td>
@@ -46,7 +45,7 @@
                 <td class="menu menu3"><span class="menuLabel">선수현황</span></td>
                 <td class="menu menu4"><span class="menuLabel">전력분석</span></td>
                 <td class="menu menu5"><span class="menuLabel">문자중계</span></td>
-                <td class="menu menu6"><span class="menuLabel">게시판</span></td>
+                <td class="menu menu6"><span class="menuLabel"><a href="/soccer/board/communityFreeBulletinBoard.do">게시판</a></span></td>
                 <td class="menu menu7"><span class="menuLabel">공지사항</span></td>
             </tr>
         </table>

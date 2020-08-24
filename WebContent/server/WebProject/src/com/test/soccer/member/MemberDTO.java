@@ -13,7 +13,79 @@ public class MemberDTO {
 	private String homeseq;
 	private String regdate;
 	
+	private String team;	//팀이름
+	private String position;//포지션
+	private String backnumber; //등번호
+	private String height; //키
+	private String weight; //몸무게
 	
+	private String mseq;	//플레이어 번호
+	private String pgoal;	//친선골
+	private String lgoal;	//리그골
+	private String assist;
+	private String foul;
+	
+	private String home; //연고지
+	
+	
+	
+
+
+	
+	public String getAssist() {
+		return assist;
+	}
+	public void setAssist(String assist) {
+		this.assist = assist;
+	}
+	public String getFoul() {
+		return foul;
+	}
+	public void setFoul(String foul) {
+		this.foul = foul;
+	}
+	public String getBacknumber() {
+		return backnumber;
+	}
+	public void setBacknumber(String backnumber) {
+		this.backnumber = backnumber;
+	}
+	public String getHeight() {
+		return height;
+	}
+	public void setHeight(String height) {
+		this.height = height;
+	}
+	public String getWeight() {
+		return weight;
+	}
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+	public String getPgoal() {
+		return pgoal;
+	}
+	public void setPgoal(String pgoal) {
+		this.pgoal = pgoal;
+	}
+	public String getLgoal() {
+		return lgoal;
+	}
+	public void setLgoal(String lgoal) {
+		this.lgoal = lgoal;
+	}
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
 	public String getSeq() {
 		return seq;
 	}
@@ -73,6 +145,18 @@ public class MemberDTO {
 	}
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
+	}
+	public String getMseq() {
+		return mseq;
+	}
+	public void setMseq(String mseq) {
+		this.mseq = mseq;
+	}
+	public String getHome() {
+		return home;
+	}
+	public void setHome(String home) {
+		this.home = home;
 	}
 	
 	

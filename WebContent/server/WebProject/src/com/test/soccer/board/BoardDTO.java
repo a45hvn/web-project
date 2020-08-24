@@ -7,13 +7,58 @@ public class BoardDTO {
 	private String content;			//내용
 	private String regdate; 		//등록일
 	private int readcount; 			//조회수
-	//private int heart; 			//추천수
 	private String member_seq; 		//회원번호
 	private String category_seq;	//카테고리 번호
 	private String image;			//이미지
 	private String name;			//회원이름	
 	private String team;
 	private int gap;
+	
+	private String id;				//회원 아이디
+	
+	private String filename;
+	private String orgfilename; 
+	
+	private String search;			//검색어
+	private String selectKeyword;	//검색 키워드
+	private String selectrow;		//페이지당 출력 갯수
+		
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public String getSelectKeyword() {
+		return selectKeyword;
+	}
+	public void setSelectKeyword(String selectKeyword) {
+		this.selectKeyword = selectKeyword;
+	}
+	public String getSelectrow() {
+		return selectrow;
+	}
+	public void setSelectrow(String selectrow) {
+		this.selectrow = selectrow;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public String getOrgfilename() {
+		return orgfilename;
+	}
+	public void setOrgfilename(String orgfilename) {
+		this.orgfilename = orgfilename;
+	}
 	
 	public String getCategory_seq() {
 		return category_seq;
@@ -52,12 +97,6 @@ public class BoardDTO {
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
 	}
-//	public int getHeart() {
-//		return heart;
-//	}
-//	public void setHeart(int heart) {
-//		this.heart = heart;
-//	}
 	public String getMember_seq() {
 		return member_seq;
 	}
