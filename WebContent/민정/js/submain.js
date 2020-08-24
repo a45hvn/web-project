@@ -26,12 +26,12 @@
 //     });
 
 //breadcrumb는 예약어, 이름 변경
-var breadCrumb = document.getElementsByClassName("breadcrumb")[0];
-breadCrumb.className = "breadCrumb";
+// var breadCrumb = document.getElementsByClassName("breadcrumb")[0];
+// breadCrumb.className = "breadCrumb";
 
-var crumbOuter = document.createElement("div");
-crumbOuter.id = "crumbOuter";
+// var crumbOuter = document.createElement("div");
+// crumbOuter.id = "crumbOuter";
 
-var subMenuBox = document.getElementsByClassName("subMenuBox")[0];
+// var subMenuBox = document.getElementsByClassName("subMenuBox")[0];
 
-$(".menuTitleBox")[0].insertBefore(crumbOuter, subMenuBox);
+// $(".menuTitleBox")[0].insertBefore(crumbOuter, subMenuBox);
