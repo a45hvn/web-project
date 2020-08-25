@@ -30,6 +30,7 @@ public class DeleteOk extends HttpServlet {
 		dto2.setSeq(seq);									//삭제할 글 번호
 		dto2.setId((String)session.getAttribute("id"));		//로그인한 아이디
 		
+		
 		if(dao.isOwner(dto2)) {
 			result = dao.delete(seq);
 		} else {

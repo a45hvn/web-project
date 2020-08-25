@@ -71,8 +71,7 @@ public class BulletinBoardContent extends HttpServlet{
 			dto.setContent(content);
 			
 		}
-	
-	
+		
 		//내용 보내기
 		req.setAttribute("dto", dto);
 		req.setAttribute("search", search);

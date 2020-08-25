@@ -42,12 +42,12 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
-                            <li class="subMenuItem"><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="friendlymatchrecruit.html">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="mercenaryrecruit.html">용병모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
+                            <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
