@@ -101,6 +101,10 @@
         #centerBox3 textarea {
         	padding: 5px;
         }
+        
+        #image_container {
+        	margin-top: 15px;        	
+        }
     	
     
     </style>
@@ -192,12 +196,16 @@
                             </div>                          
                         </div>
                         
-                        <!-- 확인/미리보기 버튼 -->
+                        <!-- 확인/뒤로 버튼 -->
                         <div id="centerBox5">            
                                 <button class="btn btn-primary" id="writebtn1" type="submit" value="확인"><span>확인</span></button>
-                                <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do';">         
+                                
+                                <!-- <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do';"> -->         
+                                <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="history.back()">         
                         </div>
                         <div style="clear: both;"></div>
+                        
+                   <%--      <input type="hidden" name="category_seq" value="${category_seq}"> --%>
                         
                     </div>
     			</form>

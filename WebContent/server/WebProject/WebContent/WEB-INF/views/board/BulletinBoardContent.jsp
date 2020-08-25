@@ -43,12 +43,12 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
-                            <li class="subMenuItem"><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="#">용병모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -64,8 +64,29 @@
 	<!-- Center -------------------------------------------- -->
 
     <div class="center">
-        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">자유게시판</span></div>
+        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg">
+        	
+        	<c:choose>
+                <c:when test="${category_seq == 1}">
+                	<span class="contentTitle">질문게시판</span>
+                </c:when>     
+                  <c:when test="${category_seq == 2}">
+                	<span class="contentTitle">갤러리</span>
+                </c:when>           
+                <c:when test="${category_seq == 3}">
+                	<span class="contentTitle">자유게시판</span>
+                </c:when>
+                 <c:when test="${category_seq == 4}">
+                	<span class="contentTitle">강의게시판</span>
+                </c:when>
+                 <c:when test="${category_seq == 5}">
+                	<span class="contentTitle">친선경기모집</span>
+                </c:when>
+                 <c:when test="${category_seq == 6}">
+                	<span class="contentTitle">용병모집</span>
+                </c:when>
+            </c:choose>
+        </div>
 
         <div id="centerBoxMain">
             
@@ -113,16 +134,35 @@
             <!-- 목록, Top, 수정, 삭제 -->
             <div id="centerBox5" class="centerBox">
                 <span><input type="button" id="top" value="▲TOP" class="btn btn-primary"></span>
-                <span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
-               
+                <c:choose>
+                <c:when test="${category_seq == 1}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityQuestionBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>     
+                  <c:when test="${category_seq == 2}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityGalleryBulletinBoard.jsp.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>           
+                <c:when test="${category_seq == 3}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+                 <c:when test="${category_seq == 4}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityLectureBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+                 <c:when test="${category_seq == 5}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/friendlymatchrecruit.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+                 <c:when test="${category_seq == 6}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/mercenaryrecruit.jsp.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+               	</c:choose>
+               	
 				<!-- 수정 -->
                 <c:if test="${id == dto.id}">
-                <span><input type="button" value="수정" class="btn btn-primary" onclick="location.href='/soccer/board/edit.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                <span><input type="button" value="수정" class="btn btn-primary" onclick="location.href='/soccer/board/edit.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}&category_seq=${category_seq}';"></span>
                 </c:if>
                                 
                 <!-- 삭제 -->    
                 <c:if test="${id == dto.id}">
-                <span><a id="deleteBtn" onclick="return confirm('정말로 삭제하시겠습니까?')" href="/soccer/board/deleteok.do?seq=${dto.seq}" class="btn btn-primary">삭제</a></span>
+                <span><a id="deleteBtn" onclick="return confirm('정말로 삭제하시겠습니까?')" href="/soccer/board/deleteok.do?seq=${dto.seq}&category_seq=${category_seq}" class="btn btn-primary">삭제</a></span>
                 </c:if>
                 
                 

@@ -89,8 +89,25 @@ public class writingDrawupOk extends HttpServlet{
 		int result = dao.write(dto);
 				
 		if (result == 1) {
+			
+			String location = "";
+			
 			//글쓰기 성공
-			String location="/soccer/board/communityFreeBulletinBoard.do";
+			if(category_seq.equals("1")) {
+				location="/soccer/board/communityQuestionBulletinBoard.do";
+			} else if(category_seq.equals("2")) {
+				location="/soccer/board/communityGalleryBulletinBoard.do";				
+			} else if(category_seq.equals("3")) {
+				location="/soccer/board/communityFreeBulletinBoard.do";				
+			} else if(category_seq.equals("4")) {
+				location="/soccer/board/communityLectureBulletinBoard.do";				
+			} else if(category_seq.equals("5")) {
+				location="/soccer/board/friendlymatchrecruit.do";				
+			} else if(category_seq.equals("6")) {
+				location="/soccer/board/mercenaryrecruit.do";				
+			}  
+			
+			
 			resp.sendRedirect(location);
 			
 		} else {

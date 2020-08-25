@@ -31,7 +31,8 @@ public class BulletinBoardContent extends HttpServlet{
 		String selectKeyword = req.getParameter("selectKeyword");	//검색방
 		String selectrow = req.getParameter("selectrow");			//검색 출력 갯수
 		
-	
+		String category_seq = req.getParameter("category_seq");		//카테고리 번호
+
 		//처음에 아무것도 검색안하고 게시물을 보고 목록 버튼을 누르면 NullPointerException 오류가 떠서 초기값으로 title을 임의로 줬음
 		if(selectKeyword == "") {
 			selectKeyword = "title";
@@ -78,6 +79,8 @@ public class BulletinBoardContent extends HttpServlet{
 		req.setAttribute("page", page);
 		req.setAttribute("selectKeyword", selectKeyword);
 		req.setAttribute("selectrow", selectrow);
+		
+		req.setAttribute("category_seq", category_seq);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/BulletinBoardContent.jsp");
 		dispatcher.forward(req, resp);

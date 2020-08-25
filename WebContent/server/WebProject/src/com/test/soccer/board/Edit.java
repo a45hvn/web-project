@@ -25,6 +25,8 @@ public class Edit extends HttpServlet {
 		String selectKeyword = req.getParameter("selectKeyword");
 		String selectrow = req.getParameter("selectrow");
 	
+		String category_seq = req.getParameter("category_seq");
+		
 		//2. 글번호로 글내용 가져오기
 		BoardDAO dao = new BoardDAO();
 		
@@ -33,6 +35,7 @@ public class Edit extends HttpServlet {
 		dto2.setSearch(search);
 		dto2.setSelectKeyword(selectKeyword);
 		dto2.setSelectrow(selectrow);
+		dto2.setCategory_seq(category_seq);
 			
 		
 		BoardDTO dto = dao.content(dto2);

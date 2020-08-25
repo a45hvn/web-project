@@ -109,8 +109,8 @@
      <div class="loginBox">
         <div><img src="/soccer/images/rogo_3.png" id="rogo"></div>
         <div class="loginInput">
-            <input type="text" class="id required form-control" id="id" name="id" title="아이디" placeholder="아이디" value="eruouek">
-            <input type="password" class="pw required form-control" id="pw" name="pw" title="비밀번호"  placeholder="비밀번호" value="aSS6xldrHx3yb">
+            <input type="text" class="id required form-control" id="id" name="id" title="아이디" placeholder="아이디" value="qtakadtu2">
+            <input type="password" class="pw required form-control" id="pw" name="pw" title="비밀번호"  placeholder="비밀번호" value="lcxH2awiembie">
             <button type="submit" class="loginBtn btn" id="loginBtn">로그인</button>
 
         </div>
