@@ -19,8 +19,8 @@ import com.test.soccer.member.MemberDAO;
 import com.test.soccer.member.MemberDTO;
 
 
-@WebServlet("/analysis/teamAnalysisok.do")
-public class TeamAnalysisOk extends HttpServlet{
+@WebServlet("/analysis/playerAnalysisok.do")
+public class PlayerAnalysisOk extends HttpServlet{
 
 	
 	@Override

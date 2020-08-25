@@ -28,7 +28,8 @@ public class AjaxDAO {
 			e.printStackTrace();
 		}
 	}
-
+	
+	//아이디 중복검사
 	public int check(String idCheck) {
 		
 		try {
@@ -51,7 +52,8 @@ public class AjaxDAO {
 		return 0;
 	}
 
-
+	
+	//지역선택시 팀명단 가져오기
 	public ArrayList<MemberDTO> getTeam(String home1) {
 		
 		String where = "";
@@ -85,6 +87,37 @@ public class AjaxDAO {
 			}
 			
 			return listteam;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	//팀선택시 선수명단 가져오기
+	public ArrayList<MemberDTO> getPlayer(String team1) {
+		try {
+			
+			
+			String sql = String.format("select membername from vwteamanlysis where teamname='%s' group by membername",team1);
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+//			System.out.println(sql);
+			
+			ArrayList<MemberDTO> listPlayer = new ArrayList<MemberDTO>();
+			
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				
+				dto.setName(rs.getString("membername"));
+//				System.out.println(dto.getTeam());
+				
+				listPlayer.add(dto);
+			}
+			
+			return listPlayer;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
