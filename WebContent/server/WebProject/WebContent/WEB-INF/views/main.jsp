@@ -151,7 +151,7 @@
         }
 
         .rankInfo div {
-            width: 77px;
+            width: 90px;
             float: left;
             /* border: 1px solid white; */
             color: white;
@@ -159,7 +159,7 @@
         }
 
         .rankInfo div:nth-child(1) {
-            width: 30px;
+            width: 70px;
             float: left;
         }
 
@@ -277,7 +277,7 @@
             width: 2800px;
             /* border: 1px solid black; */
             /* position: relative;
-            left: 300px; */
+            left: 100px; */
         }
 
         .outerWraper {
@@ -591,7 +591,7 @@
         }
 
         .sitemap {
-            width: 1900px;
+            width: 100%;
             height: 250px;
             margin: 0px auto;
             background-color: #254150;
@@ -934,72 +934,14 @@
                     <th>승점</th>
                     <th>경기</th>
                 </tr>
+               	<c:forEach items="${list}" var="dto" varStatus="status" begin="0" end="10">
                 <tr>
-                    <td>1</td>
-                    <td>쌍용fc</td>
-                    <td>30</td>
-                    <td>10</td>
+                    <td>${status.count}</td>
+                    <td>${dto.teamName}FC</td>
+                    <td>&nbsp;${dto.points}</td>
+                    <td>&nbsp;&nbsp;30</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>강남fc</td>
-                    <td>27</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>역삼fc</td>
-                    <td>24</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>구로fc</td>
-                    <td>21</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>하나fc</td>
-                    <td>18</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>진짜fc</td>
-                    <td>15</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>아무나fc</td>
-                    <td>12</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>정말fc</td>
-                    <td>9</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>나도fc</td>
-                    <td>9</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>너도fc</td>
-                    <td>9</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>달려FC</td>
-                    <td>6</td>
-                    <td>10</td>
-                </tr>
+                </c:forEach>
             </table>
             <div id="more"></div>
         </div>
@@ -1009,212 +951,74 @@
             <h3 style="font-variant: small-caps;">개인순위</h3>
             <div class="rankform">
                 <div class="category">득점순위</div>
-                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="photo"><img src="images/nopic.png" alt=""></div>
+                <c:forEach items="${goalRank}" var="dto" varStatus="status">
                 <div class="rankInfo">
-                    <div>1</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
+                    <div>${status.count}</div>
+                    <div>${dto.memberName}</div>
+                    <div>${dto.goal}</div>
                 </div>
-                <div class="rankInfo">
-                    <div>2</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>3</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>4</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>5</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
+                </c:forEach>
             </div>
 
             <div class="rankform">
                 <div class="category">도움순위</div>
                 <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <c:forEach items="${assistRank}" var="dto2" varStatus="status">
                 <div class="rankInfo">
-                    <div>1</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
+                    <div>${status.count}</div>
+                    <div>${dto2.memberName}</div>
+                    <div>${dto2.assist}</div>
                 </div>
-                <div class="rankInfo">
-                    <div>2</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>3</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>4</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>5</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
+                </c:forEach>
             </div>
 
             <div class="rankform">
-                <div class="category">패스순위</div>
+                <div class="category">태클성공순위</div>
                 <div class="photo"><img src="images/man_01.png" alt=""></div>
+               <c:forEach items="${tackleRank}" var="dto3" varStatus="status">
                 <div class="rankInfo">
-                    <div>1</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
+                    <div>${status.count}</div>
+                    <div>${dto3.memberName}</div>
+                    <div>${dto3.tackle}</div>
                 </div>
-                <div class="rankInfo">
-                    <div>2</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>3</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>4</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>5</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
+                </c:forEach>
             </div>
 
             <div class="rankform">
                 <div class="category">선방순위</div>
                 <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <c:forEach items="${saveRank}" var="dto4" varStatus="status">
                 <div class="rankInfo">
-                    <div>1</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
+                    <div>${status.count}</div>
+                    <div>${dto4.memberName}</div>
+                    <div>${dto4.save}</div>
                 </div>
-                <div class="rankInfo">
-                    <div>2</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>3</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>4</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>5</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
+                </c:forEach>
             </div>
 
             <div class="rankform">
-                <div class="category">태클순위</div>
+                <div class="category">경고누적</div>
                 <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <c:forEach items="${yellowRank}" var="dto5" varStatus="status">
                 <div class="rankInfo">
-                    <div>1</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
+                    <div>${status.count}</div>
+                    <div>${dto5.memberName}</div>
+                    <div>${dto5.yellowCard}</div>
                 </div>
-                <div class="rankInfo">
-                    <div>2</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>3</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>4</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>5</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
+                </c:forEach>
             </div>
 
             <div class="rankform">
-                <div class="category">활동량순위</div>
+                <div class="category">파울누적</div>
                 <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <c:forEach items="${foulRank}" var="dto6" varStatus="status">
                 <div class="rankInfo">
-                    <div>1</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
+                    <div>${status.count}</div>
+                    <div>${dto6.memberName}</div>
+                    <div>${dto6.foul}</div>
                 </div>
-                <div class="rankInfo">
-                    <div>2</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>3</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>4</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
-                <div class="rankInfo">
-                    <div>5</div>
-                    <div>쌍용fc</div>
-                    <div>홍길동</div>
-                    <div>22</div>
-                </div>
+                </c:forEach>
             </div>
 
         </div>
@@ -1241,7 +1045,7 @@
         $(this).css("cursor","pointer")
     }).click(function () {
 
-        // $(".infoOuter").css("position","relative").css("left","-1550px").css("transitionDuration","1s");
+        /* $(".infoOuter").css("position","relative").css("left","-1550px").css("transitionDuration","1s"); */
         
         $(".infoBox").animate({
             left : "-1250px",
@@ -1253,7 +1057,7 @@
         $(this).css("cursor","pointer")
     }).click(function () {
 
-        // $(".infoBox").css("position","relative").css("left","0px").css("transitionDuration","1s");
+        /*  $(".infoBox").css("position","relative").css("left","0px").css("transitionDuration","1s"); */
         $(".infoBox").animate({
             left : "0px",
         },1000)

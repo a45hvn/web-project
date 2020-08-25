@@ -19,8 +19,8 @@ import com.test.soccer.member.MemberDAO;
 import com.test.soccer.member.MemberDTO;
 
 
-@WebServlet("/analysis/teamAnalysisok.do")
-public class TeamAnalysisOk extends HttpServlet{
+@WebServlet("/analysis/playerAnalysisok2.do")
+public class PlayerAnalysisOk2 extends HttpServlet{
 
 	
 	@Override
@@ -32,17 +32,17 @@ public class TeamAnalysisOk extends HttpServlet{
 		
 		
 		
-		String home1 = req.getParameter("home1");
+		String team1 = req.getParameter("team1");
 //		System.out.println(home1);
 		
-		ArrayList<MemberDTO> listteam = dao1.getTeam(home1);
+		ArrayList<MemberDTO> listPlayer = dao1.getPlayer(team1);
 //		req.setAttribute("listteam", listteam);
 		
 		JSONArray arr = new JSONArray();
 		
-		for (MemberDTO dto : listteam) {
+		for (MemberDTO dto : listPlayer) {
 			JSONObject obj = new JSONObject();
-			obj.put("team", dto.getTeam());
+			obj.put("player", dto.getName());
 			arr.add(obj);
 		}
 		

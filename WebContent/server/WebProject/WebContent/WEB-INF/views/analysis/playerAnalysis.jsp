@@ -33,8 +33,8 @@
             color: rgb(134, 0, 0);
         }
         select:nth-child(1n+4){
-            border:1px solid rgb(11, 72, 255);
-            color: rgb(11, 72, 255);
+            border:1px solid #005093;
+            color: #005093;
         }
         .playerTitle{
             
@@ -47,7 +47,7 @@
         }
         .playerTitle:nth-child(3){
             
-            border : 3px solid rgb(11, 72, 255);
+            border : 3px solid #005093;
             
         }
         .playerTitle img{
@@ -65,7 +65,7 @@
         }
         .playerCharts{
             border-left: 1px solid rgb(134, 0, 0);
-            border-right: 1px solid rgb(11, 72, 255);
+            border-right: 1px solid #005093;
             width: 1230px;
             margin-left: 30px;
             float: left;
@@ -93,6 +93,10 @@
         .pageContentTitle {
             /* background-color: rgb(238, 238, 238); */
         }
+        
+        #blueTeamImage{
+        }
+        
 /* ---------------------------------------------------------------- */
         #container {
         height: 400px;
@@ -177,101 +181,91 @@
         <!--  -->
         <div style="width: 100%;  height: 850px; float: left;">
             <div>
-                <select name="" id="team1" style="margin-left: 160px;">
-                    <option value="">경기</option>
+                <select name="home1" id="home1" style="margin-left: 160px;">
+                    <option value="">지역선택</option>
+	            	<option value="">전체</option>
+	            	<c:forEach items="${list}" var="dto">
+	            	
+	                <option value="${dto.home}">${dto.home}</option>
+	                
+	                </c:forEach>
                 </select>
-                <select name="" id="team1">
-                    <option value="">쌍용FC</option>
-                    <option value="">타겟FC</option>
-                    <option value="">쌍용FC</option>
-                    <option value="">쌍용FC</option>
-                    <option value="">쌍용FC</option>
+                <select name="team1" id="team1">
                 </select>
-                <select name="" id="team1">
-                    <option value="">권현진</option>
-                    <option value="">김동현</option>
-                    <option value="">장정현</option>
-                    <option value="">이호연</option>
-                    <option value="">홍준식</option>
-                    <option value="">강경준</option>
+                <select name="player1" id="player1">
                 </select>
-                <select name="" id="team1" style="margin-left: 450px;">
-                    <option value="">서울</option>
+                <select name="home2" id="home2" style="margin-left: 450px;">
+                    <option value="">지역선택</option>
+	            	<option value="">전체</option>
+	            	<c:forEach items="${list}" var="dto">
+	            	
+	                <option value="${dto.home}">${dto.home}</option>
+	                
+	                </c:forEach>
                 </select>
-                <select name="" id="team1">
-                    <option value="">청춘FC</option>
-                    <option value="">역삼FC</option>
-                    <option value="">강남FC</option>
-                    <option value="">종로FC</option>
-                    <option value="">천호FC</option>
+                <select name="team2" id="team2">
                 </select>
-                <select name="" id="team1">
-                    <option value="">김동현</option>
-                    <option value="">권현진</option>
-                    <option value="">장정현</option>
-                    <option value="">이호연</option>
-                    <option value="">홍준식</option>
-                    <option value="">강경준</option>
+                <select name="player2" id="player2">
                 </select>
             </div>
 
             <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid rgb(134, 0, 0);">
                 <div style="text-align: left; width: 250px; float: left;">
                     
-                    <span class="birth">1997-05-13</span><br>
-                    <span class="spec">180/69kg</span><br>
-                    <span class="position">MF</span>
+                    <span class="birth" id="redTeamBirth"></span><br>
+                    <span class="spec" id="redTeamSpec"></span><br>
+                    <span class="position" id="redTeamPosition"></span>
                     
 
                 </div>
                 
-                <span style=" float: left;width: 140px; margin-top: 30px;">권현진</span>
+                <span style=" float: left;width: 140px; margin-top: 30px;" id="redTeamPlayer"></span>
 
                 <img src="../images/rogo.png" alt="" class="rogo" style="margin-left: 50px;">
             </div>
 
-            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid rgb(11, 72, 255);">
+            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid #005093;">
                 <img src="../images/rogo.png" alt=""class="rogo" style=" float: left;">
 
-                <span style="margin-left: 100px; display:block; float: left;  margin-top: 30px;">김동현</span>
+                <span style="margin-left: 100px; display:block; float: left;  margin-top: 30px;" id="blueTeamPlayer"></span>
 
                 <div style="text-align: right;  width: 290px; margin-left: 300px;">
-                    <span class="birth">1995-07-13</span><br>
-                    <span class="spec">170/60kg</span><br>
-                    <span class="position">MF</span>
+                    <span class="birth" id="blueTeamBirth"></span><br>
+                    <span class="spec" id="blueTeamSpec"></span><br>
+                    <span class="position" id="blueTeamPosition"></span>
                 </div>
             </div>
 
             <!-- 플레이어 차트 -->
             <div class="playerCharts" >
-                <div class="playerPhoto"><img src="/soccer/images/man_01.png" alt=""></div>
+                <div class="playerPhoto" id="redPlayerImage"></div>
                 <figure class="highcharts-figure">
                     <div id="container"></div>
                     
                   </figure>
-                <div class="playerPhoto"><img src="/soccer/images/man_02.png" alt="" style="border: 5px solid rgb(11, 72, 255); margin-top: 41px;"></div>
+                <div class="playerPhoto" id="bluePlayerImage"></div>
             </div>
             <div style="float: left; border: gray 1px solid; width: 1230px; margin-left: 30px; text-align: center; padding-top: 20px;" >
                 <table class="table table-bordered" style="text-align: center;" id="playerInfo">
                     <tr>
-                        <td>1</td>
+                        <td id="redTeamCount"></td>
                         <th>경기수</th>
-                        <td>1</td>
+                        <td id="blueTeamCount"></td>
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td id="redTeamGoal"></td>
                         <th>득점</th>
-                        <td>1</td>
+                        <td id="blueTeamGoal"></td>
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td id="redTeamAssist"></td>
                         <th>도움</th>
-                        <td>0</td>
+                        <td id="blueTeamAssist"></td>
                     </tr>
                     <tr>
-                        <td>0</td>
-                        <th>경고</th>
-                        <td>1</td>
+                        <td id="redTeamTackle"></td>
+                        <th>태글성공</th>
+                        <td id="blueTeamTackle"></td>
                     </tr>
                 </table>
             </div>
@@ -283,61 +277,319 @@
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
+    
+    $("#home1").change(function(){
+ 	   
+		$("#team1").text("");
+	   
+		$.ajax({
+		   type:"GET",
+		   url: "/soccer/analysis/playerAnalysisok.do",
+		   data : "home1=" + $("#home1 option:selected").val(),
+		   dataType: "json",
+		   success:function(result){
+			   $(result).each(function(index,item){
+				   $("#team1").append("<option value="+item.team+">" + item.team+"FC"+ "</option>");   
+			   })
+			   
+			   
+		   },
+		   error:function(a,b,c){
+			   console.log(a,b,c);
+		   }
+	   })
+   }) 
+   
+   $("#home2").change(function(){
+	   
+		$("#team2").text("");
+	   
+		$.ajax({
+		   type:"GET",
+		   url: "/soccer/analysis/teamAnalysisok.do",
+		   data : "home1=" + $("#home2 option:selected").val(),
+		   dataType: "json",
+		   success:function(result){
+			   $(result).each(function(index,item){
+				   $("#team2").append("<option value="+item.team+">" + item.team+"FC"+ "</option>");   
+			   })
+			   
+			   
+		   },
+		   error:function(a,b,c){
+			   console.log(a,b,c);
+		   }
+	   });
+	   
+	   
+   }) 
+   
+  
+ $("#team1").change(function(){
+	   
+		
+	 $("#player1").text("");
+	   
+		$.ajax({
+		   type:"GET",
+		   url: "/soccer/analysis/playerAnalysisok2.do",
+		   data : "team1=" + $("#team1 option:selected").val(),
+		   dataType: "json",
+		   success:function(result){
+			   $(result).each(function(index,item){
+				   $("#player1").append("<option value="+item.player+">" + item.player+ "</option>");   
+			   })
+			   
+			   
+		   },
+		   error:function(a,b,c){
+			   console.log(a,b,c);
+		   }
+	   });
+   })  
+   
+   
+   $("#team2").change(function(){
+	   
+		
+	   $("#player2").text("");
+	   
+		$.ajax({
+		   type:"GET",
+		   url: "/soccer/analysis/playerAnalysisok2.do",
+		   data : "team1=" + $("#team2 option:selected").val(),
+		   dataType: "json",
+		   success:function(result){
+			   $(result).each(function(index,item){
+				   $("#player2").append("<option value="+item.player+">" + item.player+ "</option>");   
+			   })
+			   
+			   
+		   },
+		   error:function(a,b,c){
+			   console.log(a,b,c);
+		   }
+	   }); 
+   })  
+   
+      var lineRed1;
+      var lineRed2;
+      var lineRed3;
+      var lineRed4;
+      var lineRed5;
+      var lineBlue1;
+      var lineBlue2;
+      var lineBlue3;
+      var lineBlue4;
+      var lineBlue5;
+   
+   $("#player1").change(function(){
+    		
+    	   	
+   		$("#redTeamPlayer").text("");
+   		$("#redTeamBirth").text("");
+   		$("#redTeamSpec").text("");
+   		$("#redTeamPosition").text("");
+   		$("#redTeamCount").text("");
+   		$("#redTeamGoal").text("");
+   		$("#redTeamAssist").text("");
+   		$("#redTeamTackle").text("");
+   		$("#redImage").remove();
+   		 $.ajax({
+   		   type:"GET",
+   		   url: "/soccer/analysis/palyerAnalysisok3.do",
+   		   data : "player1=" + $("#player1 option:selected").val(),
+   		   dataType: "text",
+   		   success:function(result){
+   			   
+   			   var data = result.split(",");
+   			   $("#redTeamPlayer").append(data[0]);
+   			   $("#redTeamBirth").append(data[1]);
+   			   $("#redTeamSpec").append(data[2]+"/"+data[3]);
+   			   $("#redTeamPosition").append(data[4]);
+   			   $("#redTeamCount").append(data[5]);
+   			   $("#redTeamGoal").append(data[6]);
+   			   $("#redTeamAssist").append(data[7]);
+   			   $("#redTeamTackle").append(data[9]);
+   			   $("#redPlayerImage").append("<img src='/soccer/images/"+data[11]+"' id='redImage'>");
+   			   
+   			   
+   			   lineRed1 = parseInt(data[6],10);
+			   lineRed2 = parseInt(data[7],10);
+			   lineRed3 = parseInt(data[8],10);
+			   lineRed4 = parseInt(data[9],10);
+			   lineRed5 = parseInt(data[10],10);
+   			   
+			   Highcharts.chart('container', {
+		   			  chart: {
+		   			    type: 'spline'
+		   			  },
+		   			  title: {
+		   			    text: '선수 전력 분석'
+		   			  },
+		   			  subtitle: {
+		   			    // text: 'Source: WorldClimate.com'
+		   			  },
+		   			  xAxis: {
+		   			    categories: ['득점', '도움', '파울', '태클', '선방']
+		   			  },
+		   			  yAxis: {
+		   			    title: {
+		   			      text: 'Temperature'
+		   			    },
+		   			    labels: {
+		   			      formatter: function () {
+		   			        return this.value ;
+		   			      }
+		   			    }
+		   			  },
+		   			  tooltip: {
+		   			    crosshairs: true,
+		   			    shared: true
+		   			  },
+		   			  plotOptions: {
+		   			    spline: {
+		   			      marker: {
+		   			        radius: 4,
+		   			        lineColor: '#666666',
+		   			        lineWidth: 1
+		   			      }
+		   			    }
+		   			  },
+		   			  series: [{
+		   			    name: 'Blue',
+		   			    marker: {
+		   			      symbol: 'square'
+		   			    },
+		   			    data: [lineBlue1,lineBlue2,lineBlue3,lineBlue4,lineBlue5],
+
+		   			  }, {
+		   			    name: 'Red',
+		   			    marker: {
+		   			      symbol: 'diamond'
+		   			    },
+		   			    data: [lineRed1,lineRed2,lineRed3,lineRed4,lineRed5],
+		   			  }]
+		   			});
+			   
+			   
+   		   },
+   		   error:function(a,b,c){
+   			   console.log(a,b,c);
+   		   }
+   	   }) 
+      })  
+      
+      $("#player2").change(function(){
+   	   
+   		
+   	   
+  	 	$("#blueTeamPlayer").text("");
+   		$("#blueTeamBirth").text("");
+   		$("#blueTeamSpec").text("");
+   		$("#blueTeamPosition").text("");
+   		$("#blueTeamCount").text("");
+   		$("#blueTeamGoal").text("");
+   		$("#blueTeamAssist").text("");
+   		$("#blueTeamTackle").text("");
+   		$("#blueImage").remove();
+   		 $.ajax({
+   		   type:"GET",
+   		   url: "/soccer/analysis/palyerAnalysisok3.do",
+   		   data : "player1=" + $("#player2 option:selected").val(),
+   		   dataType: "text",
+   		   success:function(result){
+   			   
+   			   var data = result.split(",");
+   			   $("#blueTeamPlayer").append(data[0]);
+   			   $("#blueTeamBirth").append(data[1]);
+   			   $("#blueTeamSpec").append(data[2]+"/"+data[3]);
+   			   $("#blueTeamPosition").append(data[4]);
+   			   $("#blueTeamCount").append(data[5]);
+   			   $("#blueTeamGoal").append(data[6]);
+   			   $("#blueTeamAssist").append(data[7]);
+   			   $("#blueTeamTackle").append(data[9]);
+   			   $("#bluePlayerImage").append("<img src='/soccer/images/"+data[11]+"'style='border: 5px solid #005093; margin-top: 41px;' id='blueImage'>");
+   			
+   			   lineBlue1 = parseInt(data[6],10);
+   			   lineBlue2 = parseInt(data[7],10);
+   			   lineBlue3 = parseInt(data[8],10);
+   			   lineBlue4 = parseInt(data[9],10);
+   			   lineBlue5 = parseInt(data[10],10);
+   			   
+   			   
+   			Highcharts.chart('container', {
+   			  chart: {
+   			    type: 'spline'
+   			  },
+   			  title: {
+   			    text: '선수 전력 분석'
+   			  },
+   			  subtitle: {
+   			    // text: 'Source: WorldClimate.com'
+   			  },
+   			  xAxis: {
+   			    categories: ['득점', '도움', '파울', '태클', '선방']
+   			  },
+   			  yAxis: {
+   			    title: {
+   			      text: 'Temperature'
+   			    },
+   			    labels: {
+   			      formatter: function () {
+   			        return this.value ;
+   			      }
+   			    }
+   			  },
+   			  tooltip: {
+   			    crosshairs: true,
+   			    shared: true
+   			  },
+   			  plotOptions: {
+   			    spline: {
+   			      marker: {
+   			        radius: 4,
+   			        lineColor: '#666666',
+   			        lineWidth: 1
+   			      }
+   			    }
+   			  },
+   			  series: [{
+   			    name: 'Blue',
+   			    marker: {
+   			      symbol: 'square'
+   			    },
+   			    data: [lineBlue1,lineBlue2,lineBlue3,lineBlue4,lineBlue5],
+
+   			  }, {
+   			    name: 'Red',
+   			    marker: {
+   			      symbol: 'diamond'
+   			    },
+   			    data: [lineRed1,lineRed2,lineRed3,lineRed4,lineRed5],
+   			  }]
+   			});
+   			   
+   		   },
+   		   error:function(a,b,c){
+   			   console.log(a,b,c);
+   		   }
+   	   })  
+      })  
+   
+    
+    
 
 
-        Highcharts.chart('container', {
-  chart: {
-    type: 'spline'
-  },
-  title: {
-    text: '선수 전력 분석'
-  },
-  subtitle: {
-    // text: 'Source: WorldClimate.com'
-  },
-  xAxis: {
-    categories: ['득점', '도움', '파울', '태클', '선방']
-  },
-  yAxis: {
-    title: {
-      text: 'Temperature'
-    },
-    labels: {
-      formatter: function () {
-        return this.value ;
-      }
-    }
-  },
-  tooltip: {
-    crosshairs: true,
-    shared: true
-  },
-  plotOptions: {
-    spline: {
-      marker: {
-        radius: 4,
-        lineColor: '#666666',
-        lineWidth: 1
-      }
-    }
-  },
-  series: [{
-    name: 'Blue',
-    marker: {
-      symbol: 'square'
-    },
-    data: [10, 6, 3, 7, 0]
-
-  }, {
-    name: 'Red',
-    marker: {
-      symbol: 'diamond'
-    },
-    data: [7,4,1,5,0]
-  }]
-});
+        
     $("text").css("font-size","1.3em").css("font-weight", "bold")
     $(".highcharts-credits").css("font-size","0em")
+    
+    
+    
+    
+    
+    
     </script>
     
     
