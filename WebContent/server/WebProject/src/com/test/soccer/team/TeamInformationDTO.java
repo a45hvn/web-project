@@ -21,8 +21,42 @@ public class TeamInformationDTO {
 	private String home;
 	private String image;
 	
+	
+	private String rnum;
+	private String count;
+	private String points;
+	private String league_seq;
+	
+
+	public String getRnum() {
+		return rnum;
+	}
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
+	}
+	public String getPoints() {
+		return points;
+	}
+	public void setPoints(String points) {
+		this.points = points;
+	}
+	public String getLeague_seq() {
+		return league_seq;
+	}
+	public void setLeague_seq(String league_seq) {
+		this.league_seq = league_seq;
+	}
 	public String getImage() {
 		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public String getCoachname() {
 		return coachname;
@@ -102,9 +136,6 @@ public class TeamInformationDTO {
 	public void setHome(String home) {
 		this.home = home;
 	}
-	public void setImage(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }

@@ -75,6 +75,15 @@
                          </div>
                         
                          <table class="table table-bordered table-striped tblBox">
+                         	<tr>
+                         		<td colspan="4">
+                         			<select id="league_seq" name="league_seq">
+                         				<c:forEach items="${league}" var="league">
+                         					<option value="${league.seq}">${league.name}</option>
+                         				</c:forEach>
+                         			</select>
+                         		</td>
+                         	</tr>
                             <tr>
                                 <th>리그 평균 승률</th>
                                 <th>리그 평균 득점</th>
@@ -120,8 +129,8 @@
                 <div class="underSideBox">
                     <div class="rightside">
                         <div class="smallTitleOuter">
-                        <div class="localplace smallTitle">연고지 : [<span>강남</span>]</div>
-                        <div class="localhome smallTitle">홈구장 : [<span id="homeground">역삼초등학교</span>]</div>
+                        <div class="localplace smallTitle">연고지 : [<span>${teamInfo.home }</span>]</div>
+                        <div class="localhome smallTitle">홈구장 : [<span id="homeground">${teamInfo.ground }</span>]</div>
                         </div>
                        <div id="map" style="width: 680px; height: 400px; z-index: 3 ; border: 2px solid black;"></div>
                     </div>
@@ -139,16 +148,22 @@
 <!-- 지도 ------------------------------------- -->
 <script type="text/javascript"	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a12f06129cc70984e1f6a7fa73684a75"></script>
 <script>
-            var container = document.getElementById("map");
-            var options = {
-                center: new kakao.maps.LatLng(37.492730, 127.032680),
-                level: 3,
-            };
-            var marker = new kakao.maps.Marker({
-                    position: new kakao.maps.LatLng(37.492730, 127.032680),
-                });
-            var map = new kakao.maps.Map(container, options);
-                marker.setMap(map);
+ var lat=${teamInfo.lat};
+ var lng=${teamInfo.lng};
+
+ var container = document.getElementById("map");
+ 
+ var options = {
+     center: new kakao.maps.LatLng(lat, lng),
+     level: 3,
+ };
+ 
+ var marker = new kakao.maps.Marker({
+         position: new kakao.maps.LatLng(lat, lng),
+     });
+ 
+ var map = new kakao.maps.Map(container, options);
+     marker.setMap(map);
             
 </script>
 <!-- 차트 ------------------------------------- -->
@@ -181,7 +196,7 @@ $(document).scroll(function () {
 Highcharts.chart('container', {
 
   title: {
-    text: ' 2016-2019'
+    text: ' 2018-2020'
   },
 
   subtitle: {
@@ -198,7 +213,7 @@ Highcharts.chart('container', {
 
   xAxis: {
     accessibility: {
-      rangeDescription: 'Range: 2016 to 2019'
+      rangeDescription: 'Range: 2018 to 2020'
     }
   },
 
@@ -213,13 +228,13 @@ Highcharts.chart('container', {
       label: {
         connectorAllowed: false
       },
-      pointStart: 2016
+      pointStart: 2018
     }
   },
 
   series: [{
     name: '강남FC',
-    data: [5,6,7,4]
+    data: [null,null,7,4]
   }, {
     name: '역삼FC',
     data: [3,4,5,7]

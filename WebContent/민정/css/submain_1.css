@@ -9,7 +9,7 @@
 
 #subOuter {
 
-    background-color: #254150;#00BF88;
+    background-color: #254150;
     width: 1300px;
     height: 150px;
     position: absolute;
@@ -76,7 +76,9 @@
 .subMenuBox .subMenu>ul>li>a:hover {
     text-decoration: none;
 }
-
+#admin_img{
+    src: url("../images/rogowithoutletter.png");
+}
 .breadcrumb {
     width: 300px;
     height: 50px;

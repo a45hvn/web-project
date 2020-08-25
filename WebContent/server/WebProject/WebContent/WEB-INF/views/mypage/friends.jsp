@@ -16,7 +16,7 @@
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
     
     <style>
-    
+  
     </style>
 </head>
 
@@ -78,152 +78,45 @@
                     <li id="tab1Title"><a href="#tab1">Following</a></li>
                     <li id="tab2Title"><a href="#tab2">Follower</a></li>
                 </ul>
+                 <form method="POST" action="/soccer/mypage/friendsok.do"> 
                 <div id="tab1">
                     <div class="friendsBox">
                         <table class="friends table table-bordered table-striped">
+                       		<c:forEach items="${followingList}" var="dto">     
                             <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
+                                <td>${dto.followingName}<img src="/soccer/images/${dto.followingImage}"></td>
                                 <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우취소" class="unfollow btn btn-info"> </td>
-                            </tr>
+                                <td><input type="hidden" value="${dto.following_seq}" name="following_seq"></td>
+                                <td><input type="submit" value="팔로우취소" id="unfollow" class=" btn btn-info" 
+<%--                                  onclick="location.href='/codestudy/member/friendsok.do?${dto.following_seq}';" --%>
+                                 > </td>
 
-
+                            </tr>
+                       </c:forEach>
                         </table>
                     </div>
+                   
                 </div>
-                <div id="tab2">
+                <div id="tab2">  
+               
                     <div class="friendsBox">
-                        <table class="friends table table-bordered table-striped"">
+                        <table class="friends table table-bordered table-striped">
+                        <c:forEach items="${followerList}" var= "dto">
                             <tr>
-                                <td>이수지<img src=" images/catty02.png">
-                            </td>
+                            <td>${dto.followerName}<img src="/soccer/images/${dto.followerImage}"></td>
                             <td>축구사랑</td>
-                            <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
+                            <td><input type="hidden" value="${dto.follower_seq}" name="follower_seq"></td>
+                            <td><input type="submit" value="팔로우" id="follow" class=" btn btn-info" > </td>
+<%--                             onclick="location.href='/codestudy/member/friendsok.do?${dto.follower_seq}';" --%>
                             </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-                            <tr>
-                                <td>이수지<img src="images/catty02.png"></td>
-                                <td>축구사랑</td>
-                                <td><input type="button" value="팔로우" class="follow btn btn-info"> </td>
-                            </tr>
-
-
-
-                        </table>
+                            </c:forEach>
+                            </table>
                     </div>
                 </div>
+                    
 
+</form>
             </div>
-
         </div>
     </div>
 
@@ -243,6 +136,8 @@
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
+    
+    
     $("#tabs").tabs({
         active: 2
     });
@@ -250,7 +145,8 @@
     $('#tabs:even').css('background', "white");
     $('#tab1Title').css('background', "white");
     $('#tab2Title').css('background', "white");
-        
+
+   
 
         
     </script>

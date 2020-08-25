@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/mercenaryrecruit.do")
+@WebServlet("/board/mercenaryrecruit.do")
 public class MercenaryRecruit extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-	RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/board/mercenaryrecruit.jsp");
+	RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/mercenaryrecruit.jsp");
 	dispatcher.forward(req, resp);
 	
 	}

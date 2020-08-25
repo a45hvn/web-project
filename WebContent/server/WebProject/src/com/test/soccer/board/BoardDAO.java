@@ -30,6 +30,7 @@ public class BoardDAO {
 		}
 	}
 	
+	//오희준
 	//communityFreeBulletinBoard 서블릿 -> 게시판 목록 주세요.
 	public ArrayList<BoardDTO> list(HashMap<String, String> map) {
 		
@@ -63,7 +64,7 @@ public class BoardDAO {
 				 
 			}
 			
-			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard b inner join tblMember m on m.seq = b.member_seq where category_seq = %s %s order by b.seq) a) where rnum >= %s and rnum <= %s",category, where, begin, end);
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from tblBoard b inner join tblMember m on m.seq = b.member_seq where category_seq = %s %s order by b.seq desc) a) where rnum >= %s and rnum <= %s",category, where, begin, end);
 									
 			stat = conn.prepareStatement(sql);			
 			rs = stat.executeQuery(sql);
@@ -103,6 +104,7 @@ public class BoardDAO {
 	}
 
 	
+	//오희준
 	//communityFreeBulletinBoard 서블릿 -> 페이지(총 게시글 수)
 	public int getTotalCount(HashMap<String, String> map) {
 				
@@ -130,9 +132,11 @@ public class BoardDAO {
 				 
 				}	
 				
-			} else if (search == "") { //처음 게시판에 들어왔을때 검색어가 없어 null오류가 떠서 했음
-				where = "";
-			}
+			} 
+			
+			//else if (search.equals("")) { //처음 게시판에 들어왔을때 검색어가 없어 null오류가 떠서 했음
+			// where = "";
+			//}
 			
 			String sql = String.format("select count(*) as cnt from tblboard b inner join tblMember m on m.seq = b.member_seq where category_seq = 3 %s", where);
 	
@@ -154,6 +158,8 @@ public class BoardDAO {
 		return 0;
 	}
 
+	//오희준
+	//BulletinBoardContent 서블릿 -> 조회수 증가
 	public void updateReadCount(String seq) {
 		try {
 			String sql = "update tblBoard set readcount = readcount+1 where seq=?";
@@ -167,46 +173,10 @@ public class BoardDAO {
 		}
 
 	}
+	
 
-	//게시판의 내용을 보여주기 위해 가져오는 쿼리
-	public BoardDTO get(BoardDTO dto2) {
-
-		try {
-
-			String sql = "select a.*, (select name from tblmember where seq = a.mseq)as name, (select count(*) from tblHeart where bseq = a.seq and mseq=?) as heart from tblBoard a where seq = ?";
-
-			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, dto2.getMember_seq());
-			pstat.setString(2, dto2.getSeq());
-			rs = pstat.executeQuery();
-
-			if (rs.next()) {
-				BoardDTO dto = new BoardDTO();
-
-				dto.setSeq(rs.getString("seq"));
-				dto.setTitle(rs.getString("title"));
-				dto.setContent(rs.getString("content"));
-				dto.setRegdate(rs.getString("regdate"));
-				dto.setReadcount(rs.getInt("readcount"));
-				dto.setMember_seq(rs.getString("member_seq"));
-				dto.setName(rs.getString("name"));
-//				dto.setHeart(rs.getInt("heart"));
-
-//				dto.setThread(rs.getInt("thread"));
-//				dto.setDepth(rs.getInt("depth"));
-
-				return dto;
-			}	
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-		}
-		return null;
-	}
-
-	//댓글 목록 가져오기
+	//오희준
+	//BulletinBoardContent 서블릿 -> 댓글 목록 가져오기
 	public ArrayList<CommentDTO> listComment(String seq) {
 	
 		try {
@@ -236,18 +206,25 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return null;
+		
 	}
 	
+	}
+	
+	
+	//오희준
 	//BulletinBoardContent 서블릿 -> 글번호 주고 게시물 받아오기
 	public BoardDTO content(BoardDTO dto2) {
 		
 		try {
 			
-			String sql = "select a.*, (select name from tblmember where seq = a.member_seq) as name, (select id from tblmember where seq = ?) as id from tblBoard a where seq = ?";
+//			String sql = select 
+			String sql = "select a.*, (select name from tblmember where seq = a.member_seq) as name, (select id from tblmember where seq = a.member_seq) as id from tblBoard a where seq = ?";
+			
 			
 			pstat = conn.prepareStatement(sql);			
-			pstat.setString(1, dto2.getMember_seq()); //회원번호			
-			pstat.setString(2, dto2.getSeq());  //글번호
+			//pstat.setString(1, dto2.getMember_seq()); //회원번호			
+			pstat.setString(1, dto2.getSeq());  //글번호
 			
 			rs = pstat.executeQuery();
 			
@@ -260,8 +237,11 @@ public class BoardDAO {
 				dto.setContent(rs.getString("content"));
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setMember_seq(rs.getString("member_seq"));
-				dto.setName(rs.getString("name"));
 				
+				dto.setOrgfilename(rs.getString("image"));
+				
+				dto.setName(rs.getString("name"));
+				dto.setId(rs.getString("id"));
 				return dto;
 			}
 			
@@ -275,5 +255,107 @@ public class BoardDAO {
 		
 		return null;
 	}
+
+	//오희준
+	//writingDrawupOk 서블릿 -> 글쓰기
+	public int write(BoardDTO dto) {
+		
+		try {
+			
+			String sql = String.format("insert into tblBoard (seq, title, content, regdate, readcount, image, member_seq, category_seq) values (board_seq.nextval, '%s', '%s', default, 0, '%s', %s, %s )"
+																, dto.getTitle()
+																, dto.getContent()
+																, dto.getFilename()
+																, dto.getMember_seq()
+																, dto.getCategory_seq());
+			
+			stat = conn.createStatement();
+			return stat.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			System.out.println("BoardDAO.write()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	//오희준
+	//EditOk 서블릿 -> 글쓴이 인지 확인
+	public boolean isOwner(BoardDTO dto2) {
+		
+		try {
+			
+			String sql = "select count(*) as cnt from tblBoard a where (select id from tblMember where seq = a.member_seq) = ? and seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto2.getId());
+			pstat.setString(2, dto2.getSeq());
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("cnt") == 1 ? true : false;
+			}
+			
+		} catch (Exception e) {
+			
+			System.out.println("BoardDAO.isOwner()");
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	//오희준
+	//EditOk 서블릿 -> 게시글 수정하기
+	public int edit(BoardDTO dto) {
+		
+		try {
+			
+			String sql = "update tblBoard set title = ?, content = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getTitle());
+			pstat.setString(2, dto.getContent());
+			pstat.setString(3, dto.getSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("BoardDAO.edit()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	public int delete(String seq) {
+		
+		try {
+			
+			String sql = "delete from tblBoard where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("BoardDAO.delete()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }//class
