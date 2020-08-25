@@ -91,13 +91,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		
-		
-		
 		return null;
 	}
 
-
-	
-	
-	
 }

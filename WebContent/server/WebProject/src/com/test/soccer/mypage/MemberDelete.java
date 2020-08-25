@@ -16,14 +16,7 @@ public class MemberDelete extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		//1. 데이터 가져오기
-		String seq = req.getParameter("seq");
-	
-		//2. 데이터 넘겨주기 + jsp호출
-		req.setAttribute("seq", seq);
-		
-		
-	
+
 	RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/mypage.jsp");
 	dispatcher.forward(req, resp);
 	

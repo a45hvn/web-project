@@ -60,41 +60,33 @@
                 class="contentTitle">회원정보수정</span></div>
 
         <div id="infoUpateBox">
+			<form method="POST" enctype="multipart/form-data" action="/soccer/mypage/mypageinfoupdateok.do">
             <table id="infoUpateTable" class="table table-bordered">
+             
                 <tr>
                     <th style="width: 150px;">이름</th>
                     <td style="width: 450px;">
-                        <input type="text" class="form-control" placeholder="홍길동"></td>
-                </tr>
-                <tr>
-                    <th style="width: 150px;">포지션 선택</th>
-                    <td style="width: 450px;">
-                        <select class="form-control">
-                            <option>FW - 공격수</option>
-                            <option>MF - 미드필더</option>
-                            <option>DF - 수비수</option>
-                            <option>GK - 골키퍼</option>
-                        </select>
-                    </td>
+                        <input type="text" class="form-control" placeholder="${dto.name}" disabled name="name"></td>
                 </tr>
                 <tr>
                     <th style="width: 150px;">키(cm)</th>
                     <td style="width: 450px;">
-                        <input type="text" class="form-control" placeholder="180"></td>
+                        <input type="text" class="form-control" placeholder="${dto.height}" name="height"></td>
                 </tr>
                 <tr>
                     <th style="width: 150px;">몸무게(kg)</th>
                     <td style="width: 450px;">
-                        <input type="text" class="form-control" placeholder="78"></td>
+                        <input type="text" class="form-control" placeholder="${dto.weight}" name="weight"></td>
                 </tr>
-
                 <tr>
                     <th style="width: 150px;">사진</th>
                     <td style="width: 450px;">
-                        <input type="file" class="form-control"> </td>
+                        <input type="file" class="form-control" name="image"> </td>
                 </tr>
+                
             </table>
-            <div><button class="btn btn-default" id="infoUpdateBtn">수정하기</button></div>
+            <div><button type="submit" class="btn btn-default" id="infoUpdateBtn">수정하기</button></div>
+            </form>
         </div>
 
 
@@ -114,7 +106,7 @@
                 <div class="modal-body">수정이 완료되었습니다.</div>
                 <div class="modal-footer">
                     <!-- ok버튼 누르면 마이페이지 처음 메뉴로 되돌아가기 -->
-                    <a class="btn" id="modalY" href="mypage.html">확인</a>
+                    <a class="btn" id="modalY" href="/soccer/mypage/mypage.do">확인</a>
                     <!-- <button class="btn" type="button" data-dismiss="modal">아니요</button> -->
                 </div>
             </div>
@@ -135,12 +127,12 @@
     <script>
 
 // 	모달팝업
-    $("#infoUpdateBtn").click(function (e) {
-        e.preventDefault();
-        $("#updateModal").modal("show");
-        $("#updateModal").clientX = ("100px");
-        // clientY: 100px;
-    });
+//     $("#infoUpdateBtn").click(function (e) {
+//         e.preventDefault();
+//         $("#updateModal").modal("show");
+//         $("#updateModal").clientX = ("100px");
+//         // clientY: 100px;
+//     });
 
         
     </script>

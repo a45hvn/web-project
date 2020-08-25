@@ -22,12 +22,12 @@ public class TextBroadcasting extends HttpServlet {
 		
 		
 		//2. 위임하기
-		BroadCastDAO dao = new BroadCastDAO();
-		BroadCastDTO dto = new BroadCastDTO();
+		BroadcastDAO dao = new BroadcastDAO();
+		BroadcastDTO dto = new BroadcastDTO();
 		
-		ArrayList<BroadCastDTO> broadCastList = dao.broadCastList(leagueGame_seq);
+		ArrayList<BroadcastDTO> broadCastList = dao.broadCastList(leagueGame_seq);
 		
-		
+		req.setAttribute("broadCastList", broadCastList);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/broadcast/textbroadcasting.jsp");

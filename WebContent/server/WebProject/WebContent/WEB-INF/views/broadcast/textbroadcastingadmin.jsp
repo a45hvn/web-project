@@ -60,7 +60,7 @@
                 class="contentTitle">문자중계 등록</span></div>
 
         <div id="contentsBox">
-            <textarea id="textbroadcast">            </textarea>
+        	<div><input type="text" id="textbroadcast"></div>
             <div class="team" id="team1">
                 <table class="table table-bordered table-striped">
                     <tr>
@@ -348,24 +348,7 @@
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
-//     $(".table>tr").click(function () {
-//         alert();
-//     })
 
-    //모달
-    $("#infoUpdateBtn").click(function (e) {
-            e.preventDefault();
-            $("#updateModal").modal("show");
-            $("#updateModal").clientX = ("100px");
-            // clientY: 100px;
-        });
-
-        $("#modalY").click(function () {
-            location.href = "../webproject/mypage.html"
-        })
-
-
-        
     </script>
     
     

@@ -128,82 +128,13 @@
                         <span class="playerName">이름</span>
                         <span class="position">포지션</span>
                     </div>
+                    <c:forEach items="${getPlayerInformation}" var="dto">
                     <div class="player teamAPlayer" id="teamAPlayer1">
-                        <span class="backNum">1</span>
-
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
+                        <span class="backNum">${dto.backNum}</span>
+                        <span class="playerName">${dto.name}</span>
+                        <span class="position">${dto.position}</span>
                     </div>
-                    <div class="player teamAPlayer" id="teamAPlayer2">
-                        <span class="backNum">2</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer3">
-                        <span class="backNum">3</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer4">
-                        <span class="backNum">4</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer5">
-                        <span class="backNum">5</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer6">
-                        <span class="backNum">6</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer7">
-                        <span class="backNum">7</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer8">
-                        <span class="backNum">8</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer9">
-                        <span class="backNum">9</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer10">
-                        <span class="backNum">10</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer11">
-                        <span class="backNum">11</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer12">
-                        <span class="backNum">12</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer13">
-                        <span class="backNum">13</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer14">
-                        <span class="backNum">14</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
-                    <div class="player teamAPlayer" id="teamAPlayer15">
-                        <span class="backNum">15</span>
-                        <span class="playerName">이찬찬</span>
-                        <span class="position">ST</span>
-                    </div>
+                    </c:forEach>
                 </div>
                 <div class="textBroadcast">
                     <span class="menuTitle2">문자 생중계</span>
@@ -222,11 +153,13 @@
                         <span class="playerName">이름</span>
                         <span class="position">포지션</span>
                     </div>
+                    <c:forEach items="${getPlayerInformation}" var="dto">
                     <div class="player teaBAPlayer" id="teamBPlayer1">
-                        <span class="backNum">1</span>
-                        <span class="playerName">박박박</span>
-                        <span class="position">ST</span>
+                        <span class="backNum">${dto.backNum}</span>
+                        <span class="playerName">${dto.name}</span>
+                        <span class="position">${dto.position}</span>
                     </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
