@@ -33,20 +33,15 @@
 			<div class="subMenuBox">
 				<nav class="subMenu">
 					<ul>
-						<li class="subMenuItem"><a
-							href="communityQuestionBulletinBoard.html">질문게시판</a></li>
-						<li class="subMenuItem"><a
-							href="communityGalleryBulletinBoard.html">갤러리</a></li>
-						<li class="subMenuItem"><a
-							href="communityFreeBulletinBoard.html">자유게시판</a></li>
-						<li class="subMenuItem"><a
-							href="communityLectureBulletinBoard.html">강의게시판</a></li>
-						<li class="subMenuItem;"
-							style="background-color: rgb(15, 13, 13);"><a
-							href="friendlymatchrecruit.html">친선경기모집</a></li>
-						<li class="subMenuItem"><a href="mercenaryrecruit.html">용병모집</a></li>
+						<li class="subMenuItem"><a href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
+                        <li class="subMenuItem"><a href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
+                        <li class="subMenuItem"><a href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
+                        <li class="subMenuItem"><a href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
+                        <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
+                        <li class="subMenuItem"><a href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
 					</ul>
 				</nav>
+							
 			</div>
 
 		</div>
@@ -101,31 +96,8 @@
 				</c:forEach>
 			</table>
 		</div>
+		
 			${pagebar}
-<!-- 		<div id="centerbox3"> -->
-			<!--                 <ul id="pagination" class="pagination" style="float: right;"> -->
-			<!--                     <li> -->
-			<!--                         <a href="#" aria-label="Previous"> -->
-			<!--                             <span aria-hidden="true">&laquo;</span> -->
-			<!--                         </a> -->
-			<!--                     </li> -->
-			<!--                     <li><a class="nowPage" href="#" name="page">1</a></li> -->
-			<!--                     <li><a href="#" name="page">2</a></li> -->
-			<!--                     <li><a href="#" name="page">3</a></li> -->
-			<!--                     <li><a href="#" name="page">4</a></li> -->
-			<!--                     <li><a href="#" name="page">5</a></li> -->
-			<!--                     <li><a href="#" name="page">6</a></li> -->
-			<!--                     <li><a href="#" name="page">7</a></li> -->
-			<!--                     <li><a href="#" name="page">8</a></li> -->
-			<!--                     <li><a href="#" name="page">9</a></li> -->
-			<!--                     <li><a href="#" name="page">10</a></li> -->
-			<!--                     <li> -->
-			<!--                         <a href="#" aria-label="Next"> -->
-			<!--                             <span aria-hidden="true">&raquo;</span> -->
-			<!--                         </a> -->
-			<!--                     </li> -->
-			<!--                 </ul> -->
-			<!--             </div> -->
 
 			<div id="centerbox4">
 				<div style="float: right;">

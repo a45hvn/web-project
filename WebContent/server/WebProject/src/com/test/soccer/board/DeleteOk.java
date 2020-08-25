@@ -20,6 +20,8 @@ public class DeleteOk extends HttpServlet {
 		
 		String seq = req.getParameter("seq");
 		
+		String category_seq = req.getParameter("category_seq");
+		
 		BoardDAO dao = new BoardDAO();
 		
 		int result = 0;
@@ -30,6 +32,8 @@ public class DeleteOk extends HttpServlet {
 		dto2.setSeq(seq);									//삭제할 글 번호
 		dto2.setId((String)session.getAttribute("id"));		//로그인한 아이디
 		
+		System.out.println(dto2.getCategory_seq());
+		
 		if(dao.isOwner(dto2)) {
 			result = dao.delete(seq);
 		} else {
@@ -39,9 +43,26 @@ public class DeleteOk extends HttpServlet {
 		
 		//3.
 				if (result == 1) {
+										
+					String location = "";
 					
 					//삭제 성공
-					resp.sendRedirect("/soccer/board/communityFreeBulletinBoard.do");
+					if(category_seq.equals("1")) {
+						location="/soccer/board/communityQuestionBulletinBoard.do";
+					} else if(category_seq.equals("2")) {
+						location="/soccer/board/communityGalleryBulletinBoard.do";				
+					} else if(category_seq.equals("3")) {
+						location="/soccer/board/communityFreeBulletinBoard.do";				
+					} else if(category_seq.equals("4")) {
+						location="/soccer/board/communityLectureBulletinBoard.do";				
+					} else if(category_seq.equals("5")) {
+						location="/soccer/board/friendlymatchrecruit.do";				
+					} else if(category_seq.equals("6")) {
+						location="/soccer/board/mercenaryrecruit.do";				
+					}  
+					
+					resp.sendRedirect(location);
+					
 					
 				} else if (result == 0) {
 					//삭제 실패

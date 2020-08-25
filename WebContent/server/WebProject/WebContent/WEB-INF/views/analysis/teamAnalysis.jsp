@@ -208,7 +208,29 @@
         <div style="float: left; width: 1000px; margin-left: 150px; border: 3px solid rgb(37, 65, 80);">
         <div class="ace" style="width: 300px; margin-left: 93px; border: 2px rgb(134, 0, 0) solid ;">
             <div class="playerTitle">주목할 선수</div>
-            <img src="/soccer/images/man_02.png" alt="">
+            <span id="redTeamImage"></span>
+            <table class="table table-bordered">
+                <tr>
+                    <th>선수명</th>
+                    <td><span id="redTeamPlayer"></span></td>
+                </tr>
+                <tr>
+                    <th>득점</th>
+                    <td><span id="redTeamGoal"></span></td>
+                </tr>
+                <tr>
+                    <th>도움</th>
+                    <td><span id="redTeamAssist"></span></td>
+                </tr>
+                <tr>
+                    <th>공격포인트</th>
+                    <td><span id="redTeamTotal"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="ace" style="margin-left: 200px; width: 300px; border: 2px solid #005093;">
+            <div class="playerTitle">주목할 선수</div>
+            <span id="blueTeamImage"></span>
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>
@@ -223,30 +245,8 @@
                     <td><span id="blueTeamAssist"></span></td>
                 </tr>
                 <tr>
-                    <th>파울</th>
-                    <td><span id="blueTeamFoul"></span>}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="ace" style="margin-left: 200px; width: 300px; border: 2px solid #005093;">
-            <div class="playerTitle">주목할 선수</div>
-            <img src="/soccer/images/man_02.png" alt="">
-            <table class="table table-bordered">
-                <tr>
-                    <th>선수명</th>
-                    <td>김강인</td>
-                </tr>
-                <tr>
-                    <th>득점</th>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <th>도움</th>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <th>평균평점</th>
-                    <td>6</td>
+                    <th>공격포인트</th>
+                    <td><span id="blueTeamTotal"></span></td>
                 </tr>
             </table>
         </div>
@@ -257,24 +257,19 @@
             <h4 style="font-weight: bold;">팀 평균 데이터</h4>
             <table class="table table-bordered">
                 <tr>
-                    <td>3</td>
+                    <td id="redGoalAvg"></td>
                     <th>평균득점</th>
-                    <td>2.1</td>
+                    <td id="blueGoalAvg"></td>
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td id="redAssistAvg"></td>
                     <th>평균도움</th>
-                    <td>1.7</td>
+                    <td id="blueAssistAvg"></td>
                 </tr>
                 <tr>
-                    <td>8</td>
-                    <th>평균평점</th>
-                    <td>7.1</td>
-                </tr>
-                <tr>
-                    <td>70%</td>
-                    <th>승률</th>
-                    <td>50%</td>
+                    <td id="redTotalAvg"></td>
+                    <th>평균공격포인트</th>
+                    <td id="blueTotalAvg"></td>
                 </tr>
             </table>
         </div>
@@ -356,20 +351,34 @@
     		
     		$("#blueTeamName").text($("#team1 option:selected").val()+"FC");
     		$("#blueTeamHome").text("[ "+$("#home1 option:selected").val()+" ]");
-    	   
+    	   	
+    		$("#redTeamPlayer").text("");
+    		$("#redTeamGoal").text("");
+    		$("#redTeamAssist").text("");
+    		$("#redTeamTotal").text("");
+    		$("#redTeamImage").text("");
+    		$("#redGoalAvg").text("");
+    		$("#redAssistAvg").text("");
+    		$("#redTotalAvg").text("");
     		 $.ajax({
     		   type:"GET",
-    		   url: "/soccer/analysis/teamAnalysisok.do",
+    		   url: "/soccer/analysis/teamAnalysisok2.do",
     		   data : "team1=" + $("#team1 option:selected").val(),
-    		   dataType: "json",
+    		   dataType: "text",
     		   success:function(result){
     			   
+    			   console.log(result);
+    			   var data = result.split(",");
+    			   $("#redTeamPlayer").append(data[0]);
+    			   $("#redTeamGoal").append(data[1]);
+    			   $("#redTeamAssist").append(data[2]);
+    			   $("#redTeamTotal").append(data[3]);
+    			   $("#redTeamImage").append("<img src=/soccer/images/"+data[4]+">");
+    			   $("#redGoalAvg").append(data[5]);
+    			   $("#redAssistAvg").append(data[6]);
+    			   $("#redTotalAvg").append(data[7]);
     			   
-    			   item.each(function(item, index){
-    				   
-    				   
-    				   
-    			   )} 
+    			   
     		   },
     		   error:function(a,b,c){
     			   console.log(a,b,c);
@@ -384,14 +393,31 @@
     		$("#redTeamName").text($("#team2 option:selected").val()+"FC");
     		$("#redTeamHome").text("[ "+$("#home2 option:selected").val()+" ]");
     	   
+    		$("#blueTeamPlayer").text("");
+    		$("#blueTeamGoal").text("");
+    		$("#blueTeamAssist").text("");
+    		$("#blueTeamTotal").text("");
+    		$("#blueTeamImage").text("");
+    		$("#blueGoalAvg").text("");
+    		$("#blueAssistAvg").text("");
+    		$("#blueTotalAvg").text("");
     		 $.ajax({
     		   type:"GET",
-    		   url: "/soccer/analysis/teamAnalysisok.do",
+    		   url: "/soccer/analysis/teamAnalysisok3.do",
     		   data : "team2=" + $("#team2 option:selected").val(),
-    		   dataType: "json",
+    		   dataType: "text",
     		   success:function(result){
-    			  
     			   
+    			   console.log(result); 
+    			   var data = result.split(",");
+    			   $("#blueTeamPlayer").append(data[0]);
+    			   $("#blueTeamGoal").append(data[1]);
+    			   $("#blueTeamAssist").append(data[2]);
+    			   $("#blueTeamTotal").append(data[3]);
+    			   $("#blueTeamImage").append("<img src=/soccer/images/"+data[4]+">"); 
+    			   $("#blueGoalAvg").append(data[5]);
+    			   $("#blueAssistAvg").append(data[6]);
+    			   $("#blueTotalAvg").append(data[7]);
     		   },
     		   error:function(a,b,c){
     			   console.log(a,b,c);

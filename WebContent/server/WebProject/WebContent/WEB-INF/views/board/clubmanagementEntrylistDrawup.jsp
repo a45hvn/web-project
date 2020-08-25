@@ -14,7 +14,7 @@
 	<script src="https://code.highcharts.com/modules/series-label.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
-	<link rel="stylesheet" href="/soccer/css/clubmanagementEntrylistDrawup.css">
+	<link rel="stylesheet" href="/soccer/css/aa.css">
     
     <style>
     
@@ -55,7 +55,7 @@
 	<!-- 내용 시작 -->
 	
 	<div class="center">
-    <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
+    <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
             class="contentTitle">엔트리작성</span></div>
 
             <div id="centerMainBox">
@@ -80,160 +80,7 @@
                                     <td>오희준</td>
                                     <td>26</td>
                                 </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td>MF</td>
-                                    <td>2</td>
-                                    <td>오희준</td>
-                                    <td>26</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td>MF</td>
-                                    <td>2</td>
-                                    <td>오희준</td>
-                                    <td>26</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                               
                             </table>
                         </div>
                         <div id="centerbox2LeftButton">
@@ -244,35 +91,34 @@
                     </div>
                     <!-- 오른쪽 포메이션 박스 -->
                     <div id="centerbox2Right">
-                        <div id="formation" style="background-image: url(images/soccer5.jpg);">
-                            <div>
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
+                        <div id="formation" style="background-image: url(/soccer/images/soccer5.jpg);">
+                            <div id="front">
+                                <img src="/soccer/images/soccer2.jpg" id="${dto.seq}" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="474" class="player" alt="">
+                            </div>
+                            <div id="middle">
+                                <img src="/soccer/images/soccer2.jpg" id="475" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="476" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="477" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="478" class="player" alt="">
+                            </div>
+                            <div id="back">
+                                <img src="/soccer/images/soccer2.jpg" id="479" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="480" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="481" class="player" alt="">
+                                <img src="/soccer/images/soccer2.jpg" id="482" class="player" alt="">
                             </div>
                             <div>
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
-                                <img src="images/soccer2.jpg" alt="">
-                            </div>
-                            <div>
-                                <img src="images/soccer2.jpg" alt="">
-                            </div>
-                            
+                                <img src="/soccer/images/soccer2.jpg" id="472" class="player" alt="">
+                            </div>                            
                         </div>
                         <div id="formationSelect">
                             <span style="font-weight: bold;">포메이션 : </span>
-                            <select style=" height: 25px;">
-                                <option value="">442</option>
-                                <option value="">433</option>
-                                <option value="">352</option>
-                                <option value="">4222</option>
+                            <select style=" height: 25px;" id="formationNum">
+                                <option value="442">442</option>
+                                <option value="433">433</option>
+                                <option value="352">352</option>
+                                <option value="4222">4222</option>
                             </select>
                         </div>
                     </div>
@@ -306,38 +152,40 @@
 		// });
 	
 	   //FW는 FW-Field 지역만 위치조정이 가능하다.
-	   $("#formation div:nth-child(1) img").draggable({                    
-	        //FW 박스 안에서만 움질일수 있도록
-	        containment: "#formation div:nth-child(1)" ,
-	        // 자석처럼 달라붙게
-	        // snap: "#formation div:nth-child(1)"
-	   });
+	   function move(){
+		   $("#formation div:nth-child(1) img").draggable({                    
+		        //FW 박스 안에서만 움질일수 있도록
+		        containment: "#formation div:nth-child(1)" ,
+		        // 자석처럼 달라붙게
+		        // snap: "#formation div:nth-child(1)"
+		   });
+		
+		   //MF는 MF-Field 위치조정이 가능하다.
+		   $("#formation div:nth-child(2) img").draggable({                    
+		        //MF 박스 안에서만 움질일수 있도록
+		        containment: "#formation div:nth-child(2)" ,
+		        // 자석처럼 달라붙게
+		        // snap: "#formation div:nth-child(1)"
+		   });
+		
+		   //DF는 DF-Field 위치조정이 가능하다.
+		   $("#formation div:nth-child(3) img").draggable({                    
+		        //DF 박스 안에서만 움질일수 있도록
+		        containment: "#formation div:nth-child(3)" ,
+		        // 자석처럼 달라붙게
+		        // snap: "#formation div:nth-child(1)"
+		   });
+		
+		    //GK는 GK-Field 위치조정이 가능하다.
+		    $("#formation div:nth-child(4) img").draggable({                    
+		        //GF 박스 안에서만 움질일수 있도록
+		        containment: "#formation div:nth-child(4)" ,
+		        // 자석처럼 달라붙게
+		        // snap: "#formation div:nth-child(1)"
+		   });
+	   };//move;
 	
-	   //MF는 MF-Field 위치조정이 가능하다.
-	   $("#formation div:nth-child(2) img").draggable({                    
-	        //MF 박스 안에서만 움질일수 있도록
-	        containment: "#formation div:nth-child(2)" ,
-	        // 자석처럼 달라붙게
-	        // snap: "#formation div:nth-child(1)"
-	   });
-	
-	   //DF는 DF-Field 위치조정이 가능하다.
-	   $("#formation div:nth-child(3) img").draggable({                    
-	        //DF 박스 안에서만 움질일수 있도록
-	        containment: "#formation div:nth-child(3)" ,
-	        // 자석처럼 달라붙게
-	        // snap: "#formation div:nth-child(1)"
-	   });
-	
-	    //GK는 GK-Field 위치조정이 가능하다.
-	    $("#formation div:nth-child(4) img").draggable({                    
-	        //GF 박스 안에서만 움질일수 있도록
-	        containment: "#formation div:nth-child(4)" ,
-	        // 자석처럼 달라붙게
-	        // snap: "#formation div:nth-child(1)"
-	   });
-	
-	
+	   move();
 	   $("#formation img").dblclick(function() {                    
 	        // alert($(this));
 	        child = window.open(
@@ -377,6 +225,73 @@
 	    
 	    }); 
 
+	   	//포지션값들 배치하기
+		<c:forEach items="${list}" var="dto">
+		$("#${dto.seq}").css({
+			"left" : "${dto.position_x}px",
+			"top" : "${dto.position_y}px"			
+		});   	
+	   	</c:forEach>
+	   	
+	   	//Ajax
+	   	$(".player").draggable({
+	   		
+	   		stop: function(event, ui) {
+	   			
+	   			//alert(ui.position.top);
+				//alert(ui.position.left);
+				//alert(this.id);
+				
+				$.ajax({
+					
+					type: "GET",
+					url: "/soccer/board/clubmanagementEntrylistDrawupOk.do",
+					
+					data: "seq=" + this.id + "&position_x=" +  ui.position.left + "&position_y=" + ui.position.top,
+					
+					success: function(result) {
+						if (result == 0) {
+							alert("저장하는 작업을 실패했습니다.");
+						}
+					},
+					error: function(a,b,c) {
+						console.log(a,b,c);
+					}
+					
+				})
+	   			
+	   		}
+	   		
+	   	});
+	   	
+	  	//한페이지 당 출력 갯수
+    	document.getElementById("formationNum").onchange = function(){    
+                		
+    		console.log($(this).val());
+        	var position=$(this).val();
+        	var front=position.substring(2,3);
+        	var middle=position.substring(1,2);
+        	var back=position.substring(0,1);
+        	$("#front").html("");
+        	$("#middle").html("");
+        	$("#back").html("");
+        	for(var i=0;i<front;i++){
+        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
+       			$("#front").append(temp);
+       			move();
+        	}
+        	for(var i=0;i<middle;i++){
+        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
+       			$("#middle").append(temp);
+       			move();
+        	}
+        	for(var i=0;i<back;i++){
+        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
+       			$("#back").append(temp);
+       			move();
+        	}
+    	};
+	   
         
     </script>
     
