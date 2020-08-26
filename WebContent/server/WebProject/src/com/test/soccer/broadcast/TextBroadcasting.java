@@ -24,15 +24,15 @@ public class TextBroadcasting extends HttpServlet {
 		GameDTO team1=new GameDTO();
 		GameDTO team2=new GameDTO();
 		
-		String teamname1=req.getParameter("59");
-		String teamname2=req.getParameter("9");
-		String league_seq=req.getParameter("1");
-		String leaguegame_seq=req.getParameter("1");
+		String teamname1=req.getParameter("homeTeam");
+		String teamname2=req.getParameter("awayTeam");
+		String league_seq=req.getParameter("league_seq");
+		String leaguegame_seq=req.getParameter("seq");
 		
-		teamname1="나슬";
-		teamname2="알섬";
-		league_seq="1";
-		leaguegame_seq="1";
+//		teamname1="나슬";
+//		teamname2="알섬";
+//		league_seq="1";
+//		leaguegame_seq="1";
 		
 		team1.setTeamname(teamname1);
 		team1.setLeague_seq(league_seq);
@@ -42,7 +42,7 @@ public class TextBroadcasting extends HttpServlet {
 		team2.setLeague_seq(league_seq);
 		team2.setLeaguegame_seq(leaguegame_seq);
 		
-		BroadCastDAO dao=new BroadCastDAO();
+		BroadCastDAO2 dao=new BroadCastDAO2();
 		
 		
 		//팀번호와 리그번호를 넘겨주면서 선수 정보를 가져온다.
@@ -53,7 +53,7 @@ public class TextBroadcasting extends HttpServlet {
 		ArrayList<textBroadCastDTO> textBroadCast=dao.getTextBroadCast(leaguegame_seq);
 		
 		//단축키 가져온다.
-		ArrayList<BroadCastDTO> bcList=dao.getBcList();
+		ArrayList<BroadCastDTO2> bcList=dao.getBcList();
 		req.setAttribute("playerInfo1", playerInfo1); // 1팀 선수 정보
 		req.setAttribute("playerInfo2", playerInfo2); // 2팀 선수 정보
 		req.setAttribute("bcList", bcList);				//단축키 정보

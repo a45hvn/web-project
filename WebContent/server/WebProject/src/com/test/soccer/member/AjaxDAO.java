@@ -130,7 +130,9 @@ public class AjaxDAO {
 			
 			System.out.println("AjaxDAO.formation()");
 			e.printStackTrace();
-			
+		}
+		
+	}
 	//팀선택시 선수명단 가져오기
 	public ArrayList<MemberDTO> getPlayer(String team1) {
 		try {

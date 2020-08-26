@@ -73,7 +73,7 @@ public class TextBroadcastingSchdule extends HttpServlet{
 			
 		
 		//1. 데이터가져오기
-		BroadcastDAO dao = new BroadcastDAO();
+		BroadcastDAO1 dao = new BroadcastDAO1();
 		
 		//총페이지 수 계산하기
 		//총 페이지 수 = 총 게시물 수 / 한페이지 당 출력 게시물 수 
@@ -84,7 +84,7 @@ public class TextBroadcastingSchdule extends HttpServlet{
 //		System.out.println(totalPage);
 			
 		//2. 위임
-		ArrayList<BroadcastDTO> broadcastScheduleList = dao.broadcastScheduleList(map);
+		ArrayList<BroadcastDTO1> broadcastScheduleList = dao.broadcastScheduleList(map);
 
 		//list: 게시판 목록 원본
 		//-> list 가공
