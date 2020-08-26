@@ -10,6 +10,8 @@ import java.util.HashMap;
 
 import com.test.soccer.DBUtil;
 
+import oracle.net.aso.p;
+
 public class TeamlistDAO {
 
 	private Connection conn;
@@ -96,7 +98,7 @@ public class TeamlistDAO {
 			String searchKeyword = map.get("searchKeyword");
 			
 			//검색어가 있을때
-			if (search != null) {
+			if (search != null&&searchKeyword!=null) {
 				 where = String.format("where %s like '%%%s%%'", searchKeyword , search);
 				 //teamname, coachname, ground
 					
@@ -140,7 +142,7 @@ public class TeamlistDAO {
 				where=String.format("where teamname='%s'",teamname);
 			}
 			String sql=String.format("select*from team %s",where);
-			System.out.println(sql);
+		
 			pstat=conn.prepareStatement(sql);
 
 			rs=pstat.executeQuery();
@@ -222,7 +224,7 @@ public class TeamlistDAO {
 		
 		try {
 			ArrayList<LeagueDTO> list=new ArrayList<LeagueDTO>();
-			String sql="select seq, name, to_char(startdate,'yyyymmdd') startdate,to_char(enddate,'yyyymmdd') enddate from tblleague";
+			String sql="select seq, name, to_char(startdate,'yyyymmdd') startdate, to_char(enddate,'yyyymmdd') enddate from tblleague";
 			stat=conn.createStatement();
 			
 			rs=stat.executeQuery(sql);
@@ -248,7 +250,7 @@ public class TeamlistDAO {
 	public int rnum(String teamname) {
 		// TODO Auto-generated method stub
 		try {
-			String sql="select * from ranking where name = ? and league_seq>0";
+			String sql="select * from ranking where teamname = ? and league_seq > 0";
 			pstat=conn.prepareStatement(sql);
 			pstat.setString(1,teamname);
 			rs=pstat.executeQuery();
@@ -262,7 +264,7 @@ public class TeamlistDAO {
 		}
 		return 0;
 	}
-
+	//teaminformation -> 포기
 	public ArrayList<TeamInformationDTO> getRival(int rnum) {
 		// TODO Auto-generated method stub
 		
@@ -317,5 +319,54 @@ public class TeamlistDAO {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	//teaminformation -> ranking 을 이용해서 그래프그리기
+	public String getRank(String teamname, int latestLeague) {
+		// TODO Auto-generated method stub
+		try {
+			String sql="select * from ranking where teamname=?";
+			pstat=conn.prepareStatement(sql);
+			pstat.setString(1,teamname);
+			rs=pstat.executeQuery();
+			HashMap<String,String> map=new HashMap<String, String>();
+			
+			while(rs.next()) {
+				map.put(rs.getString("league_seq"),rs.getString("rnum"));
+				
+			}
+			String temp="[";
+			for(int i=1;i<=latestLeague;i++) {
+				String rnum=map.get(i+"");
+				if(rnum!=null) {
+					temp+=Integer.parseInt(rnum)%16==0?16+",":Integer.parseInt(rnum)%16+",";
+				}else if(rnum==null) {
+					temp+="null,";
+				}
+			}
+			temp=temp.substring(0,temp.length()-1);
+			temp+="]";
+			return temp;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
+	//teaminformation -> 가장 최근 리그 가져온다.
+	public int getLatest() {
+		// TODO Auto-generated method stub
+		try {
+			String sql="select max(league_seq) max from ranking";
+			
+			stat=conn.createStatement();
+			rs=stat.executeQuery(sql);
+			if(rs.next()) {
+				return rs.getInt("max");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }//TeamlistDAO

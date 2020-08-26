@@ -45,7 +45,7 @@
                 <td class="menu menu3"><span class="menuLabel">선수현황</span></td>
                 <td class="menu menu4"><span class="menuLabel">전력분석</span></td>
                 <td class="menu menu5"><span class="menuLabel">문자중계</span></td>
-                <td class="menu menu6"><span class="menuLabel"><a href="/soccer/board/communityFreeBulletinBoard.do">게시판</a></span></td>
+                <td class="menu menu6"><span class="menuLabel">게시판</span></td>
                 <td class="menu menu7"><span class="menuLabel">공지사항</span></td>
             </tr>
         </table>
