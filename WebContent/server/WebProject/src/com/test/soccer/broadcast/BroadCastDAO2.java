@@ -10,14 +10,14 @@ import java.util.HashMap;
 import com.test.soccer.DBUtil;
 import com.test.soccer.board.BoardDTO;
 
-public class BroadCastDAO {
+public class BroadCastDAO2 {
 
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	public BroadCastDAO() {
+	public BroadCastDAO2() {
 		//DB연결
 		DBUtil util = new DBUtil();
 		conn = util.open();
@@ -32,17 +32,17 @@ public class BroadCastDAO {
 		}
 	}//close
 	//textbroadcast -> 단축키를 넘겨준다.
-	public ArrayList<BroadCastDTO> getBcList() {
+	public ArrayList<BroadCastDTO2> getBcList() {
 		
 		// TODO Auto-generated method stub
 		
 		try {
 			String sql="select*from tblbroadcastact";
 			stat=conn.createStatement();
-			ArrayList<BroadCastDTO> list=new ArrayList<BroadCastDTO>();
+			ArrayList<BroadCastDTO2> list=new ArrayList<BroadCastDTO2>();
 			rs=stat.executeQuery(sql);
 			while(rs.next()) {
-				BroadCastDTO dto=new BroadCastDTO();
+				BroadCastDTO2 dto=new BroadCastDTO2();
 				dto.setSeq(rs.getString("seq"));
 				dto.setShortcut(rs.getString("shortcout"));
 				dto.setEvent(rs.getString("event"));

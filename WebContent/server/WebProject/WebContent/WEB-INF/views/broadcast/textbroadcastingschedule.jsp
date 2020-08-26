@@ -102,7 +102,7 @@
 								<span class="team" id="teamB" >${dto.awayTeam}</span></td>
 							<td>${dto.homeGoal}<span class="team">:</span>${dto.awayGoal}</td>
 							<td><input type="button" value="문자중계"
-								class="textBtn btn btn-default" onclick="location.href='/soccer/broadcast/textbroadcasting.do?seq=${dto.seq}&league=${dto.league_seq}&hometeam=${dto.homeTeam_seq}&awayteam=${dto.awayTeam_seq}'"></td>
+								class="textBtn btn btn-default" onclick="location.href='/soccer/broadcast/textbroadcasting.do?seq=${dto.seq}&league=${dto.league_seq}&hometeam=${dto.homeTeam}&awayteam=${dto.awayTeam}'"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
