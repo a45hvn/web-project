@@ -277,7 +277,7 @@ public class MemberDAO {
 				
 				
 				
-				String sql = "select membername, (select image from vwteamanlysis group by image) as image, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname=? group by membername order by total desc";
+				String sql = "select membername, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname= ? group by membername order by total desc";
 				
 				
 				pstat = conn.prepareStatement(sql);
@@ -295,7 +295,6 @@ public class MemberDAO {
 					dto.setLgoal(rs.getString("goal"));
 					dto.setAssist(rs.getString("assist"));
 					dto.setTotal(rs.getString("total"));
-					dto.setImage(rs.getString("image"));
 					
 //					System.out.println(dto.getLgoal());
 //					System.out.println(dto.getAssist());
@@ -322,8 +321,7 @@ public class MemberDAO {
 				
 				
 				
-				
-				String sql = "select membername, (select image from vwteamanlysis group by image) as image, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname=? group by membername order by total desc";
+				String sql = "select membername, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname= ? group by membername order by total desc";
 				
 				
 				pstat = conn.prepareStatement(sql);
@@ -341,7 +339,6 @@ public class MemberDAO {
 					dto.setLgoal(rs.getString("goal"));
 					dto.setAssist(rs.getString("assist"));
 					dto.setTotal(rs.getString("total"));
-					dto.setImage(rs.getString("image"));
 					
 //					System.out.println(dto.getLgoal());
 //					System.out.println(dto.getAssist());

@@ -273,6 +273,47 @@ public class TeamDAO {
 		return null;
 	}
 
+	public ArrayList<TeamDTO> getscheduleList() {
+		
+		try {
+			String sql = "select * from vwbroadcastschedule where sysdate < gamedate";
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			
+			ArrayList<TeamDTO> scheduleList = new ArrayList<TeamDTO>();
+			
+			
+			while(rs.next()) {
+				
+				TeamDTO dto = new TeamDTO();
+				
+				dto.setLeague(rs.getString("league"));
+				dto.setGamedate(rs.getString("gamedate"));
+				dto.setGround(rs.getString("ground"));
+				dto.setHometeam(rs.getString("hometeam"));
+				dto.setAwayteam(rs.getString("awayteam"));
+				dto.setHomelogo(rs.getString("hometeamlogo"));
+				dto.setAwaylogo(rs.getString("awayteamlogo"));
+				
+//				System.out.println(rs.getString("assist"));
+				scheduleList.add(dto);
+			}
+			
+			
+			stat.close();
+			rs.close();
+			
+			return scheduleList;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 	
 	
 	

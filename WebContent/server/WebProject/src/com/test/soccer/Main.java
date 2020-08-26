@@ -22,6 +22,9 @@ public class Main extends HttpServlet{
 		
 		TeamDAO dao = new TeamDAO();
 		
+		//경기일정 리스트
+		ArrayList<TeamDTO> scheduleList = dao.getscheduleList();
+		
 		//팀순위 리스트
 		ArrayList<TeamDTO> list = dao.getTeamRank();
 		
@@ -50,6 +53,7 @@ public class Main extends HttpServlet{
 		req.setAttribute("saveRank", saveRank);
 		req.setAttribute("yellowRank", yellowRank);
 		req.setAttribute("foulRank", foulRank);
+		req.setAttribute("scheduleList", scheduleList);
 		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/main.jsp");
