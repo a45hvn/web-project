@@ -65,7 +65,7 @@ public class BroadCastDAO2 {
 			String sql=String.format("select*from teamentry where teamname='%s' and league_seq=%s",team.getTeamname(),team.getLeague_seq());
 			pstat=conn.prepareStatement(sql);
 			
-			
+			System.out.println(sql);
 			rs=pstat.executeQuery();
 			while(rs.next()) {
 				PlayerInformationDTO dto=new PlayerInformationDTO();
@@ -74,6 +74,7 @@ public class BroadCastDAO2 {
 				dto.setPosition(rs.getString("position"));
 				dto.setBacknumber(rs.getString("backnumber"));
 				dto.setTeamlogo(rs.getString("teamlogo"));
+				System.out.println(dto.getTeamname());
 				list.add(dto);
 			}
 			return list;
