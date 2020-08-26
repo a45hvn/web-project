@@ -202,6 +202,11 @@ public class communityFreeBulletinBoard extends HttpServlet{
 		pagebar += "</ul>";		
 		pagebar += "</nav>";
 		
+		//카테고리 번호
+		BoardDTO dto = new BoardDTO();
+		dto.setCategory_seq("3");
+		
+		
 		//2.
 		//목록
 		req.setAttribute("list", list);
@@ -222,7 +227,9 @@ public class communityFreeBulletinBoard extends HttpServlet{
 				
 		//검색 방법
 		req.setAttribute("selectKeyword", selectKeyword);
-		
+	
+//		카테고리 번호때문에..
+		req.setAttribute("dto", dto);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/communityFreeBulletinBoard.jsp");
 		dispatcher.forward(req, resp);

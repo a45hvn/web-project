@@ -96,31 +96,8 @@
 				</c:forEach>
 			</table>
 		</div>
+		
 			${pagebar}
-<!-- 		<div id="centerbox3"> -->
-			<!--                 <ul id="pagination" class="pagination" style="float: right;"> -->
-			<!--                     <li> -->
-			<!--                         <a href="#" aria-label="Previous"> -->
-			<!--                             <span aria-hidden="true">&laquo;</span> -->
-			<!--                         </a> -->
-			<!--                     </li> -->
-			<!--                     <li><a class="nowPage" href="#" name="page">1</a></li> -->
-			<!--                     <li><a href="#" name="page">2</a></li> -->
-			<!--                     <li><a href="#" name="page">3</a></li> -->
-			<!--                     <li><a href="#" name="page">4</a></li> -->
-			<!--                     <li><a href="#" name="page">5</a></li> -->
-			<!--                     <li><a href="#" name="page">6</a></li> -->
-			<!--                     <li><a href="#" name="page">7</a></li> -->
-			<!--                     <li><a href="#" name="page">8</a></li> -->
-			<!--                     <li><a href="#" name="page">9</a></li> -->
-			<!--                     <li><a href="#" name="page">10</a></li> -->
-			<!--                     <li> -->
-			<!--                         <a href="#" aria-label="Next"> -->
-			<!--                             <span aria-hidden="true">&raquo;</span> -->
-			<!--                         </a> -->
-			<!--                     </li> -->
-			<!--                 </ul> -->
-			<!--             </div> -->
 
 			<div id="centerbox4">
 				<div style="float: right;">

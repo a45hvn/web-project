@@ -111,7 +111,7 @@
                                 <tr>
                                     <td>${dto.seq}</td>
                                     <td>
-                                    	<a href="/soccer/board/BulletinBoardContent.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}">
+                                    	<a href="/soccer/board/BulletinBoardContent.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}&category_seq=${dto.category_seq}">
                                     		${dto.title}
                                     	</a>
                                     </td>

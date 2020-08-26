@@ -145,7 +145,7 @@
 
 .entry {
     overflow-y: scroll;
-    height: 600px;
+    height: 800px;
     border-top: 1px solid #dddddd;
     width: 20%;
     position: relative;
@@ -154,11 +154,9 @@
     border: 0px;
     width: 0px;
 }
-.entry div:nth-child(odd) {
-    /* background-color: #254150; */
-}
-.entry div:nth-child(even) {
-    /* background-color: #0c1a22; */
+#bsBoard{
+	position: relative;
+	top:100px;
 }
 .textBroadcast {
     /* border: 1px solid tomato; */

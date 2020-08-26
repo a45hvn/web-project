@@ -31,6 +31,8 @@ public class EditOk extends HttpServlet {
 		String selectKeyword = req.getParameter("selectKeyword");	//검색 키워드
 		String selectrow = req.getParameter("selectrow");			//페이지당 출력 갯수
 			
+		String category_seq = req.getParameter("category_seq");
+		
 		//2.
 		BoardDAO dao = new BoardDAO();
 		
@@ -38,6 +40,8 @@ public class EditOk extends HttpServlet {
 		dto.setSeq(seq);
 		dto.setTitle(title);
 		dto.setContent(content);
+		
+		System.out.println(dto.getCategory_seq());
 		
 		int result = 0;
 		
@@ -61,7 +65,7 @@ public class EditOk extends HttpServlet {
 			String encodeSearch = URLEncoder.encode(search, "UTF-8");
 			
 			//수정 성공
-			resp.sendRedirect("/soccer/board/BulletinBoardContent.do?seq=" + seq + "&selectKeyword=" + selectKeyword + "&selectrow=" + selectrow + "&search=" + encodeSearch);
+			resp.sendRedirect("/soccer/board/BulletinBoardContent.do?seq=" + seq + "&selectKeyword=" + selectKeyword + "&selectrow=" + selectrow + "&search=" + encodeSearch + "&category_seq=" + category_seq);
 			
 		} else if (result == 0) {
 			//수정 실패

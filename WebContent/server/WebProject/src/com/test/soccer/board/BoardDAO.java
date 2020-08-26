@@ -83,7 +83,7 @@ public class BoardDAO {
 				dto.setContent(rs.getString("content"));		//내용
 				dto.setRegdate(rs.getString("regdate"));		//등록일
 				dto.setReadcount(rs.getInt("readcount"));		//조회수
-				//dto.setReadcount(rs.getInt("category_seq"));	//게시판 카테고리번호
+				dto.setCategory_seq(rs.getString("category_seq"));	//게시판 카테고리번호
 				dto.setMember_seq(rs.getString("member_seq"));	//회원 번호
 				dto.setImage(rs.getString("image"));			//이미지
 				dto.setName(rs.getString("name"));				//회원이름
@@ -116,6 +116,8 @@ public class BoardDAO {
 			String search = map.get("search");
 			String selectKeyword = map.get("selectKeyword");
 			
+			String category = map.get("category");
+			
 			//검색어가 있을때
 			if (search != null) {
 				 where = String.format("and %s like '%%%s%%'", selectKeyword , search);
@@ -138,7 +140,7 @@ public class BoardDAO {
 			// where = "";
 			//}
 			
-			String sql = String.format("select count(*) as cnt from tblboard b inner join tblMember m on m.seq = b.member_seq where category_seq = 3 %s", where);
+			String sql = String.format("select count(*) as cnt from tblboard b inner join tblMember m on m.seq = b.member_seq where category_seq = %s %s", category ,where);
 	
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -209,7 +211,8 @@ public class BoardDAO {
 		
 	}
 	
-	}
+	
+
 	
 	
 	//오희준
