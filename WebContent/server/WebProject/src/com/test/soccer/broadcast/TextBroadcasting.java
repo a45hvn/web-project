@@ -24,9 +24,9 @@ public class TextBroadcasting extends HttpServlet {
 		GameDTO team1=new GameDTO();
 		GameDTO team2=new GameDTO();
 		
-		String teamname1=req.getParameter("homeTeam");
-		String teamname2=req.getParameter("awayTeam");
-		String league_seq=req.getParameter("league_seq");
+		String teamname1=req.getParameter("hometeam");
+		String teamname2=req.getParameter("awayteam");
+		String league_seq=req.getParameter("league");
 		String leaguegame_seq=req.getParameter("seq");
 		
 //		teamname1="나슬";
