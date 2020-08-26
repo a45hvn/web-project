@@ -56,11 +56,15 @@
 	<!-- 내용 시작 -->
 	<div class="center">
 
-        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">문자중계 등록</span></div>
+        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span class="contentTitle">문자중계 등록</span></div>
 
-        <div id="contentsBox">
-        	<div><input type="text" id="textbroadcast"></div>
+        	<div id="contentsBox">
+        	<form action="" method="POST">
+	            <div id="bsContainer"  style="width: 1300px; border: 1px solid black; height:400px;">
+	            	
+	            	<input class="bs" id="bs1" type="hidden" value="">
+	            </div>
+            </form>
             <div class="team" id="team1">
                 <table class="table table-bordered table-striped">
                     <tr>
@@ -69,127 +73,16 @@
                         <th class="name">이름</th>
                         <th>나이</th>
                     </tr>
-                    <tr>
-                        <td>MF</td>
-                        <td>2</td>
-                        <td class="name">오희준</td>
-                        <td>26</td>
-                    </tr>
-                    <tr>
-                        <td>ST</td>
-                        <td>4</td>
-                        <td class="name">권택진</td>
-                        <td>26</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-
                 </table>
             </div>
             <div id="input">
                 <div id="action">
                     <pre>
-            <h4>경기내용 단축키 입력</h4>
-            골     :  <kbd> g </kbd>
-
-            도움   :  <kbd> a </kbd>
-
-            빗나감 :  <kbd> f </kbd>
-
-            태클   :  <kbd> t </kbd>
-
-            반칙   :  <kbd> y </kbd>
-
-            퇴장   :  <kbd> r </kbd>     
-                </pre>
+		            <h4>경기내용 단축키 입력</h4>
+		            <c:forEach items="" var="brInfo">
+		            	<div>골     :  <kbd> g </kbd></div>
+		            </c:forEach>
+	                </pre>
                 </div>
                 <input type="text" class="form-control" placeholder="경기내용을 입력하세요" id="txt1">
                 <input type="button" value="enter" class="btn btn-primary" id="enter">
@@ -201,114 +94,6 @@
                         <th>등번호</th>
                         <th class="name">이름</th>
                         <th>나이</th>
-                    </tr>
-                    <tr>
-                        <td>MF</td>
-                        <td>21</td>
-                        <td class="name">최재성</td>
-                        <td>29</td>
-                    </tr>
-                    <tr>
-                        <td>ST</td>
-                        <td>10</td>
-                        <td class="name">홍혜림</td>
-                        <td>28</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="name"></td>
-                        <td></td>
                     </tr>
                 </table>
             </div>

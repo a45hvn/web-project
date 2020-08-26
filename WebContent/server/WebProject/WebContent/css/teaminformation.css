@@ -21,7 +21,7 @@
 }
 .introduce {
     text-align: justify;
-    height: 400px;
+    height: 340px;
     /* border: 2px solid black; */
     /* 글자수 제한이 필요하다. */
     /* background-color: #ddd; */
@@ -132,7 +132,7 @@
 }
 .rightside {
     float: left;
-    margin-right: ;
+    /* margin-right: ; */
 }
 .leftside {
     float: right;
