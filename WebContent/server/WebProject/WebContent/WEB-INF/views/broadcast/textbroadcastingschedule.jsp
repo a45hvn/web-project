@@ -94,15 +94,15 @@
 				<tbody>
 					<c:forEach items="${broadcastScheduleList}" var="dto">
 						<tr>
-							<td>${dto.rownum}</td>
+							<td>${dto.seq}</td>
 							<td>${dto.league}</td>
 							<td>${dto.gamedate}<span id="beginTime"></span></td>
 							<td>${dto.ground}</td>
-							<td><span class="team" id="teamA">${dto.homeTeam}</span> <span>vs</span>
-								<span class="team" id="teamB">${dto.awayTeam}</span></td>
+							<td><span class="team" id="teamA" >${dto.homeTeam}</span> <span>vs</span>
+								<span class="team" id="teamB" >${dto.awayTeam}</span></td>
 							<td>${dto.homeGoal}<span class="team">:</span>${dto.awayGoal}</td>
 							<td><input type="button" value="문자중계"
-								class="textBtn btn btn-default"></td>
+								class="textBtn btn btn-default" onclick="location.href='/soccer/broadcast/textbroadcasting.do?seq=${dto.seq}&league=${dto.league_seq}&hometeam=${dto.homeTeam_seq}&awayteam=${dto.awayTeam_seq}'"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -154,12 +154,6 @@
 <script>
     // main page
 
-    $("#pagination > li >a").click(function () {
-        // alert($(this).text());
-        $("#pagination > li>a").removeClass("nowPage");
-        $(this).addClass("nowPage");
-    });
-
     $("#searchbtn").mouseover(function () {
         // alert($(this).text());
         $(this).css("background-color", "#92DAEC").css("color", "black");
@@ -194,15 +188,11 @@
         });
 
 
-    $(".textBtn").click(function () {
-        location.href = "textbroadcasting.html";
-    })
-        
     
 		//onchange이벤트는 원래 자기 값에서 변해야지만 이벤트가 발생함=> 문제 해결 필요
 	 function movePage() {
-				alert(event.srcElement.value);
-				location.href = "/soccer/mypage/textbroadcastingschedule.do?page=" + event.srcElement.value;
+// 				alert(event.srcElement.value);
+				location.href = "/soccer/broadcast/textbroadcastingschedule.do?page=" + event.srcElement.value;
 			}
 		
 			$("#pagebar").val(${page});

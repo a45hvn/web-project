@@ -133,6 +133,7 @@ public class BroadcastDAO {
 			
 			while(rs.next()) {
 				BroadcastDTO dto = new BroadcastDTO();
+				dto.setSeq(rs.getString("seq"));
 				dto.setRownum(rs.getString("rnum"));
 				dto.setLeague(rs.getString("league"));
 				dto.setGamedate(rs.getString("gamedate"));
@@ -141,6 +142,9 @@ public class BroadcastDAO {
 				dto.setAwayTeam(rs.getString("awayTeam"));
 				dto.setHomeGoal(rs.getString("homegoal"));
 				dto.setAwayGoal(rs.getString("awaygoal"));
+				dto.setHomeTeam_seq(rs.getString("hometeam_seq"));
+				dto.setAwayTeam_seq(rs.getString("awayteam_seq"));
+				dto.setLeague_seq(rs.getString("league_seq"));
 				broadcastScheduleList.add(dto);
 		
 			}
@@ -180,8 +184,33 @@ public class BroadcastDAO {
 		return 0;
 	}
 
-	public ArrayList<BroadcastDTO> list(HashMap<String, String> map) {
-		// TODO Auto-generated method stub
+
+	public BroadcastDTO getBroadcast(BroadcastDTO dto2) {
+		
+		try {
+			String sql = "select * from vwbroadcast where leaguegame_seq =?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, "leagueGame_seq");
+			rs = pstat.executeQuery();
+			
+			
+			if(rs.next()) {
+				BroadcastDTO dto = new BroadcastDTO();
+				dto.setTime(rs.getString("time"));
+				dto.setPlayerName(rs.getString("playerName"));
+				dto.setTeam(rs.getString("team"));
+				dto.setEvent(rs.getString("event"));	
+				dto.setRownum(rs.getString("rownum"));	
+				
+				return dto;
+			
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 	

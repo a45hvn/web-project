@@ -32,11 +32,13 @@
 			<div class="subMenuBox">
 				<nav class="subMenu">
 					<ul>
-						<li class="subMenuItem"><a href="mypage.html">마이페이지</a></li>
-						<li class="subMenuItem"><a href="clubSummary.html">구단정보관리</a></li>
-						<li class="subMenuItem"><a href="friends.html">친구관리</a></li>
+						<li class="subMenuItem"><a href="/soccer/mypage/mypage.do">
+								마이페이지</a></li>
+						<li class="subMenuItem"><a
+							href="/soccer/mypage/clubsummary.do">구단정보관리</a></li>
+						<li class="subMenuItem"><a href="/soccer/mypage/friends.do">친구관리</a></li>
 						<li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a
-							href="dm.html">DM</a></li>
+							href="/soccer/mypage/dm.do">DM</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -66,27 +68,28 @@
 					<c:forEach items="${friends}" var="dto">
 						<li class="person" data-chat="person${dto.seq}"><img
 							src="/soccer/images/${dto.followingImage}" alt="" /> <span
-							class="name" name="followingname">${dto.followingName}</span> <span class="time">2:09
-								PM</span> <span class="preview">I was wondering...</span></li>
+							class="name" name="followingname">${dto.followingName}</span> <span
+							class="time">2:09 PM</span> <span class="preview">I was
+								wondering...</span></li>
 					</c:forEach>
 
 				</ul>
 			</div>
 			<div class="right">
-				
+
 				<div class="top">
-					
-						<span>To: <span class="name"></span></span>	
-				
+
+					<span>To: <span class="name"></span></span>
+
 				</div>
-<%-- 				<c:forEach items="${dm}" var="dto"> --%>
-					<div class="chat" data-chat="person${dto.seq}">
-						<div class="conversation-start">
-							<span>${dto.regdate}</span>
-						</div>
-						<div class="bubble you">${dto.content}</div>
+				<%-- 				<c:forEach items="${dm}" var="dto"> --%>
+				<div class="chat" data-chat="person${dto.seq}">
+					<div class="conversation-start">
+						<span>${dto.regdate}</span>
 					</div>
-<%-- 				</c:forEach> --%>
+					<div class="bubble you">${dto.content}</div>
+				</div>
+				<%-- 				</c:forEach> --%>
 				<div class="write">
 					<a href="javascript:;" class="write-link attach"></a> <input
 						type="text" /> <a href="javascript:;" class="write-link smiley"></a>

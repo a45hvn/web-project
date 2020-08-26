@@ -21,9 +21,29 @@ public class BroadcastDTO {
 	private String gamedate;
 	private String homeGoal;
 	private String awayGoal;
+	private String homeTeam_seq;
+	private String awayTeam_seq;
+	private String league_seq;
 	
 	
-
+	public String getHomeTeam_seq() {
+		return homeTeam_seq;
+	}
+	public void setHomeTeam_seq(String homeTeam_seq) {
+		this.homeTeam_seq = homeTeam_seq;
+	}
+	public String getAwayTeam_seq() {
+		return awayTeam_seq;
+	}
+	public void setAwayTeam_seq(String awayTeam_seq) {
+		this.awayTeam_seq = awayTeam_seq;
+	}
+	public String getLeague_seq() {
+		return league_seq;
+	}
+	public void setLeague_seq(String league_seq) {
+		this.league_seq = league_seq;
+	}
 	public String getRownum() {
 		return rownum;
 	}

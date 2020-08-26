@@ -79,9 +79,9 @@ public class TextBroadcastingSchdule extends HttpServlet{
 		//총 페이지 수 = 총 게시물 수 / 한페이지 당 출력 게시물 수 
 		//?= 243/10 -> 24.3 -> 25
 		totalCount = dao.getTotalCount(map);
-		System.out.println(totalCount);
+//		System.out.println(totalCount);
 		totalPage = (int)Math.ceil((double)totalCount/pageSize);
-		System.out.println(totalPage);
+//		System.out.println(totalPage);
 			
 		//2. 위임
 		ArrayList<BroadcastDTO> broadcastScheduleList = dao.broadcastScheduleList(map);
@@ -120,7 +120,7 @@ public class TextBroadcastingSchdule extends HttpServlet{
 		}else {
 
 			pagebar +="<li>";
-			pagebar +=String.format("<a href=\"/soccer/mypage/textbroadcastingschedule.do?page=%d\" aria-label=\"Previous\">",n-1);
+			pagebar +=String.format("<a href=\"/soccer/broadcast/textbroadcastingschedule.do?page=%d\" aria-label=\"Previous\">",n-1);
 			pagebar +=" <span aria-hidden=\"true\">&laquo;</span>";
 			pagebar +="</a>";
 			pagebar +="</li>";
@@ -137,7 +137,7 @@ public class TextBroadcastingSchdule extends HttpServlet{
 
 			}else {
 				pagebar += "<li>";
-				pagebar += String.format("<a href=\"/soccer/mypage/textbroadcastingschedule.do?page=%d\">%d</a>",n,n);
+				pagebar += String.format("<a href=\"/soccer/broadcast/textbroadcastingschedule.do?page=%d\">%d</a>",n,n);
 				pagebar += "</li>";
 				
 			}
@@ -160,7 +160,7 @@ public class TextBroadcastingSchdule extends HttpServlet{
 			
 		}else{
 			pagebar +="<li>";
-			pagebar += String.format("<a href=\"/soccer/mypage/textbroadcastingschedule.do?page=%d\" aria-label=\"Next\">", n);
+			pagebar += String.format("<a href=\"/soccer/broadcast/textbroadcastingschedule.do?page=%d\" aria-label=\"Next\">", n);
 			pagebar +=" <span aria-hidden=\"true\">&raquo;</span>";
 			pagebar +="</a>";
 			pagebar +="</li>";

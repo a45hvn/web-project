@@ -4,7 +4,6 @@ select hometeam_seq, sum(case when rs.homegoal-rs.awaygoal > 0 then '3'
     end) as rs From tblleagueresult rs inner join tblleaguegame game on game.seq=rs.leaguegame_seq group by game.HOMETeam_SEQ;
     
     
-    
     select hometeam_seq, sum(case when rs.homegoal-rs.awaygoal > 0 then '3'
     when  rs.homegoal-rs.awaygoal < 0 then '0'
     when rs.homegoal-rs.awaygoal = 0 then '1'
@@ -35,17 +34,35 @@ commit;
 
 select * from vwmemberinfo where seq = 2302;
 select * from tblmember where seq = 3021;
-
+---멤버 정보를 조회하는 뷰-----------------------------------------------------------------
 create or replace view vwmemberinfo
 as
 select
-    m.* , t.regdate as teamregdate, team.name as teamname, mt.backnumber, mt.height, mt.position_seq, mt.weight, p.position
+    m.* , t.regdate as teamregdate,team.seq as team_seq ,team.name as teamname, mt.backnumber, mt.height, mt.position_seq, mt.weight, p.position
 from tblmember m
     left outer join tbltransfer t on m.seq = t.member_seq 
         left outer join tblmember_team mt on t.seq = mt.transfer_seq
             left outer join tblteam team on t.team_seq = team.seq
+                left outer join tblposition p on p.seq = mt.position_seq order by m.seq;
+-----------------------------------------------------------------------------------------
+----이적 내역 데이터 보는 뷰
+create or replace view vwtransfer
+as
+select
+    te.name as team , t.regdate , t.completedate , 
+    case
+        when t.state = 1 then '이적완료'
+    end as state
+    , m.seq ,m.name
+from tblmember m
+    left outer join tbltransfer t on m.seq = t.member_seq 
+        left outer join tblmember_team mt on t.seq = mt.transfer_seq
+            left outer join tblteam te on t.team_seq = te.seq
                 left outer join tblposition p on p.seq = mt.position_seq;
 
+select * from vwtransfer where seq = 1;
+select * from tblmember where seq = 1;
+-----------------------------------------------------------------------
 
      
  update tblmember set image = 'player1.jpg' where seq=2302;
@@ -157,11 +174,5 @@ select f.seq, f.follow__member_seq as me_seq , f.follower__member_seq as followe
 
 --내가 팔로우 하는 친구(follower)
 select f.seq, f.follow__member_seq as following_seq, f.follower__member_seq as me_seq, (select name from tblmember where seq = f.follow__member_seq) as followingName, (select image from tblmember where seq = f.follow__member_seq) as followingImage from tblfriends f inner join tblmember m on f.follower__member_seq = m.seq;
-
-
-select * from tblfriends where follower__member_seq = 3;
-
-select * from tblmember0 where seq=3;
-
 
 

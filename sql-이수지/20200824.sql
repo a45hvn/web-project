@@ -72,25 +72,27 @@ select * from tblmember order by seq desc;
 select seq from tbltransfer where member_seq = 288;
 select * from tblmember_team where transfer_seq = 288;
 
-insert into tblmember VALUES(3002,'테스트','id','pw','010-2222-2222', to_date('2020-01-10','yyyy-mm-dd'), '서울시 서초구', DEFAULT, '6.png',1 );
-commit;
-select * from tbltransfer;
-
-select * from vwmemberinfo;
 
 
---문자중계 일정
+
+--문자중계 일정----------------------------------------------
 --가져올 데이터 번호, 리그이름, 시간, 장소, 경기, 이긴팀
 create or replace view vwbroadcastschedule
 as
-select l.name as league, lg.gamedate as gamedate, g.name as ground, lg.seq as seq,
+select l.name as league, l.seq as league_seq, to_char(lg.gamedate,'yyyy-mm-dd') as gamedate, g.name as ground, lg.seq as seq,
 (select name from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.hometeam_seq) as hometeam, 
+(select logo from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.hometeam_seq) as hometeamlogo,
 (select name from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.awayteam_seq) as awayteam, 
+(select logo from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.awayteam_seq) as awayteamlogo,
+(select t.seq from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.hometeam_seq) as hometeam_seq, 
+(select t.seq from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.awayteam_seq) as awayteam_seq, 
 lr.homegoal as homegoal, lr.awaygoal as awaygoal from tblleagueGame lg 
 inner join tblleague l on l.seq = lg.league_seq 
 inner join tblground g on g.seq = lg.ground_seq 
 inner join TBLLEAGUERESULT lr on lr.leaguegame_seq = lg.seq;
 
+
+-------------------------------------------------------------
 
 select * from (select a.*, rownum as rnum from (select * from vwbroadcastschedule order by seq desc)a) where rnum >=1 and rnum <=100 order by seq desc;  
 
@@ -98,8 +100,18 @@ select * from (select a.*, rownum as rnum from (select * from vwfriendlyboard or
 
 
 
---친선경기 일정
+--친선경기 일정-------------------------------------------------------------------------------------
+--가져올 데이터 번호, 리그이름, 시간, 장소, 경기, 이긴팀
+select rownum as rnum, m.matchdate, 
+(select tg.name from tblteamground tg inner join tblteam t on tg.seq = t.teamground_seq where t.seq = m.hometeam_seq)as ground,
+(select name from tblteam where seq = m.hometeam_seq)as hometeam,
+(select name from tblteam where seq = m.awayteam_seq)as awayteam,
+mr.homegoal, mr.awaygoal
+from tblmatch m 
+inner join tblmatchresult mr on m.seq = mr.match_seq
+order by matchdate desc;
 
+----------------------------------------------------------------------------------------------------------
 -- dm 
 select * from tbldm where read_member_seq = 2302;
 select * from tblmember where name ='한초백';
@@ -122,4 +134,25 @@ select count(*) from tblteam t inner join tblteamentry te on t.seq = te.team_seq
 select ROWNUM as cnt, l.name as leagueName, lg.gamedate as gameDate, g.name as ground, (select name from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.hometeam_seq) as hometeam, (select name from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.awayteam_seq) as awayteam, lr.homegoal, lr.awaygoal from tblleagueGame lg inner join tblleague l on l.seq = lg.league_seq inner join tblground g on g.seq = lg.ground_seq inner join TBLLEAGUERESULT lr on lr.leaguegame_seq = lg.seq;
 			
 
-select * from (select a.*, rownum as rnum from (select * from vwfriendlyboard order by seq desc)a) where rnum >=%s and rnum <=%s
+select * from (select a.*, rownum as rnum from (select * from vwfriendlyboard order by seq desc)a) where rnum >=%s and rnum <=%s;
+
+
+select l.name as league, l.seq as league_seq, to_char(lg.gamedate,'yyyy-mm-dd') as gamedate, g.name as ground, lg.seq as seq,
+(select name from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.hometeam_seq) as hometeam, 
+(select name from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.awayteam_seq) as awayteam, 
+(select t.seq from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.hometeam_seq) as hometeam_seq, 
+(select t.seq from tblteam t inner join tblteamentry te on t.seq = te.team_seq where te.seq = lg.awayteam_seq) as awayteam_seq, 
+lr.homegoal as homegoal, lr.awaygoal as awaygoal
+from tblleagueGame lg 
+inner join tblleague l on l.seq = lg.league_seq 
+inner join tblground g on g.seq = lg.ground_seq 
+inner join TBLLEAGUERESULT lr on lr.leaguegame_seq = lg.seq order by lg.seq asc;
+
+--회원이 속한 팀 보여주기
+select team_Seq from vwmemberinfo where seq=123;
+-- 경기 전적 보여주기
+select * from vwbroadcastschedule where gamedate < sysdate and hometeam_seq=(select team_Seq from vwmemberinfo where seq=2323);
+
+select * from tblmember where seq = 2323;
+
+select * from vwmemberinfo;
