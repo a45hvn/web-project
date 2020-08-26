@@ -14,192 +14,11 @@
 	<script src="https://code.highcharts.com/modules/series-label.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<link rel="stylesheet" href="/soccer/css/BulletinBoardContent.css">
     
    <style>
 
-        .center {            
-            padding-top: 50px;
-            /* background-color: #eee;      */
-        }
-
-        /* 박스전체 */
-        #centerBoxMain{
-            /* border: 1px solid black;             */
-            width: 1250px;
-            /* height: 1000px; */
-            margin: 0px auto;          
-            font-size: 1.1em;     
-        }
-
-        /* 질문내용 박스 */
-        #centerBox2 {
-            margin-top: 25px;
-            border-bottom: 1px solid #0C1B23; 
-            /* border-top: 1px solid #0C1B23; */ 
-            border-bottom-style: dashed;
-            width: 1150px;            
-            display: inline-block;
-        }
-
-        /* 답글내용 박스 */
-        #centerBox3 {            
-            /* border: 1px solid red; */
-            border-bottom: 1px solid #0C1B23; 
-            border-bottom-style: dashed;
-            width: 1150px;               
-        }
-
-        /* 답글쓰기 박스 */
-        #centerBox4 {
-            /* border: 1px solid #0C1B23;  */
-            border-bottom: 1px solid #0C1B23; 
-            border-bottom-style: dashed;
-            width: 1150px;            
-        }
-
-        /* 목록버튼 , TOP버튼 박스 */
-        #centerBox5 {
-            /* border: 1px solid #0C1B23;  */
-            width: 1150px;            
-            display: inline-block;
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
-
-        /* 박스전체의 박스*/
-        .centerBox {          
-            margin-left: 25px;
-        }
-
-        /* 질문박스 span들 */
-        #centerBox2 div:nth-child(1) span:nth-child(1) {
-            /* border: 1px solid blue;                         */
-            padding-top: 5px;            
-            margin-left: 5px;         
-            margin-right: 5px;   
-            font-weight: bold;                 ;                 
-        }
-        
-        
-        #centerBox2 div:nth-child(1) span:nth-child(2) {
-            /* border: 1px solid blue;                         */
-            padding-top: 5px;            
-            margin-left: 5px;   
-            float: right;                 
-            margin-right: 15px;   
-            font-weight: bold;                 ;                 
-        }
-        
-        #centerBox2 span:nth-child(3) {
-            /* border: 1px solid blue;                         */
-            padding-top: 5px;            
-            margin-left: 5px;   
-            float: right;                 
-            margin-right: 15px;   
-            font-weight: bold;                 ;                 
-        }
-
-        /* 질문박스 제목 */
-        #centerBox2 div:nth-child(1) {
-            /* float: left;  */           
-            padding-left: 5px;
-            width: 1150px;         
-            border-bottom: 1px solid #0C1B23;
-            border-top: 1px solid #0C1B23;
-            background-color: #eee; 
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-        
-        
-
-        /* 질문박스 내용 */
-        #centerBox2 .content {
-            /* border: 1px solid blue; */
-            height: 250px;            
-            margin-left: 5px;            
-            padding: 5px;
-            margin-top: 10px;
-        }
-
-        /* 답글박스 div들 */
-        #centerBox3 div {
-            /* border: 1px solid green;                         */
-            margin-left: 5px;                     
-            font-weight: bold; 
-            padding-left: 5px;   
-        }
-
-        /* 답글쓰기 글쓴이 */
-        #centerBox3 div:nth-child(1) {
-            padding-top: 8px;            
-        }
-
-        /* 답글 내용 */
-        #centerBox3 .content {
-            height: 100px;
-            font-weight: normal;
-            padding-top: 5px;                        
-        }
-
-        /* 답글내용 3번째 dvi */
-        #centerBox3 div:nth-child(4) {
-            /* border: 1px solid green;                 */
-            margin-bottom: 5px;
-        }
-
-        /* 댓글 박스 div들 */
-        #centerBox4 div {
-            /* border: 1px solid indigo;                         */
-            padding: 5px;
-            font-weight: bold;            
-            padding-left: 10px;
-            
-        }
-        
-        /* 이미티콘버튼, 등록버튼 */
-        #centerBox4 div span input {
-            /* border: 1px solid indigo;                         */        
-        }
-
-        /* 댓글쓰기 내용 */
-        #centerBox4 textarea {
-            resize:none;
-            padding-left: 5px;
-        }
-
-        /* 목록버튼, TOP버튼 */
-        #centerBox5 > span {
-            /* border: 1px solid red; */
-            width: 50px;
-            float: right;     
-            margin-right: 15px;
-            margin-left: 5px;                                                       
-        }
-
-        /* 모든 버튼들 */
-        #centerBox5 > span input, #centerBox4 span input, #centerBox3 input {  
-            /* color: white;   */
-            height: 25px;
-            line-height: 0.8em;
-        }
-
-        #centerBox6 {
-            /* border: 1px solid red; width: 150px; */
-            margin-left: 33px;
-            margin-top: 7px;
-            margin-bottom: 15px;
-        }
-
-        #centerBox6 span {
-            font-size: 1.1em;
-            padding: 3px;
-            font-weight: bold;
-        }
-
-        #centerBox6 a {
-            color: black;
-        }
+      
        
        
     </style>
@@ -224,12 +43,12 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
-                            <li class="subMenuItem"><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="#">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="#">용병모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -245,8 +64,29 @@
 	<!-- Center -------------------------------------------- -->
 
     <div class="center">
-        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
-                class="contentTitle">자유게시판</span></div>
+        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg">
+        	
+        	<c:choose>
+                <c:when test="${category_seq == 1}">
+                	<span class="contentTitle">질문게시판</span>
+                </c:when>     
+                  <c:when test="${category_seq == 2}">
+                	<span class="contentTitle">갤러리</span>
+                </c:when>           
+                <c:when test="${category_seq == 3}">
+                	<span class="contentTitle">자유게시판</span>
+                </c:when>
+                 <c:when test="${category_seq == 4}">
+                	<span class="contentTitle">강의게시판</span>
+                </c:when>
+                 <c:when test="${category_seq == 5}">
+                	<span class="contentTitle">친선경기모집</span>
+                </c:when>
+                 <c:when test="${category_seq == 6}">
+                	<span class="contentTitle">용병모집</span>
+                </c:when>
+            </c:choose>
+        </div>
 
         <div id="centerBoxMain">
             
@@ -258,8 +98,13 @@
                     <span>작성자 | ${dto.name}</span>
                     <div style="clear: both;"></div>
                 </div>
-                <div class="content">${dto.content}
+                <div>               	
+                    <c:if test="${dto.orgfilename != 'null'}">
+	                <div><img src="/soccer/files/${dto.orgfilename}"></div>
+	                </c:if> 	      
+	                <div class="content">${dto.content}</div>
                 </div>
+                
             </div>
             <!-- 답변목록 -->
             <div id="centerBox3" class="centerBox">                
@@ -289,16 +134,38 @@
             <!-- 목록, Top, 수정, 삭제 -->
             <div id="centerBox5" class="centerBox">
                 <span><input type="button" id="top" value="▲TOP" class="btn btn-primary"></span>
-                <span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
-               
-				
+                <c:choose>
+                <c:when test="${category_seq == 1}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityQuestionBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>     
+                  <c:when test="${category_seq == 2}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityGalleryBulletinBoard.jsp.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>           
+                <c:when test="${category_seq == 3}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+                 <c:when test="${category_seq == 4}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/communityLectureBulletinBoard.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+                 <c:when test="${category_seq == 5}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/friendlymatchrecruit.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+                 <c:when test="${category_seq == 6}">
+                	<span><input type="button" value="목록" class="btn btn-primary" onclick="location.href='/soccer/board/mercenaryrecruit.jsp.do?search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                </c:when>
+               	</c:choose>
+               	
+				<!-- 수정 -->
                 <c:if test="${id == dto.id}">
-                <span><input type="button" value="수정" class="btn btn-primary" onclick="location.href='/soccer/board/edit.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}';"></span>
+                <span><input type="button" value="수정" class="btn btn-primary" onclick="location.href='/soccer/board/edit.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}&category_seq=${category_seq}';"></span>
+                </c:if>
+                                
+                <!-- 삭제 -->    
+                <c:if test="${id == dto.id}">
+                <span><a id="deleteBtn" onclick="return confirm('정말로 삭제하시겠습니까?')" href="/soccer/board/deleteok.do?seq=${dto.seq}&category_seq=${category_seq}" class="btn btn-primary">삭제</a></span>
                 </c:if>
                 
-                <c:if test="${id == dto.id}">
-                <span><input type="button" value="삭제" class="btn btn-primary" onclick="location.href='/soccer/board/delete.do?seq=${dto.seq}';"></span>
-                </c:if>
+                
                  
             </div>
 
@@ -334,12 +201,13 @@
 
         })
 
+        //화면 맨위로 가기
         $("#top").click(function(){
         	
         	window.scrollTo(0,450);
         	
         });
-        
+    	
         
     </script>
     

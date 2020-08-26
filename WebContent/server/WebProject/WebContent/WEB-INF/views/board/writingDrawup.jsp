@@ -15,6 +15,10 @@
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>	
     
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    	
+    
     <style>
     
     	 #centerMainBox {
@@ -97,6 +101,10 @@
         #centerBox3 textarea {
         	padding: 5px;
         }
+        
+        #image_container {
+        	margin-top: 15px;        	
+        }
     	
     
     </style>
@@ -138,15 +146,6 @@
     <!-- 상단부 끝 -->
 
 	<!-- 내용 시작 -->
-	<!--  SEQ, max 또는 .nextval
-	    TITLE, title
-	  CONTENT, content 
-	  REGDATE, default sysdate
-	READCOUNT, ?
-	    IMAGE, image
-   MEMBER_SEQ, session에서 가져옴
- CATEGORY_SEQ  CATEGORY_SEQ
- 	 -->
 	     <div class="center">
             <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
                     class="contentTitle">자유게시판</span></div>
@@ -179,8 +178,8 @@
                         </div>
                         
                         <!-- 본문  -->
-                        <div id="centerBox3">          
-                            <textarea name="content" id="content" cols="120" rows="17" placeholder="내용을 입력해주세요" required></textarea>
+                        <div id="centerBox3">      
+                        	<textarea name="content" id="content" cols="120" rows="17" placeholder="내용을 입력해주세요" required></textarea>
                         </div>
                         
                         <!-- 파일첨부 -->
@@ -188,18 +187,25 @@
                             <div id="centerBox4">
                                 <div>
                                     <span>파일첨부 :</span>
-                                    <span><input type="file" id="attach" name="attach" class="form-control" style="height: 25px; font-size: 0.5em; padding: 1.8px;" ></span>
+                                    <span><input type="file" id="attach" name="attach" class="form-control" style="height: 25px; font-size: 0.5em; padding: 1.8px;" accept="image/*" onchange="setThumbnail(event);" ></span>
+                                    
+                                    <!-- 파일첨부 미리보기 -->
+                                    <div id="image_container"></div>
+                                    
                                 </div>
                             </div>                          
                         </div>
                         
-                        <!-- 확인/미리보기 버튼 -->
+                        <!-- 확인/뒤로 버튼 -->
                         <div id="centerBox5">            
-                                <!-- <input class="btn btn-primary" id="writebtn1" type="button" value="확인" onclick="location.href='ex01.html'";> -->
                                 <button class="btn btn-primary" id="writebtn1" type="submit" value="확인"><span>확인</span></button>
-                                <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do';">         
+                                
+                                <!-- <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="location.href='/soccer/board/communityFreeBulletinBoard.do';"> -->         
+                                <input class="btn btn-primary" id="writebtn2" type="button" value="뒤로" onclick="history.back()">         
                         </div>
                         <div style="clear: both;"></div>
+                        
+                   <%--      <input type="hidden" name="category_seq" value="${category_seq}"> --%>
                         
                     </div>
     			</form>
@@ -232,6 +238,20 @@
         $(this).css("background-color", "").css("color", "");
 
         })
+		
+        //이미지 업로드한 파일 미리보기 
+        function setThumbnail(event) {
+			var reader = new FileReader();
+			reader.onload = function(event) {
+				var img = document.createElement("img");
+				img.setAttribute("src", event.target.result);
+				img.width = "264";
+				img.height = "264";
+				document.querySelector("div#image_container")
+						.appendChild(img);
+			};
+			reader.readAsDataURL(event.target.files[0]);
+		}
 
     </script>
     

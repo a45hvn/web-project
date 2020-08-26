@@ -1,0 +1,1386 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+    
+    <style>
+    #main {
+            /* border: 1px solid red; */
+            width: 100%;
+            z-index: 1;
+            float: left;
+        }
+
+        #menuTr {
+            height: 1px;
+        }
+
+        #mainrogo {
+        width: 100px;
+        border: 3px solid white;
+        }
+
+        .menu span {
+            color: white;
+            text-align: center;
+            font-size: 1.3em;
+            display: block;
+        }
+
+        .menu {
+            background-color: rgb(37, 40, 42);
+            opacity: .7;
+            cursor: pointer;
+            font-weight: bold;
+            
+        }
+
+        #menuTop {
+            height: 20px;
+            background-color: rgb(23, 25, 26);
+        }
+
+        #menuTop td:nth-child(3) {
+            text-align: right;
+        }
+
+        #menuTop .btn{
+            font-weight: bold;
+        }
+
+        .gamedate span{
+            display: block;
+            padding-top: 20px;
+        }
+
+        #scoreBoard {
+            width: 1903px;
+            background-color: #0C1B23;
+            height: 350px;
+            margin: 0px auto;
+            background-image: url("/soccer/images/stadium.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position-x: center;
+            background-position-y: 90%;
+            /* margin-left: 400px; */
+        }
+
+
+        #contents {
+            width: 1280px;
+            /* border: 1px solid red; */
+            height: 1500px;
+            margin: 0px auto;
+            /* font-family: '맑은고딕'; */
+        }
+
+        #contents>div {
+            width: 800px;
+            float: left;
+            /* text-align: center; */
+            border: 3px solid black;
+            margin-left: 30px;
+            margin-top: 50px;
+        }
+
+        #contents>div:nth-child(2) {
+            width: 400px;
+            background-color: rgb(37, 65, 80);
+        }
+
+        #contents>div:nth-child(3) {
+            width: 96%;
+            background-color: rgb(37, 65, 80);
+        }
+
+
+        #topBoard {
+            width: 100%;
+            background-color: #0C1B23;
+            height: 117px;
+        }
+
+        #rankList tr:nth-child(2n+1) {
+            background-color: rgb(12, 27, 35);
+            ;
+        }
+
+        #rankList tr {
+            color: rgb(146, 218, 236);
+            font-weight: bold;
+            font-size: 17px;
+            /* font-family: '맑은고딕'; */
+
+        }
+
+        #rankList tr:nth-child(1) {
+            color: white;
+        }
+
+        #rankList tr td {
+            text-align: left;
+        }
+
+        #rankList tr td:nth-child(n+3) {
+            color: rgb(254, 249, 206);
+        }
+
+        #more {
+            width: 80%;
+            /* border: 1px solid white; */
+            margin-top: -20px;
+        }
+
+        h3 {
+            color: rgb(254, 249, 206);
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .rankInfo div {
+            width: 77px;
+            float: left;
+            /* border: 1px solid white; */
+            color: white;
+            text-align: center;
+        }
+
+        .rankInfo div:nth-child(1) {
+            width: 30px;
+            float: left;
+        }
+
+        .rankform {
+            border: 1px solid white;
+            width: 272px;
+            height: 275px;
+            background-color: rgb(12, 27, 35);
+            float: left;
+            margin-left: 100px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .photo {
+            width: 290px;
+        }
+
+        .photo img {
+            margin-left: 70px;
+            background-color: white;
+            width: 128px;
+        }
+
+        #categoryRank {
+            width: 1000px;
+        }
+
+        .category {
+            color: rgb(254, 249, 206);
+        }
+
+        .rankInfo div:nth-child(2),
+        .rankInfo div:nth-child(3) {
+            color: rgb(254, 249, 206);
+        }
+
+        .rankInfo div:nth-child(1),
+        .rankInfo div:nth-child(4) {
+            color: rgb(146, 218, 236);
+        }
+
+        /* --------------------------------------------------------------- */
+
+        .infoBox {
+            border: 3px solid rgb(25, 21, 39);
+            width: 260px;
+            height: 240px;
+            border-collapse: collapse;
+            position: relative;
+            /* left: 300px; */
+            float: left;
+            margin: 0px 25px;
+            background-color: rgb(37, 65, 80);
+            color: white;
+            margin-top: 20px;
+            padding: 0px 10px;
+        }
+
+
+        .infoOuter:last-child::after {
+            content: "";
+            display: block;
+            clear: left;
+        }
+
+        .infoBox .teamName {
+            text-align: center;
+        }
+
+        .gameinfo {
+            border-collapse: collapse;
+        }
+
+        .teamInfo {
+            display: inline-block;
+        }
+
+        .vs {
+            position: absolute;
+            top: 40%;
+            left: 44%;
+        }
+
+        .infoLeft {
+            padding-left: 5px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .infoRight {
+            display: inline-block;
+            position: absolute;
+            top: 3px;
+            right: 0;
+            font-size: 1em;
+        }
+
+        .gamedate span {
+            color: rgb(254, 249, 206);
+            /* font-family: '맑은고딕'; */
+        }
+
+        .impact {
+            color: black;
+        }
+
+        .teamLogo {
+            width: 100px;
+            height: 70px;
+            border: 1px solid black;
+        }
+
+        .infoOuter {
+            width: 2800px;
+            /* border: 1px solid black; */
+            /* position: relative;
+            left: 300px; */
+        }
+
+        .outerWraper {
+            overflow: hidden;
+            width: 1240px;
+            position: relative;
+            left: 330px;
+        }
+
+        #mainMenu {
+            z-index: 2;
+        }
+
+        #arrow div {
+            border: 1px solid white;
+            color: white;
+            font-size: 30px;
+            margin-right: 0px;
+        }
+
+        #arrow div:nth-child(1) {
+            margin-left: 1450px;
+            margin-top: 10px;
+        }
+
+        #arrow div:nth-child(2) {
+            margin-left: 20px;
+        }
+
+        /* ---------------------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        a:hover {
+            color: #1bc1a3;
+        }
+
+        body,
+        hmtl {
+            background: #ecf0f1;
+            /* font-family: 'Anton', sans-serif; */
+        }
+
+
+        #wrapper {
+            width: 600px;
+            margin: 50px auto;
+            height: 400px;
+            position: relative;
+            color: #fff;
+            text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 0px;
+        }
+
+        #slider-wrap {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #slider-wrap ul#slider {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #slider-wrap ul#slider li {
+            float: left;
+            position: relative;
+            width: 600px;
+            height: 400px;
+        }
+
+        #slider-wrap ul#slider li>div {
+            position: absolute;
+            top: 20px;
+            left: 35px;
+        }
+
+        #slider-wrap ul#slider li>div h3 {
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        #slider-wrap ul#slider li>div span {
+            /* font-family: Neucha, Arial, sans serif; */
+            font-size: 21px;
+        }
+
+        #slider-wrap ul#slider li img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /*btns*/
+        .btns {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            top: 50%;
+            margin-top: -25px;
+            line-height: 57px;
+            text-align: center;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 100;
+
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -ms-user-select: none;
+
+            -webkit-transition: all 0.1s ease;
+            -moz-transition: all 0.1s ease;
+            -o-transition: all 0.1s ease;
+            -ms-transition: all 0.1s ease;
+            transition: all 0.1s ease;
+        }
+
+        .btns:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        #next {
+            right: -50px;
+            border-radius: 7px 0px 0px 7px;
+        }
+
+        #previous {
+            left: -50px;
+            border-radius: 0px 7px 7px 7px;
+        }
+
+        #counter {
+            top: 30px;
+            right: 35px;
+            width: auto;
+            position: absolute;
+        }
+
+        #slider-wrap.active #next {
+            right: 0px;
+        }
+
+        #slider-wrap.active #previous {
+            left: 0px;
+        }
+
+
+        /*bar*/
+        #pagination-wrap {
+            min-width: 20px;
+            margin-top: 350px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 15px;
+            position: relative;
+            text-align: center;
+        }
+
+        #pagination-wrap ul {
+            width: 100%;
+        }
+
+        #pagination-wrap ul li {
+            margin: 0 4px;
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #fff;
+            opacity: 0.5;
+            position: relative;
+            top: 0;
+
+
+        }
+
+        #pagination-wrap ul li.active {
+            width: 12px;
+            height: 12px;
+            top: 3px;
+            opacity: 1;
+            box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+        }
+
+
+
+
+        /*Header*/
+        h1,
+        h2 {
+            text-shadow: none;
+            text-align: center;
+        }
+
+        h1 {
+            color: #666;
+            text-transform: uppercase;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #7f8c8d;
+            /* font-family: Neucha, Arial, sans serif; */
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+
+
+
+        /*ANIMATION*/
+        #slider-wrap ul,
+        #pagination-wrap ul li {
+            -webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+            -moz-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+            -o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+            -ms-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+            transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+        }
+
+        /* ----------------------------------------------------------------- */
+        .footer {
+
+            border-top: 1px solid cornflowerblue;
+            border-bottom: 1px solid cornflowerblue;
+            min-width: 1300px;
+            height: 50px;
+        }
+
+        .footerBox {
+            width: 1300px;
+            height: 50px;
+            margin: 0px auto;
+
+        }
+
+        .footerBox2,
+        .footerBox3 {
+            width: 1300px;
+            height: 60px;
+            margin: 0px auto;
+        }
+
+        .footerBox>div {
+            text-align: center;
+            width: 150px;
+            float: left;
+            margin-top: 15px;
+
+        }
+
+        .footerBox2>div {
+            float: left;
+            padding-top: 4px;
+            padding-left: 42px;
+        }
+
+        .footerBox3>div {
+            padding-top: 4px;
+            padding-left: 47px;
+
+        }
+
+        .footerInfo>.info,
+        .footerInfo>.infoItem {
+            display: inline;
+            margin: 5px;
+            padding-right: 20px;
+            font-size: 12px;
+            color: steelblue;
+            border-right: 1px solid steelblue;
+        }
+
+        .footerInfo {
+            margin-right: -30px;
+        }
+
+        .footerInfo>.info:last-child {
+            border: 0px;
+        }
+
+        .footerBox>div>a:link {
+            text-decoration: none;
+
+        }
+
+        .footerBox>div>a:hover {
+            text-decoration: none;
+            color: #013e5f;
+        }
+
+        .footerBox3 {
+            color: steelblue;
+            font-size: 12px;
+        }
+
+        .sitemap {
+            width: 1900px;
+            height: 250px;
+            margin: 0px auto;
+            background-color: #254150;
+            color: #92DAEC;
+
+
+        }
+
+
+        .sitemap .siteList {
+            float: left;
+            list-style-type: none;
+            /* margin-left: 90px; */
+            width: 180px;
+            padding: 10px;
+            position: relative;
+            left: 340px;
+        }
+
+
+
+        .sitemap .siteList:first-child {
+
+            /* margin-left: 340px; */
+
+        }
+
+        .listName {
+            margin-top: 30px;
+            font-size: 24px;
+            text-align: left;
+        }
+
+        .siteList>li>a {
+            text-decoration: none;
+            color: #92DAEC;
+        }
+
+        .listName>a {
+            color: #92DAEC;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+	<%@include file="/WEB-INF/views/inc/header.jsp" %>
+
+   	 
+
+    <div id="topBoard"></div>
+
+
+    <div id="scoreBoard">
+        <div class="outerWraper">
+            <div class="infoOuter">
+                <!-- 1 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 2 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 3 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 4 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 5 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 6 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 7 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 8 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="arrow">
+            <div class="glyphicon glyphicon-triangle-left" id="left"></div>
+            <div class="glyphicon glyphicon-triangle-right" id="right"></div>
+        </div>
+
+    </div>
+    <!-- 상단부 끝 -->
+
+
+
+	<!-- 내용 시작 -->
+	<div id="contents">
+        <!-- 갤러리폼 -->
+        <div id="gallery" class="contentsTop">
+            <h3 style="color: black;">갤러리</h3>
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+
+            <div id="wrapper">
+                <div id="slider-wrap">
+                    <ul id="slider">
+                        <li>
+                            <div>
+                                <h3>Slide #1</h3>
+                                <span>Sub-title #1</span>
+                            </div>
+                            <img src="https://fakeimg.pl/350x200/960a96/000?text=11111">
+                        </li>
+
+                        <li>
+                            <div>
+                                <h3>Slide #2</h3>
+                                <span>Sub-title #2</span>
+                            </div>
+                            <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
+                        </li>
+
+                        <li>
+                            <div>
+                                <h3>Slide #3</h3>
+                                <span>Sub-title #3</span>
+                            </div>
+                            <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
+                        </li>
+
+                        <li>
+                            <div>
+                                <h3>Slide #4</h3>
+                                <span>Sub-title #4</span>
+                            </div>
+                            <img src="https://fakeimg.pl/350x200/0A6E0A/000?text=44444">
+                        </li>
+
+                        <li>
+                            <div>
+                                <h3>Slide #5</h3>
+                                <span>Sub-title #5</span>
+                            </div>
+                            <img src="https://fakeimg.pl/350x200/0064CD/000?text=55555">
+                        </li>
+
+
+                    </ul>
+
+                    <!--controls-->
+                    <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                    <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+                    <div id="counter"></div>
+
+                    <div id="pagination-wrap">
+                        <ul>
+                        </ul>
+                    </div>
+                    <!--controls-->
+
+                </div>
+
+            </div>
+        </div>
+        <!-- 팀순위 폼 -->
+        <div id="rank" class="contentsTop">
+            <h3 style="color: rgb(254, 249, 206);">팀순위</h3>
+            <table class="table table-striped" id="rankList">
+                <tr>
+                    <th>순위</th>
+                    <th>팀명</th>
+                    <th>승점</th>
+                    <th>경기</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>쌍용fc</td>
+                    <td>30</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>강남fc</td>
+                    <td>27</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>역삼fc</td>
+                    <td>24</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>구로fc</td>
+                    <td>21</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>하나fc</td>
+                    <td>18</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>진짜fc</td>
+                    <td>15</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>아무나fc</td>
+                    <td>12</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>정말fc</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>나도fc</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>너도fc</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>달려FC</td>
+                    <td>6</td>
+                    <td>10</td>
+                </tr>
+            </table>
+            <div id="more"></div>
+        </div>
+
+        <!-- 개인순위 폼 -->
+        <div id="categoryRank">
+            <h3 style="font-variant: small-caps;">개인순위</h3>
+            <div class="rankform">
+                <div class="category">득점순위</div>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="rankInfo">
+                    <div>1</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>2</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>3</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>4</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>5</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+            </div>
+
+            <div class="rankform">
+                <div class="category">도움순위</div>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="rankInfo">
+                    <div>1</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>2</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>3</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>4</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>5</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+            </div>
+
+            <div class="rankform">
+                <div class="category">패스순위</div>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="rankInfo">
+                    <div>1</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>2</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>3</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>4</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>5</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+            </div>
+
+            <div class="rankform">
+                <div class="category">선방순위</div>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="rankInfo">
+                    <div>1</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>2</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>3</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>4</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>5</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+            </div>
+
+            <div class="rankform">
+                <div class="category">태클순위</div>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="rankInfo">
+                    <div>1</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>2</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>3</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>4</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>5</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+            </div>
+
+            <div class="rankform">
+                <div class="category">활동량순위</div>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
+                <div class="rankInfo">
+                    <div>1</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>2</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>3</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>4</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+                <div class="rankInfo">
+                    <div>5</div>
+                    <div>쌍용fc</div>
+                    <div>홍길동</div>
+                    <div>22</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+	
+	
+	
+	<!-- 내용 끝 -->
+	
+	
+	
+	
+	
+	<!-- 하단부  -->
+    <%@include file="/WEB-INF/views/inc/footer.jsp" %>
+
+
+    <!-- 스크립트------------------------------------------------------------- -->
+    <script>
+
+ // 경기일정 오른쪽 화살표
+    $("#right").hover(function () {
+        $(this).css("cursor","pointer")
+    }).click(function () {
+
+        // $(".infoOuter").css("position","relative").css("left","-1550px").css("transitionDuration","1s");
+        
+        $(".infoBox").animate({
+            left : "-1250px",
+        },1000)
+
+    });
+    // 경기일정 왼쪽 화살표
+    $("#left").hover(function () {
+        $(this).css("cursor","pointer")
+    }).click(function () {
+
+        // $(".infoBox").css("position","relative").css("left","0px").css("transitionDuration","1s");
+        $(".infoBox").animate({
+            left : "0px",
+        },1000)
+    });
+
+    //상단바 로그인,마이페이지 화면이동
+    $(".btn1").click(function () {
+        location.href="login.html"
+    })
+    $("#join").click(function () {
+        location.href="../member/signUp.jsp"
+    })
+    $(".btn3").click(function () {
+        location.href="mypage.html"
+    })
+
+
+    // ----------------------------------------------------------
+
+    //current position
+    var pos = 0;
+    //number of slides
+    var totalSlides = $('#slider-wrap ul li').length;
+    //get the slide width
+    var sliderWidth = $('#slider-wrap').width();
+
+
+    $(document).ready(function () {
+
+
+        /*****************
+         BUILD THE SLIDER
+        *****************/
+        //set width to be 'x' times the number of slides
+        $('#slider-wrap ul#slider').width(sliderWidth * totalSlides);
+
+        //next slide    
+        $('#next').click(function () {
+            slideRight();
+        });
+
+        //previous slide
+        $('#previous').click(function () {
+            slideLeft();
+        });
+
+
+
+        /*************************
+         //*> OPTIONAL SETTINGS
+        ************************/
+        //automatic slider
+        var autoSlider = setInterval(slideRight, 3000);
+
+        //for each slide 
+        $.each($('#slider-wrap ul li'), function () {
+
+            //create a pagination
+            var li = document.createElement('li');
+            $('#pagination-wrap ul').append(li);
+        });
+
+        //counter
+        countSlides();
+
+        //pagination
+        pagination();
+
+        //hide/show controls/btns when hover
+        //pause automatic slide when hover
+        $('#slider-wrap').hover(
+            function () { $(this).addClass('active'); clearInterval(autoSlider); },
+            function () { $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
+        );
+
+
+
+    });//DOCUMENT READY
+
+
+
+    /***********
+     SLIDE LEFT
+    ************/
+    function slideLeft() {
+        pos--;
+        if (pos == -1) { pos = totalSlides - 1; }
+        $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
+
+        //*> optional
+        countSlides();
+        pagination();
+    }
+
+
+    /************
+     SLIDE RIGHT
+    *************/
+    function slideRight() {
+        pos++;
+        if (pos == totalSlides) { pos = 0; }
+        $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
+
+        //*> optional 
+        countSlides();
+        pagination();
+    }
+
+
+
+
+    /************************
+     //*> OPTIONAL SETTINGS
+    ************************/
+    function countSlides() {
+        $('#counter').html(pos + 1 + ' / ' + totalSlides);
+    }
+
+    function pagination() {
+        $('#pagination-wrap ul li').removeClass('active');
+        $('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
+    }
+
+        
+    </script>
+    
+    
+</body>
+
+</html>

@@ -11,9 +11,10 @@
         .friends {
             border: 1px solid #0C1B23;
             width: 680px;
-            height: 600px;
+/*             height: 600px; */
             float: left;
             font-size: 1.1em;
+           	overflow:auto;
         }
 
         .friendsBox {
@@ -43,6 +44,7 @@
         .friends>tbody>tr>td {
             /* border: 0px solid black; */
             text-align: left;
+            line-height:2.3em;
         }
 
         .friends>tbody>tr>td:nth-child(1) {
@@ -51,7 +53,8 @@
 
 
         .friends>tbody>tr {
-            font-size: 0.9em;
+            font-size: 1em;
+          	
         }
 
         .friends>tbody>tr:nth-child(odd) {
@@ -67,15 +70,18 @@
 
         .friends>tbody>tr>td:nth-child(1) {
             width: 200px;
+           
         }
 
         .friends>tbody>tr>td:nth-child(2) {
             width: 350px;
+           
         }
 
         .friends>tbody>tr>td:nth-child(3) {
             width: 150px;
         }
+        
 
         .search {
             float: left;
@@ -87,16 +93,17 @@
             z-index: 0;
         }
 
-        .unfollow {
+        #unfollow {
             height: 25px;
             font-size: 1.1em;
-            line-height: 15px;
+            line-height: 14px;
         }
 
-        .follow {
+        #follow {
             height: 25px;
             font-size: 1.1em;
-            line-height: 15px;
+            line-height: 14px;
+             margin-left: 25px;
         }
 
         .contentsBox {
@@ -120,7 +127,7 @@
 
         .btn {
             height: 25px;
-            margin-top: 7px;
+            margin-left: 12px;
         }
 
         .ui-state-default,

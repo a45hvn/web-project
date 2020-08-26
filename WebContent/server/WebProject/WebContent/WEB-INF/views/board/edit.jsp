@@ -121,12 +121,12 @@
                 <div class="subMenuBox">
                     <nav class="subMenu">
                         <ul>
-                            <li class="subMenuItem"><a href="communityQuestionBulletinBoard.html">질문게시판</a></li>
-                            <li class="subMenuItem"><a href="communityGalleryBulletinBoard.html">갤러리</a></li>
-                            <li class="subMenuItem"><a href="communityFreeBulletinBoard.html">자유게시판</a></li>
-                            <li class="subMenuItem"><a href="communityLectureBulletinBoard.html">강의게시판</a></li>
-                            <li class="subMenuItem"><a href="friendlymatchrecruit.html">친선경기모집</a></li>
-                            <li class="subMenuItem"><a href="mercenaryrecruit.html">용병모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -135,18 +135,7 @@
         </div>
 
     </div>
-    <!-- 상단부 끝 -->
-
-	<!-- 내용 시작 -->
-	<!--  SEQ, max 또는 .nextval
-	    TITLE, title
-	  CONTENT, content 
-	  REGDATE, default sysdate
-	READCOUNT, ?
-	    IMAGE, image
-   MEMBER_SEQ, session에서 가져옴
- CATEGORY_SEQ  CATEGORY_SEQ
- 	 -->
+  
 	     <div class="center">
             <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
                     class="contentTitle">자유게시판</span></div>
@@ -209,6 +198,7 @@
                         <input type="hidden" name="search" value="${dto2.search}">
                         <input type="hidden" name="selectKeyword" value="${dto2.selectKeyword}">
                         <input type="hidden" name="selectrow" value="${dto2.selectrow}">
+                        <input type="hidden" name="category_seq" value="${dto2.category_seq}">
                         
                     </div>
     			</form>

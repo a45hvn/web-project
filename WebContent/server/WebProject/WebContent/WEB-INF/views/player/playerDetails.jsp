@@ -115,27 +115,19 @@
             <input id="friend" type="button" class="btn btn-info" value="친구신청">
         </div>
 
-        <div class="title glyphicon glyphicon-list" > 전체경기정보(친선포함)</div>
+        <div class="title glyphicon glyphicon-list" > 친선경기정보</div>
         <div style="margin-left: 50px;">
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>경기수</th>
                     <th>득점</th>
-                    <th>도움</th>
-                    <th>유효슈팅</th>
-                    <th>파울</th>
-                    <th>경고</th>
-                    <th>퇴장</th>
                 </tr>
+                <c:forEach items="${friendlyStat}" var="dto1" varStatus="status">
                 <tr>
-                    <td>25</td>
-                    <td>20</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>5</td>
-                    <td>3</td>
-                    <td>0</td>
+                    <td>${dto1.count}</td>
+                    <td>${dto1.lgoal}</td>
                 </tr>
+                </c:forEach>
             </table>
         </div>
         <div class="title glyphicon glyphicon-list"> 리그성적</div>
@@ -145,20 +137,34 @@
                     <th>경기수</th>
                     <th>득점</th>
                     <th>도움</th>
-                    <th>유효슈팅</th>
+                    <th>태클성공</th>
+                    <th>세이브</th>
                     <th>파울</th>
                     <th>경고</th>
-                    <th>퇴장</th>
                 </tr>
+                
+                <c:forEach items="${leagueStat}" var="dto2" varStatus="status">
                 <tr>
-                    <td>25</td>
-                    <td>20</td>
-                    <td>2</td>
-                    <td>35</td>
-                    <td>5</td>
-                    <td>3</td>
+                	<c:if test="${dto2.count == 0}">
+                	<td>0</td>
                     <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                	</c:if>
+                	<c:if test="${dto2.count != 0}">
+                    <td>${dto2.count}</td>
+                    <td>${dto2.lgoal}</td>
+                    <td>${dto2.assist}</td>
+                    <td>${dto2.tackle}</td>
+                    <td>${dto2.saves}</td>
+                    <td>${dto2.foul}</td>
+                    <td>${dto2.yellowCard}</td>
+                    </c:if>
                 </tr>
+                </c:forEach>
             </table>
         </div>
         

@@ -133,24 +133,7 @@
 
     <!-- 스크립트------------------------------------------------------------- -->
     <script>
-//     $(".table>tr").click(function () {
-//         alert();
-//     })
 
-    //모달
-    $("#infoUpdateBtn").click(function (e) {
-            e.preventDefault();
-            $("#updateModal").modal("show");
-            $("#updateModal").clientX = ("100px");
-            // clientY: 100px;
-        });
-
-        $("#modalY").click(function () {
-            location.href = "../webproject/mypage.html"
-        })
-
-
-        
     </script>
     
     
