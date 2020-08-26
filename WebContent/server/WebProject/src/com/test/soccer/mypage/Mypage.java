@@ -37,7 +37,8 @@ public class Mypage extends HttpServlet {
 		ArrayList<MypageDTO> list = dao.list(seq);
 		ArrayList<DmDTO> dmlist = dao.dmlist(seq);
 		ArrayList<LeagueDTO> leaguelist = dao.leaguelist(seq);
-	
+		
+		ArrayList<RankDTO> ranklist = dao.ranklist(seq);
 		
 		
 		
@@ -46,10 +47,7 @@ public class Mypage extends HttpServlet {
 		req.setAttribute("dmlist", dmlist);
 		req.setAttribute("seq", seq);
 		req.setAttribute("leaguelist", leaguelist);
-		System.out.println(list);
-		System.out.println(dmlist);
-		System.out.println(leaguelist);
-		
+
 		
 	RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/mypage.jsp");
 	dispatcher.forward(req, resp);
