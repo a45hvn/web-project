@@ -225,6 +225,7 @@ public class MemberDAO {
 					dto.setBacknumber(rs.getString("backnumber"));
 					dto.setHeight(rs.getString("height"));
 					dto.setWeight(rs.getString("weight"));
+					dto.setImage(rs.getString("image"));
 					
 					return dto;				
 				}
