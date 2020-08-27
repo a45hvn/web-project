@@ -1,2 +1,7 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/views/admin_login.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/black/blacklist.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/ground/ground.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/ground/ground_new.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/result_league/league.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/result_match/result_match.jsp=UTF-8

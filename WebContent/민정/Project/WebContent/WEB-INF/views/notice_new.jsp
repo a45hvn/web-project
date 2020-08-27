@@ -157,9 +157,6 @@
                         <button type = "button" class="writebtn" id="writebtn1"  value="등록" onclick="location.href='${pageContext.request.contextPath}/notice.do';">
                          등록
                         </button>
-                        <button type = "button" class="writebtn" id="writebtn2" value="미리보기" onclick="location.href='ex01.html'">         
-                        미리보기
-                        </button>
                     </div>
              </form>
             </div>  

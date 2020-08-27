@@ -212,10 +212,10 @@
                     <option value="title">제목</option>
                 </select>
                 <input name="search" id="searchkeyWord" type="text" size="35" style="height: 30px;">
-                <a href=""><input id="searchbtn" type="button" value="검색" onclick="$('#searchForm').submit;" ></a>
+                <a href=""><input id="searchbtn" type="submit" value="검색" onclick="$('#searchForm').submit;" ></a>
             </div>
         </div>
-       </form>
+       </form> 
     
     </div>
   

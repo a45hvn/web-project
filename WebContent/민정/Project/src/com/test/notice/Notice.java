@@ -166,7 +166,7 @@ public class Notice extends HttpServlet{
 			pagebar += "</li>";
 		} else {
 			pagebar += "<li>";
-			pagebar += String.format("<a href=\"/Project/notice.do?page=%d\" aria-label=\"Next\">", n);
+			pagebar += String.format("<a href=\"/soccer/notice.do?page=%d\" aria-label=\"Next\">", n);
 			pagebar += "<span aria-hidden=\"true\">&raquo;</span>";
 			pagebar += "</a>";
 			pagebar += "</li>";

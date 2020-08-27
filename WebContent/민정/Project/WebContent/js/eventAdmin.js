@@ -52,10 +52,7 @@ $(".menu2")
     
     
     
-    $("#btnAdd_ground")
-    .click(function(){
-        location.href="ground_new.html";
-    });
+   
     
     //공지사항 추가 버튼
 //    $("#btnAdd_notice")

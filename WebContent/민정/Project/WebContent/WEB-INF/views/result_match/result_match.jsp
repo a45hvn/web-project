@@ -183,7 +183,7 @@
         			<td><input type="checkbox" name="checkRow" id="checkbox" ></td>
         			<td>${dto.matchdate }</td>
         			<td>${dto.ground }</td>
-        			<td >${dto.homeTeam} vs ${dto.awayTeam }</td>
+        			<td >${dto.homeTeam} VS ${dto.awayTeam }</td>
         			<td style="font-weight: bold;">${dto.homeGoal} - ${dto.awayGoal }</td>
         		</tr>
         	</c:forEach>

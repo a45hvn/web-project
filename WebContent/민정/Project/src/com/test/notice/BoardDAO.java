@@ -77,10 +77,10 @@ public class BoardDAO {
 	public int getTotalCount(HashMap<String, String> map) {
 		try {
 			String where = "";
-			if(map.get("search") != null) {
-				//제목, 내용 검색
-				where = String.format("where title like '%%%s%%'  or content like '%%%s%%'", map.get("search"),  map.get("search"));
-			}
+//			if(map.get("search") != null) {
+//				//제목, 내용 검색
+//				where = String.format("where title like '%%%s%%'  or content like '%%%s%%'", map.get("search"),  map.get("search"));
+//			}
 			if(map.get("search")!= null && map.get("searchKeyWord")!=null) {
 				//이름 & 제목 & 내용 - 포괄검색
 				where = String.format("where %s like '%%%s%%'  ", map.get("searchKeyWord"),  map.get("search"));
