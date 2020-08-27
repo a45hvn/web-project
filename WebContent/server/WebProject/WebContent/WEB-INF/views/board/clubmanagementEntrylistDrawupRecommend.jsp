@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 
 <head>
@@ -32,16 +31,42 @@
                         <th>이름</th>
                         <th>나이</th>
                     </tr>                    
-                </thead>                                       
-                   <c:forEach items="${entry}" var="dto">
-                     	<tr>
-                         <td><input type="checkbox" name="" id=""></td>
-                         <td>${dto.position}</td>
-                         <td>${dto.backnumber}</td>
-                         <td>${dto.name}</td>
-                         <td>${dto.old}</td>
-                     	</tr>
-                  </c:forEach>
+                </thead>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>FW</td>
+                    <td>2</td>
+                    <td>오희준</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>FW</td>
+                    <td>2</td>
+                    <td>오희준</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>FW</td>
+                    <td>2</td>
+                    <td>오희준</td>
+                    <td>26</td>
+                </tr>     
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>FW</td>
+                    <td>2</td>
+                    <td>오희준</td>
+                    <td>26</td>
+                </tr>   
+                <tr>
+                    <td><input type="checkbox" name="" id="cb1"></td>
+                    <td>FW</td>
+                    <td>2</td>
+                    <td>오희준</td>
+                    <td>26</td>
+                </tr>            
             </table>
         </div>
         <div id="box2">

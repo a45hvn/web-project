@@ -122,18 +122,19 @@ public class MemberDAO {
 			
 			
 			try {
-				String where = "";
+				String sql = "";
 				
 				//검색어 있을때
 				if(map.get("search") != null) {
 					
 				
-					where = String.format("and membername like '%%%s%%'", map.get("search"));
+					sql = String.format("select * from (select a.*, rownum as rnum from vwplayerInfo a) where membername like '%s'", map.get("search"));
 					
+				}else {
+					
+				sql = String.format("select * from (select a.*, rownum as rnum from vwplayerInfo a) where rnum >= %s and rnum <= %s",map.get("begin"), map.get("end"));
+				
 				}
-				
-				
-				String sql = String.format("select * from (select a.*, rownum as rnum from vwplayerInfo a) where rnum >= %s and rnum <= %s %s",map.get("begin"), map.get("end"),where);
 //				System.out.println(map.get("begin"));
 //				System.out.println(map.get("end"));
 				stat = conn.createStatement();
@@ -151,6 +152,7 @@ public class MemberDAO {
 					dto.setTeam(rs.getString("teamname"));
 					dto.setBirth(rs.getString("birth").substring(0, 10));
 					dto.setPosition(rs.getString("position"));
+					
 					
 					list.add(dto);
 					
@@ -219,7 +221,7 @@ public class MemberDAO {
 					dto.setName(rs.getString("membername"));
 					dto.setBirth(rs.getString("birth").substring(0, 10));
 					dto.setTeam(rs.getString("teamname"));
-					dto.setPosition(rs.getString("positions"));
+					dto.setPosition(rs.getString("position"));
 					dto.setBacknumber(rs.getString("backnumber"));
 					dto.setHeight(rs.getString("height"));
 					dto.setWeight(rs.getString("weight"));
@@ -272,36 +274,15 @@ public class MemberDAO {
 			
 			
 			try {
-				String sql = "select distinct  membername from vwteamanlysis where teamname= ?";
-			
+				
+				
+				
+				
+				String sql = "select membername, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname= ? group by membername order by total desc";
+				
+				
 				pstat = conn.prepareStatement(sql);
 				pstat.setString(1, team1); //회원번호
-				
-				rs = pstat.executeQuery();
-				
-				String membername = "";
-				
-				for(int i=0; i<1; i++) {
-					
-					if(rs.next()) {
-						
-						membername += rs.getString("membername");
-						
-					}
-					
-				}
-				
-				
-				System.out.println(membername);
-				
-				stat.close();
-				rs.close();
-				
-				sql = "select sum(goal) as goal, sum(assist) as assist, sum(foul) as foul from vwteamanlysis where membername = ?";
-				
-				
-				pstat = conn.prepareStatement(sql);
-				pstat.setString(1, membername); //회원번호
 				
 				rs = pstat.executeQuery();
 				
@@ -311,10 +292,10 @@ public class MemberDAO {
 				while(rs.next()) {
 					MemberDTO dto = new MemberDTO();
 					
-					dto.setName(membername);
+					dto.setName(rs.getString("membername"));
 					dto.setLgoal(rs.getString("goal"));
 					dto.setAssist(rs.getString("assist"));
-					dto.setFoul(rs.getString("foul"));
+					dto.setTotal(rs.getString("total"));
 					
 //					System.out.println(dto.getLgoal());
 //					System.out.println(dto.getAssist());
@@ -329,6 +310,55 @@ public class MemberDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
+			return null;
+		}
+
+
+		public MemberDTO team2Stat(String team2) {
+			
+			try {
+				
+				
+				
+				String sql = "select membername, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname= ? group by membername order by total desc";
+				
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, team2); //회원번호
+				
+				rs = pstat.executeQuery();
+				
+				
+				ArrayList<MemberDTO> team1list = new ArrayList<MemberDTO>();
+				
+				while(rs.next()) {
+					MemberDTO dto = new MemberDTO();
+					
+					dto.setName(rs.getString("membername"));
+					dto.setLgoal(rs.getString("goal"));
+					dto.setAssist(rs.getString("assist"));
+					dto.setTotal(rs.getString("total"));
+					
+//					System.out.println(dto.getLgoal());
+//					System.out.println(dto.getAssist());
+//					System.out.println(dto.getFoul());
+					
+					return dto;
+				}
+				
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+
+
+		public MemberDTO team1StatAvg(String team1) {
 			
 			try {
 				
