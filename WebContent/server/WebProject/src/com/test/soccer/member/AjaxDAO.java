@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.test.soccer.DBUtil;
+import com.test.soccer.board.BoardDTO;
 import com.test.soccer.board.formationDTO;
 
 public class AjaxDAO {
@@ -29,8 +30,7 @@ public class AjaxDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	//아이디 중복검사
+
 	public int check(String idCheck) {
 		
 		try {
@@ -53,8 +53,7 @@ public class AjaxDAO {
 		return 0;
 	}
 
-	
-	//지역선택시 팀명단 가져오기
+
 	public ArrayList<MemberDTO> getTeam(String home1) {
 		
 		String where = "";
@@ -99,7 +98,7 @@ public class AjaxDAO {
 	
 	//오희준
 	//포미에션 위치값 가지고 오기
-	public ArrayList<formationDTO> formation(String member_seq) {
+	public ArrayList<formationDTO> formation(String team_seq) {
 		
 		try {
 			
@@ -107,7 +106,7 @@ public class AjaxDAO {
 			
 			pstat = conn.prepareStatement(sql);
 			
-			pstat.setString(1, member_seq);
+			pstat.setString(1, team_seq);
 			
 			rs = pstat.executeQuery();
 			
@@ -120,6 +119,9 @@ public class AjaxDAO {
 				dto.setPosition_x(rs.getString("position_x"));
 				dto.setPosition_y(rs.getString("position_y"));
 				dto.setFormation(rs.getString("formation"));
+				
+				System.out.println("dto.setPosition_x(rs.getString(\"position_x\") : " + rs.getString("seq"));
+				
 				list.add(dto);
 				
 			}
@@ -130,35 +132,7 @@ public class AjaxDAO {
 			
 			System.out.println("AjaxDAO.formation()");
 			e.printStackTrace();
-		}
-		
-	}
-	//팀선택시 선수명단 가져오기
-	public ArrayList<MemberDTO> getPlayer(String team1) {
-		try {
 			
-			
-			String sql = String.format("select membername from vwteamanlysis where teamname='%s' group by membername",team1);
-			stat = conn.createStatement();
-			rs = stat.executeQuery(sql);
-			
-//			System.out.println(sql);
-			
-			ArrayList<MemberDTO> listPlayer = new ArrayList<MemberDTO>();
-			
-			while(rs.next()) {
-				MemberDTO dto = new MemberDTO();
-				
-				dto.setName(rs.getString("membername"));
-//				System.out.println(dto.getTeam());
-				
-				listPlayer.add(dto);
-			}
-			
-			return listPlayer;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
 		return null;
@@ -181,7 +155,6 @@ public class AjaxDAO {
 			
 		} catch (Exception e) {
 			
-			System.out.println("AjaxDAO.editFormation()");
 			e.printStackTrace();
 			
 		}
@@ -189,6 +162,8 @@ public class AjaxDAO {
 		return 0;
 	}
 
+	//오희준
+	//팀 번호 가져오기
 	public String getTeam_seq(String member_seq) {
 		// TODO Auto-generated method stub
 		try {
@@ -207,6 +182,90 @@ public class AjaxDAO {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	//오희준
+	//포메이션에서 포지션별 seq 가져오기
+	public ArrayList<formationDTO> Position_Seq(formationDTO dto2) {
+		
+		try {
+			
+			String sql = "select f.seq seq, m.image image, p.seq playerentry_seq from TBLTEAM te inner join TBLTRANSFER tr on te.seq = tr.team_seq inner join TBLMEMBER_TEAM mt on mt.seq = tr.seq inner join TBLPLAYERENTRY p on p.member_team_seq = mt.seq inner join TBLFORMATION f on f.playerentry_seq = p.seq inner join TBLPOSITION po on po.seq = f.position_seq inner join TBLMEMBER m on m.seq = tr.member_seq inner join TBLCOACH c on c.team_seq = te.seq where f.position_seq = ? and te.seq = ? and f.formation = ? order by f.seq";
+			
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto2.getPosition_seq());
+			pstat.setString(2, dto2.getTeam_seq());
+			pstat.setString(3, dto2.getFormation());
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<formationDTO> list = new ArrayList<formationDTO>();
+			
+			while (rs.next()) {
+			
+				formationDTO dto = new formationDTO();				
+				dto.setSeq(rs.getString("seq"));
+				dto.setImage(rs.getString("image"));
+				dto.setPlayerentry_seq(rs.getString("playerentry_seq"));
+								
+				list.add(dto);
+				
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			
+			System.out.println("AjaxDAO.Position_seq");
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+
+	//오희준
+	//엔트리 목록 가져오기
+	public ArrayList<formationDTO> entryList(formationDTO dto2) {
+		
+		try {
+			
+			
+			String sql = "select po.position position, mt.backnumber backnumber, m.name name, floor((sysdate - m.birth)/365) old from TBLPLAYERENTRY pe inner join TBLMEMBER_TEAM mt on pe.MEMBER_TEAM_SEQ = mt.seq inner join TBLTRANSFER t on mt.TRANSFER_seq = t.seq inner join tblmember m on m.seq = t.member_seq inner join TBLPOSITION po on po.seq = mt.position_seq where t.team_Seq = ?";
+			
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto2.getTeam_seq());
+			//pstat.setString(2, dto2.getFormation());
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<formationDTO> entryList = new ArrayList<formationDTO>();
+			
+			while (rs.next()) {
+			
+				formationDTO dto = new formationDTO();
+				dto.setPosition(rs.getString("position"));
+				dto.setBacknumber(rs.getString("backnumber"));
+				dto.setName(rs.getString("name"));
+				dto.setOld(rs.getString("old"));
+				
+				
+				entryList.add(dto);
+				
+			}
+			
+			return entryList;
+			
+		} catch (Exception e) {
+			
+			System.out.println("AjaxDAO.entryList()");
+			e.printStackTrace();
+			
+		}
+		
 		return null;
 	}
 	

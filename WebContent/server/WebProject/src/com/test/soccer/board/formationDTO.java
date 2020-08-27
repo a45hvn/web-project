@@ -7,7 +7,67 @@ public class formationDTO {
 	private String position_x;
 	private String position_y;
 	private String team_seq;
+	private String member_seq;
+	private String position_seq;
 	
+	private String position;
+	private String backnumber;
+	private String name;
+	
+	private String image;
+	
+	//신규 추가사항
+	private String playerentry_seq;
+	
+	public String getPlayerentry_seq() {
+		return playerentry_seq;
+	}
+	public void setPlayerentry_seq(String playerentry_seq) {
+		this.playerentry_seq = playerentry_seq;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	private String old;	
+	public String getBacknumber() {
+		return backnumber;
+	}
+	public void setBacknumber(String backnumber) {
+		this.backnumber = backnumber;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getOld() {
+		return old;
+	}
+	public void setOld(String old) {
+		this.old = old;
+	}
+	public String getPosition_seq() {
+		return position_seq;
+	}
+	public void setPosition_seq(String position_seq) {
+		this.position_seq = position_seq;
+	}
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
+	}
 	public String getTeam_seq() {
 		return team_seq;
 	}
