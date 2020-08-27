@@ -17,7 +17,7 @@ import com.test.soccer.member.AjaxDAO;
 import com.test.soccer.member.MemberDAO;
 import com.test.soccer.member.MemberDTO;
 
-@WebServlet("/analysis/palyerAnalysisok3.do")
+@WebServlet("/analysis/playerAnalysisok3.do")
 public class PlayerAnalysisOk3 extends HttpServlet{
 
 	

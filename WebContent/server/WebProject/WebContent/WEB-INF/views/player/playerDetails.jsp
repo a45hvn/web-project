@@ -122,12 +122,21 @@
                     <th>경기수</th>
                     <th>득점</th>
                 </tr>
-                <c:forEach items="${friendlyStat}" var="dto1" varStatus="status">
+                <c:if test="${friendlyStat == '[]'}">
                 <tr>
-                    <td>${dto1.count}</td>
-                    <td>${dto1.lgoal}</td>
+                    <td>0</td>
+                    <td>0</td>
                 </tr>
-                </c:forEach>
+                </c:if>
+                
+                <c:if test="${friendlyStat != null}">
+	                <c:forEach items="${friendlyStat}" var="dto1" varStatus="status">
+	                <tr>
+	                    <td>${dto1.count}</td>
+	                    <td>${dto1.lgoal}</td>
+	                </tr>
+	                </c:forEach>
+                </c:if>
             </table>
         </div>
         <div class="title glyphicon glyphicon-list"> 리그성적</div>
