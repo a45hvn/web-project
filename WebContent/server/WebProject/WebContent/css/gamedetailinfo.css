@@ -156,23 +156,6 @@
 }
 .entry div:nth-child(odd) {
     /* background-color: #254150; */
-#contentBox {
-    position: relative;
-    top: 610px;
-    left: 400px;
-    width: 510px;
-    height: 30px;
-    border: 2px solid RGB(238, 238, 238);
-    
-}
-#action {
-    position: absolute;
-    top: 650px;
-    left: 400px;
-    width: 510px;
-    height: 200px;
-    border: 2px solid RGB(238, 238, 238);
-    border-bottom: 0px solid RGB(238, 238, 238);
 }
 .entry div:nth-child(even) {
     /* background-color: #0c1a22; */
