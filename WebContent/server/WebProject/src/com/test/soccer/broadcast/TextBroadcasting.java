@@ -29,10 +29,10 @@ public class TextBroadcasting extends HttpServlet {
 		String league_seq=req.getParameter("league");
 		String leaguegame_seq=req.getParameter("seq");
 		
-		teamname1="나슬";
-		teamname2="알섬";
-		league_seq="1";
-		leaguegame_seq="1";
+//		teamname1="나슬";
+//		teamname2="알섬";
+//		league_seq="1";
+//		leaguegame_seq="1";
 		
 		team1.setTeamname(teamname1);
 		team1.setLeague_seq(league_seq);

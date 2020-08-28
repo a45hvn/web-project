@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.soccer.member.AjaxDAO;
 
-@WebServlet("/board/clubmanagementPlayerManagementCheck.do")
+@WebServlet("/board/clubmanagementPlayerManagementCheckok.do")
 public class clubmanagementPlayerManagementCheckOk extends HttpServlet{
 	
 	@Override

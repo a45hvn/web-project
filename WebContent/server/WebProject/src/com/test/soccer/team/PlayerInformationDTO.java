@@ -17,6 +17,15 @@ public class PlayerInformationDTO {
 	private String birth;
 	private String teamname;
 	private String completedate;
+	
+	//
+	private String mseq;
+	public String getMseq() {
+		return mseq;
+	}
+	public void setMseq(String mseq) {
+		this.mseq = mseq;
+	}
 	public String getMember_seq() {
 		return member_seq;
 	}

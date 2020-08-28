@@ -42,6 +42,7 @@ public class TeamList extends HttpServlet{
 				}
 				
 				
+				
 				//페이징 처리 관련 변수
 				int nowPage=0;		//현재 페이지 번호
 				int totalCount=0;	//총 게시물 수
@@ -72,6 +73,13 @@ public class TeamList extends HttpServlet{
 				map.put("search", search);
 				map.put("searchKeyword", searchKeyword);
 
+				if(search==null) {
+					search="";
+				}
+				if(searchKeyword==null) {
+					searchKeyword="";
+				}
+				
 				
 				//1.
 				

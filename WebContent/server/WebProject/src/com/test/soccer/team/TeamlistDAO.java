@@ -106,6 +106,9 @@ public class TeamlistDAO {
 				where = "";
 			}
 			
+			if(searchKeyword==null||searchKeyword=="") {
+				where="";
+			}
 			//String sql = String.format("select count(*) cnt from(select rownum rnum, team_seq, logo, name, coachname, to_char(birth,'yyyymmdd') birth, count, ground, lat,lng from teamlist2) where rnum between ? and ?");
 			String sql = String.format("select count(*) cnt from teamlist2 %s",where);
 			System.out.println(sql);
@@ -207,6 +210,7 @@ public class TeamlistDAO {
 				dto.setCompletedate(rs.getString("completedate"));
 				dto.setPosition(rs.getString("position"));
 				dto.setTeamname(rs.getString("teamname"));
+				dto.setMseq(rs.getString("mseq"));
 				
 				playerInfo.add(dto);
 			}

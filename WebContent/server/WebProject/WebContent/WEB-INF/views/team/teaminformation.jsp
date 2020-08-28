@@ -116,7 +116,7 @@
                                     <th>몸무게</th>
                                 </tr>
                                 <c:forEach items="${playerInfo}" var="playerInfo">
-                                <tr id="playerTr" style="cursor:pointer;" onclick="location.href='/team/teamplayerinformation.do?playername=${playerInfo.playername}'">
+                                <tr id="playerTr" style="cursor:pointer;" onclick="location.href='/soccer/player/playerDetails.do?seq=${playerInfo.mseq}'">
                                     <td>${playerInfo.backnumber}</td>
                                     <td>${playerInfo.playername}</td>
                                     <td>${playerInfo.position }</td>
