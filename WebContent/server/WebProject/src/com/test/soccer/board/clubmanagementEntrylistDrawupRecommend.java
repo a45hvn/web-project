@@ -40,6 +40,7 @@ public class clubmanagementEntrylistDrawupRecommend extends HttpServlet{
 		
 		ArrayList<formationDTO> entry = dao.recommendEntryList(dto2);
 		
+		System.out.println("entry @@"  + entry);
 		
 		req.setAttribute("entry", entry);
 		

@@ -2,7 +2,7 @@
         #centerBoxMain {
             /* border: 1px solid black;             */
             width: 1250px;
-            min-height: 800px;
+            min-height: 950px;
             margin: 0px auto;
             font-size: 1.1em;
         }
@@ -157,8 +157,8 @@
             color: black;
         }
 
-        #applybtn {
-            margin: 0 0 40px 633px;
+        #applyBtn {
+            margin: 0 0 40px 600px;
 
         }
 

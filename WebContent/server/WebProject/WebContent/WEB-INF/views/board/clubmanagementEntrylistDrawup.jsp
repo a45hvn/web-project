@@ -92,9 +92,9 @@
                             </table>
                         </div>
                         <div id="centerbox2LeftButton">
-                            <span><input type="button" value="추가" id="centerbox2LeftButtonAdd" class="btn btn-primary"></span>
+                            <!-- <span><input type="button" value="추가" id="centerbox2LeftButtonAdd" class="btn btn-primary"></span> -->
                             <!-- <span><input type="button" value="수정"></span> -->
-                            <span><input type="button" value="삭제" id="centerbox2LeftButtonDel" class="btn btn-primary"></span>
+                            <!-- <span><input type="button" value="삭제" id="centerbox2LeftButtonDel" class="btn btn-primary"></span> -->
                         </div>
                     </div>
                     <!-- 오른쪽 포메이션 박스 -->

@@ -387,9 +387,8 @@ public class AjaxDAO {
 				dto.setName(rs.getString("name"));
 				dto.setOld(rs.getString("old"));
 				
-			
+					
 				entryList.add(dto);
-				
 			}
 			
 			return entryList;

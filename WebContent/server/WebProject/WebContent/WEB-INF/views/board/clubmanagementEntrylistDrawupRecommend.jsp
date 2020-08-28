@@ -51,7 +51,7 @@
                         <th>나이</th>
                     </tr>                    
                 </thead>
-             	<c:forEach items="${entry}" var="dto">
+             	<c:forEach items="${entry}" var="dto">             	
                      	<tr>
                          <td><input type="checkbox" name="${dto.entry_seq}" id="${dto.entry_seq}" value="${dto.entry_seq}"></td>
                          <td>${dto.position}</td>

@@ -40,12 +40,11 @@ public class TeamAnalysisOk2 extends HttpServlet{
 		resp.setCharacterEncoding("UTF-8");
 		PrintWriter writer = resp.getWriter();
 		
-		writer.printf("%s,%s,%s,%s,%s,%s,%s,%s"
+		writer.printf("%s,%s,%s,%s,%s,%s,%s"
 					,dto.getName()
 					,dto.getLgoal()
 					,dto.getAssist()
 					,dto.getTotal()
-					,dto.getImage()
 					,dto2.getGoalavg()
 					,dto2.getAssistavg()
 					,dto2.getTotalavg());

@@ -8,14 +8,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
-<link rel="stylesheet" href="/soccer/css/friendlymatchrecruit.css">
+<!-- <link rel="stylesheet" href="/soccer/css/friendlymatchrecruit.css"> -->
+
+<link rel="stylesheet" href="/soccer/css/communityFreeBulletinBoard.css">
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 <style>
-
 </style>
 </head>
 
@@ -33,15 +34,21 @@
 			<div class="subMenuBox">
 				<nav class="subMenu">
 					<ul>
-						<li class="subMenuItem"><a href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
-                        <li class="subMenuItem"><a href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
-                        <li class="subMenuItem"><a href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
-                        <li class="subMenuItem"><a href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
-                        <li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
-                        <li class="subMenuItem"><a href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
+						<li class="subMenuItem"><a
+							href="/soccer/board/communityQuestionBulletinBoard.do">질문게시판</a></li>
+						<li class="subMenuItem"><a
+							href="/soccer/board/communityGalleryBulletinBoard.do">갤러리</a></li>
+						<li class="subMenuItem"><a
+							href="/soccer/board/communityFreeBulletinBoard.do">자유게시판</a></li>
+						<li class="subMenuItem"><a
+							href="/soccer/board/communityLectureBulletinBoard.do">강의게시판</a></li>
+						<li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a
+							href="/soccer/board/friendlymatchrecruit.do">친선경기모집</a></li>
+						<li class="subMenuItem"><a
+							href="/soccer/board/mercenaryrecruit.do">용병모집</a></li>
 					</ul>
 				</nav>
-							
+
 			</div>
 
 		</div>
@@ -81,14 +88,25 @@
 						<th>조회</th>
 					</tr>
 				</thead>
+				<!-- 검색했는데 게시물이 없을 경우 -->
+				<c:if test="${not empty search and list.size() == 0}">
+					<tr>
+						<td colspan="5">검색 결과가 없습니다.</td>
+					</tr>
+				</c:if>
+
+				<!-- 게시물이 없을때 -->
+				<c:if test="${empty search and list.size() == 0}">
+					<tr>
+						<td colspan=5>게시물이 없습니다.</td>
+					</tr>
+				</c:if>
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.seq}</td>
 						<td><a
-							href="/soccer/board/friendlymatchcontents.do?seq=${dto.seq}">${dto.title}</a>
-						<c:if test="${dto.gap <1}">
-								<span class="label label-danger"> new </span>
-							</c:if></td>
+							href="/soccer/board/friendlymatchcontents.do?seq=${dto.seq}&search=${search}&page=${page}&selectKeyword=${selectKeyword}&selectrow=${selectrow}&category_seq=${dto.category_seq}">${dto.title}</a>
+						</td>
 						<td>${dto.name}</td>
 						<td>${dto.regdate}</td>
 						<td>${dto.readcount}</td>
@@ -96,41 +114,41 @@
 				</c:forEach>
 			</table>
 		</div>
-		
-			${pagebar}
 
-			<div id="centerbox4">
-				<div style="float: right;">
-					<select>
-						<option value="">제목</option>
-						<option value="">내용</option>
-						<option value="">제목+내용</option>
-						<option value="">글쓴이</option>
-					</select> <input id="searchkeyword" type="text" size="35"> <a
-						href=""><input id="searchbtn" type="button" value="검색"
-						class="btn"></a> <input id="writebtn" type="button"
-						value="글쓰기" onclick="location.href=''" ; class="btn">
-				</div>
+		${pagebar}
+
+		<div id="centerbox4">
+			<div style="float: right;">
+				<select>
+					<option value="">제목</option>
+					<option value="">내용</option>
+					<option value="">제목+내용</option>
+					<option value="">글쓴이</option>
+				</select> <input id="searchkeyword" type="text" size="35"> <a href=""><input
+					id="searchbtn" type="button" value="검색" class="btn"></a> <input
+					id="writebtn" type="button" value="글쓰기" onclick="location.href=''"
+					; class="btn">
 			</div>
-
 		</div>
 
 	</div>
 
-
-
-	<!-- 내용 끝 -->
-
+</div>
 
 
 
-
-	<!-- 하단부  -->
-	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+<!-- 내용 끝 -->
 
 
-	<!-- 스크립트------------------------------------------------------------- -->
-	<script>
+
+
+
+<!-- 하단부  -->
+<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+
+
+<!-- 스크립트------------------------------------------------------------- -->
+<script>
 
     $("#pagination > li >a").click(function () {
 
@@ -171,15 +189,36 @@
 
 
 		//onchange이벤트는 원래 자기 값에서 변해야지만 이벤트가 발생함=> 문제 해결 필요
-	 function movePage() {
-				//alert(event.srcElement.value);
-				location.href = "/soccer/board/friendlymatchrecruit.do?page=" + event.srcElement.value;
-			}
+// 	 function movePage() {
+// 				//alert(event.srcElement.value);
+// 				location.href = "/soccer/board/friendlymatchrecruit.do?page=" + event.srcElement.value;
+// 			}
 		
+		
+	  //한페이지 당 출력 갯수
+ 	document.getElementById("selectrow").onchange = function(){    
+             	
+     	location.href = "/soccer/board/friendlymatchrecruit.do?selectrow=" + $("#selectrow").val() 
+     			+ "&selectKeyword=" + $("#selectKeyword").val()
+     			+ "&search=" + $("#search").val()    
+     			+ "&page=" + ${page};
+ 	};
 			$("#pagebar").val(${page});
         
+			//검색 키워드
+	 		$("#${selectKeyword}").attr("selected","selected");
+	 		
+	    	//한페이지당 출력 갯수
+	 		$("#${selectrow}").attr("selected","selected");
+	        
+	  		
+	 		
+	 		
+			
+			
+			
     </script>
 
 
-	</body>
+</body>
 </html>

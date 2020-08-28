@@ -68,7 +68,7 @@ public class MypageInfoUpdateOk extends HttpServlet {
 			e.printStackTrace();
 		}
 			
-		//이거 왜 안됨..
+
 		// DB작업 -> update해주기
 		MypageDAO dao = new MypageDAO();
 		MypageDTO dto2 = new MypageDTO();

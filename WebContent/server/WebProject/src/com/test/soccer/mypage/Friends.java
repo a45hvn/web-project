@@ -25,10 +25,7 @@ public class Friends extends HttpServlet{
 				
 		ArrayList<FriendsDTO> followerList = dao.followerList(seq);
 		ArrayList<FriendsDTO> followingList = dao.followingList(seq);
-		
-		
-		
-		
+			
 		req.setAttribute("followerList", followerList);
 		req.setAttribute("followingList", followingList);
 		

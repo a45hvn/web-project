@@ -211,6 +211,7 @@ public class BoardDAO {
 		
 	}
 	
+	
 
 	
 	
@@ -350,8 +351,6 @@ public class BoardDAO {
 		
 		return 0;
 	}
-
-	
 
 	
 	
