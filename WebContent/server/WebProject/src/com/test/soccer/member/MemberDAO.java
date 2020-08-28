@@ -153,6 +153,7 @@ public class MemberDAO {
 					dto.setBirth(rs.getString("birth").substring(0, 10));
 					dto.setPosition(rs.getString("position"));
 					
+					
 					list.add(dto);
 					
 				}
@@ -205,7 +206,7 @@ public class MemberDAO {
 			
 			try {
 				
-				String sql = "select * from vwDetailInfo where seq = ?";
+				String sql = "select * from vwDetailPlayerInfo where memberseq = ?";
 				
 				pstat = conn.prepareStatement(sql);
 				pstat.setString(1, mseq); //회원번호
@@ -216,7 +217,7 @@ public class MemberDAO {
 					
 					MemberDTO dto = new MemberDTO();
 					
-					dto.setMseq(rs.getString("seq"));
+					dto.setMseq(rs.getString("memberseq"));
 					dto.setName(rs.getString("membername"));
 					dto.setBirth(rs.getString("birth").substring(0, 10));
 					dto.setTeam(rs.getString("teamname"));
@@ -224,6 +225,7 @@ public class MemberDAO {
 					dto.setBacknumber(rs.getString("backnumber"));
 					dto.setHeight(rs.getString("height"));
 					dto.setWeight(rs.getString("weight"));
+					dto.setImage(rs.getString("image"));
 					
 					return dto;				
 				}
@@ -277,7 +279,7 @@ public class MemberDAO {
 				
 				
 				
-				String sql = "select membername, (select image from vwteamanlysis group by image) as image, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname=? group by membername order by total desc";
+				String sql = "select membername, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname= ? group by membername order by total desc";
 				
 				
 				pstat = conn.prepareStatement(sql);
@@ -295,7 +297,6 @@ public class MemberDAO {
 					dto.setLgoal(rs.getString("goal"));
 					dto.setAssist(rs.getString("assist"));
 					dto.setTotal(rs.getString("total"));
-					dto.setImage(rs.getString("image"));
 					
 //					System.out.println(dto.getLgoal());
 //					System.out.println(dto.getAssist());
@@ -322,8 +323,7 @@ public class MemberDAO {
 				
 				
 				
-				
-				String sql = "select membername, (select image from vwteamanlysis group by image) as image, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname=? group by membername order by total desc";
+				String sql = "select membername, sum(goal+assist) total, sum(goal) goal , sum(assist) assist , sum(foul) foul from vwteamanlysis where teamname= ? group by membername order by total desc";
 				
 				
 				pstat = conn.prepareStatement(sql);
@@ -341,7 +341,6 @@ public class MemberDAO {
 					dto.setLgoal(rs.getString("goal"));
 					dto.setAssist(rs.getString("assist"));
 					dto.setTotal(rs.getString("total"));
-					dto.setImage(rs.getString("image"));
 					
 //					System.out.println(dto.getLgoal());
 //					System.out.println(dto.getAssist());
@@ -552,7 +551,7 @@ public class MemberDAO {
 		public ArrayList<MemberDTO> getFriendlyStat(String mseq) {
 			
 			try {
-				String sql = "select seq, sum(goal) as goal, count(seq) as count from vwDetailInfo where seq = ? group by seq ";
+				String sql = "select memberseq, sum(goal) as goal, count(memberseq) as count from vwDetailInfo where memberseq = ? group by memberseq ";
 				pstat = conn.prepareStatement(sql);
 				pstat.setString(1, mseq); //회원번호
 				

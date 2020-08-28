@@ -14,25 +14,40 @@
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
     
     <style>
+    	#loding {
+		    width: 100%;
+    		position: absolute;
+		    top: 0;
+		    left: 0;
+		    background-color: rgba(0, 0, 0, .6);
+		    text-align: center;
+		    line-height: 777px;
+		    z-index: 1;
+    	}
+    	
+    	#loding lodingimage{
+    		vertical-align: middle;
+    	} 
+    
         select{
             margin-top: 50px;
             height: 30px;
             width: 80px;
         }
 
-        select:nth-child(1){
+        select:nth-child(4){
             border:1px solid rgb(134, 0, 0);
             color: rgb(134, 0, 0);
         }
-        select:nth-child(2){
+        select:nth-child(5){
             border:1px solid rgb(134, 0, 0);
             color: rgb(134, 0, 0);
         }
-        select:nth-child(3){
+        select:nth-child(6){
             border:1px solid rgb(134, 0, 0);
             color: rgb(134, 0, 0);
         }
-        select:nth-child(1n+4){
+        select:nth-child(1n+7){
             border:1px solid #005093;
             color: #005093;
         }
@@ -173,14 +188,17 @@
     <!-- 상단부 끝 -->
 
 
-    <div class="center" style="height: 1000px;">
+    <div class="center" style="height: 1100px;">
         <!-- 선수 선택 -->
-        <div class="pageContentTitle" style="border-bottom: 1px solid black;"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
+        <div class="pageContentTitle" style="border-bottom: 1px solid black; "><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
             class="contentTitle">전력분석(선수)</span>
         </div>
         <!--  -->
-        <div style="width: 100%;  height: 850px; float: left;">
-            <div>
+        <div style="width: 1300px;  height: 850px; float: left;">
+            <div style="font-size: 1.3em">
+            	<br>
+            	<b>※ 전력분석을 하고싶은 선수를 선택하세요 ※</b>
+            	<br>
                 <select name="home1" id="home1" style="margin-left: 160px;">
                     <option value="">지역선택</option>
 	            	<option value="">전체</option>
@@ -208,68 +226,71 @@
                 <select name="player2" id="player2">
                 </select>
             </div>
-
-            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid rgb(134, 0, 0);">
-                <div style="text-align: left; width: 250px; float: left;">
-                    
-                    <span class="birth" id="redTeamBirth"></span><br>
-                    <span class="spec" id="redTeamSpec"></span><br>
-                    <span class="position" id="redTeamPosition"></span>
-                    
-
-                </div>
-                
-                <span style=" float: left;width: 140px; margin-top: 30px;" id="redTeamPlayer"></span>
-
-                <img src="../images/rogo.png" alt="" class="rogo" style="margin-left: 50px;">
-            </div>
-
-            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid #005093;">
-                <img src="../images/rogo.png" alt=""class="rogo" style=" float: left;">
-
-                <span style="margin-left: 100px; display:block; float: left;  margin-top: 30px;" id="blueTeamPlayer"></span>
-
-                <div style="text-align: right;  width: 290px; margin-left: 300px;">
-                    <span class="birth" id="blueTeamBirth"></span><br>
-                    <span class="spec" id="blueTeamSpec"></span><br>
-                    <span class="position" id="blueTeamPosition"></span>
-                </div>
-            </div>
-
-            <!-- 플레이어 차트 -->
-            <div class="playerCharts" >
-                <div class="playerPhoto" id="redPlayerImage"></div>
-                <figure class="highcharts-figure">
-                    <div id="container"></div>
-                    
-                  </figure>
-                <div class="playerPhoto" id="bluePlayerImage"></div>
-            </div>
-            <div style="float: left; border: gray 1px solid; width: 1230px; margin-left: 30px; text-align: center; padding-top: 20px;" >
-                <table class="table table-bordered" style="text-align: center;" id="playerInfo">
-                    <tr>
-                        <td id="redTeamCount"></td>
-                        <th>경기수</th>
-                        <td id="blueTeamCount"></td>
-                    </tr>
-                    <tr>
-                        <td id="redTeamGoal"></td>
-                        <th>득점</th>
-                        <td id="blueTeamGoal"></td>
-                    </tr>
-                    <tr>
-                        <td id="redTeamAssist"></td>
-                        <th>도움</th>
-                        <td id="blueTeamAssist"></td>
-                    </tr>
-                    <tr>
-                        <td id="redTeamTackle"></td>
-                        <th>태글성공</th>
-                        <td id="blueTeamTackle"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+			<!-- <div id="loding" style="height: 740px">
+			<img src="/soccer/images/loding.png" id="lodingimage">
+			</div>  -->
+	            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid rgb(134, 0, 0);">
+	                <div style="text-align: left; width: 250px; float: left;">
+	                    
+	                    <span class="birth" id="redTeamBirth"></span><br>
+	                    <span class="spec" id="redTeamSpec"></span><br>
+	                    <span class="position" id="redTeamPosition"></span>
+	                    
+	
+	                </div>
+	                
+	                <span style=" float: left;width: 140px; margin-top: 30px;" id="redTeamPlayer"></span>
+	
+	                <img src="../images/rogo.png" alt="" class="rogo" style="margin-left: 50px;">
+	            </div>
+	
+	            <div class="playerTitle" style="margin-left: 30px; border-top: 7px solid #005093;">
+	                <img src="../images/rogo.png" alt=""class="rogo" style=" float: left;">
+	
+	                <span style="margin-left: 100px; display:block; float: left;  margin-top: 30px;" id="blueTeamPlayer"></span>
+	
+	                <div style="text-align: right;  width: 290px; margin-left: 300px;">
+	                    <span class="birth" id="blueTeamBirth"></span><br>
+	                    <span class="spec" id="blueTeamSpec"></span><br>
+	                    <span class="position" id="blueTeamPosition"></span>
+	                </div>
+	            </div>
+	
+	            <!-- 플레이어 차트 -->
+	            <div class="playerCharts" >
+	                <div class="playerPhoto" id="redPlayerImage"></div>
+	                <figure class="highcharts-figure">
+	                    <div id="container"></div>
+	                    
+	                  </figure>
+	                <div class="playerPhoto" id="bluePlayerImage"></div>
+	            </div>
+	            <div style="float: left; border: gray 1px solid; width: 1230px; margin-left: 30px; text-align: center; padding-top: 20px;" >
+	                <table class="table table-bordered" style="text-align: center;" id="playerInfo">
+	                    <tr>
+	                        <td id="redTeamCount"></td>
+	                        <th>경기수</th>
+	                        <td id="blueTeamCount"></td>
+	                    </tr>
+	                    <tr>
+	                        <td id="redTeamGoal"></td>
+	                        <th>득점</th>
+	                        <td id="blueTeamGoal"></td>
+	                    </tr>
+	                    <tr>
+	                        <td id="redTeamAssist"></td>
+	                        <th>도움</th>
+	                        <td id="blueTeamAssist"></td>
+	                    </tr>
+	                    <tr>
+	                        <td id="redTeamTackle"></td>
+	                        <th>태글성공</th>
+	                        <td id="blueTeamTackle"></td>
+	                    </tr>
+	                </table>
+	            </div>
+	       </div>
+	   
     </div>
     
     <%@include file="/WEB-INF/views/inc/footer.jsp" %>
@@ -383,7 +404,7 @@
       var lineBlue4;
       var lineBlue5;
    
-   $("#player1").change(function(){
+   	$("#player1").change(function(){
     		
     	   	
    		$("#redTeamPlayer").text("");
@@ -397,7 +418,7 @@
    		$("#redImage").remove();
    		 $.ajax({
    		   type:"GET",
-   		   url: "/soccer/analysis/palyerAnalysisok3.do",
+   		   url: "/soccer/analysis/playerAnalysisok3.do",
    		   data : "player1=" + $("#player1 option:selected").val(),
    		   dataType: "text",
    		   success:function(result){
@@ -482,7 +503,8 @@
       
       $("#player2").change(function(){
    	   
-   		
+    	$("#loding").html("");
+    	$("#loding").css("background-color","rgba(0, 0, 0, .0)"); 
    	   
   	 	$("#blueTeamPlayer").text("");
    		$("#blueTeamBirth").text("");
@@ -495,7 +517,7 @@
    		$("#blueImage").remove();
    		 $.ajax({
    		   type:"GET",
-   		   url: "/soccer/analysis/palyerAnalysisok3.do",
+   		   url: "/soccer/analysis/playerAnalysisok3.do",
    		   data : "player1=" + $("#player2 option:selected").val(),
    		   dataType: "text",
    		   success:function(result){
