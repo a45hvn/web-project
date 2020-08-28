@@ -1,6 +1,7 @@
 package com.test.soccer.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -13,25 +14,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.soccer.member.AjaxDAO;
 
 @WebServlet("/board/clubmanagementPlayerManagementCheck.do")
-public class clubmanagementPlayerManagementCheck extends HttpServlet{
+public class clubmanagementPlayerManagementCheckOk extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		req.setCharacterEncoding("UTF-8");
+		
+		String text = req.getParameter("text");
 		String entry_seq = req.getParameter("entry_seq");
 		
 		AjaxDAO dao = new AjaxDAO();
 		
-		ArrayList<formationDTO> list = dao.managementList(entry_seq);
+		CommentDTO dto = new CommentDTO();
+		dto.setText(text);
+		dto.setEntry_seq(entry_seq);
 		
-		ArrayList<formationDTO> log = dao.managementLog(entry_seq);
+		int result = dao.addtext(dto);
 		
-		req.setAttribute("list", list);
-		req.setAttribute("log", log);
+		PrintWriter write = resp.getWriter();
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/clubmanagementPlayerManagementCheck.jsp");
-		dispatcher.forward(req, resp);
+		write.print(result);
 		
+		write.close();
 	}
 
 }

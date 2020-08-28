@@ -17,8 +17,15 @@ public class PlayerInformationDTO {
 
 	private String league_seq;
 	private String teamlogo;
+	private String playerentry_seq;
 	
 	
+	public String getPlayerentry_seq() {
+		return playerentry_seq;
+	}
+	public void setPlayerentry_seq(String playerentry_seq) {
+		this.playerentry_seq = playerentry_seq;
+	}
 	public String getTeamlogo() {
 		return teamlogo;
 	}
@@ -91,7 +98,6 @@ public class PlayerInformationDTO {
 	public void setCompletedate(String completedate) {
 		this.completedate = completedate;
 	}
-	
 	
 	
 }

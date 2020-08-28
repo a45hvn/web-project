@@ -26,10 +26,21 @@ public class TextBroadcasting extends HttpServlet {
 		BroadCastDTO dto = new BroadCastDTO();
 		
 		ArrayList<BroadCastDTO> broadCastList = dao.broadCastList(leagueGame_seq);
+		teamname1="나슬";
+		teamname2="알섬";
+		league_seq="1";
+		leaguegame_seq="1";
 		
 		
 		
 		
+		//단축키 가져온다.
+		ArrayList<BroadCastDTO2> bcList=dao.getBcList();
+		req.setAttribute("playerInfo1", playerInfo1); // 1팀 선수 정보
+		req.setAttribute("playerInfo2", playerInfo2); // 2팀 선수 정보
+		req.setAttribute("bcList", bcList);				//단축키 정보
+		req.setAttribute("textBroadCast", textBroadCast); //문자중계 정보
+		req.setAttribute("leaguegame_seq", leaguegame_seq);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/broadcast/textbroadcasting.jsp");
 		dispatcher.forward(req, resp);
 	}

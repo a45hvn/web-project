@@ -3,6 +3,8 @@
     width: 1800px;            
     margin: 0 auto;
     font-size: 1.1em;
+    margin-top: 13px;
+    margin-left: 13px;
 }
 
 #box1 {
@@ -48,16 +50,14 @@
     height: 60px;            
 }
 
-#box1L {
-    background-image: url(../images/man_02.png);background-position: center center;
+/* #box1L {
     background-repeat: no-repeat;
-    /* background-size: cover; */
-}
+    background-size: cover; 
+} */
 
 #box2 table {
     /* font-size: 1.1em; */
     width: 702px;
-    height: 400px;
     text-align: center;
     /* color: white;          */
     /* border-left: 1px solid black;    */
