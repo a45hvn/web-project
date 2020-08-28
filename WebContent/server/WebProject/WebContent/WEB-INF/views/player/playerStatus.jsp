@@ -137,7 +137,7 @@
                 <tr>
                     <td>
                         <div class="playerInfo">
-                            <div><img src="../images/${dto.image}" alt="" style="width: 100px;"><span class="playername">${dto.name}</span></div>
+                            <div><img src="../images/man_01.png" alt="" style="width: 100px;"><span class="playername">${dto.name}</span></div>
                         </div>
                     </td>
                     <td>

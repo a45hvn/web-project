@@ -16,12 +16,6 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 <style>
-
-#matchResultBox::-webkit-scrollbar {
-	border: 0px;
-	width: 0px;
-}
-
 </style>
 </head>
 
@@ -39,13 +33,11 @@
 			<div class="subMenuBox">
 				<nav class="subMenu">
 					<ul>
-						<li class="subMenuItem"><a href="/soccer/mypage/mypage.do">
-								마이페이지</a></li>
+						<li class="subMenuItem"><a href="mypage.html">마이페이지</a></li>
 						<li class="subMenuItem" style="background-color: rgb(15, 13, 13);"><a
-							href="/soccer/mypage/clubsummary.do" >구단정보관리</a></li>
-						<li class="subMenuItem" ><a
-							href="/soccer/mypage/friends.do">친구관리</a></li>
-						<li class="subMenuItem"><a href="/soccer/mypage/dm.do">DM</a></li>
+							href="clubSummary.html">구단정보관리</a></li>
+						<li class="subMenuItem"><a href="friends.html">친구관리</a></li>
+						<li class="subMenuItem"><a href="dm.html">DM</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -60,7 +52,7 @@
 <div class="center">
 
 	<div class="pageContentTitle">
-		<img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
+		<img src="images/rogowithoutletter.png" class="contentTitleImg"><span
 			class="contentTitle">구단 정보</span>
 	</div>
 
@@ -69,45 +61,125 @@
 			<div>
 				<i class="glyphicon glyphicon-object-align-bottom"></i>경기전적
 			</div>
-			<div id="matchResultBox" style="overflow:scroll; height:550px;">
 			<table class="table table-bordered table-striped">
 				<tr>
 					<th>경기</th>
-					<th>경기장</th>
 					<th>일시</th>
 					<th>결과</th>
 				</tr>
-				<c:forEach items="${matchResult}" var="dto">
-					<tr>
-						<td>vs ${dto.awayName}</td>
-						<td>${dto.gameDate}</td>
-						<td>${dto.ground}</td>
-						<td>${dto.homeGoal}:${dto.awayGoal}</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td>Dragon FC vs Bears FC</td>
+					<td>2020.07.11</td>
+					<td>1:2</td>
+				</tr>
+				<tr>
+					<td>Dragon FC vs Bears FC</td>
+					<td>2020.07.11</td>
+					<td>1:2</td>
+				</tr>
+				<tr>
+					<td>Dragon FC vs Bears FC</td>
+					<td>2020.07.11</td>
+					<td>1:2</td>
+				</tr>
+				<tr>
+					<td>Dragon FC vs Bears FC</td>
+					<td>2020.07.11</td>
+					<td>1:2</td>
+				</tr>
+				<tr>
+					<td>Dragon FC vs Bears FC</td>
+					<td>2020.07.11</td>
+					<td>1:2</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
 			</table>
-			</div>
 		</div>
 		<div id="contentsBox2">
 			<div id="transfer">
 				<div>
 					<i class="glyphicon glyphicon-refresh"></i>이적내역
 				</div>
-				<table class="table table-bordered table-striped">
+				<table class="table table-bordered table-striped"">
 					<tr>
-						<th>구단명</th>
-						<th>신청날짜</th>
-						<th>완료날짜</th>
-						<th>상태</th>
+						<th>前 구단</th>
+						<th>이적구단</th>
+						<th>일시</th>
 					</tr>
-					<c:forEach items="${transfer}" var="dto">
 					<tr>
-						<td>${dto.team}</td>
-						<td>${dto.regdate}</td>
-						<td>${dto.completeDate}</td>
-						<td>${dto.state}</td>
+						<td>Bears FC</td>
+						<td>Dragon FC</td>
+						<td>2020.07.11</td>
 					</tr>
-					</c:forEach>
+					<tr>
+						<td>Bears FC</td>
+						<td>Dragon FC</td>
+						<td>2020.07.11</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				</table>
 			</div>
 			<div class=" rankingchart" id="rank">

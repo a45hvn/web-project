@@ -41,16 +41,12 @@ public class TeamInformation extends HttpServlet{
 		//선수 총합( N 명)
 		int playerInfoSize=playerInfo.size();
 		
-		//랭킹정보 받아와서 텍스트 만들기 [, , , ,] 불참이면 null
-		int latestLeague=dao.getLatest();
-		String rank=dao.getRank(teamname,latestLeague);
-		
 		//이제 정보 넘어갑니다.
 		req.setAttribute("teamInfo", teamInfo);
 		req.setAttribute("playerInfo", playerInfo);
 		req.setAttribute("playerInfoSize", playerInfoSize);
 		req.setAttribute("league", league);
-		req.setAttribute("rank", rank);
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/team/teaminformation.jsp");
 		dispatcher.forward(req, resp);
 		dao.close();

@@ -109,11 +109,11 @@
                             <div>
                                 <div id="box2li2"> 
                                     <div>
-                                        <span><a href="">오늘의 날씨</a></span>
+                                        <span><a href="">새로산 축구화</a></span>
                                     </div>                                    
                                     <div>
                                         <span>오희준</span>                                    
-                                        <span>2020.04.20</span>
+                                        <span>2020.03.20</span>
                                         <span><a href="#" class="glyphicon glyphicon-eye-open"></a> 30</span>                                    
                                         <span><a href="#" class="glyphicon glyphicon-comment"></a> 30</span>   
                                         <span><a href="#" class="glyphicon glyphicon-thumbs-up"></a>

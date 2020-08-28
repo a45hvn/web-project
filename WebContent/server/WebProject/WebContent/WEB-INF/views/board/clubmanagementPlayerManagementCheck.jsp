@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 
 <head>
@@ -9,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/soccer/css/jquery-ui.css">
     <link rel="stylesheet" href="/soccer/css/bootstrap.css">    
-    <link rel="stylesheet" href="/soccer/css/clubmanagementPlayerManagementCheck.css">
+    <link rel="stylesheet" href="css/clubmanagementPlayerManagementCheck.css">
     <script src="/soccer/js/jquery-1.12.4.js"></script>
     <script src="/soccer/js/bootstrap.js"></script>
     <script src="/soccer/js/jquery-ui.js"></script>
@@ -40,13 +39,7 @@
             text-align: left;
             vertical-align: middle;
         }
-		
-		#box1L {
-			background-image: url("/soccer/images/${list[0].image}");
-			background-repeat: no-repeat;
-    		background-size: cover; 
-		}
-		
+	
     </style>
 </head>
 
@@ -58,32 +51,30 @@
         <div id="box1">
             
             <div id="box1L">
-                
+                <img src="" alt="">
             </div>
             <div id="box1R">
-                <table class="table">  
-                	<c:forEach items="${list}" var="dto">              
+                <table class="table">
                     <tr>
                         <td>이름</td>
-                        <td>${dto.name}</td>                        
+                        <td>오희준</td>                        
                     </tr>
                     <tr>
                         <td>나이</td>
-                        <td>${dto.old}</td>                        
+                        <td>26</td>                        
                     </tr>
                     <tr>
                         <td>포지션</td>
-                        <td>${dto.position}</td>                        
+                        <td>MF</td>                        
                     </tr>
                     <tr>
                         <td>전화번호</td>
-                        <td>${dto.tel}</td>                        
+                        <td>010-2222-2222</td>                        
                     </tr>
                     <tr>
                         <td>입단일시</td>
-                        <td>${dto.regdate}</td>                        
+                        <td>2020.07.21</td>                        
                     </tr>
-                    </c:forEach>
                 </table>
             </div>
         </div>        
@@ -93,30 +84,73 @@
             <table>
                 <thead class="table">
                     <tr>
-                        <th style="width:500px">멘트</th>
+                        <th><input type="checkbox" name="" id=""></th>
+                        <th>멘트</th>
                         <th>일자</th>
                     </tr>
                 </thead>
-                <tbody>  
-	                <c:forEach items="${log}" var="dto">
-	                <tr class='appended' style='height:22.4px;'>
-	                    <td class='comment'><span>${dto.logcomment}</span><input class='input' type='text' style='display:none; width: 400px;' value="${dto.logcomment}" ></td>
-	                    <td id='regdate'>${dto.logregdate}</td>
-	                </tr>
-	                </c:forEach>
-                </tbody>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>집에 가고 싶다</td>
+                    <td>2020.07.21</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </table>
         </div>
         <div id="box3">
-           <span>
+            <span>
                 <input type="button" value="삭제" class="btn btn-primary" id="del">
             </span>
-            <!-- <span>
+            <span>
                 <input type="button" value="수정" class="btn btn-primary" id="update">
-            </span> -->
+            </span>
             <span>
                 <input type="button" value="추가" class="btn btn-primary" id="add">
-            </span> 
+            </span>
         </div>
 
     </div>
@@ -137,8 +171,6 @@
                     <!-- 예/아니오 선택 버튼 -->
                     <a class="btn btn-primary" id="modalY" href="#" data-dismiss="modal">예</a>
                     <button class="btn btn-primary" type="button" data-dismiss="modal">아니요</button>
-                    
-                    
                 </div>
             </div>
         </div>
@@ -173,54 +205,7 @@
             e.preventDefault();
             $("#delModal").modal("show");
         });
-    	
-    	$("#add").click(function(){
-     		let temp="<tr class='appended' style='height:22.4px;'>";
-	    		temp+="<td class='comment'><span></span>";
-	    		temp+="<input class='input' type='text' style='display:none; width: 400px;' >";
-	    		temp+="</td>";
-	    		temp+="<td id='regdate'>";
-	    		temp+="</td>";
-    		temp+="</tr>";
-    		
-    		$("#box2 tbody").append(temp);
-    	});
 
-    	$(document).on("click",".appended",function(){ 
-    		$(this).find("span").text("");
-    	   	$(this).find("input").css("display","");
-    	   	$(this).keyup(function(event){
-    	   		if(event.which==13){
-    	   			$(this).find("input").css("display","none");
-    	   			$(this).find("span").text($(this).find("input").val());
-    	   			
-    	   			$.ajax ({
-    	   				
-    	   				type: "GET",
-    	   				url: "/board/clubmanagementPlayerManagementCheckOk.do",
-    	   				data: {"entry_seq":${list[0].entry_seq, "text": $(this).find("input").val()},
-    	   				success : function(result) {
-    	   						if(result == 0) {
-    	   							alert("저장에 실패했습니다.");		
-    	   						}
-    	   					},
-    	   				error: function(a, b ,c) {
-    	   						console.log(a, b, c);
-    	   					}
-    	   				
-    	   				
-    	   			})
-    	   				
-    	   			
-    	   			
-    	   			
-    	   		}
-    	   	})
-    	 });
-    	
-    	
-    	
-    	
     </script>
 
 </body>

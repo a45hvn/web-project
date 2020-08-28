@@ -65,6 +65,7 @@ public class BroadCastDAO2 {
 			String sql=String.format("select*from teamentry where teamname='%s' and league_seq=%s",team.getTeamname(),team.getLeague_seq());
 			pstat=conn.prepareStatement(sql);
 			
+			System.out.println(sql);
 			rs=pstat.executeQuery();
 			while(rs.next()) {
 				PlayerInformationDTO dto=new PlayerInformationDTO();
@@ -73,7 +74,7 @@ public class BroadCastDAO2 {
 				dto.setPosition(rs.getString("position"));
 				dto.setBacknumber(rs.getString("backnumber"));
 				dto.setTeamlogo(rs.getString("teamlogo"));
-				dto.setPlayerentry_seq(rs.getString("playerentry_seq"));
+				System.out.println(dto.getTeamname());
 				list.add(dto);
 			}
 			return list;
@@ -111,27 +112,6 @@ public class BroadCastDAO2 {
 			e.printStackTrace();
 		}
 		return null;
-	}
-	//textbroadcastok 에서 한 줄 저장하는 메소드
-	public int updateTextBroadcast(BroadcastDTO1 dto) {
-		// TODO Auto-generated method stub
-		try {
-			
-			String sql="insert into tblbroadcast values((select count(*)+1 from tblbroadcast),?,?,?,?)";
-			pstat=conn.prepareStatement(sql);
-			pstat.setString(1, dto.getTime());
-			pstat.setString(2, dto.getBroadcastAct_seq());
-			pstat.setString(3, dto.getLeagueGame_seq());
-			pstat.setString(4, dto.getPlayerEntry_seq());
-			
-			return pstat.executeUpdate();
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			
-		}
-		return 0;
 	}
 	
 	

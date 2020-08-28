@@ -1,7 +1,6 @@
 package com.test.soccer.player;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,6 +30,8 @@ public class PlayerDetails extends HttpServlet{
 		
 		//1. view.do?seq=1
 		String mseq = request.getParameter("seq");
+		String search = request.getParameter("search");
+		String sort = request.getParameter("sort"); //상태유지
 		
 		//2. DB 담당자에게 위임
 		// - 글번호 전달하고 레코드 1개(BoardDTO) 반환받기
@@ -41,15 +42,11 @@ public class PlayerDetails extends HttpServlet{
 		MemberDTO dto = dao.get(mseq);
 		
 		
-		ArrayList<MemberDTO> friendlyStat = dao.getFriendlyStat(mseq);
-		ArrayList<MemberDTO> leagueStat = dao.getLeagueStat(mseq);
-		
-		
 				
 		//3. BoardDAO에게 반환받은 BoardDTO(게시글 1개)를 출력하기 위해서 JSP 페이지에게 전달하기
 		request.setAttribute("dto", dto);
-		request.setAttribute("leagueStat", leagueStat);
-		request.setAttribute("friendlyStat", friendlyStat);
+		request.setAttribute("search", search);
+		request.setAttribute("sort", sort);
 				
 		
 		

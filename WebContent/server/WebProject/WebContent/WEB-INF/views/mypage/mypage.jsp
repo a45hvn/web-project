@@ -136,11 +136,10 @@
 			</table>
 			<input type="button" class="btn" value="더보기" id="moreBtn">
 		</div>
-		<div class="myPageInfoBox" >
+		<div class="myPageInfoBox" style="overflow:scroll;">
 			<div class="topTitle">
 				<i class="glyphicon glyphicon-calendar"></i>경기일정
 			</div>
-			<div id="matchTableBox" style="overflow:scroll; height : 240px;">
 			<table class="matchTable table table-bordered table-striped">
 				<tr>
 					<th>경기</th>
@@ -156,7 +155,6 @@
 				</tr>
 			</c:forEach>
 			</table>
-			</div>
 			<input type="button" class=" btn" value="더보기" id="moreBtn2">
 
 		</div>
@@ -174,29 +172,32 @@
 </div>
 
 <!-- 탈퇴신청 Modal-->
+<div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #25282A;">
+				<h5 class="modal-title" id="exampleModalLabel"
+					style="color: #92DAEC; display: inline;">탈퇴신청</h5>
+				<button class="close" type="button" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">X</span>
+				</button>
+			</div>
+			
+			<div class="modal-body">
+				<div>탈퇴하시려면 비밀번호를 입력해주세요.</div>
+				<input type="password">
+			</div>
+			<div class="modal-footer">
+				<!-- 비밀번호를 입력하고 ok버튼 누르면 회원 비밀번호와 비교하여 일치했을시 다시 물어보기  -->
+				<a class="btn" id="modalY" href="mypage.html" onclick="location.href='/soccer/memberdeleteok.do?seq=${seq}'">ok</a>
+				<button class="btn" type="button" data-dismiss="modal">cancle</button>
+			</div>
+		</div>
+	</div>
+</div>
 
- <div class="modal fade" id="withdrawalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #25282A;">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">탈퇴신청</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div>비밀번호를 입력해주세요.</div>
-                    <input type="password" name="secession" id="secession" >
-                </div>
-                <div class="modal-footer">
-                    <!-- 비밀번호를 입력하고 ok버튼 누르면 회원 비밀번호와 비교하여 일치했을시 다시 물어보기  -->
-                    <a class="btn" id="modalY" href="#">ok</a>
-                    <button class="btn" type="button" data-dismiss="modal">cancle</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 <%-- </c:if> --%>
@@ -218,32 +219,6 @@
 
 <!-- 차트 -->
 <script>
-
-// $(document).ready(function(){
-// 	$.ajax({
-// 		type:"POST",
-// 		url:"/soccer/mypage/mypageok.do",
-// 		data : "seq=" + ${seq},
-// 		success : function(result){
-			
-			
-// 		},
-// 		error : function(a,b,c){
-// 			console.log(a,b,c);
-// 		}
-		
-		
-		
-// 	})
-	
-	
-	
-		
-// });
-
-
-
-
 	Highcharts.chart('container', {
 		chart : {
 		// backgroundColor: "#254150"
@@ -294,7 +269,7 @@
 		series : [ {
 			color : '#0077C8',
 			name : '리그 개인 순위',
-			data : [2,3,4,5]
+			data : [ 4, 2, 5, 1, 4, 2, 1, 2, 3, 1, 5, 1 ]
 		}, {
 			color : '#00BF88',
 			name : '팀 내 순위',
@@ -324,31 +299,28 @@
 <script src="/soccer/js/bootstrap.js"></script>
 
 <script>
-
 	// 정보수정 버튼 클릭
 	$("#updateBtn").click(function() {
-		location.href = "/soccer/mypage/mypageinfoupdate.do";
+		location.href = "/soccer/mypageinfoupdate.do";
 	});
 
-	 $("#withdrawalbtn").click(function (e) {
-         e.preventDefault();
-         $("#withdrawalModal").modal("show");
-     });
+	// 탈퇴하기 모달
+	$("#withdrawalbtn").click(function(e) {
+		e.preventDefault();
+		$("#withdrawalModal").modal("show");
+	});
 
-     $("#modalY").click(function (e) {
-    	
-
-     });
-	
-	
-	
+	$("#modalY").click(function(e) {
+		e.preventDefault();
+		$("#withdrawalModal").modal("show");
+	});
 </script>
 <!-- dm페이지로 이동 -->
 <script>
 	$("#moreBtn").click(function() {
 		location.href = "../webproject/dm.html";
 	});
-</script> 
+</script>
 <!-- 경기 일정 페이지로 이동 -->
 <script>
 	$("#moreBtn2").click(function() {

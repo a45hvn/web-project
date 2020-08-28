@@ -20,36 +20,6 @@ public class formationDTO {
 	
 	private String formation_playerentry_seq;
 	
-	private String tel;
-	private String regdate;
-	
-	private String logcomment;
-	private String logregdate;
-	
-	public String getLogcomment() {
-		return logcomment;
-	}
-	public void setLogcomment(String logcomment) {
-		this.logcomment = logcomment;
-	}
-	public String getLogregdate() {
-		return logregdate;
-	}
-	public void setLogregdate(String logregdate) {
-		this.logregdate = logregdate;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	public String getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
-	}
 	public String getFormation_playerentry_seq() {
 		return formation_playerentry_seq;
 	}

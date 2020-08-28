@@ -70,6 +70,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th><input type="checkbox" name="" id="checkAll"></th>
                                         <th>포지션</th>
                                         <th>번호</th>
                                         <th>이름</th>
@@ -77,11 +78,12 @@
                                     </tr>                                
                                 </thead>
                                 	 <c:forEach items="${entry}" var="dto">
-                                	<tr data-entryseq="${dto.entry_seq}">
-	                                    <td>${dto.position}</td>
-	                                    <td>${dto.backnumber}</td>
-	                                    <td>${dto.name}</td>
-	                                    <td>${dto.old}</td>
+                                	<tr>
+                                    <td><input type="checkbox" name="" id="${dto.entry_seq}"></td>
+                                    <td>${dto.position}</td>
+                                    <td>${dto.backnumber}</td>
+                                    <td>${dto.name}</td>
+                                    <td>${dto.old}</td>
                                 	</tr>
                                     </c:forEach>
                                     
@@ -90,9 +92,9 @@
                             </table>
                         </div>
                         <div id="centerbox2LeftButton">
-<!--                             <span><input type="button" value="추가" id="centerbox2LeftButtonAdd" class="btn btn-primary"></span> -->
+                            <span><input type="button" value="추가" id="centerbox2LeftButtonAdd" class="btn btn-primary"></span>
                             <!-- <span><input type="button" value="수정"></span> -->
-                            <!-- <span><input type="button" value="삭제" id="centerbox2LeftButtonDel" class="btn btn-primary"></span> -->
+                            <span><input type="button" value="삭제" id="centerbox2LeftButtonDel" class="btn btn-primary"></span>
                         </div>
                     </div>
                     <!-- 오른쪽 포메이션 박스 -->
@@ -281,21 +283,15 @@
         			
     	};  
     	
-    	$("#${formationNum}").prop("selected",true); 
+    	 $("#${formationNum}").prop("selected",true); 
+ 	   	
 
 	   	
 	   	
-    	//선수 항목별 정보
-    	$(".table tr").click(function() {
-    		       
-    		 child2 = window.open(
-			        "clubmanagementPlayerManagementCheck.do?entry_seq=" +$(this).attr("data-entryseq") ,
-			        "check",
-			        "width=540, height=580, top=40, left=500")       
-    		   
-    	});
+    	 
+    	 
     	
-    	
+    	 
     	
 	   
         

@@ -13,57 +13,7 @@ public class TeamDTO {
 	private String yellowCard;	//경고
 	private String foul;		//파울
 	
-	private String league;		//리그명
-	private String gamedate;	//경기날짜
-	private String ground;		//경기장
-	private String hometeam;	//홈팀
-	private String homelogo;	//홈팀 로고
-	private String awayteam;	//어웨이팀
-	private String awaylogo;	//어웨이팀 로고
 	
-	
-	public String getLeague() {
-		return league;
-	}
-	public void setLeague(String league) {
-		this.league = league;
-	}
-	public String getGamedate() {
-		return gamedate;
-	}
-	public void setGamedate(String gamedate) {
-		this.gamedate = gamedate;
-	}
-	public String getGround() {
-		return ground;
-	}
-	public void setGround(String ground) {
-		this.ground = ground;
-	}
-	public String getHometeam() {
-		return hometeam;
-	}
-	public void setHometeam(String hometeam) {
-		this.hometeam = hometeam;
-	}
-	public String getHomelogo() {
-		return homelogo;
-	}
-	public void setHomelogo(String homelogo) {
-		this.homelogo = homelogo;
-	}
-	public String getAwayteam() {
-		return awayteam;
-	}
-	public void setAwayteam(String awayteam) {
-		this.awayteam = awayteam;
-	}
-	public String getAwaylogo() {
-		return awaylogo;
-	}
-	public void setAwaylogo(String awaylogo) {
-		this.awaylogo = awaylogo;
-	}
 	public String getAssist() {
 		return assist;
 	}
