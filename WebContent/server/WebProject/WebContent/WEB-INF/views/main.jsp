@@ -16,8 +16,6 @@
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
     
     <style>
-    
-    
     #main {
             /* border: 1px solid red; */
             width: 100%;
@@ -178,14 +176,12 @@
 
         .photo {
             width: 290px;
-            height: 129px;
         }
 
         .photo img {
             margin-left: 70px;
             background-color: white;
             width: 128px;
-            height: 129px
         }
 
         #categoryRank {
@@ -434,7 +430,6 @@
             right: 35px;
             width: auto;
             position: absolute;
-            color: black;
         }
 
         #slider-wrap.active #next {
@@ -863,7 +858,7 @@
 	<div id="contents">
         <!-- 갤러리폼 -->
         <div id="gallery" class="contentsTop">
-            <h3 style="color: black; margin-bottom: -20px">갤러리</h3>
+            <h3 style="color: black;">갤러리</h3>
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
             <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
             <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
@@ -956,8 +951,7 @@
             <h3 style="font-variant: small-caps;">개인순위</h3>
             <div class="rankform">
                 <div class="category">득점순위</div>
-                <div class="photo"><img src="images/player_05.jpg" alt=""></div>
-                <br>
+                <div class="photo"><img src="images/nopic.png" alt=""></div>
                 <c:forEach items="${goalRank}" var="dto" varStatus="status">
                 <div class="rankInfo">
                     <div>${status.count}</div>
@@ -969,8 +963,7 @@
 
             <div class="rankform">
                 <div class="category">도움순위</div>
-                <div class="photo"><img src="images/player_02.jpg" alt=""></div>
-                <br>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
                 <c:forEach items="${assistRank}" var="dto2" varStatus="status">
                 <div class="rankInfo">
                     <div>${status.count}</div>
@@ -982,8 +975,7 @@
 
             <div class="rankform">
                 <div class="category">태클성공순위</div>
-                <div class="photo"><img src="images/player_03.jpg" alt=""></div>
-                <br>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
                <c:forEach items="${tackleRank}" var="dto3" varStatus="status">
                 <div class="rankInfo">
                     <div>${status.count}</div>
@@ -995,8 +987,7 @@
 
             <div class="rankform">
                 <div class="category">선방순위</div>
-                <div class="photo"><img src="images/player_01.jpg" alt=""></div>
-                <br>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
                 <c:forEach items="${saveRank}" var="dto4" varStatus="status">
                 <div class="rankInfo">
                     <div>${status.count}</div>
@@ -1008,8 +999,7 @@
 
             <div class="rankform">
                 <div class="category">경고누적</div>
-                <div class="photo"><img src="images/player_04.jpg" alt=""></div>
-                <br>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
                 <c:forEach items="${yellowRank}" var="dto5" varStatus="status">
                 <div class="rankInfo">
                     <div>${status.count}</div>
@@ -1021,8 +1011,7 @@
 
             <div class="rankform">
                 <div class="category">파울누적</div>
-                <div class="photo"><img src="images/player_06.jpg" alt=""></div>
-                <br>
+                <div class="photo"><img src="images/man_01.png" alt=""></div>
                 <c:forEach items="${foulRank}" var="dto6" varStatus="status">
                 <div class="rankInfo">
                     <div>${status.count}</div>

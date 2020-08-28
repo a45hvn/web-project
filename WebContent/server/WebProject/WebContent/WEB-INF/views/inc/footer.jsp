@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!-- 하단부  -->
 
     <nav class="sitemap">
@@ -54,13 +54,7 @@
             <div><a href="#">이용약관</a></div>
             <div><a href="#">개인정보 취급방침</a></div>
             <div><a href="#">제휴문의</a></div>
-            <c:if test="${empty id}">
-            <div><a href="/soccer/admin_login.do">관리자 로그인</a></div>
-            <div><a href="/soccer/member/login.do">구단주 로그인</a></div>
-            </c:if>
-            <c:if test="${!empty id}">
-            <div><a href="/soccer/board/clubmanagementFriendlyMatchRecruitManagement.do">구단주 페이지</a></div>
-            </c:if>
+            <div><a href="#">관리자 페이지</a></div>
         </div>
     </div>
     <div class="footerBox2">

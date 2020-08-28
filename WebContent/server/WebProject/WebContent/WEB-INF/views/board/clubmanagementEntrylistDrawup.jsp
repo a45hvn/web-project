@@ -61,7 +61,7 @@
 	<div class="center">
     <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
             class="contentTitle">엔트리작성</span></div>
-
+			
             <div id="centerMainBox">
                 <!-- 왼쪽 명단 추가하는 박스 -->
                 <div id="centerbox2" >
@@ -124,11 +124,13 @@
                         </div>
                         <div id="formationSelect">
                             <span style="font-weight: bold;">포메이션 : </span>
-                            <select style=" height: 25px;" id="formationNum">
-                                <option value="442">442</option>
-                                <option value="433">433</option>
-                                <option value="352">352</option>
-                                <option value="4222">4222</option>
+                            <select style=" height: 25px;" id="formationNum" name="formationNum">
+                                <option value="442" id="422">442</option>
+                                <option value="433" id="433">433</option>
+                                <option value="352" id="352">352</option>
+                                <option value="343" id="343">343</option>
+                                <option value="541" id="541">541</option>
+                                <option value="532" id="532">532</option>
                             </select>
                         </div>
                     </div>
@@ -157,13 +159,11 @@
 	    );
 	   }); 
 	   
-		//$("#formation img").draggable({                    
-		// containment: "#formation"
-		// });
-	
-	   //FW는 FW-Field 지역만 위치조정이 가능하다.
+
 	   function move(){
-		   $("#formation div:nth-child(1) img").draggable({                    
+		   
+	   	   //FW는 FW-Field 지역만 위치조정이 가능하다.
+		   $("#formation #front img").draggable({                    
 		        //FW 박스 안에서만 움질일수 있도록
 		        containment: "#formation div:nth-child(1)" ,
 		        // 자석처럼 달라붙게
@@ -245,6 +245,7 @@
 	   	</c:forEach>
 	   	
 	   	//Ajax
+	   	//위치값 수정하기
 	   	$(".player").draggable({
 	   		
 	   		stop: function(event, ui) {
@@ -275,33 +276,23 @@
 	   		
 	   	});
 	   	
-	  	//한페이지 당 출력 갯수
-    	document.getElementById("formationNum").onchange = function(){    
-                		
-    		console.log($(this).val());
-        	var position=$(this).val();
-        	var front=position.substring(2,3);
-        	var middle=position.substring(1,2);
-        	var back=position.substring(0,1);
-        	$("#front").html("");
-        	$("#middle").html("");
-        	$("#back").html("");
-        	for(var i=0;i<front;i++){
-        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
-       			$("#front").append(temp);
-       			move();
-        	}
-        	for(var i=0;i<middle;i++){
-        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
-       			$("#middle").append(temp);
-       			move();
-        	}
-        	for(var i=0;i<back;i++){
-        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
-       			$("#back").append(temp);
-       			move();
-        	}
-    	};
+	   	//포메이션 변경하면 
+	   	document.getElementById("formationNum").onchange = function(){    
+        	
+        	location.href = "/soccer/board/clubmanagementEntrylistDrawup.do?formationNum=" + $("#formationNum").val() 
+        			
+    	};  
+    	
+    	 $("#${formationNum}").prop("selected",true); 
+ 	   	
+
+	   	
+	   	
+    	 
+    	 
+    	
+    	 
+    	
 	   
         
     </script>

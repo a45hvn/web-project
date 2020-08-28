@@ -17,23 +17,6 @@
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
     
     <style>
-    
-    #loding {
-	    width: 100%;
-   		position: absolute;
-	    top: 25px;
-	    left: 150px;
-	    background-color: rgba(0, 0, 0, .6);
-	    text-align: center;
-	    line-height: 750px;
-	    z-index: 1;
-   	}
-    	
-   	#loding lodingimage{
-   		vertical-align: middle;
-   	} 
-    	
-    	
     #title{
             /* border: 3px solid gray; */
             width: 1000px;
@@ -207,13 +190,6 @@
             </select>
             
         </div>
-        
-        <div style="width: 1000px; height: 790px; position: relative; ">
-	        
-	        <!-- 로딩 -->
-	        <div id="loding" >
-			<img src="/soccer/images/loding.png" id="lodingimage">
-			</div>
 
         <!-- 팀 vs 팀  -->
         <div id="title" style="float: left">
@@ -232,7 +208,7 @@
         <div style="float: left; width: 1000px; margin-left: 150px; border: 3px solid rgb(37, 65, 80);">
         <div class="ace" style="width: 300px; margin-left: 93px; border: 2px rgb(134, 0, 0) solid ;">
             <div class="playerTitle">주목할 선수</div>
-            <span id="redTeamImage"><img src="/soccer/images/nopic.png"></span>
+            <span id="redTeamImage"></span>
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>
@@ -254,7 +230,7 @@
         </div>
         <div class="ace" style="margin-left: 200px; width: 300px; border: 2px solid #005093;">
             <div class="playerTitle">주목할 선수</div>
-            <span id="blueTeamImage"><img src="/soccer/images/nopic.png"></span>
+            <span id="blueTeamImage"></span>
             <table class="table table-bordered">
                 <tr>
                     <th>선수명</th>
@@ -300,7 +276,6 @@
         
         
     </div>
-	</div> 
 
         
 
@@ -373,7 +348,6 @@
       
      $("#team1").change(function(){
     	   
-    	 	$("#loding").html("");
     		
     		$("#blueTeamName").text($("#team1 option:selected").val()+"FC");
     		$("#blueTeamHome").text("[ "+$("#home1 option:selected").val()+" ]");

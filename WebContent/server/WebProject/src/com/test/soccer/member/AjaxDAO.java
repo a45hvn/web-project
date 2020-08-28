@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.test.soccer.DBUtil;
+import com.test.soccer.board.BoardDTO;
 import com.test.soccer.board.formationDTO;
 
 public class AjaxDAO {
@@ -29,8 +30,7 @@ public class AjaxDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	//아이디 중복검사
+
 	public int check(String idCheck) {
 		
 		try {
@@ -53,8 +53,7 @@ public class AjaxDAO {
 		return 0;
 	}
 
-	
-	//지역선택시 팀명단 가져오기
+
 	public ArrayList<MemberDTO> getTeam(String home1) {
 		
 		String where = "";
@@ -99,7 +98,7 @@ public class AjaxDAO {
 	
 	//오희준
 	//포미에션 위치값 가지고 오기
-	public ArrayList<formationDTO> formation(String member_seq) {
+	public ArrayList<formationDTO> formation(String team_seq) {
 		
 		try {
 			
@@ -107,7 +106,7 @@ public class AjaxDAO {
 			
 			pstat = conn.prepareStatement(sql);
 			
-			pstat.setString(1, member_seq);
+			pstat.setString(1, team_seq);
 			
 			rs = pstat.executeQuery();
 			
@@ -132,35 +131,7 @@ public class AjaxDAO {
 			
 			System.out.println("AjaxDAO.formation()");
 			e.printStackTrace();
-		}
-		
-	}
-	//팀선택시 선수명단 가져오기
-	public ArrayList<MemberDTO> getPlayer(String team1) {
-		try {
 			
-			
-			String sql = String.format("select membername from vwteamanlysis where teamname='%s' group by membername",team1);
-			stat = conn.createStatement();
-			rs = stat.executeQuery(sql);
-			
-//			System.out.println(sql);
-			
-			ArrayList<MemberDTO> listPlayer = new ArrayList<MemberDTO>();
-			
-			while(rs.next()) {
-				MemberDTO dto = new MemberDTO();
-				
-				dto.setName(rs.getString("membername"));
-//				System.out.println(dto.getTeam());
-				
-				listPlayer.add(dto);
-			}
-			
-			return listPlayer;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
 		return null;
@@ -191,6 +162,8 @@ public class AjaxDAO {
 		return 0;
 	}
 
+	//오희준
+	//팀 번호 가져오기
 	public String getTeam_seq(String member_seq) {
 		// TODO Auto-generated method stub
 		try {
