@@ -22,18 +22,9 @@ public class clubmanagementEntrylistDrawup extends HttpServlet{
 	
 		//1. DB 작업 
 		//2. 위치 정보 반환
-		
-		//세션의 회원번호
 		HttpSession session = req.getSession();
 		String member_seq = session.getAttribute("seq").toString();
 		
-		//선택한 포메이션
-		String formationNum = req.getParameter("formationNum");
-		
-		//초기값 422로
-		if (req.getParameter("formationNum") == null || req.getParameter("formationNum") == "") {
-			formationNum = "442";
-		}
 		//1.
 		AjaxDAO dao = new AjaxDAO();
 		
@@ -73,26 +64,18 @@ public class clubmanagementEntrylistDrawup extends HttpServlet{
 		
 		//엔트리 목록 가져오기
 		ArrayList<formationDTO> entry = dao.entryList(dto2);
+		ArrayList<formationDTO> list = dao.formation(member_seq);
 		
 		//포메이션 선수 목록(선발 11명)
 		ArrayList<formationDTO> formationList = dao.formationList(dto2);
 		
 		//2.
 		req.setAttribute("list", list);
-		req.setAttribute("fwList", fwList);
-		req.setAttribute("mfList", mfList);
-		req.setAttribute("dfList", dfList);
-		req.setAttribute("gkList", gkList);
-		req.setAttribute("formationNum", formationNum);
-		req.setAttribute("entry", entry);
-		
-		req.setAttribute("team_seq", team_seq);
 		
 		req.setAttribute("formationList", formationList);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/clubmanagementEntrylistDrawup.jsp");
 		dispatcher.forward(req, resp);
-		
 		
 	}
 

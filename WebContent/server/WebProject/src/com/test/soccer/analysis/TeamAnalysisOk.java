@@ -57,27 +57,5 @@ public class TeamAnalysisOk extends HttpServlet{
 		
 		
 		
-		//select 팀 주요선수 스텟
-		String team1 = req.getParameter("team1");
-		String team2 = req.getParameter("team2");
-		
-		System.out.println(team1);
-		MemberDTO dto = dao.team1Stat(team1);
-		
-	
-		System.out.println(dto.getLgoal());
-		System.out.println(dto.getAssist());
-		System.out.println(dto.getFoul());
-		
-		writer = resp.getWriter();
-		
-		writer.printf("%s,%s,%s"
-					,dto.getLgoal()
-					,dto.getAssist()
-					,dto.getFoul());
-		
-		writer.close();
-		
-		
 	}
 }

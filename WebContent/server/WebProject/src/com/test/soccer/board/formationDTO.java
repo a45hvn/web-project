@@ -7,8 +7,6 @@ public class formationDTO {
 	private String position_x;
 	private String position_y;
 	private String team_seq;
-	private String member_seq;
-	private String position_seq;
 	
 	private String position;
 	private String backnumber;
