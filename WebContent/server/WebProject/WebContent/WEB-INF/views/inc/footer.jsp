@@ -54,7 +54,7 @@
             <div><a href="#">이용약관</a></div>
             <div><a href="#">개인정보 취급방침</a></div>
             <div><a href="#">제휴문의</a></div>
-            <div><a href="#">관리자 페이지</a></div>
+            <div><a href="/soccer/board/clubmanagementEntrylistDrawup.do">관리자 페이지</a></div>
         </div>
     </div>
     <div class="footerBox2">

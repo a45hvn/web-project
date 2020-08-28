@@ -7,7 +7,104 @@ public class formationDTO {
 	private String position_x;
 	private String position_y;
 	private String team_seq;
+	private String member_seq;
+	private String position_seq;
 	
+	private String position;
+	private String backnumber;
+	private String name;
+	
+	private String image;
+	
+	private String entry_seq;
+	
+	private String formation_playerentry_seq;
+	
+	private String tel;
+	private String regdate;
+	
+	private String logcomment;
+	private String logregdate;
+	
+	public String getLogcomment() {
+		return logcomment;
+	}
+	public void setLogcomment(String logcomment) {
+		this.logcomment = logcomment;
+	}
+	public String getLogregdate() {
+		return logregdate;
+	}
+	public void setLogregdate(String logregdate) {
+		this.logregdate = logregdate;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	public String getFormation_playerentry_seq() {
+		return formation_playerentry_seq;
+	}
+	public void setFormation_playerentry_seq(String formation_playerentry_seq) {
+		this.formation_playerentry_seq = formation_playerentry_seq;
+	}
+	public String getEntry_seq() {
+		return entry_seq;
+	}
+	public void setEntry_seq(String entry_seq) {
+		this.entry_seq = entry_seq;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	private String old;	
+	public String getBacknumber() {
+		return backnumber;
+	}
+	public void setBacknumber(String backnumber) {
+		this.backnumber = backnumber;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getOld() {
+		return old;
+	}
+	public void setOld(String old) {
+		this.old = old;
+	}
+	public String getPosition_seq() {
+		return position_seq;
+	}
+	public void setPosition_seq(String position_seq) {
+		this.position_seq = position_seq;
+	}
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
+	}
 	public String getTeam_seq() {
 		return team_seq;
 	}

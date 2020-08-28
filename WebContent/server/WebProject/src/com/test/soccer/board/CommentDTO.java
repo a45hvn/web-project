@@ -8,6 +8,23 @@ public class CommentDTO {
 	private String member_seq;
 	private String regdate;
 	private String name;
+	
+	//오희준
+	private String text;
+	private String entry_seq; 
+	
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public String getEntry_seq() {
+		return entry_seq;
+	}
+	public void setEntry_seq(String entry_seq) {
+		this.entry_seq = entry_seq;
+	}
 	public String getSeq() {
 		return seq;
 	}

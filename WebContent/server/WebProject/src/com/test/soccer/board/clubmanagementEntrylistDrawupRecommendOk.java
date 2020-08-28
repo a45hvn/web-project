@@ -9,28 +9,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.test.soccer.member.AjaxDAO;
 
-@WebServlet("/board/clubmanagementPlayerManagementCheck.do")
-public class clubmanagementPlayerManagementCheck extends HttpServlet{
+@WebServlet("/board/clubmanagementEntrylistDrawupRecommendOk.do")
+public class clubmanagementEntrylistDrawupRecommendOk extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		//1. 데이터 가져오기
+		//2. DB 작업
 		
 		String entry_seq = req.getParameter("entry_seq");
+		String formation_seq = req.getParameter("formation_seq");
+		
+		
+		formationDTO dto = new formationDTO();
+		dto.setEntry_seq(entry_seq);
+		dto.setSeq(formation_seq);
+		
 		
 		AjaxDAO dao = new AjaxDAO();
 		
-		ArrayList<formationDTO> list = dao.managementList(entry_seq);
+		dao.editFormation_seq(dto);
 		
-		ArrayList<formationDTO> log = dao.managementLog(entry_seq);
-		
-		req.setAttribute("list", list);
-		req.setAttribute("log", log);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/clubmanagementPlayerManagementCheck.jsp");
-		dispatcher.forward(req, resp);
 		
 	}
 

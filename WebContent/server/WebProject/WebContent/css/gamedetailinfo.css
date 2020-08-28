@@ -169,8 +169,9 @@
     top: 650px;
     left: 400px;
     width: 510px;
-    height: 410px;
+    height: 200px;
     border: 2px solid RGB(238, 238, 238);
+    border-bottom: 0px solid RGB(238, 238, 238);
 }
 #timer {
     position: absolute;

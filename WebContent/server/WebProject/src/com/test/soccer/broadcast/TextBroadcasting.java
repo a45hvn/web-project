@@ -29,10 +29,10 @@ public class TextBroadcasting extends HttpServlet {
 		String league_seq=req.getParameter("league");
 		String leaguegame_seq=req.getParameter("seq");
 		
-//		teamname1="나슬";
-//		teamname2="알섬";
-//		league_seq="1";
-//		leaguegame_seq="1";
+		teamname1="나슬";
+		teamname2="알섬";
+		league_seq="1";
+		leaguegame_seq="1";
 		
 		team1.setTeamname(teamname1);
 		team1.setLeague_seq(league_seq);
@@ -58,6 +58,7 @@ public class TextBroadcasting extends HttpServlet {
 		req.setAttribute("playerInfo2", playerInfo2); // 2팀 선수 정보
 		req.setAttribute("bcList", bcList);				//단축키 정보
 		req.setAttribute("textBroadCast", textBroadCast); //문자중계 정보
+		req.setAttribute("leaguegame_seq", leaguegame_seq);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/broadcast/textbroadcasting.jsp");
 		dispatcher.forward(req, resp);
 	}
