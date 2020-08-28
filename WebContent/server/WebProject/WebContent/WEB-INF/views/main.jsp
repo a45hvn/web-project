@@ -61,6 +61,7 @@
         }
 
         .gamedate span{
+            display: block;
             padding-top: 20px;
         }
 
@@ -147,9 +148,7 @@
             color: rgb(254, 249, 206);
             text-align: center;
             font-weight: bold;
-            
         }
-        
 
         .rankInfo div {
             width: 90px;
@@ -207,8 +206,8 @@
 
         .infoBox {
             border: 3px solid rgb(25, 21, 39);
-            width: 300px;
-            height: 230px;
+            width: 260px;
+            height: 240px;
             border-collapse: collapse;
             position: relative;
             /* left: 300px; */
@@ -241,14 +240,14 @@
 
         .vs {
             position: absolute;
-            top: 50%;
-            left: 47%;
+            top: 40%;
+            left: 44%;
         }
 
         .infoLeft {
-        
-            text-align: center;
-            padding-top: 10px;
+            padding-left: 5px;
+            display: inline-block;
+            text-align: left;
         }
 
         .infoRight {
@@ -264,6 +263,9 @@
             /* font-family: '맑은고딕'; */
         }
 
+        .impact {
+            color: black;
+        }
 
         .teamLogo {
             width: 100px;
@@ -280,9 +282,9 @@
 
         .outerWraper {
             overflow: hidden;
-            width: 1380px;
+            width: 1240px;
             position: relative;
-            left: 210px;
+            left: 330px;
         }
 
         #mainMenu {
@@ -362,12 +364,12 @@
 
         #slider-wrap ul#slider li>div {
             position: absolute;
-            top: 10px;
+            top: 20px;
             left: 35px;
         }
 
         #slider-wrap ul#slider li>div h3 {
-            font-size: 20px;
+            font-size: 36px;
             text-transform: uppercase;
         }
 
@@ -646,32 +648,197 @@
         <div class="outerWraper">
             <div class="infoOuter">
                 <!-- 1 -->
-                <c:forEach items="${scheduleList}" var="scheduleList" varStatus="status" begin="0" end="7">
                 <div class="infoBox" id="infoBox1">
                     <!-- 리그 일정 정 보 -->
-                    <div class="gamedate" style="padding-top: 10px;">
-                        <span class="infoLeft" style="text-align: center;"><b>${scheduleList.league}</b></span>
-                        <span class="impact" style="display: inline-block;">${scheduleList.gamedate}<br>17:00 </span>
-                        <span style="display: inline-block; float: left; position: absolute; right: 0px; padding-right: 10px">${scheduleList.ground}</span>
-                        
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
                     </div>
 
                     <div class="leagueInfo"></div>
 
                     <div class="teamInfo" style="float: left;">
-                        <img src="/soccer/images/${scheduleList.homelogo}" id="teamA" class="teamLogo" />
-                        <div class="teamName">${scheduleList.hometeam}FC</div>
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
                     </div>
 
                     <div class="teamInfo" style="float: right;">
-                        <img src="/soccer/images/${scheduleList.awaylogo}" id="teamB" class="teamLogo" />
-                        <div class="teamName">${scheduleList.awayteam}FC</div>
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
                     </div>
                     <div style="clear: both;"></div>
 
-                    <div class="vs" style="font-size: 1.5em">vs</div>
+                    <div class="vs"><span class="badge">vs</span></div>
                 </div>
-                </c:forEach>
+                <!-- 2 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 3 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 4 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 05일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 5 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 6 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 7 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
+                <!-- 8 -->
+                <div class="infoBox" id="infoBox1">
+                    <!-- 리그 일정 정 보 -->
+                    <div class="gamedate">
+                        <span class="infoLeft">
+                            <!--날짜, 시간입력 -->07월 06일 <span class="impact">17:00</span></span>
+                        <span class="infoRight"> 정규리그 <span class="impact"> 11라운드</span></span>
+                    </div>
+
+                    <div class="leagueInfo"></div>
+
+                    <div class="teamInfo" style="float: left;">
+                        <img src="" id="teamA" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+
+                    <div class="teamInfo" style="float: right;">
+                        <img src="" id="teamB" class="teamLogo" />
+                        <div class="teamName">팀이름</div>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <div class="vs"><span class="badge">vs</span></div>
+                </div>
             </div>
 
 
@@ -700,38 +867,43 @@
                 <div id="slider-wrap">
                     <ul id="slider">
                         <li>
-                            <div style="position: relative; top: -10px">
-                                <h3 style="color:rgb(12, 27, 35) "><b>경기중 득점으로 연결된 멋진 코너킥</b></h3>
+                            <div>
+                                <h3>Slide #1</h3>
+                                <span>Sub-title #1</span>
                             </div>
-                            <img src="/soccer/images/mainimage2.jpg">
+                            <img src="https://fakeimg.pl/350x200/960a96/000?text=11111">
                         </li>
 
                         <li>
-                            <div style="position: relative; top: -10px">
-                                <h3 style="color:rgb(12, 27, 35) "><b>드리블 훈련중에 한장!</b></h3>
+                            <div>
+                                <h3>Slide #2</h3>
+                                <span>Sub-title #2</span>
                             </div>
-                            <img src="/soccer/images/mainimage1.jpg">
+                            <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
                         </li>
 
                         <li>
-                            <div style="position: relative; top: -10px">
-                                <h3 style="color:rgb(12, 27, 35) "><b>야간축구후에 찍어봤습니다!</b></h3>
+                            <div>
+                                <h3>Slide #3</h3>
+                                <span>Sub-title #3</span>
                             </div>
-                            <img src="/soccer/images/mainimage3.jpg">
+                            <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
                         </li>
 
                         <li>
-                            <div style="position: relative; top: -10px">
-                                <h3 style="color:rgb(12, 27, 35) "><b>외국인 용병과 함께 경기한 날</b></h3>
+                            <div>
+                                <h3>Slide #4</h3>
+                                <span>Sub-title #4</span>
                             </div>
-                            <img src="/soccer/images/mainimage4.jpg">
+                            <img src="https://fakeimg.pl/350x200/0A6E0A/000?text=44444">
                         </li>
 
                         <li>
-                            <div style="position: relative; top: -10px">
-                                <h3 style="color:rgb(12, 27, 35) "><b>들찬FC 창단일 기념사진</b></h3>
+                            <div>
+                                <h3>Slide #5</h3>
+                                <span>Sub-title #5</span>
                             </div>
-                            <img src="/soccer/images/mainimage5.jpg">
+                            <img src="https://fakeimg.pl/350x200/0064CD/000?text=55555">
                         </li>
 
 
@@ -876,7 +1048,7 @@
         /* $(".infoOuter").css("position","relative").css("left","-1550px").css("transitionDuration","1s"); */
         
         $(".infoBox").animate({
-            left : "-1400px",
+            left : "-1250px",
         },1000)
 
     });

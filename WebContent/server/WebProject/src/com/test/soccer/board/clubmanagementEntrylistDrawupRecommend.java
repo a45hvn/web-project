@@ -21,20 +21,29 @@ public class clubmanagementEntrylistDrawupRecommend extends HttpServlet{
 	
 		//1.
 		
-		
 		//팀번호
 		String team_seq = req.getParameter("team_seq");
+		
+		//포메이션 seq
+		String formation_seq = req.getParameter("formation_seq");
+		
+		//포지션
+		String position = req.getParameter("position");
+	
 		
 		AjaxDAO dao = new AjaxDAO();
 		
 		formationDTO dto2 = new formationDTO();		
 		dto2.setTeam_seq(team_seq);
+		dto2.setPosition(position);
 		
 		
-		ArrayList<formationDTO> entry = dao.entryList(dto2);
+		ArrayList<formationDTO> entry = dao.recommendEntryList(dto2);
 		
 		
 		req.setAttribute("entry", entry);
+		
+		req.setAttribute("formation_seq", formation_seq);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/clubmanagementEntrylistDrawupRecommend.jsp");
 		dispatcher.forward(req, resp);

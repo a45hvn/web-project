@@ -49,7 +49,6 @@ public class clubmanagementEntrylistDrawup extends HttpServlet{
 		dto2.setTeam_seq(team_seq);
 		dto2.setFormation(formationNum);
 		
-		System.out.println(dto2.getFormation());
 		String position_seq = "";
 		
 		//공격수 seq 가져오기
@@ -75,6 +74,9 @@ public class clubmanagementEntrylistDrawup extends HttpServlet{
 		//엔트리 목록 가져오기
 		ArrayList<formationDTO> entry = dao.entryList(dto2);
 		
+		//포메이션 선수 목록(선발 11명)
+		ArrayList<formationDTO> formationList = dao.formationList(dto2);
+		
 		//2.
 		req.setAttribute("list", list);
 		req.setAttribute("fwList", fwList);
@@ -85,6 +87,8 @@ public class clubmanagementEntrylistDrawup extends HttpServlet{
 		req.setAttribute("entry", entry);
 		
 		req.setAttribute("team_seq", team_seq);
+		
+		req.setAttribute("formationList", formationList);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/clubmanagementEntrylistDrawup.jsp");
 		dispatcher.forward(req, resp);

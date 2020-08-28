@@ -29,9 +29,7 @@ public class clubmanagementEntrylistDrawupOk extends HttpServlet{
 		String seq = req.getParameter("seq"); 
 		String position_x = req.getParameter("position_x");
 		String position_y = req.getParameter("position_y");
-		String playerentry_seq= req.getParameter("playerentry_seq");
-		
-		
+//		String playerentry
 		//2.
 		AjaxDAO dao = new AjaxDAO();
 
@@ -41,7 +39,6 @@ public class clubmanagementEntrylistDrawupOk extends HttpServlet{
 		dto.setSeq(seq);
 		dto.setPosition_x(position_x);
 		dto.setPosition_y(position_y);
-		dto.setPlayerentry_seq(playerentry_seq);
 		
 		int result = dao.editFormation(dto);
 		

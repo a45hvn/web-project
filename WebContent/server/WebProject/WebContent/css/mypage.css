@@ -58,14 +58,13 @@
             width: 120px;
             font-weight: bold;
             margin-left: 200px;
-/*             margin-top:10px; */
         }
 
         #moreBtn2 {
             width: 120px;
             font-weight: bold;
             margin-left: 200px;
-            margin-top: 15px;
+            margin-top: -5px;
         }
 
 
@@ -135,7 +134,6 @@
         .matchTable {
             max-width: 502px;
             font-size: 0.9em;
-            
         }
 
         .DM {
@@ -146,11 +144,6 @@
             height: 30px;
 
         }
-        
-      #matchTableBox::-webkit-scrollbar {
-    border: 0px;
-    width: 0px;
-}
 
      /* 모달 */
 

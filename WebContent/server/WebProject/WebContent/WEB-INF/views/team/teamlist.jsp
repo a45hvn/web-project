@@ -209,10 +209,10 @@
 				<option value="10">10개씩 보기</option>
 				<option value="25">25개씩 보기</option>
 				<option value="50">50개씩 보기</option>
-			</select> <span id="sortform">
-				<a href="#" class="glyphicon glyphicon-list"></a> 
-				<a href="#" class="glyphicon glyphicon-list-alt"></a> 
-				<a href="#" class="glyphicon glyphicon-th-large"></a>
+			</select> <span id="sortform"> <a href="#"
+				class="glyphicon glyphicon-list"></a> <a href="#"
+				class="glyphicon glyphicon-list-alt"></a> <a href="#"
+				class="glyphicon glyphicon-th-large"></a>
 			</span>
 		</div>
 		<div id="centerbox2">
@@ -233,7 +233,7 @@
 						<tr>
 							<td>${dto.rnum}</td>
 							<td><img src="/soccer/images/${dto.logo==null?nopic.png:dto.logo}" alt="" /></td>
-							<td><span style="cursor: pointer;" onclick="location.href='/soccer/team/teaminformation.do?teamname=${dto.name}'">${dto.name}FC</span></td>
+							<td><span onclick="location.href='/soccer/team/teaminformation?teamname=${dto.name}'">${dto.name}FC</span></td>
 							<td>${dto.coachname }</td>
 							<td>${dto.birth}</td>
 							<td>${dto.count}명</td>

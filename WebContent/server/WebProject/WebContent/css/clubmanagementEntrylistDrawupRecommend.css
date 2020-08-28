@@ -5,21 +5,13 @@
     font-size: 1.1em;            
 }
 
-#box1 {
-    /* border-top: 1px solid #0C1B23;             */
-    width: 450px;
-    height: 400px;
-    margin: 0 auto;
-    
-}
 
-#box2 {
-    /* border: 1px solid #0C1B23; */
-    width: 180px;
-    /* height: 50px;             */
-    margin-top: -145px;
+/* #box2 {    
+    width: 180px;    
+    margin-top: 330px;
+    margin-right: 25ps;
     float: right;
-}
+} */
 
 #box2 input {
     width: 80px;

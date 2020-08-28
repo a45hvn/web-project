@@ -18,6 +18,10 @@
     
     <style>
     
+    	.selectPlayer {
+    		background-color: tomato; 
+    	}
+    
     </style>
 </head>
 
@@ -63,7 +67,7 @@
                 <div id="centerbox2" >
                     <div id="centerbox2Left">
                         <div>
-                            <table class="table table-striped">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th><input type="checkbox" name="" id="checkAll"></th>
@@ -73,15 +77,17 @@
                                         <th>나이</th>
                                     </tr>                                
                                 </thead>
-                                	<c:forEach items="${entry}" var="dto">
+                                	 <c:forEach items="${entry}" var="dto">
                                 	<tr>
-                                    <td><input type="checkbox" name="" id=""></td>
+                                    <td><input type="checkbox" name="" id="${dto.entry_seq}"></td>
                                     <td>${dto.position}</td>
                                     <td>${dto.backnumber}</td>
                                     <td>${dto.name}</td>
                                     <td>${dto.old}</td>
                                 	</tr>
                                     </c:forEach>
+                                    
+                             
                                
                             </table>
                         </div>
@@ -96,22 +102,23 @@
                         <div id="formation" style="background-image: url(/soccer/images/soccer5.jpg);">
                             <div id="front">      
                                 <c:forEach items="${fwList}" var="dto">
-                                	<img src="/soccer/images/${dto.image}" id="${dto.seq}" class="player" alt="">
+                                <img src="/soccer/images/${dto.image}" id="${dto.seq}" name="1" class="player" alt="" title="${dto.name}">
                                 </c:forEach>
                             </div>
                             <div id="middle">
                                 <c:forEach items="${mfList}" var="dto">
-                                	<img src="/soccer/images/${dto.image}" id="${dto.seq}" class="player" alt="">
+                                <img src="/soccer/images/${dto.image}" id="${dto.seq}" name="2" class="player" alt="" title="${dto.name}">
                                 </c:forEach>
                             </div>
                             <div id="back">
                               	<c:forEach items="${dfList}" var="dto">
-                                	<img src="/soccer/images/${dto.image}" id="${dto.seq}" class="player" alt="">
+                                	<%-- <img src="/soccer/images/${dto.image}" id="${dto.seq}" name="3" class="player" alt=""> --%>
+                                	<img src="/soccer/images/${dto.image}" id="${dto.seq}" name="3" class="player" alt="" title="${dto.name}">
                                 </c:forEach>
                             </div>
-                            <div>
+                            <div id="gk">
                                 <c:forEach items="${gkList}" var="dto">
-                                	<img src="/soccer/images/${dto.image}" id="${dto.seq}" class="player" alt="">
+                                	<img src="/soccer/images/${dto.image}" id="${dto.seq}" name="4" class="player" alt="" title="${dto.name}">
                                 </c:forEach>
                             </div>                            
                         </div>
@@ -153,10 +160,10 @@
 	   }); 
 	   
 
-	   //FW는 FW-Field 지역만 위치조정이 가능하다.
 	   function move(){
 		   
-		   $("#formation div:nth-child(1) img").draggable({                    
+	   	   //FW는 FW-Field 지역만 위치조정이 가능하다.
+		   $("#formation #front img").draggable({                    
 		        //FW 박스 안에서만 움질일수 있도록
 		        containment: "#formation div:nth-child(1)" ,
 		        // 자석처럼 달라붙게
@@ -164,7 +171,7 @@
 		   });
 		
 		   //MF는 MF-Field 위치조정이 가능하다.
-		   $("#formation div:nth-child(2) img").draggable({                    
+		   $("#formation #middle img").draggable({                    
 		        //MF 박스 안에서만 움질일수 있도록
 		        containment: "#formation div:nth-child(2)" ,
 		        // 자석처럼 달라붙게
@@ -172,7 +179,7 @@
 		   });
 		
 		   //DF는 DF-Field 위치조정이 가능하다.
-		   $("#formation div:nth-child(3) img").draggable({                    
+		   $("#formation #back img").draggable({                    
 		        //DF 박스 안에서만 움질일수 있도록
 		        containment: "#formation div:nth-child(3)" ,
 		        // 자석처럼 달라붙게
@@ -180,7 +187,7 @@
 		   });
 		
 		    //GK는 GK-Field 위치조정이 가능하다.
-		    $("#formation div:nth-child(4) img").draggable({                    
+		    $("#formation #gk img").draggable({                    
 		        //GF 박스 안에서만 움질일수 있도록
 		        containment: "#formation div:nth-child(4)" ,
 		        // 자석처럼 달라붙게
@@ -189,11 +196,11 @@
 	   };//move;
 	
 	   move();
+	   
 	   $("#formation img").dblclick(function() {                    
 	        // alert($(this));
 	        child = window.open(
-	        		
-	        url = "/soccer/board/clubmanagementEntrylistDrawupRecommend.do?team_seq=" + ${team_seq},	        
+	        "clubmanagementEntrylistDrawupRecommend.do?team_seq=" + ${team_seq} + "&formation_seq=" + this.id + "&position=" + this.name,
 	        "check",
 	        "width=500, height=300, top=180, left=730"                                        
 	    );
@@ -222,7 +229,7 @@
 	    $("input[type=checkbox]").prop("checked",true); 
 	    
 	    } 
-	        // 전체선택 체크박스가 해제된 경우 
+	    	// 전체선택 체크박스가 해제된 경우 
 	    else { 
 	        //해당화면에 모든 checkbox들의 체크를해제시킨다. 
 	    $("input[type=checkbox]").prop("checked",false); }
@@ -252,7 +259,7 @@
 					type: "GET",
 					url: "/soccer/board/clubmanagementEntrylistDrawupOk.do",
 					
-					data: "seq=" + this.id + "&position_x=" +  ui.position.left + "&position_y=" + ui.position.top +"&playerentry_seq"+$(this),
+					data: "seq=" + this.id + "&position_x=" +  ui.position.left + "&position_y=" + ui.position.top,
 					
 					success: function(result) {
 						if (result == 0) {
@@ -269,6 +276,7 @@
 	   		
 	   	});
 	   	
+	   	//포메이션 변경하면 
 	   	document.getElementById("formationNum").onchange = function(){    
         	
         	location.href = "/soccer/board/clubmanagementEntrylistDrawup.do?formationNum=" + $("#formationNum").val() 
@@ -276,89 +284,15 @@
     	};  
     	
     	 $("#${formationNum}").prop("selected",true); 
+ 	   	
+
 	   	
 	   	
     	 
     	 
-    	 
-    	 
-    	 
-    	 
-    	 
-    	 
-    	 
-    	 
-    	 
-	 	/*  $('#formationNum').change(change = function(){
-			
-			$.ajax({
-				
-			url: "/soccer/board/clubmanagementEntrylistDrawupSel.do",
-			
-			data: "formation=" +$(this).val(),
-			
-			type: "GET",
-			
-			success: function(result) {
-				console.log($(result).list.get(0).getSeq());
-			},
-			error: function(a,b,c) {
-				console.log(a,b,c);
-			}
-			
-		})
-			
-		});	 */
-	   		   	
-	  	//한페이지 당 출력 갯수
-    	/* document.getElementById("formationNum").onchange = function(event, ui){    
-                		
     	
-    		$.ajax({
-    			
-    			type: "POST",
-				url: "/soccer/board/clubmanagementEntrylistDrawup.do",
-				
-				data: "aa=" + formationNum,
-				
-				success: function(result) {
-					if (result == 0) {
-						alert("저장하는 작업을 실패했습니다.");
-					}
-				},
-				error: function(a,b,c) {
-					console.log(a,b,c);
-				}
-    			
-    		})
-    		
-    		 console.log($(this).val());
-        	var position = $(this).val();
-        	var front = position.substring(2,3);
-        	var middle = position.substring(1,2);
-        	var back = position.substring(0,1);
-        	
-        	//초기화
-        	$("#front").html("");
-        	$("#middle").html("");
-        	$("#back").html("");
-        	
-        	for(var i=0;i<front;i++){
-        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
-       			$("#front").append(temp);
-       			move();
-        	}
-        	for(var i=0;i<middle;i++){
-        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
-       			$("#middle").append(temp);
-       			move();
-        	}
-        	for(var i=0;i<back;i++){
-        		var temp= "<img src=\"/soccer/images/soccer2.jpg\" id=\"473\" class=\"player\" alt=\"\" style=\"left:0;top:0;\">";
-       			$("#back").append(temp);
-       			move();
-        	} 
-    	}; */
+    	 
+    	
 	   
         
     </script>

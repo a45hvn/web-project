@@ -16,14 +16,21 @@ public class formationDTO {
 	
 	private String image;
 	
-	//신규 추가사항
-	private String playerentry_seq;
+	private String entry_seq;
 	
-	public String getPlayerentry_seq() {
-		return playerentry_seq;
+	private String formation_playerentry_seq;
+	
+	public String getFormation_playerentry_seq() {
+		return formation_playerentry_seq;
 	}
-	public void setPlayerentry_seq(String playerentry_seq) {
-		this.playerentry_seq = playerentry_seq;
+	public void setFormation_playerentry_seq(String formation_playerentry_seq) {
+		this.formation_playerentry_seq = formation_playerentry_seq;
+	}
+	public String getEntry_seq() {
+		return entry_seq;
+	}
+	public void setEntry_seq(String entry_seq) {
+		this.entry_seq = entry_seq;
 	}
 	public String getImage() {
 		return image;

@@ -373,10 +373,10 @@
     			   $("#redTeamGoal").append(data[1]);
     			   $("#redTeamAssist").append(data[2]);
     			   $("#redTeamTotal").append(data[3]);
-    			   $("#redTeamImage").append("<img src=/soccer/images/nopic.png>");
-    			   $("#redGoalAvg").append(data[4]);
-    			   $("#redAssistAvg").append(data[5]);
-    			   $("#redTotalAvg").append(data[6]);
+    			   $("#redTeamImage").append("<img src=/soccer/images/"+data[4]+">");
+    			   $("#redGoalAvg").append(data[5]);
+    			   $("#redAssistAvg").append(data[6]);
+    			   $("#redTotalAvg").append(data[7]);
     			   
     			   
     		   },
@@ -414,10 +414,10 @@
     			   $("#blueTeamGoal").append(data[1]);
     			   $("#blueTeamAssist").append(data[2]);
     			   $("#blueTeamTotal").append(data[3]);
-    			   $("#blueTeamImage").append("<img src=/soccer/images/nopic.png>"); 
-    			   $("#blueGoalAvg").append(data[4]);
-    			   $("#blueAssistAvg").append(data[5]);
-    			   $("#blueTotalAvg").append(data[6]);
+    			   $("#blueTeamImage").append("<img src=/soccer/images/"+data[4]+">"); 
+    			   $("#blueGoalAvg").append(data[5]);
+    			   $("#blueAssistAvg").append(data[6]);
+    			   $("#blueTotalAvg").append(data[7]);
     		   },
     		   error:function(a,b,c){
     			   console.log(a,b,c);

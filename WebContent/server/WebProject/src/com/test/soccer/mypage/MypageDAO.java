@@ -13,7 +13,6 @@ public class MypageDAO {
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
-	private PreparedStatement pstat2;
 	private ResultSet rs;
 	private ResultSet rs2;
 
@@ -33,10 +32,10 @@ public class MypageDAO {
 		}
 	}
 
-	// 내 정보 보기
 	public ArrayList<MypageDTO> list(String seq) {
 
 		try {
+			System.out.println(seq);
 			String sql = "select * from vwmemberinfo where seq = " + seq;
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -45,7 +44,6 @@ public class MypageDAO {
 			while (rs.next()) {
 				MypageDTO dto = new MypageDTO();
 				dto.setSeq(rs.getString("seq"));
-				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
 				dto.setTeam(rs.getString("teamname"));
 				dto.setPosition(rs.getString("position"));
@@ -53,7 +51,7 @@ public class MypageDAO {
 				dto.setWeight(rs.getString("weight"));
 				dto.setImage(rs.getString("image"));
 				list.add(dto);
-				System.out.println(dto.getPw());
+
 			}
 
 			return list;
@@ -65,9 +63,9 @@ public class MypageDAO {
 		return null;
 	}
 
-	// dm조회
 	public ArrayList<DmDTO> dmlist(String seq) {
 		try {
+			System.out.println(seq);
 			String sql = "select dm.seq, dm.\"read_name\", dm.\"read_image\", dm.content, to_char(dm.regdate,'yyyy-mm-dd hh24:mi:ss') as regdate, dm.read_member_seq, dm.writer_member_seq, mb.name as \"writer_name\", mb.image as \"writer_image\"  from vwdm dm inner join tblmember mb on mb.seq = dm.writer_member_seq where read_member_Seq ="
 					+ seq;
 			stat = conn.createStatement();
@@ -98,9 +96,9 @@ public class MypageDAO {
 		return null;
 	}
 
-	// 내가 속한 리그 일정 조회
 	public ArrayList<LeagueDTO> leaguelist(String seq) {
 		try {
+			System.out.println(seq);
 			String sql = "select rownum as rnum, lg.seq as seq, to_char(lg.gamedate, 'yyyy-mm-dd') as gamedate, gr.address as ground, (select name from tblteam where seq = lg.awayteam_seq) as awayname"
 					+ "  from TBLLEAGUEGAME lg" + "    inner join tblteamentry te on te.seq = lg.hometeam_seq"
 					+ "        inner join tblteam t on t.seq = te.team_seq"
@@ -139,22 +137,23 @@ public class MypageDAO {
 		return null;
 	}
 
-	// 내가 팔로우하는 친구 목록 조회
+
 	public ArrayList<FriendsDTO> followingList(String seq) {
 		try {
-
+		
+			// 내가 팔로우하는 친구 목록 조회
 			String sql = "select f.seq, f.follow__member_seq as following_seq, f.follower__member_seq as me_seq, (select name from tblmember where seq = f.follow__member_seq) as followingName, (select image from tblmember where seq = f.follow__member_seq) as followingImage from tblfriends f inner join tblmember m on f.follower__member_seq = m.seq where m.seq = "
 					+ seq;
 
 			stat = conn.createStatement();
 
 			rs = stat.executeQuery(sql);
+			
 
 			ArrayList<FriendsDTO> followingList = new ArrayList<FriendsDTO>();
-
+			
 			while (rs.next()) {
 				FriendsDTO dto = new FriendsDTO();
-				dto.setSeq(rs.getString("seq"));
 				dto.setFollowing_seq(rs.getString("following_seq"));
 				dto.setFollowingName(rs.getString("followingName"));
 				dto.setFollowingImage(rs.getString("followingImage"));
@@ -169,18 +168,18 @@ public class MypageDAO {
 		return null;
 	}
 
-	// 나를 팔로우 하는 친구 목록 조회
 	public ArrayList<FriendsDTO> followerList(String seq) {
 		try {
+			// 나를 팔로우 하는 친구 목록 조회
 			String sql = "select f.seq, f.follow__member_seq as me_seq , f.follower__member_seq as follower_seq, (select name from tblmember where seq = f.follower__member_seq) as followerName ,(select image from tblmember where seq = f.follower__member_seq) as followerImage from tblfriends f inner join tblmember m on f.follow__member_seq = m.seq where m.seq ="
 					+ seq;
-
+		
 			stat = conn.createStatement();
 
 			rs = stat.executeQuery(sql);
 
 			ArrayList<FriendsDTO> followerList = new ArrayList<FriendsDTO>();
-
+			
 			while (rs.next()) {
 				FriendsDTO dto = new FriendsDTO();
 				dto.setFollower_seq(rs.getString("follower_seq"));
@@ -188,7 +187,7 @@ public class MypageDAO {
 				dto.setFollowerImage(rs.getString("followerImage"));
 				followerList.add(dto);
 			}
-
+	
 			return followerList;
 
 		} catch (Exception e) {
@@ -197,164 +196,43 @@ public class MypageDAO {
 		return null;
 	}
 
-	// following 목록에 친구 추가
+	//following 목록에 친구 추가 
 	public int follow(FriendsDTO dto, String seq) {
 		try {
-			String sql = "insert into tblfriends values(friends_seq.nextVal,?,?)";
+			String sql ="insert into tblfriends values(friends_seq.nextVal,?,?)";
 //			System.out.println(dto.getFollower_seq());
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getFollower_seq());
 			pstat.setString(2, seq);
-
-			return pstat.executeUpdate();// 성공하면 1
-
+			
+			return pstat.executeUpdate();//성공하면 1
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return 0;// 실패하면 0 을 반환함
+		return 0;//실패하면 0 을 반환함
 	}
 
+	
 	public int unfollow(FriendsDTO dto, String seq) {
-
+		
 		try {
-			String sql = "delete from tblfriends where follower__member_seq = ? and follow__member_seq =? ";
+			String sql ="delete from tblfriends where follower__member_seq = ? and follow__member_seq =? ";
 //			System.out.println(dto.getFollower_seq());
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, seq);
 			pstat.setString(2, dto.getFollowing_seq());
-
-			return pstat.executeUpdate();// 성공하면 1
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return 0;
-	}
-
-	public ArrayList<RankDTO> ranklist(String seq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	// 회원정보 수정할 정보 가져오기
-	public MypageDTO getInfo(MypageDTO dto2) {
-		try {
-			String sql = "select m.name,m.image, mt.height,mt.weight from tblmember m "
-					+ "inner join tbltransfer ts on m.seq = ts.member_seq "
-					+ "    inner join tblmember_team mt on ts.seq = mt.transfer_seq where m.seq = " + dto2.getSeq();
-
-			stat = conn.createStatement();
-			rs = stat.executeQuery(sql);
-
-			if (rs.next()) {
-				MypageDTO dto = new MypageDTO();
-				dto.setName(rs.getString("name"));
-				dto.setImage(rs.getString("image"));
-				dto.setHeight(rs.getString("height"));
-				dto.setWeight(rs.getString("weight"));
-				return dto;
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-//회원 정보수정
-	public int infoUpdate(MypageDTO dto2) {
-		try {
-
-			String sql = "update tblmember_team SET height =? ,weight=? where transfer_seq = (select seq from tbltransfer where member_seq = ?)";
-			String sql2 = "update tblmember set image =? where seq = ?";
-			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, dto2.getHeight());
-			pstat.setString(2, dto2.getWeight());
-			pstat.setString(3, dto2.getSeq());
-
-			pstat2 = conn.prepareStatement(sql2);
-			pstat2.setString(1, dto2.getImage());
-			pstat2.setString(2, dto2.getSeq());
-
-			return pstat.executeUpdate() + pstat2.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return 0;
-	}
-
-	// 회원 탈퇴 기능
-	public int memberDelete(MypageDTO dto) {
-
-		try {
-			String sql = "delete from tblmember where seq = " + dto.getSeq();
-			stat = conn.createStatement();
-			return stat.executeUpdate(sql);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return 0;
-	}
-
-	// 소속구단의 경기 전적 가져오기
-	public ArrayList<LeagueDTO> matchResult(String seq) {
-		try {
-			String sql = "select * from vwbroadcastschedule where gamedate < sysdate and hometeam_seq=(select team_Seq from vwmemberinfo where seq=?) order by seq desc";
-			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, seq);
-			rs = pstat.executeQuery();
-
-			ArrayList<LeagueDTO> matchResult = new ArrayList<LeagueDTO>();
-
-			while (rs.next()) {
-				LeagueDTO dto = new LeagueDTO();
-				dto.setGameDate(rs.getString("gamedate"));
-				dto.setAwayName(rs.getString("awayteam"));
-				dto.setGround(rs.getString("ground"));
-				dto.setHomeGoal(rs.getString("homegoal"));
-				dto.setAwayGoal(rs.getString("awaygoal"));
-				matchResult.add(dto);
 			
-			}
-			return matchResult;
+			return pstat.executeUpdate();//성공하면 1
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return null;
-	}
-	
-	//이적 데이터 가져오기
-	public ArrayList<LeagueDTO> transfer(String seq) {
-		try {
-			String sql ="select * from vwtransfer where seq = ?";
-			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, seq);
-			rs = pstat.executeQuery();
-
-			ArrayList<LeagueDTO> transfer = new ArrayList<LeagueDTO>();
-			while (rs.next()) {
-				LeagueDTO dto = new LeagueDTO();
-				dto.setTeam(rs.getString("team"));
-				dto.setRegdate(rs.getString("regdate"));
-				dto.setCompleteDate(rs.getString("completedate"));
-				dto.setState(rs.getString("state"));
-				transfer.add(dto);
-			}
-			return transfer;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
+		return 0;
 	}
 
 }

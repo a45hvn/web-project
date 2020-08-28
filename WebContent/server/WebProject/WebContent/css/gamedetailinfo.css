@@ -141,46 +141,24 @@
     position: relative;
     width: 100%;
     margin: 15px 0px;
-    height: 1100px;
 }
+
 .entry {
     overflow-y: scroll;
-    height: 1000px;
-    
-    width: 25%;
+    height: 600px;
+    border-top: 1px solid #dddddd;
+    width: 20%;
     position: relative;
-    top: 40px;
 }
 .entry::-webkit-scrollbar {
     border: 0px;
     width: 0px;
 }
-#contentBox {
-    position: relative;
-    top: 610px;
-    left: 400px;
-    width: 510px;
-    height: 30px;
-    border: 2px solid RGB(238, 238, 238);
-    
+.entry div:nth-child(odd) {
+    /* background-color: #254150; */
 }
-#action {
-    position: absolute;
-    top: 650px;
-    left: 400px;
-    width: 510px;
-    height: 410px;
-    border: 2px solid RGB(238, 238, 238);
-}
-#timer {
-    position: absolute;
-    left: 29%;
-    width: 550px;
-    height: 70px;
-    font-size:3em;
-    border: 4px solid black;
-    text-align:center;
-    
+.entry div:nth-child(even) {
+    /* background-color: #0c1a22; */
 }
 .textBroadcast {
     /* border: 1px solid tomato; */
@@ -189,15 +167,17 @@
     height: 500px;
     position: absolute;
     left: 28.6%;
-    top: 8%;
+    top: 2%;
     overflow-y: scroll;
-    border: 2px solid #eee;
 }
 .textBroadcast::-webkit-scrollbar {
     border: 0px;
     width: 0px;
 }
 
+.textBroadcast {
+    border: 2px solid #eee;
+}
 .textBroadcast ul {
     position: absolute;
     left: 5%;
@@ -218,22 +198,21 @@
 }
 #teamAEntry {
     position: absolute;
-    left: 0%;
+    left: 2%;
 }
 #teamBEntry {
     position: relative;
-    left: 74%;
-    top: 1%;
+    left: 78%;
 }
 .player {
     position: relative;
     width: 50%;
     font-size: 1em;
-    width: 90%;
+    width: 100%;
     padding: 8px 15px 0px 15px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
-    height: 45px;
+    height: 37px;
 }
 .player:last-child {
     border-bottom: 1px solid #ddd;
@@ -254,18 +233,14 @@
     position: absolute;
     right: 40%;
     color: black;
-    font-size:2em;
 }
 .position {
     display: inline-block;
     position: absolute;
     right: 10%;
-    font-size:1.2em;
-	color: RGB(11,18,22);
+    color: gold;
 }
-.playerHeader{
-	border-top: 1px solid #dddddd;
-}
+
 .playerHeader .backNum {
     left: -10px;
 }

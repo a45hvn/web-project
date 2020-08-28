@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 	
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +17,7 @@
     <link rel="stylesheet" href="/soccer/css/teaminformation.css">
   
     <style>
-    	#playerTr:hover {
-		background-color: RGB(39,63,77);
-		color:white;
-		}
+    
     </style>
 </head>
 
@@ -64,15 +60,15 @@
                         <div class="introOuter">
                             <div class="smallTitle">${teamInfo.teamname} FC 홈페이지 입니다.</div>
                             <div class="join" >
-                                <form action="/soccer//transfer.do"><!-- transfer로 이동해야지 팀이름 들고서 -->
-                                	<input class="btns btn btn-default"  type="submit" value="구단 가입 신청하기" id="btn1">
+                                <form action=""><!-- transfer로 이동해야지 팀이름 들고서 -->
+                                	<input class="btns btn btn-default" type="button" value="구단 가입 신청하기" id="btn1">
                                 </form>
                             </div>
                             <div class="teamIntroBox"><img src="/soccer/images/${teamInfo.logo}" id="teamLogo" alt="teamLogo"></div>
                             <div class="introduce"> </div>
                             <div class="coachBox">
                                 <div class="smallTitle">감독 소개</div>
-                                <div id="coachBoxLeft"><img src="/soccer/images/${teamInfo.image}" alt=""><div><span id="coachName">${teaminfo.coachname }</span></div></div>
+                                <div id="coachBoxLeft"><img src="/soccer/images/${teamInfo.image}" alt=""><div>감독 : <span id="coachName">${teaminfo.coachname }</span></div></div>
                                 <div id="coachBoxRight"><span>소개 : ${teamInfo.introduce }</span></div>
 
                             </div>
@@ -116,7 +112,7 @@
                                     <th>몸무게</th>
                                 </tr>
                                 <c:forEach items="${playerInfo}" var="playerInfo">
-                                <tr id="playerTr" style="cursor:pointer;" onclick="location.href='/team/teamplayerinformation.do?playername=${playerInfo.playername}'">
+                                <tr>
                                     <td>${playerInfo.backnumber}</td>
                                     <td>${playerInfo.playername}</td>
                                     <td>${playerInfo.position }</td>
@@ -146,15 +142,12 @@
             </div>
         </div>
        <!-- 하단부  -->
-      
     <%@include file="/WEB-INF/views/inc/footer.jsp" %>
 
 
 <!-- 지도 ------------------------------------- -->
 <script type="text/javascript"	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a12f06129cc70984e1f6a7fa73684a75"></script>
 <script>
- $("#league_seq :last-child").prop("selected",true);
- 
  var lat=${teamInfo.lat};
  var lng=${teamInfo.lng};
 
@@ -199,16 +192,11 @@ $(document).scroll(function () {
         }
     }
 });
-<c:set var = "num1" value = "${league[0].startDate }"/>
-<c:set var = "num2" value = "${league[league.size()-1].endDate }"/>
-<c:set var = "numSubString1" value = "${fn:substring(num1, 0, 4)}" />
-<c:set var = "numSubString2" value = "${fn:substring(num2, 0, 4)}" />
-
 
 Highcharts.chart('container', {
 
   title: {
-    text: '${numSubString1}-${numSubString2}'
+    text: ' 2018-2020'
   },
 
   subtitle: {
@@ -220,17 +208,13 @@ Highcharts.chart('container', {
       text: '순위'
     },
     reversed:true,
-    min:1,
-    max:16,
     
   },
 
   xAxis: {
     accessibility: {
-      rangeDescription: 'Range: ${numSubString1}-${numSubString2}'
-    },
-  
-  
+      rangeDescription: 'Range: 2018 to 2020'
+    }
   },
 
   legend: {
@@ -244,14 +228,20 @@ Highcharts.chart('container', {
       label: {
         connectorAllowed: false
       },
-      pointStart: ${numSubString1}
+      pointStart: 2018
     }
   },
 
   series: [{
-    name: '${teamInfo.teamname}',
-    data: ${rank}
-  }],
+    name: '강남FC',
+    data: [null,null,7,4]
+  }, {
+    name: '역삼FC',
+    data: [3,4,5,7]
+  }, {
+    name: '언주FC',
+    data: [2,5,7,6]
+  }, ],
 
   responsive: {
     rules: [{
