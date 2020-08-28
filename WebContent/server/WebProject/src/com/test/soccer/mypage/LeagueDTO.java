@@ -8,8 +8,8 @@ public class LeagueDTO {
 	private String gameDate; //경기일정
 	private String ground; //홈구장
 	private String rnum;
-	private String homeGoal;
-	private String awayGoal;
+	private String homeGoal;//홈골
+	private String awayGoal;//어웨이골
 	
 	
 	private String team; //이적한 팀이름
@@ -18,6 +18,30 @@ public class LeagueDTO {
 	private String state; //상태
 	
 	
+	private String teamranking1;//1리그 팀순위
+	private String teamranking2;//2리그 팀순위
+	private String teamranking3;//3리그 팀순위
+	
+	
+	
+	public String getTeamranking1() {
+		return teamranking1;
+	}
+	public void setTeamranking1(String teamranking1) {
+		this.teamranking1 = teamranking1;
+	}
+	public String getTeamranking2() {
+		return teamranking2;
+	}
+	public void setTeamranking2(String teamranking2) {
+		this.teamranking2 = teamranking2;
+	}
+	public String getTeamranking3() {
+		return teamranking3;
+	}
+	public void setTeamranking3(String teamranking3) {
+		this.teamranking3 = teamranking3;
+	}
 	public String getTeam() {
 		return team;
 	}

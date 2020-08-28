@@ -37,7 +37,7 @@
             border-radius: 50px;
             float: left;
             position: relative;
-            left: 30px;
+            left: 25px;
             border: 1px solid white;
         }
 
@@ -93,17 +93,13 @@
             z-index: 0;
         }
 
-        #unfollow {
-            height: 25px;
-            font-size: 1.1em;
+        .unfollow {
             line-height: 14px;
         }
 
-        #follow {
-            height: 25px;
-            font-size: 1.1em;
+        .follow {
             line-height: 14px;
-             margin-left: 25px;
+            margin-left:50px;
         }
 
         .contentsBox {

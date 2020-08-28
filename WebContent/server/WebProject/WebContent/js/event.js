@@ -48,13 +48,13 @@ $("#menuTr")
 $("#menuTr")
     .children(".menu1")
     .click(function () {
-        location.href = "leagueschedule.jsp";
+        location.href = "/soccer/schedule/leagueschedule.do";
     });
 // 구단현황
 $("#menuTr")
     .children(".menu2")
     .click(function () {
-        location.href = "teamlist.jsp";
+        location.href = "/soccer/team/teamlist.do";
     });
 // 선수현황
 $("#menuTr")
@@ -72,19 +72,19 @@ $("#menuTr")
 $("#menuTr")
     .children(".menu5")
     .click(function () {
-        location.href = "textbroadcastingschedule.jsp";
+        location.href = "/soccer/broadcast/textbroadcastingschedule.do";
     });
 // 게시판
 $("#menuTr")
     .children(".menu6")
     .click(function () {
-        location.href = "community.jsp";
+        location.href = "/soccer/board/communityQuestionBulletinBoard.do";
     });
 // 공지사항
 $("#menuTr")
     .children(".menu7")
     .click(function () {
-        location.href = "noticeBoard.jsp";
+        location.href = "/soccer/notice/noticeBoard.do";
     });
 
 // 로고누르면 메인으로이동

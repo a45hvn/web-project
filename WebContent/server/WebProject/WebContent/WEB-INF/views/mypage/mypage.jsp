@@ -163,7 +163,7 @@
 
 		<div class="myPageInfoBox">
 			<div class="topTitle">
-				<i class="glyphicon glyphicon-king"></i>구단 순위, 개인순위
+				<i class="glyphicon glyphicon-king"></i>리그 개인 순위
 			</div>
 			<figure class="highcharts-figure">
 				<div id="container"></div>
@@ -185,13 +185,40 @@
                         <span aria-hidden="true">X</span>
                     </button>
                 </div>
+                 	<form method="POST" action="/soccer/mypage/memberdeleteok.do">
                 <div class="modal-body">
                     <div>비밀번호를 입력해주세요.</div>
+<!--                    	비밀번호 비교 -->
+                    <c:if test=""></c:if>
                     <input type="password" name="secession" id="secession" >
                 </div>
                 <div class="modal-footer">
                     <!-- 비밀번호를 입력하고 ok버튼 누르면 회원 비밀번호와 비교하여 일치했을시 다시 물어보기  -->
-                    <a class="btn" id="modalY" href="#">ok</a>
+                  	<button type="submit" class="btn" id="modalY">ok</button>
+<!--                     <a class="btn" id="modalY" href="#" >ok</a> -->
+                    <button class="btn" type="button" data-dismiss="modal">cancle</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!-- 비밀번호확인요청 Modal-->
+
+ <div class="modal fade" id="check" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #25282A;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #92DAEC; display: inline;">탈퇴신청</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>비밀번호를 확인해주세요</div>
+                </div>
+                <div class="modal-footer">
                     <button class="btn" type="button" data-dismiss="modal">cancle</button>
                 </div>
             </div>
@@ -241,15 +268,34 @@
 		
 // });
 
+ 
+var rank1;
+var rank2;
+var rank3;
 
-
-
+$(document).ready(function(){
+	
+// 	<c:forEach items="${ranklist}" var="ranklist">
+// 		rank1 = parseInt(${ranklist.ranking1},10);
+// 		rank2 = parseInt(${ranklist.ranking2},10);
+// 		rank3 = parseInt(${ranklist.ranking3},10);
+// 	</c:forEach>
+	/* ${ranklist}.forEach(function (item, index, array) {
+		console.log(item);
+	}) */
+	
+	rank1 = parseInt(${dto.ranking1},10);
+	rank2 = parseInt(${dto.ranking2},10);
+	rank3 = parseInt(${dto.ranking3},10);
+	
+	console.log(rank1);	
+	
 	Highcharts.chart('container', {
 		chart : {
 		// backgroundColor: "#254150"
 		},
 		title : {
-			text : '리그 및 구단 개인 순위',
+			text : '리그 개인 순위',
 
 		},
 
@@ -291,14 +337,10 @@
 			}
 		},
 
-		series : [ {
-			color : '#0077C8',
-			name : '리그 개인 순위',
-			data : [2,3,4,5]
-		}, {
+		series : [  {
 			color : '#00BF88',
-			name : '팀 내 순위',
-			data : [ 1, 2, 3, 1, 5, 1, 4, 2, 5, 1, 4, 2, ]
+			name : '리그 개인 순위',
+			data : [ rank1, rank2, rank3]
 		}, ],
 
 		responsive : {
@@ -317,8 +359,118 @@
 		}
 
 	});
-	$("text").css("fill", "black");
-	$(".highcharts-credits").remove();
+	
+});
+
+
+
+/* 
+$(document).ready(function(){
+	var seq = ${seq};
+	$.ajax({
+		type:"GET",
+		url : "/soccer/mypage/mypage.do",
+		data : "seq=" + seq,
+		dataType: "text",
+		success:function(result){
+			options.series[0].data=result;
+			Highcharts.chart('container', options);
+		},
+		error:function(a,b,c){
+			console.log(a,b,c);
+		}
+	
+	
+	}); 	
+
+}); */
+ 
+// 	var options = {
+// 		// backgroundColor: "#254150"
+	
+// 	title : {
+// 		text : '리그 및 구단 개인 순위',
+
+// 	},
+
+// 	subtitle : {
+// 	// text: 'Source: thesolarfoundation.com'
+// 	},
+
+// 	yAxis : {
+// 		title : {
+// 			text : '순위',
+
+// 		},
+// 		allowDecimals : false,
+// 		reversed : true,
+// 		// min: 0.5,
+// 		startOnTick : false,
+// 		endOnTick : false,
+// 	// max: 3.5
+// 	},
+
+// 	xAxis : {
+// 		accessibility : {
+// 			rangeDescription : 'Range: 1 to 12'
+// 		}
+// 	},
+
+// 	legend : {
+// 		layout : 'vertical',
+// 		align : 'right',
+// 		verticalAlign : 'middle'
+// 	},
+
+// 	plotOptions : {
+// 		series : {
+// 			label : {
+// 				connectorAllowed : false
+// 			},
+// 			pointStart : 1
+// 		}
+// 	},
+
+// 	series : [ {
+// 		color : '#0077C8',
+// 		name : '리그 개인 순위',
+// 		data : [
+// // 			3,4,5
+			
+// 		]
+// 	}, {
+// 		color : '#00BF88',
+// 		name : '팀 내 순위',
+// 		data : [
+			
+// 		]
+// 	}, ],
+
+// 	responsive : {
+// 		rules : [ {
+// 			condition : {
+// 				maxWidth : 500
+// 			},
+// 			chartOptions : {
+// 				legend : {
+// 					layout : 'horizontal',
+// 					align : 'center',
+// 					verticalAlign : 'bottom'
+// 				}
+// 			}
+// 		} ]
+// 	}
+// // 	$("text").css("fill", "black");
+// // 	$(".highcharts-credits").remove();
+// 	};
+
+	
+	
+
+
+	
+
+
 </script>
 <script src="/soccer/js/jquery-1.12.4.js"></script>
 <script src="/soccer/js/bootstrap.js"></script>
@@ -336,8 +488,13 @@
      });
 
      $("#modalY").click(function (e) {
-    	
-
+//     	if(){
+    		
+//     	}else{
+//     		e.preventDefault();
+//     		$("#check").modal("show");
+//     	}
+    		
      });
 	
 	
@@ -352,7 +509,7 @@
 <!-- 경기 일정 페이지로 이동 -->
 <script>
 	$("#moreBtn2").click(function() {
-		location.href = "../webproject/leagueschedule.html";
+		location.href = "/soccer/";
 	});
 </script>
 

@@ -27,7 +27,8 @@ public class ClubSummary extends HttpServlet {
 		ArrayList<LeagueDTO> matchResult = dao.matchResult(seq);
 		//이적내역 가져오기
 		ArrayList<LeagueDTO> transfer = dao.transfer(seq);
-		
+		//소속구단의 친선경기순위/리그 순위
+//		LeagueDTO dto = dao.teamrank(seq);
 		
 		
 		
@@ -36,6 +37,7 @@ public class ClubSummary extends HttpServlet {
 		
 		req.setAttribute("matchResult", matchResult);
 		req.setAttribute("transfer", transfer);
+//		req.setAttribute("dto", dto);
 		
 	RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/mypage/clubsummary.jsp");
 	dispatcher.forward(req, resp);

@@ -3,10 +3,12 @@ package com.test.soccer.mypage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.test.soccer.DBUtil;
+import com.test.soccer.member.TeamDTO;
 
 public class MypageDAO {
 
@@ -14,8 +16,10 @@ public class MypageDAO {
 	private Statement stat;
 	private PreparedStatement pstat;
 	private PreparedStatement pstat2;
+	private PreparedStatement pstat3;
 	private ResultSet rs;
 	private ResultSet rs2;
+	private ResultSet rs3;
 
 	public MypageDAO() {
 		// DB 연결
@@ -197,7 +201,9 @@ public class MypageDAO {
 		return null;
 	}
 
-	// following 목록에 친구 추가
+	
+	
+	// 나를 팔로우 하는 친구를 follow버튼 누르면 following 목록에 친구 추가
 	public int follow(FriendsDTO dto, String seq) {
 		try {
 			String sql = "insert into tblfriends values(friends_seq.nextVal,?,?)";
@@ -214,7 +220,7 @@ public class MypageDAO {
 
 		return 0;// 실패하면 0 을 반환함
 	}
-
+//	팔로우취소
 	public int unfollow(FriendsDTO dto, String seq) {
 
 		try {
@@ -233,12 +239,7 @@ public class MypageDAO {
 		return 0;
 	}
 
-	public ArrayList<RankDTO> ranklist(String seq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	// 회원정보 수정할 정보 가져오기
+		// 회원정보 수정할 정보 가져오기
 	public MypageDTO getInfo(MypageDTO dto2) {
 		try {
 			String sql = "select m.name,m.image, mt.height,mt.weight from tblmember m "
@@ -293,7 +294,8 @@ public class MypageDAO {
 	public int memberDelete(MypageDTO dto) {
 
 		try {
-			String sql = "delete from tblmember where seq = " + dto.getSeq();
+			
+			String sql = "update tblmember set stat = 0 where seq = " + dto.getSeq();
 			stat = conn.createStatement();
 			return stat.executeUpdate(sql);
 
@@ -356,5 +358,92 @@ public class MypageDAO {
 
 		return null;
 	}
+
+	//랭킹가져오기
+	public RankDTO ranklist(String seq) {
+		try {
+			
+			//가져오는 값
+			//select vw.sumrecord, rank() OVER(order by vw.sumrecord desc) as ranking, m.seq as member_seq, pl.league_seq 
+
+			//각 회차별로 랭킹 
+			String sql1 = "select * from vwpersonalranking1 where member_seq =?";
+			String sql2 = "select * from vwpersonalranking2 where member_seq =?";
+			String sql3 = "select * from vwpersonalranking3 where member_seq =?";
+			pstat = conn.prepareStatement(sql1);
+			pstat.setString(1, seq);
+			
+			pstat2 = conn.prepareStatement(sql2);
+			pstat2.setString(1, seq);
+			
+			pstat3 = conn.prepareStatement(sql3);
+			pstat3.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			rs2 = pstat2.executeQuery();
+			rs3 = pstat3.executeQuery();
+			
+			RankDTO dto = new RankDTO(); 
+			ArrayList<RankDTO> ranklist = new ArrayList<RankDTO>(); 
+			
+			if(rs.next()) {
+				dto.setSeq(rs.getString("member_seq"));
+				dto.setRanking1(rs.getString("ranking"));
+//				ranklist.add(dto);
+			}
+			if(rs2.next()) {
+				dto.setRanking2(rs2.getString("ranking"));
+//				ranklist.add(dto);
+			}
+			if(rs3.next()) {
+				dto.setRanking3(rs3.getString("ranking"));
+//				ranklist.add(dto);
+			}
+//			
+//			System.out.println(dto.getRanking1());
+//			System.out.println(dto.getRanking2());
+//			System.out.println(dto.getRanking3());
+			
+			return dto;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
+//	public LeagueDTO teamrank(String seq) {
+//		try {
+//			String sql = "select distinct * from vwteamaRank  where rownum <=11 order by points desc";
+//			stat = conn.createStatement();
+//			rs = stat.executeQuery(sql);
+//			
+//			
+//			ArrayList<TeamDTO> list = new ArrayList<TeamDTO>();
+//			
+//			
+//			while(rs.next()) {
+//				
+//				TeamDTO dto = new TeamDTO();
+//				
+//				dto.setTeamName(rs.getString("name"));
+//				dto.setPoints(rs.getString("points"));
+//				
+//				
+//				list.add(dto);
+//			}
+//			
+//			return list;
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		return null;
+//	}
 
 }

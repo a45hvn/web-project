@@ -77,7 +77,7 @@
         <div class="pageContentTitle"><img src="../images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">선수정보 상세보기</span></div>
         <div style="width: 90%; margin-top: 50px;">
-            <img src="../images/man_03.png" alt="" width="250px" style="float: left; display: block; margin-right: 50px; border: 3px solid black; margin-left: 50px; ">
+            <img src="/soccer/images/${dto.image}" alt="" width="250px" style="float: left; display: block; margin-right: 50px; border: 3px solid black; margin-left: 50px; ">
             <table class="table table-striped table-bordered">
                 <tr>
                     <th>선수이름</th>
@@ -112,7 +112,7 @@
         <div>
             <input id="message" type="button" class="btn btn-success" value="선수에게 메시지" style="margin-left: 50px;">
             <!-- <br> -->
-            <input id="friend" type="button" class="btn btn-info" value="친구신청">
+            <input id="friend" type="submit" class="btn btn-info" value="친구신청" onclick="location.href='/soccer/mypage/friendsfollowok.do?follower_seq=${dto.mseq}';">
         </div>
 
         <div class="title glyphicon glyphicon-list" > 친선경기정보</div>
@@ -122,12 +122,21 @@
                     <th>경기수</th>
                     <th>득점</th>
                 </tr>
-                <c:forEach items="${friendlyStat}" var="dto1" varStatus="status">
+                <c:if test="${friendlyStat == '[]'}">
                 <tr>
-                    <td>${dto1.count}</td>
-                    <td>${dto1.lgoal}</td>
+                    <td>0</td>
+                    <td>0</td>
                 </tr>
-                </c:forEach>
+                </c:if>
+                
+                <c:if test="${friendlyStat != null}">
+	                <c:forEach items="${friendlyStat}" var="dto1" varStatus="status">
+	                <tr>
+	                    <td>${dto1.count}</td>
+	                    <td>${dto1.lgoal}</td>
+	                </tr>
+	                </c:forEach>
+                </c:if>
             </table>
         </div>
         <div class="title glyphicon glyphicon-list"> 리그성적</div>

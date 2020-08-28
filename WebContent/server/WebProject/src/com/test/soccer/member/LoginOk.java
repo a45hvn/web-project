@@ -50,7 +50,6 @@ public class LoginOk  extends HttpServlet{
 			
 			//회원 나머지 정보 -> 세션 추가
 			MemberDTO dto2 = dao.getMember(dto.getId());
-			
 			session.setAttribute("name", dto2.getName());
 			session.setAttribute("pic", dto2.getImage());
 			session.setAttribute("regdate", dto2.getRegdate());

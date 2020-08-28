@@ -25,7 +25,9 @@ public class TextBroadcastingSchdule extends HttpServlet{
 		//목록 : list.do
 		//검색 : list.do?search=검색어
 		String search = req.getParameter("search");
-		
+		String startDate = req.getParameter("startDate");
+		String endDate = req.getParameter("endDate");
+		String searchkeyword = req.getParameter("searchkeyword");
 		//정렬 기준 
 		//list.do
 		//list.do?sort=seq
@@ -39,9 +41,25 @@ public class TextBroadcastingSchdule extends HttpServlet{
 			sort = "thread";
 		}
 		
+		//한페이지 당 출력 갯수 초기값이 null이라 10으로 default
+				if(startDate == null) {
+					startDate = "";
+				}
+		
+				if(endDate == null) {
+					endDate = "";
+				}
+				
+				if(searchkeyword == null) {
+					searchkeyword = "";
+				}
+				
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("search", search);	
 		map.put("sort", sort);	
+		map.put("startDate",startDate);		
+		map.put("endDate",endDate);		
+		map.put("searchkeyword",searchkeyword);		
 		
 		//페이징 처리 관련 변수 
 		int nowPage =0; 			//현재 페이지 번호

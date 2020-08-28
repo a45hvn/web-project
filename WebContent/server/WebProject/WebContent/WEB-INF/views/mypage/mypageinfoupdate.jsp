@@ -56,7 +56,7 @@
 	<!-- 내용 시작 -->
 	  <div class="center">
 
-        <div class="pageContentTitle"><img src="images/rogowithoutletter.png" class="contentTitleImg"><span
+        <div class="pageContentTitle"><img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
                 class="contentTitle">회원정보수정</span></div>
 
         <div id="infoUpateBox">

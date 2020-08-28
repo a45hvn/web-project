@@ -120,7 +120,6 @@ public class AjaxDAO {
 				dto.setPosition_y(rs.getString("position_y"));
 				dto.setFormation(rs.getString("formation"));
 				
-				System.out.println("dto.setPosition_x(rs.getString(\"position_x\") : " + rs.getString("seq"));
 				
 				list.add(dto);
 				
@@ -155,6 +154,7 @@ public class AjaxDAO {
 			
 		} catch (Exception e) {
 			
+			System.out.println("AjaxDAO.editFormation()");
 			e.printStackTrace();
 			
 		}
@@ -191,7 +191,7 @@ public class AjaxDAO {
 		
 		try {
 			
-			String sql = "select f.seq seq, m.image image, p.seq playerentry_seq from TBLTEAM te inner join TBLTRANSFER tr on te.seq = tr.team_seq inner join TBLMEMBER_TEAM mt on mt.seq = tr.seq inner join TBLPLAYERENTRY p on p.member_team_seq = mt.seq inner join TBLFORMATION f on f.playerentry_seq = p.seq inner join TBLPOSITION po on po.seq = f.position_seq inner join TBLMEMBER m on m.seq = tr.member_seq inner join TBLCOACH c on c.team_seq = te.seq where f.position_seq = ? and te.seq = ? and f.formation = ? order by f.seq";
+			String sql = "select f.seq seq, m.image image, po.position position, mt.backnumber backnumber, m.name name, floor((sysdate - m.birth)/365) old, f.playerentry_seq formation_playerentry_seq from TBLTEAM te inner join TBLTRANSFER tr on te.seq = tr.team_seq inner join TBLMEMBER_TEAM mt on mt.seq = tr.seq inner join TBLPLAYERENTRY p on p.member_team_seq = mt.seq inner join TBLMEMBER_TEAM mt on p.MEMBER_TEAM_SEQ = mt.seq inner join TBLFORMATION f on f.playerentry_seq = p.seq inner join TBLPOSITION po on po.seq = f.position_seq inner join TBLMEMBER m on m.seq = tr.member_seq inner join TBLCOACH c on c.team_seq = te.seq where f.position_seq = ? and te.seq = ? and f.formation = ? order by f.seq";
 			
 			
 			pstat = conn.prepareStatement(sql);
@@ -208,7 +208,14 @@ public class AjaxDAO {
 				formationDTO dto = new formationDTO();				
 				dto.setSeq(rs.getString("seq"));
 				dto.setImage(rs.getString("image"));
-				dto.setPlayerentry_seq(rs.getString("playerentry_seq"));
+				
+				dto.setPosition(rs.getString("position"));
+				dto.setBacknumber(rs.getString("backnumber"));
+				dto.setName(rs.getString("name"));
+				dto.setOld(rs.getString("old"));
+				
+				dto.setFormation_playerentry_seq(rs.getString("formation_playerentry_seq"));
+				
 								
 				list.add(dto);
 				
@@ -233,7 +240,7 @@ public class AjaxDAO {
 		try {
 			
 			
-			String sql = "select po.position position, mt.backnumber backnumber, m.name name, floor((sysdate - m.birth)/365) old from TBLPLAYERENTRY pe inner join TBLMEMBER_TEAM mt on pe.MEMBER_TEAM_SEQ = mt.seq inner join TBLTRANSFER t on mt.TRANSFER_seq = t.seq inner join tblmember m on m.seq = t.member_seq inner join TBLPOSITION po on po.seq = mt.position_seq where t.team_Seq = ?";
+			String sql = "select pe.seq entry_seq, po.position position, mt.backnumber backnumber, m.name name, floor((sysdate - m.birth)/365) old from TBLPLAYERENTRY pe inner join TBLMEMBER_TEAM mt on pe.MEMBER_TEAM_SEQ = mt.seq inner join TBLTRANSFER t on mt.TRANSFER_seq = t.seq inner join tblmember m on m.seq = t.member_seq inner join TBLPOSITION po on po.seq = mt.position_seq where t.team_Seq = ?";
 			
 			
 			pstat = conn.prepareStatement(sql);
@@ -247,12 +254,13 @@ public class AjaxDAO {
 			while (rs.next()) {
 			
 				formationDTO dto = new formationDTO();
+				dto.setEntry_seq(rs.getString("entry_seq"));
 				dto.setPosition(rs.getString("position"));
 				dto.setBacknumber(rs.getString("backnumber"));
 				dto.setName(rs.getString("name"));
 				dto.setOld(rs.getString("old"));
 				
-				
+			
 				entryList.add(dto);
 				
 			}
@@ -269,8 +277,130 @@ public class AjaxDAO {
 		return null;
 	}
 	
+	//오희준
+	//포메이션에서 참조키인 엔트리seq 업데이트
+	public void editFormation_seq(formationDTO dto) {
+	
+		
+		try {
+			
+			String sql = "update tblformation set playerentry_seq = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getEntry_seq());
+			pstat.setString(2, dto.getSeq());			
+			
+			pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			
+			System.out.println("AjaxDAO.editFormation_seq()");
+			e.printStackTrace();
+			
+		}
+		
+	}
 	
 	
+	//오희준
+	//선발 선수 11명 리스트
+	public ArrayList<formationDTO> formationList(formationDTO dto2) {
+		
+		try {
+			
+			String sql = "select f.seq seq, m.image image, po.position position, mt.backnumber backnumber, m.name name, floor((sysdate - m.birth)/365) old, f.playerentry_seq formation_playerentry_seq from TBLTEAM te inner join TBLTRANSFER tr on te.seq = tr.team_seq inner join TBLMEMBER_TEAM mt on mt.seq = tr.seq inner join TBLPLAYERENTRY p on p.member_team_seq = mt.seq inner join TBLMEMBER_TEAM mt on p.MEMBER_TEAM_SEQ = mt.seq inner join TBLFORMATION f on f.playerentry_seq = p.seq inner join TBLPOSITION po on po.seq = f.position_seq inner join TBLMEMBER m on m.seq = tr.member_seq inner join TBLCOACH c on c.team_seq = te.seq where te.seq = ? and f.formation = ? order by f.seq";
+			
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto2.getTeam_seq());
+			pstat.setString(2, dto2.getFormation());
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<formationDTO> list = new ArrayList<formationDTO>();
+			
+			while (rs.next()) {
+			
+				formationDTO dto = new formationDTO();				
+				dto.setSeq(rs.getString("seq"));
+				dto.setImage(rs.getString("image"));
+				
+				dto.setPosition(rs.getString("position"));
+				dto.setBacknumber(rs.getString("backnumber"));
+				dto.setName(rs.getString("name"));
+				dto.setOld(rs.getString("old"));
+				
+				dto.setFormation_playerentry_seq(rs.getString("formation_playerentry_seq"));
+				
+								
+				list.add(dto);
+				
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			
+			System.out.println("AjaxDAO.Position_seq");
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
 	
+	//오희준
+	//포메이션에서 선수 이미지 더블 클릭시 해당 위치 포지션 리스트 출력
+	public ArrayList<formationDTO> recommendEntryList(formationDTO dto2) {
 
-}
+		try {
+			
+			
+			String position = "";
+						
+			if (dto2.getPosition().equals("1")) {
+				position = "FW";
+			} else if (dto2.getPosition().equals("2")) {
+				position = "MF";
+			} else if (dto2.getPosition().equals("3")) {
+				position = "DF";
+			} else if (dto2.getPosition().equals("4")) {
+				position = "GK";
+			} 
+			
+			String sql = "select pe.seq entry_seq, po.position position, mt.backnumber backnumber, m.name name, floor((sysdate - m.birth)/365) old from TBLPLAYERENTRY pe inner join TBLMEMBER_TEAM mt on pe.MEMBER_TEAM_SEQ = mt.seq inner join TBLTRANSFER t on mt.TRANSFER_seq = t.seq inner join tblmember m on m.seq = t.member_seq inner join TBLPOSITION po on po.seq = mt.position_seq where t.team_Seq = ? and po.position = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto2.getTeam_seq());
+			pstat.setString(2, position);
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<formationDTO> entryList = new ArrayList<formationDTO>();
+			
+			while (rs.next()) {
+			
+				formationDTO dto = new formationDTO();
+				dto.setEntry_seq(rs.getString("entry_seq"));
+				dto.setPosition(rs.getString("position"));
+				dto.setBacknumber(rs.getString("backnumber"));
+				dto.setName(rs.getString("name"));
+				dto.setOld(rs.getString("old"));
+				
+					
+				entryList.add(dto);
+			}
+			
+			return entryList;
+			
+		} catch (Exception e) {
+			
+			System.out.println("AjaxDAO.entryList()");
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+	
+	}

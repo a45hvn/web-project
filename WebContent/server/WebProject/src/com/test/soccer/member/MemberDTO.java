@@ -22,16 +22,62 @@ public class MemberDTO {
 	private String mseq;	//플레이어 번호
 	private String pgoal;	//친선골
 	private String lgoal;	//리그골
-	private String assist;
-	private String foul;
+	private String assist;	//어시스트
+	private String foul;	//파울
+	private String total;	//공격포인트
+	private String tackle; 	//태클성공
+	private String saves;	//세이브성공
+	private String count;	//경기수
+	private String yellowCard; //경고
+	
 	
 	private String home; //연고지
 	
+	private String goalavg;
+	private String assistavg;
+	private String totalavg;
+	
 	
 	
 
 
 	
+	public String getTackle() {
+		return tackle;
+	}
+	public void setTackle(String tackle) {
+		this.tackle = tackle;
+	}
+	public String getSaves() {
+		return saves;
+	}
+	public void setSaves(String saves) {
+		this.saves = saves;
+	}
+	public String getGoalavg() {
+		return goalavg;
+	}
+	public void setGoalavg(String goalavg) {
+		this.goalavg = goalavg;
+	}
+	public String getAssistavg() {
+		return assistavg;
+	}
+	public void setAssistavg(String assistavg) {
+		this.assistavg = assistavg;
+	}
+	public String getTotalavg() {
+		return totalavg;
+	}
+	public void setTotalavg(String totalavg) {
+		this.totalavg = totalavg;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
+	}
 	public String getAssist() {
 		return assist;
 	}
@@ -157,6 +203,18 @@ public class MemberDTO {
 	}
 	public void setHome(String home) {
 		this.home = home;
+	}
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
+	}
+	public String getYellowCard() {
+		return yellowCard;
+	}
+	public void setYellowCard(String yellowCard) {
+		this.yellowCard = yellowCard;
 	}
 	
 	

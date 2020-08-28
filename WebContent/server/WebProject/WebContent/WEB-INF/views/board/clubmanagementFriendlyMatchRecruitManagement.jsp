@@ -43,7 +43,7 @@
                         <ul>
                           <li class="subMenuItem"><a href="clubmanagementClubApplicationManagement.html">구단신청관리</a></li>
                             <li class="subMenuItem"><a href="clubmanagementPlayerManagement.html">선수관리</a></li>
-                            <li class="subMenuItem"><a href="clubmanagementEntrylistDrawup.html">엔트리작성</a></li>
+                            <li class="subMenuItem"><a href="/soccer/board/clubmanagementEntrylistDrawup.do">엔트리작성</a></li>
                             <li class="subMenuItem"><a href="clubmanagementFriendlyMatchResultDrawup.html">경기결과반영</a></li>
                             <li class="subMenuItem"><a href="clubmanagementFriendlyMatchRecruitManagement.html">친선경기모집관리</a></li>
                             <li class="subMenuItem"><a href="#"></a></li>

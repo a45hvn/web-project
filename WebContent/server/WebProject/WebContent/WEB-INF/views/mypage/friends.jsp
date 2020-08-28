@@ -54,7 +54,7 @@
 <div class="center">
 
 	<div class="pageContentTitle">
-		<img src="images/rogowithoutletter.png" class="contentTitleImg"><span
+		<img src="/soccer/images/rogowithoutletter.png" class="contentTitleImg"><span
 			class="contentTitle">친구관리</span>
 	</div>
 
@@ -76,20 +76,21 @@
 				<li id="tab1Title"><a href="#tab1">Following</a></li>
 				<li id="tab2Title"><a href="#tab2">Follower</a></li>
 			</ul>
-			<form method="POST" action="/soccer/mypage/friendsok.do">
+<!-- 			<form method="POST" action="/soccer/mypage/friendsok.do"> -->
 				<div id="tab1">
 					<div class="friendsBox">
 						<table class="friends table table-bordered table-striped">
 							<c:forEach items="${followingList}" var="dto">
 								<tr>
-									<td>${dto.followingName}<img
+									<td><a href="/soccer/player/playerDetails.do?seq=${dto.following_seq}">${dto.followingName}</a><img
 										src="/soccer/images/${dto.followingImage}"></td>
 									<td>축구사랑</td>
-									<td><input type="hidden" value="${dto.following_seq}"
-										name="following_seq"></td>
-									<td><input type="submit" value="팔로우취소" id="unfollow"
-										class=" btn btn-info"<%--                                  onclick="location.href='/codestudy/member/friendsok.do?${dto.following_seq}';" --%>
-                                 >
+									
+									<td>
+<%-- 									<input type="hidden" value="${dto.following_seq}" --%>
+<!-- 										name="following_seq"> -->
+										<input type="submit" value="팔로우취소" class=" btn btn-info unfollow"
+										 onclick="location.href='/soccer/mypage/friendsunfollowok.do?following_seq=${dto.following_seq}';">
 									</td>
 
 								</tr>
@@ -104,14 +105,18 @@
 						<table class="friends table table-bordered table-striped">
 							<c:forEach items="${followerList}" var="dto">
 								<tr>
-									<td>${dto.followerName}<img
+									<td><a href="/soccer/player/playerDetails.do?seq=${dto.follower_seq}">${dto.followerName}</a><img
 										src="/soccer/images/${dto.followerImage}"></td>
 									<td>축구사랑</td>
-									<td><input type="hidden" value="${dto.follower_seq}"
-										name="follower_seq"></td>
-									<td><input type="submit" value="팔로우" id="follow"
-										class=" btn btn-info"></td>
-									<%--                             onclick="location.href='/codestudy/member/friendsok.do?${dto.follower_seq}';" --%>
+									<td>
+<%-- 									<input type="hidden" value="${dto.follower_seq}" --%>
+<!-- 										name="follower_seq"> -->
+									<input type="submit" value="팔 로 우" 
+										class=" btn btn-info follow"  
+										onclick="location.href='/soccer/mypage/friendsfollowok.do?follower_seq=${dto.follower_seq}';"
+										>
+										</td>
+									
 								</tr>
 							</c:forEach>
 						</table>
@@ -119,7 +124,7 @@
 				</div>
 
 
-			</form>
+<!-- 			</form> -->
 		</div>
 	</div>
 </div>
