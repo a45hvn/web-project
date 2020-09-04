@@ -1,6 +1,6 @@
 # web-project
 
-![메인](https://user-images.githubusercontent.com/65211288/84998018-3e79e300-b18a-11ea-957e-80b2acba867a.png)
+![메인]
 
 
 
@@ -102,6 +102,16 @@ JSP 기반 축구 경기결과 통계 및 일정관리 사이트입니다.
     <tr>
         <th>화면설계</th>
         <td colspan="6">개요작성, 아이디어 회의, 의견제안, 벤치마킹 사이트 검색</td>
+    </tr>
+    <tr rowspan="2">
+        <th>Front-End</th>
+        <th>회원, 관리자</th>
+        <th>회원, 관리자</th>
+        <th>회원, 감독<br>
+        <th>회원, 감독</th>
+        <th>관리자</th>
+        <th>관리자</th>
+    </tr>
     <tr>
         <th>Front-End</th>
         <th>회원, 관리자</th>
