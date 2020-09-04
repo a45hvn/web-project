@@ -2,16 +2,11 @@
 
 ![메인]
 
-
-
-
-
-
 ## 👋 Introduction
 
 <table>
     <tr>
-        <th>프로젝트 명 </th>
+        <th>프로젝트 명</th>
         <th>DoubleDragonCenter</th>
         <th>개발기간</th>
         <th>2020.05.29. ~ 2020.06.17.</th>
@@ -24,7 +19,7 @@
           (<a href="https://github.com/a45hvn">최재성</a>｜
           <a href="https://github.com/suji-l">이수지</a>｜
           <a href="https://github.com/12345hejun">오희준</a>｜
-          <a href="https://github.com/suji-l">권택진</a>｜
+          <a href="https://github.com/ktj4732">권택진</a>｜
           <a href="https://github.com/lisamj-persimmon">유민정</a>｜
           <a href="https://github.com/honghonghyerim">홍혜림</a>)
       </th>
@@ -32,11 +27,11 @@
     <tr>
         <td>프로젝트 개요</td>
         <td>축구동호회 매칭 및 전적통계 프로그램</td>
-        <td>개발환경&nbsp;</td>
+        <td>개발환경</td>
         <td>Windows10</td>
     </tr>
     <tr>
-        <td colspan="5">사용 도구</td>
+        <td colspan="5" text-align="center">사용 도구</td>
     </tr>  
     <tr>
         <th>개발언어</th>
@@ -103,8 +98,8 @@ JSP 기반 축구 경기결과 통계 및 일정관리 사이트입니다.
         <th>화면설계</th>
         <td colspan="6">개요작성, 아이디어 회의, 의견제안, 벤치마킹 사이트 검색</td>
     </tr>
-    <tr rowspan="2">
-        <th>Front-End</th>
+    <tr>
+        <th rowspan="2">Front-End</th>
         <th>회원, 관리자</th>
         <th>회원, 관리자</th>
         <th>회원, 감독<br>
@@ -113,7 +108,15 @@ JSP 기반 축구 경기결과 통계 및 일정관리 사이트입니다.
         <th>관리자</th>
     </tr>
     <tr>
-        <th>Front-End</th>
+        <td>리그스케쥴,경가결과 통계 페이지,팀목록,문자중계</td>
+        <td></td>
+        <td></td>
+        <td>메인페이지, 선수목록, 선수-팀 전련분석, 회원가입 및 로그인</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th rowspan="2">Back-End</th>
         <th>회원, 관리자</th>
         <th>회원, 관리자</th>
         <th>회원, 감독<br>
@@ -121,32 +124,34 @@ JSP 기반 축구 경기결과 통계 및 일정관리 사이트입니다.
         <th>관리자</th>
         <th>관리자</th>
     </tr>
-    <tr >
-        <th>Back-End</th>
-        <th>관리자부분 <br>개발 및 화면<br>설계, 전체<br>소스 수정</th>
-        <th>관리자부분 <br>개발 및 화면<br>설계, 전체<br>소스 취합</th>
-        <th>교육생부분 <br>개발 및 화면<br>설계, 관리자 <br>
-        <th>교사부분개발<br>및 화면설계, <br>교사 소스 취합</th>
-        <th>교사부분개발<Br></th>
-        <th>관리자부분 <br>개발 및 데이터수정</th>
+    <tr>//백엔드 역할 정리부분
+        <td>리그스케쥴,문자중계, 지도 API활용, WebSocket을 통한 중계페이지 작성, 목록 페이징 및 검사</td>
+        <td>지도 API 활용, 게시판 CRUD,검색, 페이징</td>
+        <td>ajax활용 포메이션 페이지 작성,게시판 CRUD, 검색, 페이징</td>
+        <td>char활용 전력비교 페이지 시각화, ajax활용,유효성 검사, 목록 페이징</td>
+        <td>지도 API 활용</td>
+        <td></td>
     </tr>
     <tr>
         <th>자료정리</th>
-        <th>발표보조 및<br>자료작성</th>
-        <th>의견제안, 화면캡쳐</th>
-        <th>의견제안, 화면캡쳐</th>
         <th>발표</th>
-        <th>의견제안</th>
-        <th>의견제안, 화면캡쳐</th>
+        <th>발표 보조, DML, DDL종합</th>
+        <th>화면캡쳐 및 자료정리</th>
+        <th>화면캡쳐 및 자료정리</th>
+        <th>화면캡쳐 및 자료정리</th>
+        <th>발표자료 작성 및 종합</th>
     </tr>
     <tr>
-        <th>역할</th>
-        <th>관리자<br> 부분 개발, <br>버그수정, <br>문서작업, <br>발표보조</th>
-        <th>관리자<br> 부분 개발, <br>소스취합, <br>문서작업, <br>버그수정</th>
-        <th>교육생부분 개발, <br>문서작업, <br>의견제안</th>
-        <th>교사부분<br> 개발, <br>소스취합, <br>발표</th>
-        <th>교사부분<br> 개발,  <br>의견제안</th>
-        <th>관리자부분 개발, <br>데이터수정, <br>문서작성</th>
+        <th rowspan="2">주요역할</th>
+        <th>팀장, DB 관리, AWS DB구축</th>
+        <th>DB관리, 데이터 무결성 관리</th>
+        <th>회원 페이지, 게시판 담당</th>
+        <th>통계자료 분석 및 시각화</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td colspan="6">화면설계, 의견제안, 문서작성</td>
     </tr>
 </table>
 
