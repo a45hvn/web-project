@@ -29,7 +29,7 @@
           <a href="https://github.com/honghonghyerim">홍혜림</a>)
       </th>
     </tr>
-      <tr>
+    <tr>
         <td>프로젝트 개요</td>
         <td>축구동호회 매칭 및 전적통계 프로그램</td>
         <td>개발환경&nbsp;</td>
