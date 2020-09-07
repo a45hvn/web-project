@@ -48,7 +48,6 @@
     <tr>
         <th>사용기술</th>
         <td colspan="3">JSP, Servlet, jQuery, Bootstrap, Ajax, WebSocket, JDBC </td>
-        
     </tr>
 </table>
 
