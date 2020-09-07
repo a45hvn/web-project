@@ -25,29 +25,29 @@
       </th>
     </tr>
     <tr>
-        <td>프로젝트 개요</td>
-        <td>축구동호회 매칭 및 전적통계 프로그램</td>
-        <td>개발환경</td>
-        <td>Windows10</td>
+        <th>프로젝트 개요</th>
+        <th>축구동호회 매칭 및 전적통계 프로그램</th>
+        <th>개발환경</th>
+        <th>Windows10</th>
     </tr>
     <tr>
-        <td colspan="5" text-align="center">사용 도구</td>
+        <th colspan="5" text-align="center">사용 도구</th>
     </tr>  
     <tr>
         <th>개발언어</th>
         <th colspan="3">Java(JDK 1.8), Oracle SQL, HTML5, CSS3, JavaScript,jQuery </th>
     </tr>
     <tr>
-        <td>형상관리</td>
-        <td colspan="3">Github, Git , Source Tree</td>
+        <th>형상관리</th>
+        <th colspan="3">Github, Git , Source Tree</th>
     </tr>
     <tr>
         <th>개발도구</th>
-        <td colspan="3">Eclipse JEE, VS Code, Oracle SQL Developer, eXERD, AWS RDB</td>
+        <th colspan="3">Eclipse JEE, VS Code, Oracle SQL Developer, eXERD, AWS RDB</th>
     </tr>
     <tr>
         <th>사용기술</th>
-        <td colspan="3">JSP, Servlet, jQuery, Bootstrap, Ajax, WebSocket, JDBC </td>
+        <th colspan="3">JSP, Servlet, jQuery, Bootstrap, Ajax, WebSocket, JDBC </th>
     </tr>
 </table>
 
@@ -57,12 +57,12 @@ JSP 기반 축구 경기결과 통계 및 일정관리 사이트입니다.
 
  ## 👋 주요 기능
 
+ ## 👋 Member
+ ![회원]
+ ## 👋 Coach
+ ![감독]
  ## 👋 Admin
- ![관리자]
- ## 👋 Student
- ![교육생]
- ## 👋 Teacher
-![교사]
+![관리자]
 
 ## 📑 Role & Member
 
