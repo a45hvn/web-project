@@ -1,6 +1,6 @@
 # web-project
 
-![메인]https://user-images.githubusercontent.com/66715897/92341156-cc18ff00-f0f7-11ea-9225-d8bda326c1c9.png
+![메인](https://user-images.githubusercontent.com/66715897/92341156-cc18ff00-f0f7-11ea-9225-d8bda326c1c9.png)
 
 ## 👋 Introduction
 
